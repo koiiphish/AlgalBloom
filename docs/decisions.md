@@ -75,3 +75,21 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 **Alternatives rejected:** A, the full boxes (~26 GB; the disk is 90% full); C, waiting for `202611` subsetting (no date given, and it risks losing easy access to the history).
 
 **Result (2026-11-17):** complete. All 110 box-year files (10 boxes × 2016–2026) downloaded with no errors and no missing days: 2016-04-25 → 2026-11-09 continuous, variables `CHL`, `CHL_uncertainty`, `flags`. **1.9 GB on disk** (13 GB uncompressed), in `data/raw/copernicus/history_olci_300m_v202211/` (git-ignored; reproducible with the script while version 202211 exists).
+
+## D008 — Repo stays private for now; daily label commits by GitHub Actions (2026-11-17)
+
+**Context:** the brief suggests a public repo (unlimited free Actions minutes). Timothy prefers private for now.
+
+**Choice:** private. The Phase 1 jobs are tiny (`archive_status` ~1–2 min/day, `ci` a few minutes per push), well within the 2,000 free private minutes per month. The archiver commits new label rows to `main` daily as `github-actions[bot]`, so **pull before pushing** locally.
+
+**Revisit:** before Phase 4 (heavier daily forecasts) and Phase 5 (GitHub Pages on a private repo needs a paid plan), so going public will be needed by Phase 5 at the latest.
+
+## D009 — Label archive design choices (2026-11-17)
+
+1. **At most one request per page per Hobart day, enforced in code.** `labels/raw/last_fetch.csv` records when each source was last requested, and the archiver skips a source already requested that Hobart day, even on manual re-runs. *Why:* the brief's scraping rule. The first run (from Timothy's machine, 01:15 Hobart 18 Nov) and the scheduled 21:00 UTC run (08:00 Hobart, the same day) would otherwise both have fetched.
+2. **`reason` is "not stated in notice" for farmed areas.** The ShellMAP notice gives status and start time but never the cause. Tasmanian closures can be rainfall-driven as well as biotoxin-driven, so **a closure is not a HAB label by itself.** Reasons will come from cross-referencing the archived *Biotoxin News* (a later phase). Wild abalone block closures do state "for biotoxins", and those are captured.
+3. **Fail loudly, but never lose data.** A hard parse failure appends nothing (exit 1). Softer problems (unknown area names, Biotoxin News failing) still append the good rows, then fail the job (exit 2), so GitHub emails Timothy. A parse is rejected if the strict parser and a loose header count disagree, which catches a new status label like the "NURSERY/SOURCE" label found during development.
+4. **Event thresholds come from the published ShellMAP PALT** (Biotoxin Management Plan v6.1, Appendix 3), the *lab-alert* column. Our station data is mostly genus-level, so each genus uses its **lowest listed species level** (most precautionary; the PALT itself applies species levels to "sp./spp." reports). For ***Karenia*** that is the *K. brevis* level (500 cells/L) rather than the *Karenia/Karlodinium/Gymnodinium* group level (100,000), and `events.csv` flags both so the effect of the choice is visible. ***G. catenatum*** comes from the species file, because the genus *Gymnodinium* includes non-toxic species. The *P.-n. delicatissima* closure cell is ambiguous in the source table. We use the *seriata* group's levels, which are lower anyway.
+5. **Tasmanian levels are applied to SA stations** as one consistent yardstick. SASQAP's own levels are unknown until PIRSA replies.
+
+**Alternatives rejected:** treating every closure as a HAB event (it would mix rainfall closures into the labels); KKG-group levels for *Karenia* genus totals (they would hide the low-level 2018–2025 detections and the May 2025 onset); scraping Biotoxin News tables now (layout unverified; raw archiving is enough to stop losing history).

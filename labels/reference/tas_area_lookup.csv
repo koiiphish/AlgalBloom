@@ -1,0 +1,58 @@
+match_key,list_area_id,list_growing_area,list_harvest_area,list_objectid,area_ha
+tas:big_bay:b,tas:big_bay:zone_b,Big Bay,Zone B,13,219.6
+tas:big_bay:c,tas:big_bay:zone_c,Big Bay,Zone C,16,161.8
+tas:big_bay:d,tas:big_bay:zone_d,Big Bay,Zone D,14,133.2
+tas:big_bay:e,tas:big_bay:zone_e,Big Bay,Zone E,15,130.1
+tas:birchs_bay:birchs_bay,tas:birchs_bay:birchs_bay,Birchs Bay,Birchs Bay,45,33.6
+tas:boomer_bay:east,tas:boomer_bay:east,Boomer Bay,East,36,973.4
+tas:boomer_bay:little,tas:boomer_bay:little,Boomer Bay,Little,35,563.4
+tas:boomer_bay:narrows,tas:boomer_bay:narrows,Boomer Bay,Narrows,34,621.4
+tas:cloudy_bay_lagoon:1,tas:cloudy_bay_lagoon:zone_1,Cloudy Bay Lagoon,Zone 1,9,105.6
+tas:cloudy_bay_lagoon:2,tas:cloudy_bay_lagoon:zone_2,Cloudy Bay Lagoon,Zone 2,52,36.5
+tas:duck_bay:duck_bay,tas:duck_bay:duck_bay,Duck Bay,Duck Bay,12,434.0
+tas:duck_bay:kemps_bay,tas:duck_bay:kemps_bay,Duck Bay,Kemps Bay,11,91.5
+tas:dunalley_bay:a,tas:dunalley_bay:zone_a,Dunalley Bay,Zone A,37,44.5
+tas:dunalley_bay:b,tas:dunalley_bay:zone_b,Dunalley Bay,Zone B,38,277.7
+tas:eaglehawk_bay:eaglehawk_bay,tas:eaglehawk_bay:eaglehawk_bay,Eaglehawk Bay,Eaglehawk Bay,54,184.9
+tas:fleurtys_point:fleurtys_point,tas:fleurtys_point:fleurtys_point,Fleurtys Point,Fleurtys Point,53,17.7
+tas:gardners_bay:gardners_bay,tas:gardners_bay:gardners_bay,Gardners Bay,Gardners Bay,6,15.7
+tas:garfish_bay_dart_island:garfish_bay_dart_island,tas:garfish_bay_dart_island:garfish_bay_dart_island,Garfish Bay/Dart Island,Garfish Bay/Dart Island,59,96.1
+tas:great_bay:north,tas:great_bay:north,Great Bay,North,7,306.9
+tas:great_bay:south,tas:great_bay:south,Great Bay,South,43,168.4
+tas:great_bay:west,tas:great_bay:west,Great Bay,West,8,961.7
+tas:great_oyster_bay:east,tas:great_oyster_bay:east,Great Oyster Bay,East,31,1080.8
+tas:great_oyster_bay:west,tas:great_oyster_bay:west,Great Oyster Bay,West,42,1336.6
+tas:great_swanport:east,tas:great_swanport:east,Great Swanport,East,30,131.3
+tas:great_swanport:west,tas:great_swanport:west,Great Swanport,West,25,468.8
+tas:hastings_bay:hastings_bay,tas:hastings_bay:hastings_bay,Hastings Bay,Hastings Bay,39,174.0
+tas:island_inlet:4,tas:island_inlet:zone_4,Island Inlet,Zone 4,26,222.4
+tas:island_inlet:5,tas:island_inlet:zone_5,Island Inlet,Zone 5,27,520.9
+tas:king_george_sound:king_george_sound,tas:king_george_sound:king_george_sound,King George Sound,King George Sound,58,178.7
+tas:little_norfolk_bay:little_norfolk_bay,tas:little_norfolk_bay:little_norfolk_bay,Little Norfolk Bay,Little Norfolk Bay,41,11.4
+tas:little_swanport:6a_b,tas:little_swanport:6a_b,Little Swanport,6A/B,32,235.9
+tas:little_swanport:6c,tas:little_swanport:6c,Little Swanport,6C,33,115.2
+tas:little_taylors_bay:little_taylors_bay,tas:little_taylors_bay:little_taylors_bay,Little Taylors Bay,Little Taylors Bay,57,13.3
+tas:missionary_bay:missionary_bay,tas:missionary_bay:missionary_bay,Missionary Bay,Missionary Bay,44,39.0
+tas:montagu:montagu,tas:montagu:montagu,Montagu,Montagu,48,718.0
+tas:montagu:robbins_passage,tas:montagu:robbins_passage,Montagu,Robbins Passage,49,1223.5
+tas:moulting_bay:gb1,tas:moulting_bay:gb1,Moulting Bay,GB1,23,504.9
+tas:moulting_bay:gb2,tas:moulting_bay:gb2,Moulting Bay,GB2,24,399.0
+tas:moulting_bay:gb3,tas:moulting_bay:gb3,Moulting Bay,GB3,56,46.2
+tas:moulting_bay:prohibited_zone_1,tas:moulting_bay:prohibited_zone_1,Moulting Bay,Prohibited Zone 1,47,57.1
+tas:moulting_bay:prohibited_zone_2,tas:moulting_bay:prohibited_zone_2,Moulting Bay,Prohibited Zone 2,55,69.9
+tas:moulting_bay:1,tas:moulting_bay:zone_1,Moulting Bay,Zone 1,18,38.8
+tas:moulting_bay:2,tas:moulting_bay:zone_2,Moulting Bay,Zone 2,19,30.0
+tas:moulting_bay:4,tas:moulting_bay:zone_4,Moulting Bay,Zone 4,20,93.0
+tas:moulting_bay:5,tas:moulting_bay:zone_5,Moulting Bay,Zone 5,21,37.1
+tas:moulting_bay:6a,tas:moulting_bay:zone_6a,Moulting Bay,Zone 6A,22,45.4
+tas:pipe_clay_lagoon:1,tas:pipe_clay_lagoon:zone_1,Pipe Clay Lagoon,Zone 1,28,176.7
+tas:pipe_clay_lagoon:3,tas:pipe_clay_lagoon:zone_3,Pipe Clay Lagoon,Zone 3,29,214.8
+tas:pitt_water:1,tas:pitt_water:zone_1,Pitt Water,Zone 1,60,484.7
+tas:pitt_water:2,tas:pitt_water:zone_2,Pitt Water,Zone 2,5,85.3
+tas:pitt_water:3,tas:pitt_water:zone_3,Pitt Water,Zone 3,4,73.0
+tas:port_esperance:1b,tas:port_esperance:zone_1b,Port Esperance,Zone 1B,10,69.6
+tas:port_sorell:port_sorell,tas:port_sorell:port_sorell,Port Sorell,Port Sorell,17,237.6
+tas:recherche_bay:recherche_bay,tas:recherche_bay:recherche_bay,Recherche Bay,Recherche Bay,40,124.6
+tas:simpsons_bay:simpsons_bay,tas:simpsons_bay:simpsons_bay,Simpsons Bay,Simpsons Bay,46,866.7
+tas:triabunna:a,tas:triabunna:zone_a,Triabunna,Zone A,50,14.4
+tas:triabunna:b,tas:triabunna:zone_b,Triabunna,Zone B,51,39.8
