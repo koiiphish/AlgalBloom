@@ -16,7 +16,8 @@ Recon week used for test pulls: **2026-11-01 → 2026-11-07**. Test regions: SA 
 | NRE Tas ShellMAP Current Harvest Status (PDF) | Tas labels (Phase 1) | **Go** | robots.txt allows it; one PDF/day; Tas Govt licence: non-commercial reuse with acknowledgement |
 | NRE Tas Tasmanian Biotoxin News (PDF) | Tas labels | **Go** | Weekly; latest edition only (no visible archive) |
 | PIRSA SASQAP boundaries + status | SA polygons + labels | **Blocked** | pir.sa.gov.au returns 403 to scripts; asked PIRSA |
-| Australian Phytoplankton Database via GBIF API | historical HAB taxa | **Partial** | CC BY 4.0, but the GBIF copy ends ~2013–15 |
+| Australian Phytoplankton Database (GBIF API and AODN manual download) | historical HAB taxa | **Go, background only** | CC BY 4.0; in our regions records stop in 2016, so no overlap with the Sentinel-3 era |
+| IMOS NRS phytoplankton (AODN manual download) | HAB validation, *Karenia* case study | **Go** | CC BY 4.0; MAI, KI, GSV, USG stations to 2026; captures the 2025 SA *Karenia* bloom |
 | AODN GeoServer (phyto DB ongoing, NRS/CPR phytoplankton) | historical HAB taxa | **Blocked for scripts** | robots.txt `Disallow: /` for all agents; use manual portal download instead |
 | OpenFreeMap | basemap | **Go** | Free, no key, commercial use allowed; MapLibre adds attribution automatically |
 | Copernicus OLCI 300 m chl (NRT + multi-year) | **primary** chl target + features | **Go** | NRT ~2 days behind; MY from 2016-04; 300 m reaches small harvest areas; dataset versions changing (D006) |
@@ -108,6 +109,38 @@ Recon week used for test pulls: **2026-11-01 → 2026-11-07**. Test regions: SA 
 - **robots.txt for `geoserver-123.aodn.org.au`:** `User-agent: * / Disallow: /` (only `LinkChecker` is allowed). **Scripts must not use it.** (One GetCapabilities request was made before robots.txt was read; none since.)
 - **Alternative:** a **one-off manual download** through the AODN portal (https://portal.aodn.org.au) by Timothy in a browser. These are historical labels, so a single download is enough. Relevant portal records: AusCPR phytoplankton `8e594cd1-363a-4b58-b741-9fa3624adb77`; NRS phytoplankton abundance and biovolume `f098f0d0-88ac-4f4b-addb-24b3e5e8d0b9` (Maria Island Tas long-term; Kangaroo Island SA newer).
 - **Caveat:** AusCPR counts are *"semi-quantitative"* (IMOS news article, 9 Nov 2026), so they are not absolute cell densities.
+
+### Manual AODN downloads (Timothy, 2026-11-17, AODN portal, guest access)
+
+Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ignored `data/raw/aodn_manual/`. Metadata read from the GeoNetwork XML (`https://catalogue-imos.aodn.org.au/geonetwork/srv/api/records/<uuid>/formatters/xml`).
+
+**1. `phyto_db_ongoing_2026-11-17.csv`: "The Australian Phytoplankton Database (1844 - ongoing) - abundance and biovolume"** (uuid `75f4f1fc-bee3-4498-ab71-aa1ab29ab2c0`, CC BY 4.0)
+- 521 MB, 1,063,937 rows, long format (one row per taxon per sample). Columns include `LATITUDE, LONGITUDE, LOCATION, SAMPLE_TIME_UTC, TAXON_NAME, GENUS, SPECIES, CELLS_L, PRESENCE_ABSENCE, BIOVOLUME_UM3_L, PROJECT_DESCRIPTION, SAMPLE_METHOD`.
+- **Despite "ongoing", records in our regions stop in 2016:** SA 2,525 samples (1954–2016; only 130 in 2016), Tas 3,105 samples (1939–2016; only 13 in 2016). The main contributors are AusCPR (SA), Huon River sampling (Tas) and a Tas "Bloom monitoring program".
+- Harmful taxa, records (max cells/L, last date):
+
+  | Taxon | SA | Tas |
+  |---|---|---|
+  | *Karenia* | 779 (5,000; 2013-08) | 393 (50; 2013-01) |
+  | *Alexandrium* | 930 (57; 2016-05) | 129 (19,500; 2016-07) |
+  | *Gymnodinium catenatum* | 45 (220; 2016-05) | 1,213 (510,987; 2016-07) |
+  | *Pseudo-nitzschia* | 5,421 (38,589; 2016-08) | 3,894 (1,662,681; 2016-07) |
+  | *Dinophysis* | 3,924 (1,104; 2016-08) | 5,110 (19,500; 2016-07) |
+
+- **`CELLS_L` is empty for ~90% of rows** (presence-only or biovolume-only records). This needs investigating before use.
+- **Use:** background seasonality of harmful taxa (which months, which places) and model-card context. **Almost no overlap with the Sentinel-3 era (2016-04 →), so it can't be used for model validation.**
+- Citation: Davies CH et al. (Year), *The Australian Phytoplankton Database (1844 - ongoing) - abundance and biovolume*, AODN. For multi-project use, also cite Davies et al. 2016, *Scientific Data* 3:160043 (doi:10.1038/sdata.2016.43). IMOS acknowledgement for IMOS projects.
+
+**2. `nrs_phyto_species_2026-11-17.csv`: "IMOS - Phytoplankton Abundance and Biovolume (reference stations)", species-level abundance** (uuid `f098f0d0-88ac-4f4b-addb-24b3e5e8d0b9`, CC BY 4.0)
+- 393 samples, wide format (17 metadata columns + 429 species columns, cells/L), light microscopy. Record extent 2009-01 → 2026-06.
+- Stations in the box: **Maria Island MAI** (Tas, 180 samples, 2009 → 2026-06, ~monthly), **Kangaroo Island KAI** (73, 2009 → 2026-03) plus depth stations KAID1/2/3 (5/50/60 m, 29 each, 2018 → 2025-10), **SA Gulf St Vincent mooring GSV** (23, 2019 → 2025-10), **SA Upper Spencer Gulf mooring USG** (22, 2019 → 2025-12), Bonney Coast VBM (8, 2024 →; Vic border).
+- **The 2025 SA *Karenia* event is captured:** GSV 2025-07-03 *K. mikimotoi* 3,000 cells/L; **GSV 2025-10-17 43,750 cells/L (*K. cristata* 42,000)**; KI 2025-10-28 up to 1,200 cells/L; USG 2025-12-02 600 cells/L. Before that, *Karenia* was ≤ 800 cells/L at all stations (2018–2025). This gives a dated, independent (if sparse) record for the case study.
+- Other harmful taxa (positive samples; max cells/L): *Alexandrium* 36 (818), *G. catenatum* 11 (10,495; mostly MAI), *Pseudo-nitzschia* 30 (2,000), *Dinophysis* 63 (3,000).
+- **Gotcha:** this is the *species* product, so genus-only identifications (e.g. *Pseudo-nitzschia* spp.) are probably missing. That likely explains no *Pseudo-nitzschia* at all at MAI in 180 samples. **Also download the genus-level product** for harmful-genus totals.
+- Stations are fixed points, not harvest areas, so validation is regional and qualitative (lead time vs the onset of a station exceedance).
+- Citation: IMOS; CSIRO Oceans and Atmosphere; AIMS; DCCEEW NSW; SARDI [year], *IMOS - Phytoplankton Abundance and Biovolume (reference stations)*, downloaded from https://portal.aodn.org.au on 2026-11-17. Plus the IMOS/NCRIS acknowledgement.
+
+**3. AusCPR phytoplankton** (uuid `8e594cd1-…`): **not downloaded** (mainly offshore and Southern Ocean routes; semi-quantitative).
 
 ## OpenFreeMap (basemap)
 
