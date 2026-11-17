@@ -1,0 +1,62 @@
+# Daily label archiver: snapshot official harvest-area statuses into labels/ and commit.
+#
+# Why commit to the repo: the official pages show only the CURRENT status, so history is
+# lost unless we record it. The CSV is append-only (see pipeline/labels/archive.py).
+#
+# "Fail loudly": if anything looks wrong, the job still commits whatever was safely written,
+# then fails, which makes GitHub email the repo owner.
+name: archive_status
+
+on:
+  schedule:
+    # 21:00 UTC = 08:00 Hobart in summer (AEDT) / 07:00 in winter (AEST).
+    # Captures the previous day's notices. GitHub may start scheduled jobs a little late.
+    - cron: "0 21 * * *"
+  workflow_dispatch: # allows a manual "Run workflow" button in the Actions tab
+
+permissions:
+  contents: write # needed to commit the new snapshot rows
+
+concurrency:
+  group: archive_status # never run two archivers at once (avoids conflicting commits)
+  cancel-in-progress: false
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+        with:
+          version: "0.13.8"
+          enable-cache: true
+      - name: Install dependencies (exactly as locked)
+        run: uv sync --frozen
+
+      - name: Archive statuses
+        id: archive
+        # Don't stop on a non-zero exit yet: we want to commit what was written first.
+        run: |
+          set +e
+          uv run python -m pipeline.labels.archive
+          echo "code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Commit new label data (if any)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add labels/
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Archive harvest-area status $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+      - name: Fail loudly if the archiver reported a problem
+        if: steps.archive.outputs.code != '0'
+        run: |
+          echo "Archiver exit code ${{ steps.archive.outputs.code }} (1 = hard failure, 2 = needs a look)."
+          echo "See the 'Archive statuses' step log for the PROBLEM / HARD FAILURE lines."
+          exit 1
