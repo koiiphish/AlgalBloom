@@ -19,7 +19,10 @@ Recon week used for test pulls: **2026-11-01 → 2026-11-07**. Test regions: SA 
 | Australian Phytoplankton Database via GBIF API | historical HAB taxa | **Partial** | CC BY 4.0, but the GBIF copy ends ~2013–15 |
 | AODN GeoServer (phyto DB ongoing, NRS/CPR phytoplankton) | historical HAB taxa | **Blocked for scripts** | robots.txt `Disallow: /` for all agents; use manual portal download instead |
 | OpenFreeMap | basemap | **Go** | Free, no key, commercial use allowed; MapLibre adds attribution automatically |
-| Copernicus Marine (OLCI chl, BGC + physics forecasts) | NRT chl, forecasts, baseline | **Not tested yet** | Needs a free account (Timothy) |
+| Copernicus OLCI 300 m chl (NRT + multi-year) | **primary** chl target + features | **Go** | NRT ~2 days behind; MY from 2016-04; 300 m reaches small harvest areas; dataset versions changing (D006) |
+| Copernicus multi-sensor 4 km chl (L3, L4 gap-free) | fallback / background layer | **Go** | 1997→; too coarse inside harvest areas |
+| Copernicus global BGC analysis-forecast (chl) | baseline 3 | **Go, with caveat** | 0.25° grid almost never reaches harvest areas, so take the nearest ocean cell |
+| Copernicus global physics analysis-forecast | SST, MLD, currents (7-day forecasts) | **Go** | 1/12°; history only from 2022-06; nearest-ocean-cell extraction needed |
 | SILO | long climate records | **Deferred** | Optional; Open-Meteo covers needs so far |
 | River discharge (Murray Mouth, Derwent, Huon) | runoff features | **Not tested yet** | Optional |
 
@@ -116,10 +119,51 @@ Recon week used for test pulls: **2026-11-01 → 2026-11-07**. Test regions: SA 
 - **No SLA:** *"may discontinue it at any time without notice."* Fallback: the OSM-based Positron/Bright styles from another free host, to be decided in Phase 5.
 - **Verdict:** **Go.**
 
-## Copernicus Marine Service (not yet tested; needs an account)
+## Copernicus Marine Service
 
-To test once Timothy has a free account (credentials go in `.env` only):
-1. Sentinel-3 OLCI chl-a: daily NRT L3/L4 (global or regional) and the 300 m plankton product. Check latency, which matters because IMOS is ~10 days behind.
-2. Global biogeochemical analysis-forecast (modelled chl forecast; baseline 3).
-3. Global physics analysis-forecast (SST, currents, salinity, MLD; multi-day forecast).
-4. Whether access uses Copernicus's own servers (no AWS egress risk to us).
+- **Access:** `copernicusmarine` toolbox 2.5.1 (pinned), free account. Credentials go in `.env` / GitHub secrets as `COPERNICUSMARINE_SERVICE_USERNAME` / `_PASSWORD` (names verified with `copernicusmarine login --help`). Check with `uv run python -m pipeline.check_copernicus`. Script: `pipeline/fetch/recon_copernicus.py`.
+- **Every dataset ID, variable and time range below comes from `copernicusmarine.describe(dataset_id=...)` on 2026-11-17.**
+- **Hosting:** data is served from `s3.waw3-1.cloudferro.com` (CloudFerro, Warsaw) and `wmts.marine.copernicus.eu`. **Not AWS, so no egress cost to us.**
+- **Speed:** all 14 recon subsets (7 datasets × 2 regions) took **45 s** (IMOS OPeNDAP: ~7 min for less).
+- **Licence** (https://marine.copernicus.eu/user-corner/service-commitments-and-licence, read 2026-11-17): *"This Licence is granted free of charge."* Clause 2.2(b) allows creating and distributing value-added and derivative products *"for any purpose"*. Attribution (2.4a), clearly visible on the home page or the page giving access: **"Generated using E.U. Copernicus Marine Service Information"** plus the DOI links of the products used. No volume limit is stated. Logins are *"personal … and non-transferable"*. The SLA says the service is free until **30 June 2028** (planned end of the current service period). That is a long-term risk to monitor.
+
+### Datasets tested
+
+| Use | dataset_id (product, DOI) | Variable(s) | Grid | Time range on 2026-11-17 |
+|---|---|---|---|---|
+| **Primary chl, operational** | `cmems_obs-oc_glo_bgc-plankton_nrt_l3-olci-300m_P1D` (OCEANCOLOUR_GLO_BGC_L3_NRT_009_101, 10.48670/moi-00278) | `CHL`, `CHL_uncertainty`, `flags` | 1/180° (~300 m) | rolling: 2026-10-30 → **2026-11-15 (~2 days behind)** |
+| **Primary chl, training history** | `cmems_obs-oc_glo_bgc-plankton_my_l3-olci-300m_P1D` (OCEANCOLOUR_GLO_BGC_L3_MY_009_103, 10.48670/moi-00280) | `CHL`, … | ~300 m | **2016-04-25** → 2026-11-09 |
+| Fallback chl, NRT | `cmems_obs-oc_glo_bgc-plankton_nrt_l3-multi-4km_P1D` (moi-00278) | `CHL` + phytoplankton functional types (`DINO`, `DIATO`, …) | 1/24° (~4 km) | 2026-10-30 → 2026-11-15 |
+| Gap-free chl, NRT | `cmems_obs-oc_glo_bgc-plankton_nrt_l4-gapfree-multi-4km_P1D` (OCEANCOLOUR_GLO_BGC_L4_NRT_009_102, 10.48670/moi-00279) | `CHL` | ~4 km | 2026-11-04 → 2026-11-15 |
+| Gap-free chl, history | `cmems_obs-oc_glo_bgc-plankton_my_l4-gapfree-multi-4km_P1D` (OCEANCOLOUR_GLO_BGC_L4_MY_009_104, 10.48670/moi-00281) | `CHL` | ~4 km | 1997-09-04 → 2026-11-09 |
+| **Baseline 3 (modelled chl forecast)** | `cmems_mod_glo_bgc-pft_anfc_0.25deg_P1D-m` (GLOBAL_ANALYSISFORECAST_BGC_001_028, 10.48670/moi-00015) | `chl` (depth levels, top 0.494 m) | 0.25° | 2021-11-01 → **2026-11-26 (+9 days)** |
+| BGC hindcast (optional) | `cmems_mod_glo_bgc_my_0.25deg_P1D-m` (GLOBAL_MULTIYEAR_BGC_001_029, 10.48670/moi-00019) | `chl` | 0.25° | 1993-01-01 → 2026-09-30 |
+| SST forecast | `cmems_mod_glo_phy-thetao_anfc_0.083deg_P1D-m` (GLOBAL_ANALYSISFORECAST_PHY_001_024, 10.48670/moi-00016) | `thetao` (top 0.494 m) | 1/12° | 2022-06-01 → 2026-11-26 |
+| Mixed-layer depth | `cmems_mod_glo_phy_anfc_0.083deg_P1D-m` (moi-00016) | `mlotst` | 1/12° | 2022-06-01 → 2026-11-26 |
+| Currents | `cmems_mod_glo_phy-cur_anfc_0.083deg_P1D-m` (moi-00016) | `uo`, `vo` | 1/12° | 2022-06-01 → 2026-11-26 |
+| SST anomaly (model) | `cmems_mod_glo_phy_anfc_0.083deg-sst-anomaly_P1D-m` (moi-00016) | `sea_surface_temperature_anomaly` | 1/12° | 2022-11-01 → 2026-11-26 |
+
+### Recon results (1–7 Nov 2026 observations; 17–24 Nov forecasts)
+
+- **OLCI 300 m daily valid fraction of the box:** SA 11–50%, Tas 3–48% (cloud). Multi-sensor 4 km: SA 31–63%, Tas 11–64%.
+- **Pixel coverage of the 57 Tas harvest areas** (weekly composite; ≥1 valid pixel inside the polygon, and median pixels per area):
+
+  | Product | 0 km buffer | 2 km buffer | 5 km buffer |
+  |---|---|---|---|
+  | OLCI 300 m | **52/57**, median 3 | **57/57**, median 37 | 57/57, median 144 |
+  | IMOS VIIRS 1 km | 28/57, median 0 | — | 57/57, median 59 |
+  | Multi-sensor 4 km | 6/57, median 0 | 38/57, median 1 | 54/57, median 3 |
+  | BGC model 0.25° (one forecast day) | 0/57 | 0/57 | **2/57** |
+  | Physics model 1/12° (one forecast day) | 2/57 | 12/57 | 36/57 |
+
+- **OLCI vs IMOS VIIRS agreement** (SA, binned to 0.05°, log10 chl): 2 Nov r = 0.96 (n = 1,900 cells, median ratio 0.97); 3 Nov r = 0.97 (n = 4,038, 1.07); 5 Nov r = 0.96 (n = 4,362, 0.91). **The two products agree closely, so IMOS is a good independent cross-check.**
+- Model MLD (SA, forecast week): 3–111 m.
+
+### Gotchas
+
+- **Dataset versions are changing.** The default NRT versions (`202207` for OLCI 300 m, `202411` for multi 4 km) retire on **2027-01-12**. The MY OLCI 300 m `202211` version retires on **2026-11-24** (next week). The replacement `202611` versions currently offer only `original-files` and `wmts`, not the ARCO subset service, so we can't subset them yet. They also add phytoplankton functional types at 300 m, **including `DINO` (dinoflagellates)**, a promising feature since *Karenia* is a dinoflagellate. See D006.
+- **Models barely reach the coast:** the BGC (0.25°) and physics (1/12°) land masks exclude most harvest areas, even with a 5 km buffer. Features and baseline 3 must use the **nearest valid ocean cell(s)** within a set radius, recorded per area.
+- **Depth:** model 3-D variables start at 0.494 m. Request `minimum_depth=0, maximum_depth=1` to get the surface layer (the toolbox warns but returns the top level).
+- **Estuaries saturate:** weekly OLCI and VIIRS both show chl ≥ 10 mg m⁻³ across the Derwent, Huon and D'Entrecasteaux Channel (`docs/img/phase0_tas_zoom_300m_vs_1km.png`). That is probably partly coloured dissolved organic matter (tannins) and turbidity, not phytoplankton. Our anomaly-vs-own-climatology target partly absorbs this persistent bias, but we should note it as a limitation and consider the `flags` and `CHL_uncertainty` fields.
+- **The NRT archive is a rolling window** (~2–3 weeks). The daily pipeline must cache what it needs, and history must come from the MY product.
+- Baseline-3 history only starts **2021-11**, and physics forecasts only **2022-06**. That covers the validation (2023) and test (2024→) periods but not training before then. See D005.
