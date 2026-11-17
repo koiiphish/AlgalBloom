@@ -13,8 +13,8 @@ Recon week used for test pulls: **2026-11-01 → 2026-11-07**. Test regions: SA 
 | IMOS SST RAMSSA L4 (gap-free, ~9 km) | SST + anomaly feature | **Go** | 2006→, ~2 days behind |
 | Open-Meteo (archive, forecast, marine) | wind, radiation, air temp, rain, waves | **Go** | Non-commercial terms satisfied; marine grid is coarse near shore |
 | theLIST ShellMAP Harvest Area Boundaries | Tas prediction polygons | **Go technically; licence pending** | Layer has no licence text; asked theLIST |
-| NRE Tas ShellMAP Current Harvest Status (PDF) | Tas labels (Phase 1) | **Likely go; licence pending** | robots.txt allows it; one PDF/day; copyright page unreadable (403) |
-| NRE Tas Tasmanian Biotoxin News (PDF) | Tas labels | **Likely go** | Weekly; latest edition only (no visible archive) |
+| NRE Tas ShellMAP Current Harvest Status (PDF) | Tas labels (Phase 1) | **Go** | robots.txt allows it; one PDF/day; Tas Govt licence: non-commercial reuse with acknowledgement |
+| NRE Tas Tasmanian Biotoxin News (PDF) | Tas labels | **Go** | Weekly; latest edition only (no visible archive) |
 | PIRSA SASQAP boundaries + status | SA polygons + labels | **Blocked** | pir.sa.gov.au returns 403 to scripts; asked PIRSA |
 | Australian Phytoplankton Database via GBIF API | historical HAB taxa | **Partial** | CC BY 4.0, but the GBIF copy ends ~2013–15 |
 | AODN GeoServer (phyto DB ongoing, NRS/CPR phytoplankton) | historical HAB taxa | **Blocked for scripts** | robots.txt `Disallow: /` for all agents; use manual portal download instead |
@@ -85,7 +85,9 @@ Recon week used for test pulls: **2026-11-01 → 2026-11-07**. Test regions: SA 
 - **Archive:** revoked notices are *"archived as monthly collections"*. Individual notices are available from ShellMAP Regulatory Services on request. That could be a source of **historical** Tas labels, so ask ShellMAP.
 - **Biotoxin News:** `https://nre.tas.gov.au/SiteAssets/Tasmanian%20Biotoxin%20News.pdf`, linked from https://nre.tas.gov.au/aquaculture/shellmap/biotoxins-and-chemical-testing. *"a weekly update of biotoxin flesh and algal sampling results"*. Only the latest edition is linked, with no visible archive. Contents not yet inspected.
 - **robots.txt** (https://nre.tas.gov.au/robots.txt): the `*` agent is blocked only from `/search`, `/feedback`, `/*?*` (any query string), `/_layouts/` and a few others. **Both PDFs are allowed.** Never add query strings (e.g. cache-busters).
-- **Copyright:** the footer links https://www.tas.gov.au/stds/codi.htm, which returned 403 to our fetcher. **Licence unconfirmed.** Timothy to check in a browser.
+- **Copyright** (https://www.tas.gov.au/stds/codi.htm, read by Timothy in a browser on 2026-11-17, because it returns 403 to scripts): *"The Tasmanian Government grants users of this website a licence to download, print and reproduce the information for non-commercial purposes only."* and *"Users must acknowledge the copyright owner's name and source location when the information is reproduced or quoted (either in whole or in part)."* Use beyond this needs permission from the relevant agency.
+  - **Implication:** recording the status notice and Biotoxin News, and showing derived status in a free, non-commercial app, fits this licence, **provided** we credit "© State of Tasmania (NRE Tas, ShellMAP)" with the source URL. Note that this is **non-commercial only**, unlike the CC BY sources.
+  - It is a website licence. Whether it also covers theLIST layer 92 is unclear, so we're still waiting on theLIST's reply.
 
 ## PIRSA SASQAP (South Australia)
 
