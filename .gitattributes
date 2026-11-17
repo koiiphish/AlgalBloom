@@ -1,0 +1,7 @@
+# Keep text files with LF line endings in the repo on every OS. The label CSVs are appended
+# to by both Windows (local) and Linux (GitHub Actions); mixed endings would corrupt diffs.
+* text=auto eol=lf
+*.csv text eol=lf
+*.pdf binary
+*.png binary
+*.nc binary

@@ -70,7 +70,7 @@ def main() -> None:
     rows = build_lookup()
     LOOKUP_PATH.parent.mkdir(parents=True, exist_ok=True)
     with LOOKUP_PATH.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     print(f"wrote {len(rows)} rows -> {LOOKUP_PATH}")

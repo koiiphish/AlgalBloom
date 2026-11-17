@@ -112,7 +112,7 @@ def main() -> None:
     """Write labels/events.csv and print a per-region/taxon summary."""
     events = build_events(latest("nrs_phyto_genus_*.csv"), latest("nrs_phyto_species_*.csv"))
     EVENTS_PATH.parent.mkdir(parents=True, exist_ok=True)
-    events.to_csv(EVENTS_PATH, index=False)
+    events.to_csv(EVENTS_PATH, index=False, lineterminator="\n")
     print(f"wrote {len(events)} events -> {EVENTS_PATH}")
     summary = events.groupby(["region", "taxon"]).agg(
         events=("date", "size"),

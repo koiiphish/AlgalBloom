@@ -123,7 +123,7 @@ def append_snapshot(path: Path, rows: list[dict[str, str]]) -> int:
                     return 0
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=SNAPSHOT_COLUMNS)
+        writer = csv.DictWriter(f, fieldnames=SNAPSHOT_COLUMNS, lineterminator="\n")
         if not exists:
             writer.writeheader()
         writer.writerows(rows)
@@ -149,7 +149,7 @@ def save_raw(data: bytes, path: Path, source: str, url: str, retrieved_at: str) 
     path.write_bytes(data)
     new_manifest = not MANIFEST_PATH.exists()
     with MANIFEST_PATH.open("a", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=MANIFEST_COLUMNS)
+        writer = csv.DictWriter(f, fieldnames=MANIFEST_COLUMNS, lineterminator="\n")
         if new_manifest:
             writer.writeheader()
         writer.writerow(
@@ -179,7 +179,7 @@ def record_fetch(path: Path, source: str, hobart_date: str) -> None:
     state[source] = hobart_date
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
+        writer = csv.writer(f, lineterminator="\n")
         writer.writerow(["source", "hobart_date"])
         writer.writerows(sorted(state.items()))
 
