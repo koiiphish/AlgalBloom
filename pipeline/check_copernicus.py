@@ -19,8 +19,14 @@ def main() -> None:
     missing = [name for name in REQUIRED if not os.environ.get(name)]
     if missing:
         raise SystemExit(f"Missing in .env: {', '.join(missing)}")
+    # Pass the values explicitly: the toolbox reads its env vars at import time, which is
+    # before load_dotenv() runs, so relying on the environment alone silently fails.
     # check_credentials_valid=True only verifies; it does not write a config file.
-    ok = copernicusmarine.login(check_credentials_valid=True)
+    ok = copernicusmarine.login(
+        username=os.environ[REQUIRED[0]],
+        password=os.environ[REQUIRED[1]],
+        check_credentials_valid=True,
+    )
     print("Copernicus credentials are VALID" if ok else "Copernicus credentials are INVALID")
 
 
