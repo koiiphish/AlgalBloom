@@ -17,7 +17,7 @@ Recon week used for test pulls: **2026-11-01 → 2026-11-07**. Test regions: SA 
 | NRE Tas Tasmanian Biotoxin News (PDF) | Tas labels | **Go** | Weekly; latest edition only (no visible archive) |
 | PIRSA SASQAP boundaries + status | SA polygons + labels | **Blocked** | pir.sa.gov.au returns 403 to scripts; asked PIRSA |
 | Australian Phytoplankton Database (GBIF API and AODN manual download) | historical HAB taxa | **Go, background only** | CC BY 4.0; in our regions records stop in 2016, so no overlap with the Sentinel-3 era |
-| IMOS NRS phytoplankton (AODN manual download) | HAB validation, *Karenia* case study | **Go** | CC BY 4.0; MAI, KI, GSV, USG stations to 2026; captures the 2025 SA *Karenia* bloom |
+| IMOS NRS phytoplankton (AODN manual download) | HAB validation, *Karenia* case study | **Go** | CC BY 4.0; MAI, KI, GSV, USG stations to 2026; captures the 2025 SA *Karenia* bloom (GSV peak 113,000 cells/L on 2025-07-03); use the genus file for totals |
 | AODN GeoServer (phyto DB ongoing, NRS/CPR phytoplankton) | historical HAB taxa | **Blocked for scripts** | robots.txt `Disallow: /` for all agents; use manual portal download instead |
 | OpenFreeMap | basemap | **Go** | Free, no key, commercial use allowed; MapLibre adds attribution automatically |
 | Copernicus OLCI 300 m chl (NRT + multi-year) | **primary** chl target + features | **Go** | NRT ~2 days behind; MY from 2016-04; 300 m reaches small harvest areas; dataset versions changing (D006) |
@@ -134,9 +134,18 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
 **2. `nrs_phyto_species_2026-11-17.csv`: "IMOS - Phytoplankton Abundance and Biovolume (reference stations)", species-level abundance** (uuid `f098f0d0-88ac-4f4b-addb-24b3e5e8d0b9`, CC BY 4.0)
 - 393 samples, wide format (17 metadata columns + 429 species columns, cells/L), light microscopy. Record extent 2009-01 → 2026-06.
 - Stations in the box: **Maria Island MAI** (Tas, 180 samples, 2009 → 2026-06, ~monthly), **Kangaroo Island KAI** (73, 2009 → 2026-03) plus depth stations KAID1/2/3 (5/50/60 m, 29 each, 2018 → 2025-10), **SA Gulf St Vincent mooring GSV** (23, 2019 → 2025-10), **SA Upper Spencer Gulf mooring USG** (22, 2019 → 2025-12), Bonney Coast VBM (8, 2024 →; Vic border).
-- **The 2025 SA *Karenia* event is captured:** GSV 2025-07-03 *K. mikimotoi* 3,000 cells/L; **GSV 2025-10-17 43,750 cells/L (*K. cristata* 42,000)**; KI 2025-10-28 up to 1,200 cells/L; USG 2025-12-02 600 cells/L. Before that, *Karenia* was ≤ 800 cells/L at all stations (2018–2025). This gives a dated, independent (if sparse) record for the case study.
-- Other harmful taxa (positive samples; max cells/L): *Alexandrium* 36 (818), *G. catenatum* 11 (10,495; mostly MAI), *Pseudo-nitzschia* 30 (2,000), *Dinophysis* 63 (3,000).
-- **Gotcha:** this is the *species* product, so genus-only identifications (e.g. *Pseudo-nitzschia* spp.) are probably missing. That likely explains no *Pseudo-nitzschia* at all at MAI in 180 samples. **Also download the genus-level product** for harmful-genus totals.
+- Species-level harmful taxa (positive samples; max cells/L): *Alexandrium* 36 (818), ***G. catenatum*** 11 (10,495; mostly MAI), *Pseudo-nitzschia* 30 (2,000), *Dinophysis* 63 (3,000). Species-level *Karenia*: GSV 2025-07-03 *K. mikimotoi* 3,000; GSV 2025-10-17 43,750 (*K. cristata* 42,000).
+- **Gotcha:** the species product **leaves out genus-only identifications**. Compare the genus file below: *Pseudo-nitzschia* positive in 30 samples here vs 306 there. **Use the genus file for harmful-genus totals. Use the species file only for *G. catenatum*** (the genus *Gymnodinium* includes non-toxic species).
+
+**2b. `nrs_phyto_genus_2026-11-17.csv`: same record (uuid `f098f0d0-…`), genus-level abundance** (downloaded 2026-11-17, same box)
+- 393 samples (same as the species file), 17 metadata columns + 289 genus columns (cells/L).
+- Harmful genera (positive samples; max cells/L): ***Karenia*** 38 (**113,000**), *Alexandrium* 56 (1,020), *Pseudo-nitzschia* **306** (205,863; MAI 158, KAI 63), *Dinophysis* 72 (3,000), *Gymnodinium* 20 (10,495; genus, not all toxic).
+- **The 2025 SA *Karenia* event (genus totals), a dated, independent record for the case study:**
+  - Before 2025, the maximum at any station was 1,200 cells/L.
+  - **Onset, May 2025:** low counts at four SA stations at once: GSV 05-01 (50), USG 05-08 (100), KAI/KAID1-3 05-20 (82–800).
+  - **Peak: GSV 2025-07-03, 113,000 cells/L** (only 3,000 identified to species, so most were *Karenia* spp.).
+  - GSV 2025-10-17: 43,800. KI 2025-10-28: up to 1,200. USG 2025-12-02: 650.
+  - Tas: MAI 2025-02-27 (206) and 2025-09-30 (100). Low.
 - Stations are fixed points, not harvest areas, so validation is regional and qualitative (lead time vs the onset of a station exceedance).
 - Citation: IMOS; CSIRO Oceans and Atmosphere; AIMS; DCCEEW NSW; SARDI [year], *IMOS - Phytoplankton Abundance and Biovolume (reference stations)*, downloaded from https://portal.aodn.org.au on 2026-11-17. Plus the IMOS/NCRIS acknowledgement.
 
