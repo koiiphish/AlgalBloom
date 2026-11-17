@@ -93,3 +93,9 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 5. **Tasmanian levels are applied to SA stations** as one consistent yardstick. SASQAP's own levels are unknown until PIRSA replies.
 
 **Alternatives rejected:** treating every closure as a HAB event (it would mix rainfall closures into the labels); KKG-group levels for *Karenia* genus totals (they would hide the low-level 2018–2025 detections and the May 2025 onset); scraping Biotoxin News tables now (layout unverified; raw archiving is enough to stop losing history).
+
+**Update (2026-11-18): the repo is now public** (Timothy's decision), which matches the brief's original recommendation. Effects:
+- GitHub Actions minutes on standard runners are free and unlimited, and GitHub Pages (Phase 5) is available at no cost.
+- Everything committed is now published. Checked before recording this: no `.env`, credentials or `data/` files have ever been committed, and all commits use the GitHub no-reply address.
+- Published label data must keep its attribution. ShellMAP notices and Biotoxin News are reproduced under the Tasmanian Government **non-commercial** licence with acknowledgement (see `labels/README.md`). theLIST polygons stay unpublished until their licence is confirmed (only names are committed).
+- GitHub may disable scheduled workflows in public repos after 60 days without repository activity. The daily bot commits should count as activity, but if `archive_status` ever stops, check whether the schedule was disabled (Actions tab → re-enable).
