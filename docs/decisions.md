@@ -149,3 +149,18 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 **Alternatives rejected:** choosing the baseline by which label is easier to predict (circular); a stricter pixel minimum (no noise elbow to justify the coverage loss).
 
 **Update to D011 (2026-11-18): the ≥5-pixel valid-day rule is too loose; the decision is reopened.** First Phase 3 results (train/tune years only; test untouched): neither LightGBM nor persistence reliably beats the base rate. Rolling-origin PR-AUC for 2018–2022 is 1.1–1.7× the positive rate, and the model wins some years, persistence others. Diagnosis: the daily area anomaly is mostly noise (lag-1 correlation 0.26; sd of the 1-day change 0.40 > sd of the anomaly 0.34). The noise comes from **partly cloudy days**. With both days ≥50% of the area's pixels valid, lag-1 correlation rises to 0.47 (2016–21) and 0.62 (2022–23); at ≥75% it is 0.75–0.79, but only 4% of valid days remain. The EDA's noise measure (median |Δlog10| between consecutive days) was too blunt to show this. Persistence is also higher from 2022 (window correlation ~0.27 vs ~0.1 before), matching the my→myint boundary. Pooling the target to growing area or region did not help. Options and a recommendation go to Timothy before the target is changed.
+
+**Update to D011 (2026-11-18): valid-day rule comparison** (`pipeline/features/valid_day_compare.py`; train years only, rolling origin 2018–2022)
+- **New pixel QC option:** OLCI `flags` only marks LAND, and `CHL_uncertainty` is almost constant (median 50%), so neither can filter cloud edges. Instead we computed a "core" median without **cloud-edge pixels** (valid pixels touching a non-land gap). These are 18% of valid pixels and read about 29% higher than interior ones. `chl_core`/`n_core` were added to `pipeline/features/chl.py`.
+- **Results** (mean over 2018–2022; lift = PR-AUC / positive rate):
+
+  | rule | labelled share (train) | daily lag-1 corr | persistence lift | model lift |
+  |---|---|---|---|---|
+  | px5 (original) | 0.62 | 0.22 | 1.32 | 1.31 |
+  | weighted by valid fraction | 0.62 | 0.22 | 1.44 | 1.30 |
+  | core (edge pixels removed) | 0.41 | 0.26 | 1.40 | 1.22 |
+  | frac25 | 0.35 | 0.33 | 1.49 | 1.24 |
+  | core_frac25 | 0.33 | 0.31 | 1.47 | 1.18 |
+  | frac50 | 0.11 | 0.53 | 1.91 | 1.24 |
+- **The pre-stated rule (highest model lift with ≥25% labelled) selects px5.** That rule assumed the model would at least track label quality. It doesn't: the model's lift sits **below persistence** for almost every rule. That is true even with only chl and season features, and even with monotone constraints on the persistence features. So the model's lift measures a failure to generalise, not label quality.
+- **Main finding:** at this scale and lead time, **environmental drivers (weather, SST, ocean model, season) add no measurable skill beyond chl persistence**, and persistence itself is weak (lift ~1.3–1.5). Cleaner labels raise persistence skill but cost coverage. The decision on how to proceed goes to Timothy.
