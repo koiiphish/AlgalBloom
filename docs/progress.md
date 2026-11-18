@@ -39,6 +39,20 @@ _Last updated: 2026-11-18_
 - **Inland lakes** appear in the Tasmanian chlorophyll layer. Mask them in Phase 5.
 - **Phase 4 commit message:** commit `7363f6c` also contains the deployment model file, the SST climatology and the archive seed, but its message doesn't say so.
 
+## Where data is stored (no database needed)
+
+- **Published files** are on the `gh-pages` branch, which GitHub Pages serves.
+- **Forecast archive:** `archive/` (CSV) on `main`.
+- **Label history:** `labels/` on `main`.
+- **Model files:** `models/` on `main`.
+- **Raw downloads:** `data/`, on the laptop only.
+
+Revisit this only if the archive grows to tens of MB a year (then switch to Parquet) or user accounts are added. Decided 2026-11-18.
+
+## Session habit
+
+Start each session fresh rather than resuming the old one, and say "continue". End each session with "update progress.md".
+
 ## Standing reminders
 
 - Run `git pull --rebase` before pushing, because bots commit to `main` daily.
