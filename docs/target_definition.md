@@ -1,6 +1,6 @@
 # Target definition
 
-**Status:** v1 (2026-11-18), Tasmania only. Implemented in `pipeline/features/target.py` and tested in `tests/test_target.py`. Parameters marked *provisional* will be reviewed in the EDA notebook (`notebooks/02_eda.ipynb`).
+**Status:** v1.1 (2026-11-18), Tasmania only. Implemented in `pipeline/features/target.py` and tested in `tests/test_target.py`. Parameters reviewed in the EDA (`notebooks/02_eda.ipynb`, decisions D011).
 
 ## In one sentence
 
@@ -12,7 +12,7 @@ For harvest area *a* and issue date *t*, **y = 1** if the area's mean chlorophyl
 |---|---|---|
 | 1. Area pixels | All Copernicus OLCI 300 m L3 pixels whose centre lies inside the area polygon **+ 2 km buffer** (theLIST layer 92, buffered in EPSG:28355) | Phase 0: 2 km is the smallest buffer that gives every one of the 57 Tas areas satellite pixels (56–210 pixels each); a bigger buffer would dilute the signal with open water |
 | 2. Daily value | Median chl of the valid pixels (chl > 0) | The median resists the odd bad pixel near shore |
-| 3. Valid day | ≥ **5** valid pixels (*provisional*) | One or two pixels at a cloud edge are unreliable |
+| 3. Valid day | ≥ **5** valid pixels (confirmed in EDA, D011) | One or two pixels at a cloud edge are unreliable. Stricter minimums give no clear noise improvement for the coverage they cost |
 | 4. Log scale | `log_chl = log10(chl)` | Chlorophyll is roughly log-normal: 0.5→1 matters as much as 5→10 |
 | 5. Baseline | Median `log_chl` per area × calendar month over **2016-04 → 2022-12** (≥ 10 valid days, else missing) | Each area is compared with itself, which removes fixed biases such as tannin-stained estuaries reading "high" all year, and removes the normal seasonal cycle |
 | 6. Anomaly | `log_chl − baseline` | "How unusual is today for this place and season?" |
@@ -33,7 +33,7 @@ We use **L3 (cloud-masked)**, not the gap-filled L4. L4 is 4 km (too coarse for 
 ## Known issues and the alternative baseline
 
 1. **Processing boundary and drift (docs/decisions.md D006 update).** The OLCI history is fully reprocessed to 2021 and interim from 2022. Over Tasmania, OLCI chl declines 2022→2026 while in-situ chl at Maria Island rises. The newer Copernicus version (202611) is ~10% *lower* still in 2024, so reprocessing doesn't remove it. A drifting baseline shifts how often the fixed 90th percentile is exceeded in validation/test.
-2. **Alternative (option C): trailing baseline.** The same definition, but step 5 uses the median of the same calendar month over the **previous 3 years** only (still leakage-free). It is more robust to slow drift, at the cost of also absorbing genuine multi-year change. Both labels (`y_fixed`, `y_trailing`) are built so the EDA can compare them. **The choice will be made on the validation set, never the test set.**
+2. **Alternative (option C): trailing baseline.** The same definition, but step 5 uses the median of the same calendar month over the **previous 3 years** only (still leakage-free). It is more robust to slow drift, at the cost of also absorbing genuine multi-year change. Both labels (`y_fixed`, `y_trailing`) are built. **Decision (D011, from validation only): `y_fixed` is the primary label.** The two are nearly identical on validation, and the fixed one keeps 29% more training labels. `y_trailing` is reported alongside it in the Phase 3 test evaluation as a drift sensitivity check.
 3. **Chlorophyll is a proxy.** High-chlorophyll events aren't necessarily harmful, and some harmful species (e.g. *Alexandrium*, *Dinophysis*) cause problems at low biomass. The secondary evaluation against official closures and harmful-species counts (Phase 3) checks how far this proxy can be trusted.
 4. **Estuarine optics.** Tannin-rich estuaries (Derwent, Huon, D'Entrecasteaux) read high chl year-round. The per-area baseline absorbs the *level*, but optical noise may still inflate variability there.
 

@@ -108,6 +108,13 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - **Conclusions:** (1) the 2016–2021 training history is unaffected by the version change; (2) the operational (202611-family) data differs from our 2022+ history by ~10%, so **replace the 2022+ history with 202611 once it supports subsetting** (before final Phase 3 evaluation), or correct for the offset; (3) the satellite/in-situ divergence is **unexplained** (a real coastal change, an OLCI sensor-level issue, or fluorometer drift). It must be stated as a limitation, and it motivates evaluating the drift-resistant **trailing baseline** (option C) alongside the fixed one in the EDA.
 - **Caveats:** two days and one in-situ station.
 
+**Update to D006 (2026-11-18): independent satellites at Maria Island** (`pipeline/fetch/recon_mai_independent.py`; IMOS MODIS-Aqua and VIIRS-SNPP `chl_oci`, same ±0.03°/±0.04° window as OLCI, days with ≥5 valid pixels; analysis is log10 median anomaly vs each sensor's own monthly median)
+- **MODIS-Aqua also declines from 2022**, by more than OLCI. Compared with 2019–2021: OLCI −0.12/−0.12/−0.18 and MODIS −0.26/−0.34/−0.29 in 2022/2023/2024. In-situ +0.20/+0.47/+0.42.
+- **VIIRS agrees with OLCI for 2022–2026** (annual anomaly vs 2022–2023 in 2024: OLCI −0.06, VIIRS −0.05; 2025: −0.07 vs −0.05). On matched days the OLCI/VIIRS ratio falls by about 0.08 log10 from 2022 to 2024 and then holds steady, so OLCI may carry a small extra drift.
+- **Conclusion: the decline is not specific to OLCI or to Copernicus processing.** Three sensors and two algorithm families show flat-to-falling surface chl at Maria Island since 2022, while the ship fluorometer shows a 2.5–5× rise. The divergence is therefore between **satellite and in-situ**, not between satellite products. Plausible causes include a change in the in-situ method or calibration, a subsurface signal that satellites can't see, or a change in optical properties. MODIS-Aqua's orbit has also been drifting since 2022 (its overpass time is moving later), which may add to its larger decline.
+- **Consequences:** (1) keep OLCI 202211 as the primary source. Switching sensors would not remove the signal. (2) Our target is defined on satellite chl, so it is self-consistent, but a slow satellite-level decline still lowers exceedance rates against a fixed baseline in validation and test. The EDA compares fixed and trailing baselines on validation. (3) Record the in-situ disagreement as a limitation in the evaluation and on the About page.
+- **Caveats:** one station with about 10 in-situ samples per year; matched-day correlation between OLCI and the IMOS sensors is moderate in this small coastal window (r ≈ 0.55 on log values, against 0.96 at the regional scale in Phase 0).
+
 ## D010 — Phase 2 driver sources: OSTIA SST, GLORYS12, ERA5 via Open-Meteo (2026-11-18)
 
 **Context:** the Phase 2 plan named IMOS RAMSSA for SST, and noted that ocean-model features (mixed-layer depth, currents) might exist only from 2022-06 (analysis-forecast archive).
@@ -122,3 +129,21 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 **Note for Phase 3:** Open-Meteo's *Previous Runs API* archives the forecasts actually issued 1–7 days ahead, but mostly from **January 2024**. That's too late for training, but it covers the **test period**, so the final evaluation can use real issued forecasts as inputs. Pricing-page wording: the table marks the historical APIs ✅ for the free tier; an FAQ line saying they "require the Professional API Plan" reads as applying to paid plans (the Standard plan is ❌).
 
 **Alternatives rejected:** RAMSSA as the main SST (coarser, slower OPeNDAP); the analysis-forecast archive for ocean features (starts 2022-06, so it can't cover training years); default "best match" Open-Meteo models (they mix ERA5 and IFS over time, so they are inconsistent across the record).
+
+## D011 — Phase 2 EDA choices: fixed baseline primary, MIN_VALID_PIXELS = 5 (2026-11-18)
+
+**Context:** `docs/target_definition.md` left two parameters to the EDA (`notebooks/02_eda.ipynb`): the baseline (fixed 2016–2022 vs trailing 3-year) and the minimum valid pixels for a valid day. Both choices use train and validation only.
+
+**Choice:**
+1. **Fixed baseline is the primary label (`y_fixed`); trailing (`y_trailing`) is a reported sensitivity analysis.** On validation (2023) the two are nearly the same: positive rate 13.8% vs 13.0%, 92% agreement, and quarterly median anomaly near zero with no sign of drift through 2023. Validation therefore can't separate them. Ties go to the fixed baseline because it is the brief's definition and keeps 29% more training labels (86,678 vs 67,301; the trailing one has none in 2016 and few in 2017–2018). The satellite decline at Maria Island (D006 updates) falls mostly in the test years, so Phase 3 reports test metrics for **both** labels and doesn't pick between them on test.
+2. **`MIN_VALID_PIXELS` stays at 5.** In training data, day-to-day noise (median |Δlog10| between consecutive valid days) falls smoothly from 0.177 (≥1 px) to 0.158 (≥5) and 0.141 (≥10), with no elbow, while coverage falls from 33.7% to 29.8% and 25.6%. The 7-day forward mean already averages much of the noise, and `n_valid` is available to the model as a quality feature.
+
+**Other findings recorded for Phase 3:**
+- Validation positive rate (13.8%) is above the 10% design rate, but training years range from 6% to 14%, so 2023 is within normal year-to-year variation. Risk-tier cut-offs are tuned on validation anyway.
+- Coverage roughly doubles from 2019 (Sentinel-3B joins 3A): valid area-days go from ~20% to ~37%.
+- **Past 30-day rain** is nearly as strongly associated with the forward anomaly as recent chl (Spearman 0.16 vs 0.18). That fits runoff nutrients, but also coloured dissolved organic matter being misread as chl near estuaries. This is a proxy caveat to examine with SHAP.
+- Tas harmful-species events (MAI) are sparse: 27 since 2010, 4 at closure level. That is too few for a statistical proxy check in Tasmania alone.
+
+**Process note:** the first `pipeline.features.build` run printed test-split positive rates in its summary. They were seen, but no choice above uses them, and the summary now hides test label rates.
+
+**Alternatives rejected:** choosing the baseline by which label is easier to predict (circular); a stricter pixel minimum (no noise elbow to justify the coverage loss).

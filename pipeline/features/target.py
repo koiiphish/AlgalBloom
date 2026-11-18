@@ -61,12 +61,10 @@ def trailing_baseline(df: pd.DataFrame, years: int = TRAILING_YEARS) -> pd.DataF
     d = df.assign(year=df["date"].dt.year, month=df["date"].dt.month)
     rows = []
     for (area, month), g in d.groupby(["area_id", "month"]):
-        by_year = g.groupby("year")["log_chl"]
         for year in range(d["year"].min(), d["year"].max() + 1):
             past = g[(g["year"] >= year - years) & (g["year"] < year)]["log_chl"].dropna()
             value = past.median() if len(past) >= MIN_CLIM_OBS else np.nan
             rows.append((area, month, year, value))
-        del by_year
     return pd.DataFrame(rows, columns=["area_id", "month", "year", "baseline"])
 
 

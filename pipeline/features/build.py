@@ -97,6 +97,8 @@ def main() -> None:
         positive_rate_fixed=("y_fixed", "mean"),
         positive_rate_trailing=("y_trailing", "mean"),
     )
+    # Never print test label rates during development: they'd invite tuning choices to the test set.
+    summary.loc[summary.index == "test", ["positive_rate_fixed", "positive_rate_trailing"]] = np.nan
     print(summary.round(3).to_string())
 
 
