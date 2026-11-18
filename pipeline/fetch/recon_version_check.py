@@ -32,28 +32,38 @@ OUT_DIR = RAW_DIR / "copernicus" / "version_check_202611"
 DAYS = ["2019-01-21", "2024-01-30"]
 
 
-def download_and_crop(day: str) -> Path:
-    """Download one global 202611 file, crop to the Tas boxes, delete the global file."""
-    out = OUT_DIR / f"tas_{day}.nc"
-    if out.exists():
-        return out
-    load_dotenv(REPO_ROOT / ".env")
-    res = copernicusmarine.get(
-        dataset_id=DATASET_ID,
-        dataset_version="202611",
-        filter=f"*{day.replace('-', '')}*",
-        output_directory=OUT_DIR / "tmp",
-        no_directories=True,
-        username=os.environ["COPERNICUSMARINE_SERVICE_USERNAME"],
-        password=os.environ["COPERNICUSMARINE_SERVICE_PASSWORD"],
-        disable_progress_bar=True,
-    )
-    global_file = Path(res.files[0].file_path)
+def download_and_crop(day: str) -> dict[str, Path]:
+    """Download one global 202611 file, crop to each Tas box (one file per box), delete it.
+
+    Original files name their coordinates lat/lon (the subset service says latitude/
+    longitude), so they are renamed to match our history files.
+    """
+    outs = {b.name: OUT_DIR / f"{day}_{b.name}.nc" for b in tas_boxes()}
+    if all(p.exists() for p in outs.values()):
+        return outs
+    tmp = OUT_DIR / "tmp"
+    existing = sorted(tmp.glob(f"{day.replace('-', '')}_*.nc"))
+    if existing:  # reuse a file left by an interrupted run
+        global_file = existing[0]
+    else:
+        load_dotenv(REPO_ROOT / ".env")
+        res = copernicusmarine.get(
+            dataset_id=DATASET_ID,
+            dataset_version="202611",
+            filter=f"*{day.replace('-', '')}*",
+            output_directory=tmp,
+            no_directories=True,
+            username=os.environ["COPERNICUSMARINE_SERVICE_USERNAME"],
+            password=os.environ["COPERNICUSMARINE_SERVICE_PASSWORD"],
+            disable_progress_bar=True,
+        )
+        global_file = Path(res.files[0].file_path)
     with xr.open_dataset(global_file) as ds:
-        crops = [subset_bbox(ds[["CHL"]], b, "latitude", "longitude").load() for b in tas_boxes()]
-    xr.concat(crops, dim="box").assign_coords(box=[b.name for b in tas_boxes()]).to_netcdf(out)
-    global_file.unlink()  # keep only the small crop
-    return out
+        ds = ds[["CHL"]].rename({"lat": "latitude", "lon": "longitude"})
+        for b in tas_boxes():
+            subset_bbox(ds, b, "latitude", "longitude").load().to_netcdf(outs[b.name])
+    global_file.unlink()  # keep only the small crops
+    return outs
 
 
 def old_values(day: str) -> dict[str, xr.DataArray]:
@@ -69,15 +79,17 @@ def old_values(day: str) -> dict[str, xr.DataArray]:
 
 def compare(day: str) -> pd.Series:
     """Pixel-matched comparison of log10 chl (new minus old) over all Tas boxes for one day."""
-    new_ds = xr.open_dataset(download_and_crop(day))
+    crops = download_and_crop(day)
     old = old_values(day)
     diffs = []
     for b in tas_boxes():
-        new = new_ds.CHL.sel(box=b.name).squeeze(drop=True).dropna("latitude", how="all")
         o = old[b.name].squeeze(drop=True)
-        new_al, old_al = xr.align(new, o, join="inner")
-        ok = (new_al > 0) & (old_al > 0)
-        diffs.append(np.log10(new_al.where(ok)) - np.log10(old_al.where(ok)))
+        with xr.open_dataset(crops[b.name]) as nds:
+            new = nds.CHL.squeeze(drop=True).load()
+        # Match each old pixel to the nearest new pixel within half a 300 m pixel.
+        new_on_old = new.reindex_like(o, method="nearest", tolerance=1 / 360)
+        ok = (new_on_old > 0) & (o > 0)
+        diffs.append(np.log10(new_on_old.where(ok)) - np.log10(o.where(ok)))
     d = np.concatenate([x.values.ravel() for x in diffs])
     d = d[np.isfinite(d)]
     return pd.Series(
