@@ -1,6 +1,8 @@
 # Model card: 7-day bloom-week risk forecast (Tasmania)
 
-**Version:** 1.0 (Phase 3, 2026-11-18) · **Method:** calibrated chlorophyll persistence · **Decisions:** `docs/decisions.md` D011–D013 · **Code:** `pipeline/model/`
+**Version:** 1.1 deployed (Phase 4, 2026-11-18); evaluated as 1.0 (Phase 3) · **Method:** calibrated chlorophyll persistence · **Decisions:** `docs/decisions.md` D011–D014 · **Code:** `pipeline/model/`, `pipeline/forecast/`
+
+> **Deployed vs. evaluated.** The test results in section 5 are for version 1.0, calibrated on 2023 only. The live forecast (1.1, `models/forecast_tas.json`) uses the same score, but its calibration and tier cut-offs were refit on 2023-01 to 2026-10 (D014, decision B), because 1.0 was under-confident in 2026. The deployed cut-offs are **Moderate p ≥ 0.193, High p ≥ 0.356**. No test-period result has been recomputed with 1.1, and none should be quoted for it.
 
 > **Experimental research tool.** This is **not** a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia). Always follow the official harvest-area status.
 
@@ -25,7 +27,7 @@ For each Tasmanian shellfish harvest area and each issue day *t*, the probabilit
 | Score | Clear-sky-weighted mean chlorophyll anomaly over **t−15 … t−2** (`chl_anom_wmean14`). The newest satellite data is ~2 days old at issue time. |
 | Probability | Platt (logistic) calibration of the score, fitted on 2023 (validation) |
 | No recent data | If there was no clear view for 14 days, use the area's 2016–2022 rate for that month, flagged `stale_chl` (0.7% of validation days) |
-| Tiers | **Moderate** if p ≥ 0.170, **High** if p ≥ 0.233. Chosen on 2023 so that at most 20% / 5% of normal weeks are flagged. |
+| Tiers | **Moderate** if p ≥ 0.170, **High** if p ≥ 0.233. Chosen on 2023 so that at most 20% / 5% of normal weeks are flagged. Deployed 1.1: 0.193 / 0.356, same rule on 2023-01 to 2026-10. |
 
 **Why persistence and not a machine-learning model?** We built a tuned gradient-boosting model (LightGBM, 43 features: chlorophyll history, SST and marine heatwaves, mixed-layer depth and currents, ERA5 weather including the forecast week, season, area traits). In year-by-year tests on 2018–2023 it was **significantly worse than persistence in 2 years, tied in 3 and better only in 2023**. Even that win leaned on *observed* future weather, which a real forecast can't have (D013). The weather, ocean and season drivers added no consistent skill beyond recent chlorophyll, so we ship the simplest method that works. LightGBM is kept below as a documented comparison.
 

@@ -204,3 +204,55 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 **Consequences:** the daily pipeline needs only OLCI chlorophyll to forecast; SST stays as a map layer. The Open-Meteo issued-forecast archive and SA weather downloads planned for Phase 3 are no longer needed. The SA *Karenia* transfer needs only SA chlorophyll.
 
 **Alternatives rejected:** shipping LightGBM on the strength of one year (2023); a hard clear-sky cut-off (≥25% / ≥50% of pixels clear), which costs 45–83% of labels; pooling the target to growing area or region (didn't help).
+
+## D014 — Phase 4 daily pipeline design (2026-11-18, choices A–E approved by Timothy)
+
+**Context:** the daily job must turn the shipped persistence forecast (D013) into static files on GitHub Pages, at $0, in under ~15 minutes, and fail loudly. Three checks ran before coding, all on 2026-11-18:
+
+1. **Near-real-time (NRT) vs. training history.** We compared OLCI 300 m NRT (`…nrt_l3-olci-300m_P1D`, version 202207) with the multi-year 202211 history (interim from 2022) over 1–7 Nov 2026, using per-area daily medians with ≥ 5 valid pixels in both.
+   - 171 area-days, **median ratio 1.000** (log10 ratio p10 0.000, p90 +0.030; median valid-pixel counts identical).
+   - So **no offset correction** is needed.
+   - The ~10% offset in D006 is between MY 202211 and the *new* 202611 reprocessing. The NRT feed moves to the 202611 family when version 202207 retires on **2027-01-12**, and that switch must be re-checked the same way.
+2. **Run time.** 18 days of NRT chl for the 5 Tas boxes took 16 s (about 1.3 MB on disk), and a 7-day SA box took 3 s. The whole local run, map layers included, takes about 1 minute.
+3. **SST anomaly product.** `cmems_mod_glo_phy_anfc_0.083deg-sst-anomaly_P1D-m` (Mercator model) doesn't state its reference period, either in its metadata or in the product description. **Rejected** for display: we won't show an anomaly whose "normal" we can't name.
+
+**Choices:**
+- **A. Points, not polygons.** The licence for theLIST layer 92 is still unconfirmed.
+  - The job downloads the polygons only to choose satellite pixels. The download is cached weekly, so it's at most one request a week.
+  - It publishes **one representative point per area**: a point inside the polygon, rounded to 0.001°.
+  - Switching to polygons is a small change once theLIST replies.
+- **B. One-off recalibration (deployed model `persistence-1.1`).**
+  - Platt calibration and tier cut-offs are refit on **2023-01-01 … 2026-10-31**: 61,050 labelled area-days, positive rate 0.176.
+  - The false-alarm budgets are unchanged (20% / 5% of normal weeks).
+  - New cut-offs: **Moderate p ≥ 0.193, High p ≥ 0.356** (Phase 3: 0.170 / 0.233). In the fit window, High covers 11% of weeks with a 63% bloom-week rate.
+  - The Phase 3 test numbers stay as reported. They describe the 2023-only calibration (`persistence-1.0`), and the model card says so.
+  - Automatic rolling refits wait until our own archive holds ≥ 12 months of NRT data.
+- **C. Evidence instead of "top drivers".** Each popup shows the chlorophyll record behind the forecast:
+  - the 14-day weighted anomaly as "× normal";
+  - the trend: the newer half of the window against the older half, with ±0.1 log10 (≈ 26%) counted as rising or falling;
+  - clear days out of 14 and the mean clear fraction;
+  - the last clear date;
+  - the SST anomaly, labelled "context, not used by this forecast".
+- **D. South Australia:** map layers only. No SA forecasts until PIRSA supplies the harvest-area boundaries.
+- **E. Archive on `main`** (`archive/`):
+  - per-area daily chl stats, where the latest value wins because NRT revises recent days;
+  - one row per issued forecast.
+
+  It's seeded with the last 120 days of the MY history (source `my_202211`). It enables verification, rolling recalibration and, later, retraining. Only the scheduled job writes it (the `--archive` flag).
+- **SST anomaly layer:** OSTIA NRT minus a **1991–2020 OSTIA reprocessed day-of-year climatology** (11-day window, as in the Phase 2 features).
+  - Stored per grid cell, every 5th day, as int16 hundredths of °C (`models/sst_clim_{tas,sa}.npz`, 0.4–0.5 MB each).
+  - It needed one extra free download: the SA box for 1991–2020, about 264 MB uncompressed, git-ignored.
+  - Caveat: the climatology comes from the reprocessed product and today's value from NRT, and the two can differ slightly.
+- **Chlorophyll layer:** the median of the newest 7 days of OLCI 300 m chl, on a log colour scale from 0.1 to 30 mg m⁻³. Its description says inshore values are raised by sediment and tannins. Inland lakes currently show too; that's cosmetic and left for Phase 5.
+- **Failure policy:** either failure below makes the workflow fail, so GitHub emails the owner.
+  - The chl download fails, or the newest chl is more than 4 days old: yesterday's files are republished with `stale: true`, `stale_since` and the reason, and the job exits 1.
+  - A map layer or the SST context fails: the forecast is published without it, the failure is listed under `problems`, and the job exits 2.
+- **Publishing:** `gh-pages` is force-pushed as a single commit each day, so no history builds up there. It holds the latest files plus `history/<date>/areas.geojson` for the last 7 issue dates. `ci.yml` now ignores `gh-pages`.
+
+**Finding to watch:** at 01:00 Hobart on 19 Nov, the newest NRT day was 16 Nov (3 days old), but the score assumes 2 days (`CHL_LAG_DAYS`). On days like that, the 14-day window has one day less data. The scheduled 09:00 Hobart run should usually see t−2. The first runs will show how often it doesn't (`status.json` → `inputs.chl_age_days`).
+
+**Alternatives rejected:**
+- Publishing nothing mappable until theLIST replies: it blocks Phase 5.
+- Keeping the 2023 calibration: it was under-confident in 2026 (model card §5).
+- Storing the archive on `gh-pages`: that branch is force-pushed daily, so the history would be lost.
+- A monthly SST climatology: it's biased within each month in spring and autumn.

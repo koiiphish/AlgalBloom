@@ -3,6 +3,7 @@ name: ci
 
 on:
   push:
+    branches-ignore: [gh-pages] # gh-pages holds only the published forecast files
   pull_request:
 
 permissions:

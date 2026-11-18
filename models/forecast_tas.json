@@ -1,0 +1,7248 @@
+{
+ "model_version": "persistence-1.1",
+ "method": "calibrated chlorophyll persistence (D013), recalibrated (D014)",
+ "created_utc": "2026-11-18T13:52:49+00:00",
+ "code_commit": "2e2aed077cf563aacc7172b272a5b77a6d3c9bae",
+ "score": "chl_anom_wmean14",
+ "label": "y_fixed",
+ "fit_window": [
+  "2023-01-01",
+  "2026-10-31"
+ ],
+ "fit_rows": 61050,
+ "fit_positive_rate": 0.1764,
+ "far_budgets": {
+  "moderate": 0.2,
+  "high": 0.05
+ },
+ "min_valid_pixels": 5,
+ "calibrator": {
+  "x": [
+   -1.06642,
+   -1.057222,
+   -1.048024,
+   -1.038826,
+   -1.029628,
+   -1.02043,
+   -1.011232,
+   -1.002034,
+   -0.992836,
+   -0.983638,
+   -0.97444,
+   -0.965242,
+   -0.956044,
+   -0.946846,
+   -0.937648,
+   -0.92845,
+   -0.919252,
+   -0.910054,
+   -0.900856,
+   -0.891658,
+   -0.88246,
+   -0.873262,
+   -0.864065,
+   -0.854867,
+   -0.845669,
+   -0.836471,
+   -0.827273,
+   -0.818075,
+   -0.808877,
+   -0.799679,
+   -0.790481,
+   -0.781283,
+   -0.772085,
+   -0.762887,
+   -0.753689,
+   -0.744491,
+   -0.735293,
+   -0.726095,
+   -0.716897,
+   -0.707699,
+   -0.698501,
+   -0.689303,
+   -0.680105,
+   -0.670907,
+   -0.661709,
+   -0.652511,
+   -0.643313,
+   -0.634115,
+   -0.624918,
+   -0.61572,
+   -0.606522,
+   -0.597324,
+   -0.588126,
+   -0.578928,
+   -0.56973,
+   -0.560532,
+   -0.551334,
+   -0.542136,
+   -0.532938,
+   -0.52374,
+   -0.514542,
+   -0.505344,
+   -0.496146,
+   -0.486948,
+   -0.47775,
+   -0.468552,
+   -0.459354,
+   -0.450156,
+   -0.440958,
+   -0.43176,
+   -0.422562,
+   -0.413364,
+   -0.404166,
+   -0.394968,
+   -0.385771,
+   -0.376573,
+   -0.367375,
+   -0.358177,
+   -0.348979,
+   -0.339781,
+   -0.330583,
+   -0.321385,
+   -0.312187,
+   -0.302989,
+   -0.293791,
+   -0.284593,
+   -0.275395,
+   -0.266197,
+   -0.256999,
+   -0.247801,
+   -0.238603,
+   -0.229405,
+   -0.220207,
+   -0.211009,
+   -0.201811,
+   -0.192613,
+   -0.183415,
+   -0.174217,
+   -0.165019,
+   -0.155821,
+   -0.146623,
+   -0.137426,
+   -0.128228,
+   -0.11903,
+   -0.109832,
+   -0.100634,
+   -0.091436,
+   -0.082238,
+   -0.07304,
+   -0.063842,
+   -0.054644,
+   -0.045446,
+   -0.036248,
+   -0.02705,
+   -0.017852,
+   -0.008654,
+   0.000544,
+   0.009742,
+   0.01894,
+   0.028138,
+   0.037336,
+   0.046534,
+   0.055732,
+   0.06493,
+   0.074128,
+   0.083326,
+   0.092524,
+   0.101721,
+   0.110919,
+   0.120117,
+   0.129315,
+   0.138513,
+   0.147711,
+   0.156909,
+   0.166107,
+   0.175305,
+   0.184503,
+   0.193701,
+   0.202899,
+   0.212097,
+   0.221295,
+   0.230493,
+   0.239691,
+   0.248889,
+   0.258087,
+   0.267285,
+   0.276483,
+   0.285681,
+   0.294879,
+   0.304077,
+   0.313275,
+   0.322473,
+   0.331671,
+   0.340868,
+   0.350066,
+   0.359264,
+   0.368462,
+   0.37766,
+   0.386858,
+   0.396056,
+   0.405254,
+   0.414452,
+   0.42365,
+   0.432848,
+   0.442046,
+   0.451244,
+   0.460442,
+   0.46964,
+   0.478838,
+   0.488036,
+   0.497234,
+   0.506432,
+   0.51563,
+   0.524828,
+   0.534026,
+   0.543224,
+   0.552422,
+   0.56162,
+   0.570818,
+   0.580015,
+   0.589213,
+   0.598411,
+   0.607609,
+   0.616807,
+   0.626005,
+   0.635203,
+   0.644401,
+   0.653599,
+   0.662797,
+   0.671995,
+   0.681193,
+   0.690391,
+   0.699589,
+   0.708787,
+   0.717985,
+   0.727183,
+   0.736381,
+   0.745579,
+   0.754777,
+   0.763975,
+   0.773173
+  ],
+  "y": [
+   0.000336,
+   0.000354,
+   0.000373,
+   0.000393,
+   0.000413,
+   0.000435,
+   0.000459,
+   0.000483,
+   0.000509,
+   0.000536,
+   0.000564,
+   0.000594,
+   0.000626,
+   0.000659,
+   0.000694,
+   0.000731,
+   0.00077,
+   0.000811,
+   0.000854,
+   0.000899,
+   0.000947,
+   0.000997,
+   0.00105,
+   0.001106,
+   0.001164,
+   0.001226,
+   0.001291,
+   0.00136,
+   0.001432,
+   0.001508,
+   0.001588,
+   0.001673,
+   0.001761,
+   0.001855,
+   0.001953,
+   0.002057,
+   0.002166,
+   0.002281,
+   0.002402,
+   0.002529,
+   0.002664,
+   0.002805,
+   0.002954,
+   0.00311,
+   0.003275,
+   0.003448,
+   0.003631,
+   0.003824,
+   0.004026,
+   0.004239,
+   0.004464,
+   0.0047,
+   0.004949,
+   0.00521,
+   0.005486,
+   0.005776,
+   0.006081,
+   0.006402,
+   0.00674,
+   0.007096,
+   0.007471,
+   0.007865,
+   0.00828,
+   0.008716,
+   0.009175,
+   0.009659,
+   0.010167,
+   0.010702,
+   0.011264,
+   0.011856,
+   0.012479,
+   0.013134,
+   0.013822,
+   0.014547,
+   0.015308,
+   0.016109,
+   0.016951,
+   0.017837,
+   0.018767,
+   0.019745,
+   0.020774,
+   0.021854,
+   0.022989,
+   0.024182,
+   0.025435,
+   0.026752,
+   0.028134,
+   0.029586,
+   0.03111,
+   0.03271,
+   0.03439,
+   0.036152,
+   0.038002,
+   0.039942,
+   0.041976,
+   0.04411,
+   0.046347,
+   0.048691,
+   0.051148,
+   0.053721,
+   0.056417,
+   0.059239,
+   0.062193,
+   0.065284,
+   0.068518,
+   0.071899,
+   0.075434,
+   0.079128,
+   0.082986,
+   0.087015,
+   0.09122,
+   0.095606,
+   0.100181,
+   0.104949,
+   0.109916,
+   0.115088,
+   0.12047,
+   0.126068,
+   0.131888,
+   0.137934,
+   0.14421,
+   0.150723,
+   0.157475,
+   0.164471,
+   0.171715,
+   0.17921,
+   0.186957,
+   0.19496,
+   0.20322,
+   0.211738,
+   0.220514,
+   0.229548,
+   0.238839,
+   0.248385,
+   0.258182,
+   0.268228,
+   0.278519,
+   0.289048,
+   0.299809,
+   0.310797,
+   0.322001,
+   0.333415,
+   0.345027,
+   0.356827,
+   0.368803,
+   0.380943,
+   0.393234,
+   0.405661,
+   0.418211,
+   0.430867,
+   0.443614,
+   0.456436,
+   0.469316,
+   0.482237,
+   0.495181,
+   0.508133,
+   0.521073,
+   0.533985,
+   0.546852,
+   0.559656,
+   0.572381,
+   0.585012,
+   0.597532,
+   0.609925,
+   0.622179,
+   0.634278,
+   0.646211,
+   0.657963,
+   0.669525,
+   0.680886,
+   0.692036,
+   0.702966,
+   0.713669,
+   0.724138,
+   0.734366,
+   0.744349,
+   0.754082,
+   0.763563,
+   0.772788,
+   0.781756,
+   0.790466,
+   0.798918,
+   0.807112,
+   0.81505,
+   0.822732,
+   0.830162,
+   0.837343,
+   0.844276,
+   0.850967,
+   0.857418,
+   0.863635,
+   0.869623,
+   0.875385,
+   0.880928,
+   0.886256,
+   0.891375,
+   0.89629,
+   0.901008,
+   0.905534,
+   0.909874,
+   0.914033
+  ]
+ },
+ "tier_cutoffs": {
+  "moderate": 0.192708,
+  "high": 0.356261
+ },
+ "fit_window_tiers": [
+  {
+   "tier": "Low",
+   "share_of_weeks": 0.7299,
+   "bloom_rate": 0.0973,
+   "share_of_bloom_weeks": 0.4026,
+   "share_of_normal_weeks": 0.8
+  },
+  {
+   "tier": "Moderate",
+   "share_of_weeks": 0.1576,
+   "bloom_rate": 0.2161,
+   "share_of_bloom_weeks": 0.193,
+   "share_of_normal_weeks": 0.15
+  },
+  {
+   "tier": "High",
+   "share_of_weeks": 0.1125,
+   "bloom_rate": 0.634,
+   "share_of_bloom_weeks": 0.4044,
+   "share_of_normal_weeks": 0.05
+  }
+ ],
+ "baseline": [
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 1,
+   "baseline": 0.7471759915351868
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 2,
+   "baseline": 0.7604619860649109
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 3,
+   "baseline": 0.7022680044174194
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 4,
+   "baseline": 0.6734219789505005
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 5,
+   "baseline": 0.6292020082473755
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 6,
+   "baseline": 0.7626169919967651
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 7,
+   "baseline": 0.8954579830169678
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 8,
+   "baseline": 1.0640259981155396
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 9,
+   "baseline": 1.0078929662704468
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 10,
+   "baseline": 0.9148740172386169
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 11,
+   "baseline": 0.829662024974823
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 12,
+   "baseline": 0.7959849834442139
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 1,
+   "baseline": 0.8158239722251892
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 2,
+   "baseline": 0.7956010103225708
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 3,
+   "baseline": 0.7864149808883667
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 4,
+   "baseline": 0.7720289826393127
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 5,
+   "baseline": 0.7859349846839905
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 6,
+   "baseline": 0.8187509775161743
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 7,
+   "baseline": 0.9763780236244202
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 8,
+   "baseline": 1.0951639413833618
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 9,
+   "baseline": 1.0218499898910522
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 10,
+   "baseline": 0.9350360035896301
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 11,
+   "baseline": 0.9044259786605835
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 12,
+   "baseline": 0.8646249771118164
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 1,
+   "baseline": 1.0562599897384644
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 2,
+   "baseline": 1.0514580011367798
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 3,
+   "baseline": 1.0162960290908813
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 4,
+   "baseline": 1.0046969652175903
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 5,
+   "baseline": 1.034646987915039
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 6,
+   "baseline": 1.0853099822998047
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 7,
+   "baseline": 1.1574889421463013
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 8,
+   "baseline": 1.338582992553711
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 9,
+   "baseline": 1.2950140237808228
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 10,
+   "baseline": 1.2153249979019165
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 11,
+   "baseline": 1.1694550514221191
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 12,
+   "baseline": 1.1181080341339111
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 1,
+   "baseline": 0.7063630223274231
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 2,
+   "baseline": 0.7199379801750183
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 3,
+   "baseline": 0.6685619950294495
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 4,
+   "baseline": 0.6634160280227661
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 5,
+   "baseline": 0.648190975189209
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 6,
+   "baseline": 0.7620289921760559
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 7,
+   "baseline": 0.8432329893112183
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 8,
+   "baseline": 1.0603220462799072
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 9,
+   "baseline": 0.9811609983444214
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 10,
+   "baseline": 0.9133419990539551
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 11,
+   "baseline": 0.8112279772758484
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 12,
+   "baseline": 0.7590150237083435
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 1,
+   "baseline": 0.5320169925689697
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 2,
+   "baseline": 0.5369259715080261
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 3,
+   "baseline": 0.6767330169677734
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 4,
+   "baseline": 0.7433519959449768
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 5,
+   "baseline": 0.9579929709434509
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 6,
+   "baseline": 0.8909810185432434
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 7,
+   "baseline": 1.1065590381622314
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 8,
+   "baseline": 0.7849509716033936
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 9,
+   "baseline": 0.6677979826927185
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 10,
+   "baseline": 0.644025981426239
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 11,
+   "baseline": 0.6586750149726868
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 12,
+   "baseline": 0.6020370125770569
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 1,
+   "baseline": 1.0716209411621094
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 2,
+   "baseline": 1.1297340393066406
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 3,
+   "baseline": 0.9013310074806213
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 4,
+   "baseline": 1.0599850416183472
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 5,
+   "baseline": 1.054535984992981
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 6,
+   "baseline": 1.0964360237121582
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 7,
+   "baseline": 1.1324069499969482
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 8,
+   "baseline": 1.024245023727417
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 9,
+   "baseline": 1.023818016052246
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 10,
+   "baseline": 1.0393699407577515
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 11,
+   "baseline": 1.007606029510498
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 12,
+   "baseline": 1.080767035484314
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 1,
+   "baseline": 1.1176170110702515
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 2,
+   "baseline": 1.108597993850708
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 3,
+   "baseline": 0.9854769706726074
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 4,
+   "baseline": 1.0820640325546265
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 5,
+   "baseline": 1.0608890056610107
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 6,
+   "baseline": 1.1158779859542847
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 7,
+   "baseline": 1.1283210515975952
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 8,
+   "baseline": 1.0965659618377686
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 9,
+   "baseline": 1.0821540355682373
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 10,
+   "baseline": 1.1325149536132812
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 11,
+   "baseline": 1.0957059860229492
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 12,
+   "baseline": 1.0617419481277466
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 1,
+   "baseline": 1.0808900594711304
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 2,
+   "baseline": 1.0722769498825073
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 3,
+   "baseline": 0.9697859883308411
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 4,
+   "baseline": 1.070844054222107
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 5,
+   "baseline": 1.038187026977539
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 6,
+   "baseline": 1.0880910158157349
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 7,
+   "baseline": 1.0890480279922485
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 8,
+   "baseline": 1.0762640237808228
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 9,
+   "baseline": 1.0699379444122314
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 10,
+   "baseline": 1.1104730367660522
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 11,
+   "baseline": 1.1167080402374268
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 12,
+   "baseline": 1.0615170001983643
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 1,
+   "baseline": 1.0888619422912598
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 2,
+   "baseline": 1.0320930480957031
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 3,
+   "baseline": 1.085042953491211
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 4,
+   "baseline": 1.1307669878005981
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 5,
+   "baseline": 1.1642760038375854
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 6,
+   "baseline": 1.269963026046753
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 7,
+   "baseline": 1.3316539525985718
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 8,
+   "baseline": 1.2842899560928345
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 9,
+   "baseline": 1.1949479579925537
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 10,
+   "baseline": 1.1725109815597534
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 11,
+   "baseline": 1.1007330417633057
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 12,
+   "baseline": 1.0778850317001343
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 1,
+   "baseline": 1.1273020505905151
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 2,
+   "baseline": 1.0479960441589355
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 3,
+   "baseline": 1.1143180131912231
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 4,
+   "baseline": 1.1679739952087402
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 5,
+   "baseline": 1.2289780378341675
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 6,
+   "baseline": 1.3456239700317383
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 7,
+   "baseline": 1.3525309562683105
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 8,
+   "baseline": 1.2913390398025513
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 9,
+   "baseline": 1.238558053970337
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 10,
+   "baseline": 1.169471025466919
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 11,
+   "baseline": 1.1248739957809448
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 12,
+   "baseline": 1.0999189615249634
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 1,
+   "baseline": 1.1392170190811157
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 2,
+   "baseline": 1.0021270513534546
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 3,
+   "baseline": 1.0220179557800293
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 4,
+   "baseline": 1.0186419486999512
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 5,
+   "baseline": 1.065261960029602
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 6,
+   "baseline": 1.274839997291565
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 7,
+   "baseline": 1.3163650035858154
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 8,
+   "baseline": 1.3688950538635254
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 9,
+   "baseline": 1.3823729753494263
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 10,
+   "baseline": 1.2944040298461914
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 11,
+   "baseline": 1.154502034187317
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 12,
+   "baseline": 1.1050900220870972
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 1,
+   "baseline": 1.2139780521392822
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 2,
+   "baseline": 1.12801194190979
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 3,
+   "baseline": 1.1181230545043945
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 4,
+   "baseline": 1.0797749757766724
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 5,
+   "baseline": 1.1913789510726929
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 6,
+   "baseline": 1.4200869798660278
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 7,
+   "baseline": 1.412235975265503
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 8,
+   "baseline": 1.3858269453048706
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 9,
+   "baseline": 1.4030489921569824
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 10,
+   "baseline": 1.3226419687271118
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 11,
+   "baseline": 1.2951970100402832
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 12,
+   "baseline": 1.1835370063781738
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 1,
+   "baseline": 0.9151909947395325
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 2,
+   "baseline": 0.8346459865570068
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 3,
+   "baseline": 0.8066110014915466
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 4,
+   "baseline": 0.7925959825515747
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 5,
+   "baseline": 0.8642399907112122
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 6,
+   "baseline": 0.9725069999694824
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 7,
+   "baseline": 1.036726951599121
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 8,
+   "baseline": 0.9512919783592224
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 9,
+   "baseline": 0.8929510116577148
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 10,
+   "baseline": 0.878063976764679
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 11,
+   "baseline": 1.0058549642562866
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 12,
+   "baseline": 0.8750960230827332
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 1,
+   "baseline": 0.5947870016098022
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 2,
+   "baseline": 0.5910090208053589
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 3,
+   "baseline": 0.5210109949111938
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 4,
+   "baseline": 0.523626983165741
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 5,
+   "baseline": 0.7086610198020935
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 6,
+   "baseline": 0.9599720239639282
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 7,
+   "baseline": 1.0562189817428589
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 8,
+   "baseline": 0.94828200340271
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 9,
+   "baseline": 0.8052719831466675
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 10,
+   "baseline": 0.7133100032806396
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 11,
+   "baseline": 0.7174370288848877
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 12,
+   "baseline": 0.6361470222473145
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 1,
+   "baseline": 0.4555889964103699
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 2,
+   "baseline": 0.5316470265388489
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 3,
+   "baseline": 0.4915179908275604
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 4,
+   "baseline": 0.5442559719085693
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 5,
+   "baseline": 0.629921019077301
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 6,
+   "baseline": 0.8535490036010742
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 7,
+   "baseline": 1.013645052909851
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 8,
+   "baseline": 0.763903021812439
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 9,
+   "baseline": 0.6387420296669006
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 10,
+   "baseline": 0.5346140265464783
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 11,
+   "baseline": 0.47700899839401245
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 12,
+   "baseline": 0.45093101263046265
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 1,
+   "baseline": 0.5479940176010132
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 2,
+   "baseline": 0.5130100250244141
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 3,
+   "baseline": 0.6776509881019592
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 4,
+   "baseline": 0.7585480213165283
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 5,
+   "baseline": 0.9291560053825378
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 6,
+   "baseline": 0.9827809929847717
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 7,
+   "baseline": 1.1482319831848145
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 8,
+   "baseline": 0.7644190192222595
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 9,
+   "baseline": 0.6310160160064697
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 10,
+   "baseline": 0.6622989773750305
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 11,
+   "baseline": 0.6579269766807556
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 12,
+   "baseline": 0.6264749765396118
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 1,
+   "baseline": 0.7060779929161072
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 2,
+   "baseline": 0.7823470234870911
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 3,
+   "baseline": 0.7882350087165833
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 4,
+   "baseline": 0.8205509781837463
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 5,
+   "baseline": 0.9158920049667358
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 7,
+   "baseline": 1.2470799684524536
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 8,
+   "baseline": 0.9513260126113892
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 9,
+   "baseline": 0.833603024482727
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 10,
+   "baseline": 0.7963749766349792
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 11,
+   "baseline": 0.8250430226325989
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 12,
+   "baseline": 0.8233649730682373
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 1,
+   "baseline": 0.5268920063972473
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 2,
+   "baseline": 0.6082810163497925
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 3,
+   "baseline": 0.5650169849395752
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 4,
+   "baseline": 0.5901380181312561
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 5,
+   "baseline": 0.6257569789886475
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 6,
+   "baseline": 0.7752119898796082
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 7,
+   "baseline": 0.9652450084686279
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 8,
+   "baseline": 0.7470830082893372
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 9,
+   "baseline": 0.6996269822120667
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 10,
+   "baseline": 0.5623800158500671
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 11,
+   "baseline": 0.5506100058555603
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 12,
+   "baseline": 0.5340740084648132
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 1,
+   "baseline": 0.7950189709663391
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 2,
+   "baseline": 0.7538059949874878
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 3,
+   "baseline": 0.859470009803772
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 4,
+   "baseline": 0.8347079753875732
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 5,
+   "baseline": 0.9267860054969788
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 6,
+   "baseline": 0.9304010272026062
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 7,
+   "baseline": 0.8776689767837524
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 8,
+   "baseline": 0.8990690112113953
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 9,
+   "baseline": 0.8602020144462585
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 10,
+   "baseline": 0.9264820218086243
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 11,
+   "baseline": 0.9587060213088989
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 12,
+   "baseline": 0.9186639785766602
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 1,
+   "baseline": 0.7492650151252747
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 2,
+   "baseline": 0.7351300120353699
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 3,
+   "baseline": 0.7891489863395691
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 4,
+   "baseline": 0.7401580214500427
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 5,
+   "baseline": 0.9247900247573853
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 6,
+   "baseline": 0.820779025554657
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 7,
+   "baseline": 0.8193699717521667
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 8,
+   "baseline": 0.8427119851112366
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 9,
+   "baseline": 0.79960697889328
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 10,
+   "baseline": 0.8306059837341309
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 11,
+   "baseline": 0.8328269720077515
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 12,
+   "baseline": 0.8977670073509216
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 1,
+   "baseline": 0.6264550089836121
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 2,
+   "baseline": 0.6187559962272644
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 3,
+   "baseline": 0.7585999965667725
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 4,
+   "baseline": 0.7209159731864929
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 5,
+   "baseline": 0.8846390247344971
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 6,
+   "baseline": 0.8593720197677612
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 7,
+   "baseline": 0.9598749876022339
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 8,
+   "baseline": 0.7944499850273132
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 9,
+   "baseline": 0.773639976978302
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 10,
+   "baseline": 0.7621390223503113
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 11,
+   "baseline": 0.8199560046195984
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 12,
+   "baseline": 0.7919999957084656
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 1,
+   "baseline": 0.35583698749542236
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 2,
+   "baseline": 0.18898999691009521
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 3,
+   "baseline": 0.21299399435520172
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 4,
+   "baseline": 0.34845998883247375
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 5,
+   "baseline": 0.40970200300216675
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 6,
+   "baseline": 0.4954249858856201
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 7,
+   "baseline": 0.7687849998474121
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 8,
+   "baseline": 0.43778300285339355
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 9,
+   "baseline": 0.41634300351142883
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 10,
+   "baseline": 0.39737799763679504
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 11,
+   "baseline": 0.4055449962615967
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 12,
+   "baseline": 0.3784340023994446
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 1,
+   "baseline": 0.175246000289917
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 2,
+   "baseline": 0.11023599654436111
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 3,
+   "baseline": 0.15302099287509918
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 4,
+   "baseline": 0.32527899742126465
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 5,
+   "baseline": 0.338126003742218
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 6,
+   "baseline": 0.4933910071849823
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 7,
+   "baseline": 0.7010669708251953
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 8,
+   "baseline": 0.4975700080394745
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 9,
+   "baseline": 0.4238870143890381
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 10,
+   "baseline": 0.3224470019340515
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 11,
+   "baseline": 0.3099519908428192
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 12,
+   "baseline": 0.33739298582077026
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 1,
+   "baseline": 0.9742730259895325
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 2,
+   "baseline": 0.944769024848938
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 3,
+   "baseline": 0.8530229926109314
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 4,
+   "baseline": 0.9146760106086731
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 5,
+   "baseline": 0.9420310258865356
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 6,
+   "baseline": 1.0550650358200073
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 7,
+   "baseline": 1.1592439413070679
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 8,
+   "baseline": 0.9172300100326538
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 9,
+   "baseline": 0.9010050296783447
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 10,
+   "baseline": 0.9141780138015747
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 11,
+   "baseline": 0.9749950170516968
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 12,
+   "baseline": 1.0353080034255981
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 1,
+   "baseline": 0.83399498462677
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 2,
+   "baseline": 0.8186489939689636
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 3,
+   "baseline": 0.7324140071868896
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 4,
+   "baseline": 0.8201130032539368
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 5,
+   "baseline": 0.8165000081062317
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 6,
+   "baseline": 0.9341700077056885
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 7,
+   "baseline": 1.0851999521255493
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 8,
+   "baseline": 0.8121740221977234
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 9,
+   "baseline": 0.7872939705848694
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 10,
+   "baseline": 0.8118910193443298
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 11,
+   "baseline": 0.8493859767913818
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 12,
+   "baseline": 0.8947489857673645
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 1,
+   "baseline": 0.988756000995636
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 2,
+   "baseline": 1.0290089845657349
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 3,
+   "baseline": 1.0078500509262085
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 4,
+   "baseline": 1.0579129457473755
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 5,
+   "baseline": 1.1695300340652466
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 6,
+   "baseline": 1.371093988418579
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 7,
+   "baseline": 1.1730010509490967
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 8,
+   "baseline": 0.9586380124092102
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 9,
+   "baseline": 1.0676820278167725
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 10,
+   "baseline": 1.0584139823913574
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 11,
+   "baseline": 1.0844500064849854
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 12,
+   "baseline": 1.0504549741744995
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 1,
+   "baseline": 1.002213954925537
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 2,
+   "baseline": 0.9933919906616211
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 3,
+   "baseline": 0.9848309755325317
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 4,
+   "baseline": 1.0502599477767944
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 5,
+   "baseline": 1.1460800170898438
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 6,
+   "baseline": 1.2881380319595337
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 7,
+   "baseline": 1.387397050857544
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 8,
+   "baseline": 1.2208609580993652
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 9,
+   "baseline": 1.0921759605407715
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 10,
+   "baseline": 1.1225659847259521
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 11,
+   "baseline": 1.1477030515670776
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 12,
+   "baseline": 1.0474189519882202
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 1,
+   "baseline": 1.0157910585403442
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 2,
+   "baseline": 1.0212409496307373
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 3,
+   "baseline": 0.9943709969520569
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 4,
+   "baseline": 1.0558079481124878
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 5,
+   "baseline": 1.1755880117416382
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 6,
+   "baseline": 1.30001699924469
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 7,
+   "baseline": 1.3804810047149658
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 8,
+   "baseline": 1.2539160251617432
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 9,
+   "baseline": 1.1195939779281616
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 10,
+   "baseline": 1.1358330249786377
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 11,
+   "baseline": 1.1515369415283203
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 12,
+   "baseline": 1.068444013595581
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 1,
+   "baseline": 0.6424720287322998
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 2,
+   "baseline": 0.6499980092048645
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 3,
+   "baseline": 0.5812450051307678
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 4,
+   "baseline": 0.5827879905700684
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 5,
+   "baseline": 0.7236660122871399
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 6,
+   "baseline": 0.7826330065727234
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 7,
+   "baseline": 1.026097059249878
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 8,
+   "baseline": 0.9011039733886719
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 9,
+   "baseline": 0.7931889891624451
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 10,
+   "baseline": 0.7156109809875488
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 11,
+   "baseline": 0.6958680152893066
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 12,
+   "baseline": 0.6381959915161133
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 1,
+   "baseline": 0.7719330191612244
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 2,
+   "baseline": 0.7321360111236572
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 3,
+   "baseline": 0.721671998500824
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 4,
+   "baseline": 0.7077010273933411
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 5,
+   "baseline": 0.7858570218086243
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 6,
+   "baseline": 1.0028200149536133
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 7,
+   "baseline": 0.9713870286941528
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 8,
+   "baseline": 0.9391760230064392
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 9,
+   "baseline": 0.8316860198974609
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 10,
+   "baseline": 0.7972909808158875
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 11,
+   "baseline": 0.8300269842147827
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 12,
+   "baseline": 0.7778199911117554
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 1,
+   "baseline": 0.3707920014858246
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 2,
+   "baseline": 0.2881639897823334
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 3,
+   "baseline": 0.3066039979457855
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 4,
+   "baseline": 0.37998899817466736
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 5,
+   "baseline": 0.39367198944091797
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 6,
+   "baseline": 0.4120520055294037
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 7,
+   "baseline": 0.49932199716567993
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 8,
+   "baseline": 0.47913599014282227
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 9,
+   "baseline": 0.6892459988594055
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 10,
+   "baseline": 0.4799720048904419
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 11,
+   "baseline": 0.4353010058403015
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 12,
+   "baseline": 0.5292819738388062
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 4,
+   "baseline": 0.8308249711990356
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 5,
+   "baseline": 0.9704099893569946
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 6,
+   "baseline": 1.083961009979248
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 7,
+   "baseline": 1.0245850086212158
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 8,
+   "baseline": 0.9291750192642212
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 9,
+   "baseline": 0.9343730211257935
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 11,
+   "baseline": 1.0522340536117554
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 1,
+   "baseline": 0.6708089709281921
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 2,
+   "baseline": 0.6320549845695496
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 3,
+   "baseline": 0.663703978061676
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 4,
+   "baseline": 0.8602849841117859
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 5,
+   "baseline": 0.8549849987030029
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 6,
+   "baseline": 0.8886640071868896
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 7,
+   "baseline": 0.8713099956512451
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 8,
+   "baseline": 0.7717379927635193
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 9,
+   "baseline": 0.7052429914474487
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 10,
+   "baseline": 0.7136240005493164
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 11,
+   "baseline": 0.7031829953193665
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 12,
+   "baseline": 0.7077280282974243
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 1,
+   "baseline": 0.5693619847297668
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 2,
+   "baseline": 0.57504802942276
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 3,
+   "baseline": 0.7244089841842651
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 4,
+   "baseline": 0.8045539855957031
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 5,
+   "baseline": 1.0911409854888916
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 6,
+   "baseline": 1.087857961654663
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 7,
+   "baseline": 1.1417510509490967
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 8,
+   "baseline": 0.7808079719543457
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 9,
+   "baseline": 0.8031499981880188
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 10,
+   "baseline": 0.8074569702148438
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 11,
+   "baseline": 0.8341289758682251
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 12,
+   "baseline": 0.7431139945983887
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 1,
+   "baseline": 0.9756100177764893
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 2,
+   "baseline": 0.955689013004303
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 3,
+   "baseline": 0.913595974445343
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 4,
+   "baseline": 0.8789740204811096
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 5,
+   "baseline": 0.9242950081825256
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 6,
+   "baseline": 1.0803500413894653
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 7,
+   "baseline": 1.0460220575332642
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 8,
+   "baseline": 1.190750002861023
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 9,
+   "baseline": 1.289046049118042
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 10,
+   "baseline": 1.103276014328003
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 11,
+   "baseline": 1.0775439739227295
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 12,
+   "baseline": 0.9806050062179565
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 1,
+   "baseline": 0.9789829850196838
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 2,
+   "baseline": 0.9838870167732239
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 3,
+   "baseline": 0.9288759827613831
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 4,
+   "baseline": 0.884876012802124
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 5,
+   "baseline": 0.9972969889640808
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 6,
+   "baseline": 1.1473909616470337
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 7,
+   "baseline": 1.0708659887313843
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 8,
+   "baseline": 1.1961849927902222
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 9,
+   "baseline": 1.258857011795044
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 10,
+   "baseline": 1.118109941482544
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 11,
+   "baseline": 1.097108006477356
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 12,
+   "baseline": 1.0127569437026978
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 1,
+   "baseline": 0.9170129895210266
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 2,
+   "baseline": 0.8203960061073303
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 3,
+   "baseline": 0.77149498462677
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 4,
+   "baseline": 0.8237900137901306
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 5,
+   "baseline": 0.873678982257843
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 6,
+   "baseline": 0.9793329834938049
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 7,
+   "baseline": 1.0026739835739136
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 8,
+   "baseline": 0.869005024433136
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 9,
+   "baseline": 0.7945600152015686
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 10,
+   "baseline": 0.8031859993934631
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 11,
+   "baseline": 0.7869150042533875
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 12,
+   "baseline": 0.8482540249824524
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 1,
+   "baseline": 0.801563024520874
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 2,
+   "baseline": 0.6954969763755798
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 3,
+   "baseline": 0.6937000155448914
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 4,
+   "baseline": 0.7226660251617432
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 5,
+   "baseline": 0.7527279853820801
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 6,
+   "baseline": 0.7817969918251038
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 7,
+   "baseline": 0.8021150231361389
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 8,
+   "baseline": 0.7248589992523193
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 9,
+   "baseline": 0.7066460251808167
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 10,
+   "baseline": 0.7199400067329407
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 11,
+   "baseline": 0.692870020866394
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 12,
+   "baseline": 0.7661259770393372
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 1,
+   "baseline": 0.8818899989128113
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 2,
+   "baseline": 0.8031920194625854
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 3,
+   "baseline": 0.7717350125312805
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 4,
+   "baseline": 0.8237540125846863
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 5,
+   "baseline": 0.8497300148010254
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 6,
+   "baseline": 0.9446679949760437
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 7,
+   "baseline": 0.9636780023574829
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 8,
+   "baseline": 0.8532440066337585
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 9,
+   "baseline": 0.8120189905166626
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 10,
+   "baseline": 0.8048279881477356
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 11,
+   "baseline": 0.7772830128669739
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 12,
+   "baseline": 0.8514310121536255
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 1,
+   "baseline": 0.908581018447876
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 2,
+   "baseline": 0.8036239743232727
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 3,
+   "baseline": 0.761148989200592
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 4,
+   "baseline": 0.8175070285797119
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 5,
+   "baseline": 0.8676999807357788
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 6,
+   "baseline": 0.9800300002098083
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 7,
+   "baseline": 1.0258229970932007
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 8,
+   "baseline": 0.857463002204895
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 9,
+   "baseline": 0.7757220268249512
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 10,
+   "baseline": 0.7794010043144226
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 11,
+   "baseline": 0.7559059858322144
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 12,
+   "baseline": 0.8265010118484497
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 1,
+   "baseline": 0.9518110156059265
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 2,
+   "baseline": 0.7741109728813171
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 3,
+   "baseline": 0.7746930122375488
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 4,
+   "baseline": 0.8093850016593933
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 5,
+   "baseline": 0.9039530158042908
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 6,
+   "baseline": 0.9914739727973938
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 7,
+   "baseline": 1.0690300464630127
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 8,
+   "baseline": 0.8806899785995483
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 9,
+   "baseline": 0.7985759973526001
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 10,
+   "baseline": 0.8540359735488892
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 11,
+   "baseline": 0.8017780184745789
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 12,
+   "baseline": 0.8548359870910645
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 1,
+   "baseline": 0.9449099898338318
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 2,
+   "baseline": 0.7850260138511658
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 3,
+   "baseline": 0.7536770105361938
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 4,
+   "baseline": 0.8143280148506165
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 5,
+   "baseline": 0.8808979988098145
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 6,
+   "baseline": 0.9528290033340454
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 7,
+   "baseline": 1.025589942932129
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 8,
+   "baseline": 0.8661090135574341
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 9,
+   "baseline": 0.7772660255432129
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 10,
+   "baseline": 0.787447988986969
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 11,
+   "baseline": 0.7733200192451477
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 12,
+   "baseline": 0.8222770094871521
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 1,
+   "baseline": 0.8916059732437134
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 2,
+   "baseline": 0.8031499981880188
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 3,
+   "baseline": 0.7717159986495972
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 4,
+   "baseline": 0.8210359811782837
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 5,
+   "baseline": 0.84859699010849
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 6,
+   "baseline": 0.9921259880065918
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 7,
+   "baseline": 1.0201170444488525
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 8,
+   "baseline": 0.8824740052223206
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 9,
+   "baseline": 0.7716670036315918
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 10,
+   "baseline": 0.7785109877586365
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 11,
+   "baseline": 0.7552949786186218
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 12,
+   "baseline": 0.8366349935531616
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 1,
+   "baseline": 0.8847309947013855
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 2,
+   "baseline": 0.7924649715423584
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 3,
+   "baseline": 0.7783089876174927
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 4,
+   "baseline": 0.8186630010604858
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 5,
+   "baseline": 0.8620799779891968
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 6,
+   "baseline": 1.013329029083252
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 7,
+   "baseline": 1.0422519445419312
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 8,
+   "baseline": 0.865103006362915
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 9,
+   "baseline": 0.7782099843025208
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 10,
+   "baseline": 0.7878190279006958
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 11,
+   "baseline": 0.7632899880409241
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 12,
+   "baseline": 0.8284299969673157
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 1,
+   "baseline": 0.9097499847412109
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 2,
+   "baseline": 0.8217359781265259
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 3,
+   "baseline": 0.7907630205154419
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 4,
+   "baseline": 0.8144069910049438
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 5,
+   "baseline": 0.8660200238227844
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 6,
+   "baseline": 1.0096009969711304
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 7,
+   "baseline": 1.0111900568008423
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 8,
+   "baseline": 0.8842689990997314
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 9,
+   "baseline": 0.800491988658905
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 10,
+   "baseline": 0.8050850033760071
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 11,
+   "baseline": 0.7869179844856262
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 12,
+   "baseline": 0.8673639893531799
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 1,
+   "baseline": 0.864575982093811
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 2,
+   "baseline": 0.8688730001449585
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 3,
+   "baseline": 0.8025680184364319
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 4,
+   "baseline": 0.7844030261039734
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 5,
+   "baseline": 0.7784019708633423
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 6,
+   "baseline": 0.8192939758300781
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 7,
+   "baseline": 0.8092259764671326
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 8,
+   "baseline": 0.8236269950866699
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 9,
+   "baseline": 0.850426971912384
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 10,
+   "baseline": 0.8739150166511536
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 11,
+   "baseline": 0.8976380228996277
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 12,
+   "baseline": 0.9606299996376038
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 1,
+   "baseline": 0.981266975402832
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 2,
+   "baseline": 0.9880480170249939
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 3,
+   "baseline": 0.9405050277709961
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 4,
+   "baseline": 0.913902997970581
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 5,
+   "baseline": 1.0481549501419067
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 6,
+   "baseline": 1.1048239469528198
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 7,
+   "baseline": 1.144765019416809
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 8,
+   "baseline": 1.1348119974136353
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 9,
+   "baseline": 1.0638879537582397
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 10,
+   "baseline": 1.054582953453064
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 11,
+   "baseline": 1.0466820001602173
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 12,
+   "baseline": 1.0293339490890503
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 1,
+   "baseline": 0.6649979948997498
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 2,
+   "baseline": 0.6181240081787109
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 3,
+   "baseline": 0.6366119980812073
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 4,
+   "baseline": 0.6902959942817688
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 5,
+   "baseline": 0.9287359714508057
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 6,
+   "baseline": 1.042477011680603
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 7,
+   "baseline": 1.0849579572677612
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 8,
+   "baseline": 1.0810960531234741
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 9,
+   "baseline": 0.9808430075645447
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 10,
+   "baseline": 0.9007710218429565
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 11,
+   "baseline": 0.8956320285797119
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 12,
+   "baseline": 0.6772950291633606
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 1,
+   "baseline": 0.9747080206871033
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 2,
+   "baseline": 0.9523810148239136
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 3,
+   "baseline": 0.9365929961204529
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 4,
+   "baseline": 0.9556810259819031
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 5,
+   "baseline": 1.0522639751434326
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 6,
+   "baseline": 1.2884379625320435
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 7,
+   "baseline": 1.2821379899978638
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 8,
+   "baseline": 1.1171900033950806
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 9,
+   "baseline": 0.9915149807929993
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 10,
+   "baseline": 1.0523699522018433
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 11,
+   "baseline": 1.0856339931488037
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 12,
+   "baseline": 0.9929819703102112
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 1,
+   "baseline": 0.9868720173835754
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 2,
+   "baseline": 0.979203999042511
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 3,
+   "baseline": 0.9479089975357056
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 4,
+   "baseline": 0.9783989787101746
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 5,
+   "baseline": 1.0867340564727783
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 6,
+   "baseline": 1.2731399536132812
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 7,
+   "baseline": 1.296651005744934
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 8,
+   "baseline": 1.1148589849472046
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 9,
+   "baseline": 1.007743000984192
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 10,
+   "baseline": 1.0704779624938965
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 11,
+   "baseline": 1.118109941482544
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 12,
+   "baseline": 1.018880009651184
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 1,
+   "baseline": 0.991989016532898
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 2,
+   "baseline": 0.9825950264930725
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 3,
+   "baseline": 0.9642559885978699
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 4,
+   "baseline": 0.9855369925498962
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 5,
+   "baseline": 1.097864031791687
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 6,
+   "baseline": 1.2877650260925293
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 7,
+   "baseline": 1.2862399816513062
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 8,
+   "baseline": 1.1417629718780518
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 9,
+   "baseline": 1.023895025253296
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 10,
+   "baseline": 1.064728021621704
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 11,
+   "baseline": 1.1111119985580444
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 12,
+   "baseline": 1.0205700397491455
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 1,
+   "baseline": 0.5060409903526306
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 2,
+   "baseline": 0.5654690265655518
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 3,
+   "baseline": 0.5979089736938477
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 4,
+   "baseline": 0.7586100101470947
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 5,
+   "baseline": 0.9495919942855835
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 6,
+   "baseline": 1.1747980117797852
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 7,
+   "baseline": 0.979640007019043
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 8,
+   "baseline": 0.9544360041618347
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 9,
+   "baseline": 0.7285439968109131
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 10,
+   "baseline": 0.6812779903411865
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 11,
+   "baseline": 0.7187179923057556
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 12,
+   "baseline": 0.6352270245552063
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 1,
+   "baseline": 1.0236170291900635
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 2,
+   "baseline": 1.0368889570236206
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 3,
+   "baseline": 1.0118869543075562
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 4,
+   "baseline": 0.9940009713172913
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 5,
+   "baseline": 1.0723520517349243
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 6,
+   "baseline": 1.273408055305481
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 7,
+   "baseline": 1.3518439531326294
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 8,
+   "baseline": 1.170740008354187
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 9,
+   "baseline": 1.0909730195999146
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 10,
+   "baseline": 1.062701940536499
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 11,
+   "baseline": 1.0419429540634155
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 12,
+   "baseline": 1.0500520467758179
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 1,
+   "baseline": 0.6652969717979431
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 2,
+   "baseline": 0.6778380274772644
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 3,
+   "baseline": 0.6709610223770142
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 4,
+   "baseline": 0.7120090126991272
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 5,
+   "baseline": 0.6926029920578003
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 6,
+   "baseline": 1.076158046722412
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 7,
+   "baseline": 1.013301968574524
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 8,
+   "baseline": 0.8153719902038574
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 9,
+   "baseline": 0.7439780235290527
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 10,
+   "baseline": 0.7640389800071716
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 11,
+   "baseline": 0.6458500027656555
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 12,
+   "baseline": 0.731132984161377
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 1,
+   "baseline": 0.6369519829750061
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 2,
+   "baseline": 0.5941489934921265
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 3,
+   "baseline": 0.6908450126647949
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 4,
+   "baseline": 0.6854259967803955
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 5,
+   "baseline": 0.5574749708175659
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 6,
+   "baseline": 0.6551889777183533
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 7,
+   "baseline": 0.7739359736442566
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 8,
+   "baseline": 0.6619679927825928
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 9,
+   "baseline": 0.7311670184135437
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 10,
+   "baseline": 0.7704979777336121
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 11,
+   "baseline": 0.7868540287017822
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 12,
+   "baseline": 0.741782009601593
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 1,
+   "baseline": 0.7385249733924866
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 2,
+   "baseline": 0.7312560081481934
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 3,
+   "baseline": 0.7311959862709045
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 4,
+   "baseline": 0.753445029258728
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 5,
+   "baseline": 0.9101489782333374
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 6,
+   "baseline": 0.9849560260772705
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 7,
+   "baseline": 0.9860079884529114
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 8,
+   "baseline": 0.7932850122451782
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 9,
+   "baseline": 0.7522779703140259
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 10,
+   "baseline": 0.7910720109939575
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 11,
+   "baseline": 0.815887987613678
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 12,
+   "baseline": 0.7517560124397278
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 1,
+   "baseline": 0.5940070152282715
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 2,
+   "baseline": 0.5851340293884277
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 3,
+   "baseline": 0.6242579817771912
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 4,
+   "baseline": 0.6428859829902649
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 5,
+   "baseline": 0.6965979933738708
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 6,
+   "baseline": 0.8354939818382263
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 7,
+   "baseline": 0.7759770154953003
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 8,
+   "baseline": 0.6913800239562988
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 9,
+   "baseline": 0.629796028137207
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 10,
+   "baseline": 0.6702719926834106
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 11,
+   "baseline": 0.6962059736251831
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 12,
+   "baseline": 0.6537439823150635
+  }
+ ],
+ "climatology_fallback": [
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 1,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 2,
+   "clim_rate": 0.105769
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 3,
+   "clim_rate": 0.104839
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 4,
+   "clim_rate": 0.083333
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 5,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 6,
+   "clim_rate": 0.092593
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 7,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 8,
+   "clim_rate": 0.106061
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 9,
+   "clim_rate": 0.077586
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 10,
+   "clim_rate": 0.102804
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 11,
+   "clim_rate": 0.108434
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 12,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 1,
+   "clim_rate": 0.098901
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 2,
+   "clim_rate": 0.108434
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 3,
+   "clim_rate": 0.081395
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 4,
+   "clim_rate": 0.09375
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 5,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 6,
+   "clim_rate": 0.084507
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 7,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 8,
+   "clim_rate": 0.096
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 9,
+   "clim_rate": 0.054945
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 10,
+   "clim_rate": 0.094118
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 11,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 12,
+   "clim_rate": 0.091743
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 1,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 2,
+   "clim_rate": 0.037736
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 3,
+   "clim_rate": 0.064516
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 4,
+   "clim_rate": 0.125
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 5,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 6,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 7,
+   "clim_rate": 0.098039
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 8,
+   "clim_rate": 0.101695
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 9,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 10,
+   "clim_rate": 0.108696
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 11,
+   "clim_rate": 0.108108
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 12,
+   "clim_rate": 0.107143
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 1,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 2,
+   "clim_rate": 0.101852
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 3,
+   "clim_rate": 0.101562
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 4,
+   "clim_rate": 0.097087
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 5,
+   "clim_rate": 0.096
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 6,
+   "clim_rate": 0.096491
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 7,
+   "clim_rate": 0.106195
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 8,
+   "clim_rate": 0.104938
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 9,
+   "clim_rate": 0.099237
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 10,
+   "clim_rate": 0.101852
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 11,
+   "clim_rate": 0.091837
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 12,
+   "clim_rate": 0.104839
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 1,
+   "clim_rate": 0.104348
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 2,
+   "clim_rate": 0.089109
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 3,
+   "clim_rate": 0.087838
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 4,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 5,
+   "clim_rate": 0.09901
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 6,
+   "clim_rate": 0.101449
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 7,
+   "clim_rate": 0.100719
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 8,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 9,
+   "clim_rate": 0.101562
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 10,
+   "clim_rate": 0.092308
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 11,
+   "clim_rate": 0.104348
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 12,
+   "clim_rate": 0.090278
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 1,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 2,
+   "clim_rate": 0.101124
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 3,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 4,
+   "clim_rate": 0.098684
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 5,
+   "clim_rate": 0.099379
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 6,
+   "clim_rate": 0.085938
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 7,
+   "clim_rate": 0.099379
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 8,
+   "clim_rate": 0.098266
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 9,
+   "clim_rate": 0.101796
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 10,
+   "clim_rate": 0.080537
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 11,
+   "clim_rate": 0.10219
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 12,
+   "clim_rate": 0.100671
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 1,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 2,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 3,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 4,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 5,
+   "clim_rate": 0.09375
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 6,
+   "clim_rate": 0.104478
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 7,
+   "clim_rate": 0.104046
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 8,
+   "clim_rate": 0.102273
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 9,
+   "clim_rate": 0.092486
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 10,
+   "clim_rate": 0.103226
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 11,
+   "clim_rate": 0.097015
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 12,
+   "clim_rate": 0.103226
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 1,
+   "clim_rate": 0.101266
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 2,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 3,
+   "clim_rate": 0.093333
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 4,
+   "clim_rate": 0.104575
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 5,
+   "clim_rate": 0.101796
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 6,
+   "clim_rate": 0.076389
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 7,
+   "clim_rate": 0.092896
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 8,
+   "clim_rate": 0.085714
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 9,
+   "clim_rate": 0.102273
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 10,
+   "clim_rate": 0.104294
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 11,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 12,
+   "clim_rate": 0.103226
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 1,
+   "clim_rate": 0.092593
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 2,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 3,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 4,
+   "clim_rate": 0.095238
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 5,
+   "clim_rate": 0.092105
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 6,
+   "clim_rate": 0.102041
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 7,
+   "clim_rate": 0.10101
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 8,
+   "clim_rate": 0.095652
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 9,
+   "clim_rate": 0.092437
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 10,
+   "clim_rate": 0.095652
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 11,
+   "clim_rate": 0.108696
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 12,
+   "clim_rate": 0.106195
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 1,
+   "clim_rate": 0.092593
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 2,
+   "clim_rate": 0.108696
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 3,
+   "clim_rate": 0.103175
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 4,
+   "clim_rate": 0.104762
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 5,
+   "clim_rate": 0.093333
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 6,
+   "clim_rate": 0.103093
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 7,
+   "clim_rate": 0.086022
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 8,
+   "clim_rate": 0.104348
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 9,
+   "clim_rate": 0.106195
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 10,
+   "clim_rate": 0.098214
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 11,
+   "clim_rate": 0.104651
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 12,
+   "clim_rate": 0.107143
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 1,
+   "clim_rate": 0.08547
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 2,
+   "clim_rate": 0.10101
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 3,
+   "clim_rate": 0.096491
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 4,
+   "clim_rate": 0.109756
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 5,
+   "clim_rate": 0.104762
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 6,
+   "clim_rate": 0.087379
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 7,
+   "clim_rate": 0.106557
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 8,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 9,
+   "clim_rate": 0.084112
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 10,
+   "clim_rate": 0.107143
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 11,
+   "clim_rate": 0.101124
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 12,
+   "clim_rate": 0.087379
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 1,
+   "clim_rate": 0.086957
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 2,
+   "clim_rate": 0.088889
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 3,
+   "clim_rate": 0.106796
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 4,
+   "clim_rate": 0.072727
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 5,
+   "clim_rate": 0.106667
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 6,
+   "clim_rate": 0.089286
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 7,
+   "clim_rate": 0.048193
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 8,
+   "clim_rate": 0.0625
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 9,
+   "clim_rate": 0.080808
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 10,
+   "clim_rate": 0.088608
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 11,
+   "clim_rate": 0.089552
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 12,
+   "clim_rate": 0.088608
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 1,
+   "clim_rate": 0.086207
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 2,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 3,
+   "clim_rate": 0.087302
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 4,
+   "clim_rate": 0.099291
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 5,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 6,
+   "clim_rate": 0.104839
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 7,
+   "clim_rate": 0.102041
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 8,
+   "clim_rate": 0.084507
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 9,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 10,
+   "clim_rate": 0.093333
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 11,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 12,
+   "clim_rate": 0.106557
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 1,
+   "clim_rate": 0.100719
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 2,
+   "clim_rate": 0.086207
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 3,
+   "clim_rate": 0.105634
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 4,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 5,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 6,
+   "clim_rate": 0.104575
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 7,
+   "clim_rate": 0.104651
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 8,
+   "clim_rate": 0.10241
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 9,
+   "clim_rate": 0.090361
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 10,
+   "clim_rate": 0.101124
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 11,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 12,
+   "clim_rate": 0.104294
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 1,
+   "clim_rate": 0.095588
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 2,
+   "clim_rate": 0.084906
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 3,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 4,
+   "clim_rate": 0.101266
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 5,
+   "clim_rate": 0.099379
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 6,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 7,
+   "clim_rate": 0.103226
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 8,
+   "clim_rate": 0.086957
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 9,
+   "clim_rate": 0.103659
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 10,
+   "clim_rate": 0.104651
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 11,
+   "clim_rate": 0.103704
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 12,
+   "clim_rate": 0.104938
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 1,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 2,
+   "clim_rate": 0.107527
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 3,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 4,
+   "clim_rate": 0.100775
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 5,
+   "clim_rate": 0.09901
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 6,
+   "clim_rate": 0.094891
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 7,
+   "clim_rate": 0.092199
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 8,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 9,
+   "clim_rate": 0.099237
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 10,
+   "clim_rate": 0.104
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 11,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 12,
+   "clim_rate": 0.086614
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 1,
+   "clim_rate": 0.0875
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 2,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 3,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 4,
+   "clim_rate": 0.092784
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 5,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 6,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 7,
+   "clim_rate": 0.086957
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 8,
+   "clim_rate": 0.097826
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 9,
+   "clim_rate": 0.09009
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 10,
+   "clim_rate": 0.088496
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 11,
+   "clim_rate": 0.083333
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 12,
+   "clim_rate": 0.107527
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 1,
+   "clim_rate": 0.097744
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 2,
+   "clim_rate": 0.097561
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 3,
+   "clim_rate": 0.101449
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 4,
+   "clim_rate": 0.100671
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 5,
+   "clim_rate": 0.098684
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 6,
+   "clim_rate": 0.102041
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 7,
+   "clim_rate": 0.097403
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 8,
+   "clim_rate": 0.104575
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 9,
+   "clim_rate": 0.094937
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 10,
+   "clim_rate": 0.090278
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 11,
+   "clim_rate": 0.105691
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 12,
+   "clim_rate": 0.093525
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 1,
+   "clim_rate": 0.10219
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 2,
+   "clim_rate": 0.10101
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 3,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 4,
+   "clim_rate": 0.096491
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 5,
+   "clim_rate": 0.086957
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 6,
+   "clim_rate": 0.105634
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 7,
+   "clim_rate": 0.106061
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 8,
+   "clim_rate": 0.082192
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 9,
+   "clim_rate": 0.094891
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 10,
+   "clim_rate": 0.103704
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 11,
+   "clim_rate": 0.086614
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 12,
+   "clim_rate": 0.106061
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 1,
+   "clim_rate": 0.103704
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 2,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 3,
+   "clim_rate": 0.089172
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 4,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 5,
+   "clim_rate": 0.087719
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 6,
+   "clim_rate": 0.100719
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 7,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 8,
+   "clim_rate": 0.072464
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 9,
+   "clim_rate": 0.097902
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 10,
+   "clim_rate": 0.09375
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 11,
+   "clim_rate": 0.082645
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 12,
+   "clim_rate": 0.103175
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 1,
+   "clim_rate": 0.096386
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 2,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 3,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 4,
+   "clim_rate": 0.104478
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 5,
+   "clim_rate": 0.10219
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 6,
+   "clim_rate": 0.098684
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 7,
+   "clim_rate": 0.094118
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 8,
+   "clim_rate": 0.095808
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 9,
+   "clim_rate": 0.103896
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 10,
+   "clim_rate": 0.104575
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 11,
+   "clim_rate": 0.096552
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 12,
+   "clim_rate": 0.104938
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 1,
+   "clim_rate": 0.100592
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 2,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 3,
+   "clim_rate": 0.075472
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 4,
+   "clim_rate": 0.10303
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 5,
+   "clim_rate": 0.099476
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 6,
+   "clim_rate": 0.10303
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 7,
+   "clim_rate": 0.100503
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 8,
+   "clim_rate": 0.099476
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 9,
+   "clim_rate": 0.088889
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 10,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 11,
+   "clim_rate": 0.101695
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 12,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 1,
+   "clim_rate": 0.102857
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 2,
+   "clim_rate": 0.10219
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 3,
+   "clim_rate": 0.081871
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 4,
+   "clim_rate": 0.104651
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 5,
+   "clim_rate": 0.101942
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 6,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 7,
+   "clim_rate": 0.10101
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 8,
+   "clim_rate": 0.101064
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 9,
+   "clim_rate": 0.102041
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 10,
+   "clim_rate": 0.103261
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 11,
+   "clim_rate": 0.094972
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 12,
+   "clim_rate": 0.097436
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 1,
+   "clim_rate": 0.098485
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 2,
+   "clim_rate": 0.101124
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 3,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 4,
+   "clim_rate": 0.084416
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 5,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 6,
+   "clim_rate": 0.104839
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 7,
+   "clim_rate": 0.095506
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 8,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 9,
+   "clim_rate": 0.094595
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 10,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 11,
+   "clim_rate": 0.09375
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 12,
+   "clim_rate": 0.103175
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 1,
+   "clim_rate": 0.104895
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 2,
+   "clim_rate": 0.106383
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 3,
+   "clim_rate": 0.09375
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 4,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 5,
+   "clim_rate": 0.10241
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 6,
+   "clim_rate": 0.099237
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 7,
+   "clim_rate": 0.103261
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 8,
+   "clim_rate": 0.10241
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 9,
+   "clim_rate": 0.096774
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 10,
+   "clim_rate": 0.099338
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 11,
+   "clim_rate": 0.099291
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 12,
+   "clim_rate": 0.080537
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 1,
+   "clim_rate": 0.113208
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 2,
+   "clim_rate": 0.06383
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 3,
+   "clim_rate": 0.098592
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 4,
+   "clim_rate": 0.016393
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 5,
+   "clim_rate": 0.034483
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 6,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 7,
+   "clim_rate": 0.076923
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 8,
+   "clim_rate": 0.112903
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 9,
+   "clim_rate": 0.066667
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 10,
+   "clim_rate": 0.03125
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 11,
+   "clim_rate": 0.076923
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 12,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 1,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 2,
+   "clim_rate": 0.104762
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 3,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 4,
+   "clim_rate": 0.103226
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 5,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 6,
+   "clim_rate": 0.100671
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 7,
+   "clim_rate": 0.086486
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 8,
+   "clim_rate": 0.10241
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 9,
+   "clim_rate": 0.100592
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 10,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 11,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 12,
+   "clim_rate": 0.08642
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 1,
+   "clim_rate": 0.08642
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 2,
+   "clim_rate": 0.104762
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 3,
+   "clim_rate": 0.098592
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 4,
+   "clim_rate": 0.078431
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 5,
+   "clim_rate": 0.099415
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 6,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 7,
+   "clim_rate": 0.088398
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 8,
+   "clim_rate": 0.101796
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 9,
+   "clim_rate": 0.104651
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 10,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 11,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 12,
+   "clim_rate": 0.086957
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 1,
+   "clim_rate": 0.100671
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 2,
+   "clim_rate": 0.103774
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 3,
+   "clim_rate": 0.096154
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 4,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 5,
+   "clim_rate": 0.104651
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 6,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 7,
+   "clim_rate": 0.093168
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 8,
+   "clim_rate": 0.098684
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 9,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 10,
+   "clim_rate": 0.101064
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 11,
+   "clim_rate": 0.092715
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 12,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 1,
+   "clim_rate": 0.109589
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 2,
+   "clim_rate": 0.08
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 3,
+   "clim_rate": 0.084211
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 4,
+   "clim_rate": 0.092784
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 5,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 6,
+   "clim_rate": 0.0625
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 7,
+   "clim_rate": 0.047059
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 8,
+   "clim_rate": 0.051948
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 9,
+   "clim_rate": 0.100917
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 10,
+   "clim_rate": 0.112903
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 11,
+   "clim_rate": 0.068966
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 12,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 1,
+   "clim_rate": 0.087912
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 2,
+   "clim_rate": 0.082192
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 3,
+   "clim_rate": 0.104348
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 4,
+   "clim_rate": 0.10219
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 5,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 6,
+   "clim_rate": 0.094891
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 7,
+   "clim_rate": 0.104046
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 8,
+   "clim_rate": 0.104938
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 9,
+   "clim_rate": 0.09396
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 10,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 11,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 12,
+   "clim_rate": 0.103896
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 3,
+   "clim_rate": 0.5
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 4,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 5,
+   "clim_rate": 0.045455
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 6,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 7,
+   "clim_rate": 0.130435
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 8,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 9,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 11,
+   "clim_rate": 0.0
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 1,
+   "clim_rate": 0.104348
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 2,
+   "clim_rate": 0.107527
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 3,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 4,
+   "clim_rate": 0.074074
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 5,
+   "clim_rate": 0.092105
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 6,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 7,
+   "clim_rate": 0.091954
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 8,
+   "clim_rate": 0.106061
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 9,
+   "clim_rate": 0.094737
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 10,
+   "clim_rate": 0.092857
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 11,
+   "clim_rate": 0.108696
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 12,
+   "clim_rate": 0.101695
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 1,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 2,
+   "clim_rate": 0.098039
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 3,
+   "clim_rate": 0.085526
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 4,
+   "clim_rate": 0.095238
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 5,
+   "clim_rate": 0.099174
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 6,
+   "clim_rate": 0.094488
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 7,
+   "clim_rate": 0.07874
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 8,
+   "clim_rate": 0.072993
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 9,
+   "clim_rate": 0.092715
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 10,
+   "clim_rate": 0.093023
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 11,
+   "clim_rate": 0.099174
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 12,
+   "clim_rate": 0.091603
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 1,
+   "clim_rate": 0.099174
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 2,
+   "clim_rate": 0.103774
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 3,
+   "clim_rate": 0.087302
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 4,
+   "clim_rate": 0.103093
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 5,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 6,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 7,
+   "clim_rate": 0.09375
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 8,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 9,
+   "clim_rate": 0.096491
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 10,
+   "clim_rate": 0.096154
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 11,
+   "clim_rate": 0.098901
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 12,
+   "clim_rate": 0.099174
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 1,
+   "clim_rate": 0.098361
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 2,
+   "clim_rate": 0.104348
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 3,
+   "clim_rate": 0.068702
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 4,
+   "clim_rate": 0.095238
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 5,
+   "clim_rate": 0.081967
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 6,
+   "clim_rate": 0.107527
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 7,
+   "clim_rate": 0.107843
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 8,
+   "clim_rate": 0.103704
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 9,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 10,
+   "clim_rate": 0.09434
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 11,
+   "clim_rate": 0.066667
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 12,
+   "clim_rate": 0.096
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 1,
+   "clim_rate": 0.09589
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 2,
+   "clim_rate": 0.101124
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 3,
+   "clim_rate": 0.082645
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 4,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 5,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 6,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 7,
+   "clim_rate": 0.093923
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 8,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 9,
+   "clim_rate": 0.096591
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 10,
+   "clim_rate": 0.104575
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 11,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 12,
+   "clim_rate": 0.104651
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 1,
+   "clim_rate": 0.098684
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 2,
+   "clim_rate": 0.106383
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 3,
+   "clim_rate": 0.091603
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 4,
+   "clim_rate": 0.095808
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 5,
+   "clim_rate": 0.096447
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 6,
+   "clim_rate": 0.10303
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 7,
+   "clim_rate": 0.100503
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 8,
+   "clim_rate": 0.101604
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 9,
+   "clim_rate": 0.101124
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 10,
+   "clim_rate": 0.10241
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 11,
+   "clim_rate": 0.098361
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 12,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 1,
+   "clim_rate": 0.093525
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 2,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 3,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 4,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 5,
+   "clim_rate": 0.103093
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 6,
+   "clim_rate": 0.099338
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 7,
+   "clim_rate": 0.102151
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 8,
+   "clim_rate": 0.094675
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 9,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 10,
+   "clim_rate": 0.103896
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 11,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 12,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 1,
+   "clim_rate": 0.098592
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 2,
+   "clim_rate": 0.108434
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 3,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 4,
+   "clim_rate": 0.096154
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 5,
+   "clim_rate": 0.100529
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 6,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 7,
+   "clim_rate": 0.099448
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 8,
+   "clim_rate": 0.10303
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 9,
+   "clim_rate": 0.085714
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 10,
+   "clim_rate": 0.100671
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 11,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 12,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 1,
+   "clim_rate": 0.075
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 2,
+   "clim_rate": 0.08
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 3,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 4,
+   "clim_rate": 0.104575
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 5,
+   "clim_rate": 0.102703
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 6,
+   "clim_rate": 0.106061
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 7,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 8,
+   "clim_rate": 0.100671
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 9,
+   "clim_rate": 0.098039
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 10,
+   "clim_rate": 0.093525
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 11,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 12,
+   "clim_rate": 0.104895
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 1,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 2,
+   "clim_rate": 0.108434
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 3,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 4,
+   "clim_rate": 0.096154
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 5,
+   "clim_rate": 0.100529
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 6,
+   "clim_rate": 0.099291
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 7,
+   "clim_rate": 0.100559
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 8,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 9,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 10,
+   "clim_rate": 0.087248
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 11,
+   "clim_rate": 0.097403
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 12,
+   "clim_rate": 0.10241
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 1,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 2,
+   "clim_rate": 0.101266
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 3,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 4,
+   "clim_rate": 0.103896
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 5,
+   "clim_rate": 0.094737
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 6,
+   "clim_rate": 0.093333
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 7,
+   "clim_rate": 0.099448
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 8,
+   "clim_rate": 0.10303
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 9,
+   "clim_rate": 0.092486
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 10,
+   "clim_rate": 0.09396
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 11,
+   "clim_rate": 0.089655
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 12,
+   "clim_rate": 0.103659
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 1,
+   "clim_rate": 0.104478
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 2,
+   "clim_rate": 0.098765
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 3,
+   "clim_rate": 0.092437
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 4,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 5,
+   "clim_rate": 0.100529
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 6,
+   "clim_rate": 0.105634
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 7,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 8,
+   "clim_rate": 0.099379
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 9,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 10,
+   "clim_rate": 0.088435
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 11,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 12,
+   "clim_rate": 0.09375
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 1,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 2,
+   "clim_rate": 0.098765
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 3,
+   "clim_rate": 0.084034
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 4,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 5,
+   "clim_rate": 0.089947
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 6,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 7,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 8,
+   "clim_rate": 0.104294
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 9,
+   "clim_rate": 0.091954
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 10,
+   "clim_rate": 0.104895
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 11,
+   "clim_rate": 0.10219
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 12,
+   "clim_rate": 0.098684
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 1,
+   "clim_rate": 0.076923
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 2,
+   "clim_rate": 0.093333
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 3,
+   "clim_rate": 0.073394
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 4,
+   "clim_rate": 0.103226
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 5,
+   "clim_rate": 0.086486
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 6,
+   "clim_rate": 0.089552
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 7,
+   "clim_rate": 0.103659
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 8,
+   "clim_rate": 0.08589
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 9,
+   "clim_rate": 0.094203
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 10,
+   "clim_rate": 0.077586
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 11,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 12,
+   "clim_rate": 0.104348
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 1,
+   "clim_rate": 0.101562
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 2,
+   "clim_rate": 0.077778
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 3,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 4,
+   "clim_rate": 0.104895
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 5,
+   "clim_rate": 0.104895
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 6,
+   "clim_rate": 0.106557
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 7,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 8,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 9,
+   "clim_rate": 0.101266
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 10,
+   "clim_rate": 0.103704
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 11,
+   "clim_rate": 0.101695
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 12,
+   "clim_rate": 0.102362
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 1,
+   "clim_rate": 0.091549
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 2,
+   "clim_rate": 0.104762
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 3,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 4,
+   "clim_rate": 0.100671
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 5,
+   "clim_rate": 0.097403
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 6,
+   "clim_rate": 0.101351
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 7,
+   "clim_rate": 0.091549
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 8,
+   "clim_rate": 0.091463
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 9,
+   "clim_rate": 0.100629
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 10,
+   "clim_rate": 0.095541
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 11,
+   "clim_rate": 0.099291
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 12,
+   "clim_rate": 0.086331
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 1,
+   "clim_rate": 0.097222
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 2,
+   "clim_rate": 0.098901
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 3,
+   "clim_rate": 0.100719
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 4,
+   "clim_rate": 0.100719
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 5,
+   "clim_rate": 0.103659
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 6,
+   "clim_rate": 0.104895
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 7,
+   "clim_rate": 0.072848
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 8,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 9,
+   "clim_rate": 0.103226
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 10,
+   "clim_rate": 0.087591
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 11,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 12,
+   "clim_rate": 0.102362
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 1,
+   "clim_rate": 0.100719
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 2,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 3,
+   "clim_rate": 0.101449
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 4,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 5,
+   "clim_rate": 0.098266
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 6,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 7,
+   "clim_rate": 0.098684
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 8,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 9,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 10,
+   "clim_rate": 0.104895
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 11,
+   "clim_rate": 0.102362
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 12,
+   "clim_rate": 0.103175
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 1,
+   "clim_rate": 0.094203
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 2,
+   "clim_rate": 0.106383
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 3,
+   "clim_rate": 0.103448
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 4,
+   "clim_rate": 0.094891
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 5,
+   "clim_rate": 0.104046
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 6,
+   "clim_rate": 0.10274
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 7,
+   "clim_rate": 0.082803
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 8,
+   "clim_rate": 0.102041
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 9,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 10,
+   "clim_rate": 0.092199
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 11,
+   "clim_rate": 0.105691
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 12,
+   "clim_rate": 0.104839
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 1,
+   "clim_rate": 0.097561
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 2,
+   "clim_rate": 0.109589
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 3,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 4,
+   "clim_rate": 0.103093
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 5,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 6,
+   "clim_rate": 0.088235
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 7,
+   "clim_rate": 0.087912
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 8,
+   "clim_rate": 0.105769
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 9,
+   "clim_rate": 0.087912
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 10,
+   "clim_rate": 0.069307
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 11,
+   "clim_rate": 0.109375
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 12,
+   "clim_rate": 0.108696
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 1,
+   "clim_rate": 0.09589
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 2,
+   "clim_rate": 0.075472
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 3,
+   "clim_rate": 0.085714
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 4,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 5,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 6,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 7,
+   "clim_rate": 0.102273
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 8,
+   "clim_rate": 0.106061
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 9,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 10,
+   "clim_rate": 0.082192
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 11,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 12,
+   "clim_rate": 0.070796
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 1,
+   "clim_rate": 0.091837
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 2,
+   "clim_rate": 0.103896
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 3,
+   "clim_rate": 0.08
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 4,
+   "clim_rate": 0.098039
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 5,
+   "clim_rate": 0.101124
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 6,
+   "clim_rate": 0.101695
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 7,
+   "clim_rate": 0.081395
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 8,
+   "clim_rate": 0.087379
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 9,
+   "clim_rate": 0.061224
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 10,
+   "clim_rate": 0.0875
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 11,
+   "clim_rate": 0.088889
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 12,
+   "clim_rate": 0.061728
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 1,
+   "clim_rate": 0.101266
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 2,
+   "clim_rate": 0.10084
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 3,
+   "clim_rate": 0.100592
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 4,
+   "clim_rate": 0.103896
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 5,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 6,
+   "clim_rate": 0.104938
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 7,
+   "clim_rate": 0.10119
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 8,
+   "clim_rate": 0.101911
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 9,
+   "clim_rate": 0.1
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 10,
+   "clim_rate": 0.101796
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 11,
+   "clim_rate": 0.102941
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 12,
+   "clim_rate": 0.091463
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 1,
+   "clim_rate": 0.0875
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 2,
+   "clim_rate": 0.109589
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 3,
+   "clim_rate": 0.102564
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 4,
+   "clim_rate": 0.090909
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 5,
+   "clim_rate": 0.08982
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 6,
+   "clim_rate": 0.081818
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 7,
+   "clim_rate": 0.099338
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 8,
+   "clim_rate": 0.074074
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 9,
+   "clim_rate": 0.07971
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 10,
+   "clim_rate": 0.046512
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 11,
+   "clim_rate": 0.104762
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 12,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 1,
+   "clim_rate": 0.096154
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 2,
+   "clim_rate": 0.105263
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 3,
+   "clim_rate": 0.076336
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 4,
+   "clim_rate": 0.096296
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 5,
+   "clim_rate": 0.097143
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 6,
+   "clim_rate": 0.098361
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 7,
+   "clim_rate": 0.104938
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 8,
+   "clim_rate": 0.104167
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 9,
+   "clim_rate": 0.103896
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 10,
+   "clim_rate": 0.095652
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 11,
+   "clim_rate": 0.104839
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 12,
+   "clim_rate": 0.096
+  }
+ ]
+}

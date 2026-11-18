@@ -217,3 +217,18 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
 - **OLCI `flags` and `CHL_uncertainty` (version 202211):** `flags` has `flag_masks = 1`, `flag_meanings = "LAND"` (land only, no cloud flags), and `CHL_uncertainty` (%) has a median of 50% with an interquartile range of 49.5–50% over valid Tas pixels, so neither can filter cloud edges (checked from file attributes and values).
 - **Open-Meteo Previous Runs API** (https://open-meteo.com/en/docs/previous-runs-api; endpoint `https://previous-runs-api.open-meteo.com/v1/forecast`): variables take a `_previous_dayN` suffix (N = 0…7), and `start_date`/`end_date`, `models` and `cell_selection=sea` are accepted (verified by real requests). Coverage probed at (−42.75, 147.5) on four dates: `best_match` and `gfs_seamless` have data from 2024-02-01 onwards; `ecmwf_ifs025` has none on 2024-02-01 but has data from 2024-07-01; `bom_access_global` has data in 2024–2025 but none on 2026-01-01. The pricing page marks the Previous Runs API as available on the free tier. **Not used in the end**: the shipped forecast needs no weather (D013).
 - **MODIS-Aqua on AODN THREDDS:** see the IMOS section above.
+
+## Phase 4 verification notes (2026-11-18)
+
+- **OLCI 300 m NRT** `cmems_obs-oc_glo_bgc-plankton_nrt_l3-olci-300m_P1D`, version `202207`. The toolbox warns it retires on **2027-01-12T13:00Z**.
+  - On 2026-11-18 at 13:45 UTC, its time axis ran **2026-10-30 → 2026-11-16**.
+  - It matches the MY 202211 history over 1–7 Nov 2026 (median area ratio 1.000; D014).
+  - Used by `pipeline/forecast/inputs.py`.
+- **OSTIA NRT** `METOFFICE-GLO-SST-L4-NRT-OBS-SST-V2` (default version), variable `analysed_sst` (K).
+  - Newest day was 2026-11-17 on 2026-11-18.
+  - Same 0.05° grid as the reprocessed product; the daily job checks this on every run.
+- **OSTIA reprocessed** `METOFFICE-GLO-SST-L4-REP-OBS-SST`, version `202003`.
+  - Downloaded 1991–2020 for SA_BBOX (132–139°E, 36.5–32°S), about 264 MB uncompressed (dry run), with `pipeline/fetch/history_sst_map.py`.
+  - Tasmania reuses `history_ocean_tas/ostia_rep.nc`.
+- **Not used:** `cmems_mod_glo_phy_anfc_0.083deg-sst-anomaly_P1D-m` (variable `sea_surface_temperature_anomaly`, °C, source "MERCATOR GLO12"). Neither `copernicusmarine.describe` nor the file's global attributes give a reference period for the anomaly (D014).
+- **GitHub Actions:** the latest `actions/cache` release is **v6.1.0** (GitHub API, 2026-11-18). The workflow uses `@v6`.
