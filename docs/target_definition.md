@@ -1,6 +1,6 @@
 # Target definition
 
-**Status:** v1.1 (2026-11-18), Tasmania only. Implemented in `pipeline/features/target.py` and tested in `tests/test_target.py`. Parameters reviewed in the EDA (`notebooks/02_eda.ipynb`, decisions D011).
+**Status:** v1.2 (2026-11-18), Tasmania only. Implemented in `pipeline/features/target.py` and tested in `tests/test_target.py`. Reviewed in the EDA (`notebooks/02_eda.ipynb`) and Phase 3 (decisions D011 updates, D013): the forward window is now **weighted by each day's clear-sky fraction**.
 
 ## In one sentence
 
@@ -16,7 +16,7 @@ For harvest area *a* and issue date *t*, **y = 1** if the area's mean chlorophyl
 | 4. Log scale | `log_chl = log10(chl)` | Chlorophyll is roughly log-normal: 0.5→1 matters as much as 5→10 |
 | 5. Baseline | Median `log_chl` per area × calendar month over **2016-04 → 2022-12** (≥ 10 valid days, else missing) | Each area is compared with itself, which removes fixed biases such as tannin-stained estuaries reading "high" all year, and removes the normal seasonal cycle |
 | 6. Anomaly | `log_chl − baseline` | "How unusual is today for this place and season?" |
-| 7. Forward window | Mean anomaly over **t+1…t+7**, needing ≥ **2** valid days of the 7 | Matches the 7-day forecast horizon. Averaging smooths noisy single days. Day *t* itself is excluded. |
+| 7. Forward window | **Clear-sky-weighted** mean anomaly over **t+1…t+7** (weight = valid pixels / area pixels), needing ≥ **2** valid days of the 7 | Matches the 7-day forecast horizon. Averaging smooths noisy single days. Partly cloudy days are much noisier (cloud-edge pixels read ~29% high), so they count less without being thrown away (D011 updates, D013). Day *t* itself is excluded. |
 | 8. Threshold | **90th percentile** of the forward-window mean per area × issue month, from training issue dates whose whole window lies in training (t ≤ 2022-12-24) | About 10% positives: rare enough to mean "unusual", common enough to train on |
 | 9. Label | `y = 1` if window mean > threshold, `0` if not, **missing** if the window is too cloudy | A cloudy week is not a "no bloom" week. Calling it 0 would teach false negatives. |
 

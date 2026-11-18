@@ -165,6 +165,15 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - **The pre-stated rule (highest model lift with ≥25% labelled) selects px5.** That rule assumed the model would at least track label quality. It doesn't: the model's lift sits **below persistence** for almost every rule. That is true even with only chl and season features, and even with monotone constraints on the persistence features. So the model's lift measures a failure to generalise, not label quality.
 - **Main finding:** at this scale and lead time, **environmental drivers (weather, SST, ocean model, season) add no measurable skill beyond chl persistence**, and persistence itself is weak (lift ~1.3–1.5). Cleaner labels raise persistence skill but cost coverage. The decision on how to proceed goes to Timothy.
 
+## D012 — Phase 3 evaluation design (2026-11-18, approved by Timothy as plan points 1–5 and 4(a))
+
+1. **Splits with purge gaps:** fit ≤ 2021, tune 2022 (early stopping, hyperparameters), train = fit + tune, validate 2023 (calibration, tiers, method choice), test 2024+ (scored once). The last 7 issue dates before each boundary are dropped from the earlier period, because their labels use the next period's data (`pipeline/model/data.py`).
+2. **Baseline 3 = Copernicus BGC multi-year hindcast** (`cmems_mod_glo_bgc_my_0.25deg_P1D-m`, 202406), turned into an anomaly and thresholded exactly like our target, using its own t+1…t+7 values. The analysis-forecast dataset keeps no archive of issued forecasts (one `default` part), so no issued-forecast version is possible. This "perfect forecast" flatters the baseline. One model run gives both the training climatology and the test scores.
+3. **Issued-weather inputs for the test period:** GFS (`gfs_seamless`) via the Open-Meteo Previous Runs API, the only single model with archived forecasts covering all of 2024–2026 in our probe. *Superseded by D013* (the shipped forecast uses no weather, so this was never downloaded).
+4. **Region = Tasmanian sub-region** (north/north-west, east coast, south-east bays, D'Entrecasteaux/far south), from growing-area centroids, because SA has no harvest areas yet.
+5. **Metrics** per method and sub-region: PR-AUC, Brier score, reliability, and recall at a 10% false-alarm rate, with 95% intervals from a **week-block bootstrap** (rows within a week are strongly correlated, so resampling single rows would overstate certainty).
+6. **SA Karenia case study as a transfer test (option 4a):** 5 km circles around the SA NRS stations GSV, KAI and USG, using the Tasmanian-trained method unchanged, compared with *Karenia* counts. A KAI OLCI box was added because KAI (136.447°E) sat just outside the SA history boxes, and was downloaded before version 202211 retires on 2026-11-24.
+
 ## D013 — Ship calibrated chlorophyll persistence, not the boosted model (2026-11-18)
 
 **Context:** Phase 3 had to beat persistence, seasonal climatology and the BGC model forecast (brief §6). Timothy's rule: if the tests show the non-chlorophyll inputs don't add meaningful predictive help, use the method that makes the most sense (persistence).

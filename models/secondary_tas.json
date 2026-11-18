@@ -1,0 +1,1045 @@
+{
+ "areas_within_km": 40.0,
+ "areas": [
+  "tas:boomer_bay:narrows",
+  "tas:little_swanport:6a_b",
+  "tas:little_swanport:6c",
+  "tas:triabunna:zone_a",
+  "tas:triabunna:zone_b"
+ ],
+ "lookback_days": 7,
+ "summary": {
+  "all_events": {
+   "n_event_visits": 22,
+   "n_non_event_visits": 85,
+   "hit_rate_moderate_or_high": 0.6363636363636364,
+   "hit_rate_high": 0.36363636363636365,
+   "false_alarm_rate_moderate_or_high": 0.6352941176470588,
+   "false_alarm_rate_high": 0.3411764705882353,
+   "median_lead_days": 7.0,
+   "mean_p_event": 0.230838167882949,
+   "mean_p_non_event": 0.24079188236948693
+  },
+  "high_biomass_events": {
+   "n_event_visits": 11,
+   "n_non_event_visits": 85,
+   "hit_rate_moderate_or_high": 0.6363636363636364,
+   "hit_rate_high": 0.45454545454545453,
+   "false_alarm_rate_moderate_or_high": 0.6352941176470588,
+   "false_alarm_rate_high": 0.3411764705882353,
+   "median_lead_days": 6.0,
+   "mean_p_event": 0.23369996798628548,
+   "mean_p_non_event": 0.24079188236948693
+  }
+ },
+ "visits": [
+  {
+   "date": "2016-05-31",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.16322507139125347,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2016-07-01",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.40479474088331374,
+   "tier_max": "High",
+   "lead_days": 4.0
+  },
+  {
+   "date": "2016-07-21",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2233796526046369,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2016-08-31",
+   "taxa": [
+    "Pseudo-nitzschia"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.25125995627877357,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2016-09-27",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.13773040181850646,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2016-11-18",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.18908504558464276,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2017-01-05",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.13794954209174662,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2017-02-24",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.25802902854009124,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2017-03-24",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2017-04-12",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.18288019808060757,
+   "tier_max": "Moderate",
+   "lead_days": 3.0
+  },
+  {
+   "date": "2017-06-02",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.19045389964722717,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2017-06-27",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1675273447345448,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2017-08-01",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2470866500532769,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2017-09-22",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.16007005470681893,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2017-10-16",
+   "taxa": [
+    "Pseudo-nitzschia"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.14149871578205794,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2017-11-24",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.15740466612082296,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2017-12-18",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.21654127727585085,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2018-01-17",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.12566960317840623,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2018-03-02",
+   "taxa": [
+    "Pseudo-nitzschia"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2018-03-16",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2018-04-19",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1559879330335638,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2018-06-06",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.26640768544326193,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2018-06-28",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2795580427316793,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2018-07-12",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.3857285849100945,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2018-09-20",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.24247926685013438,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2018-10-19",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.11759181666169667,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2018-12-05",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.15397434469765486,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2019-01-07",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.27736963040291346,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2019-03-21",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2019-05-01",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1797508445548462,
+   "tier_max": "Moderate",
+   "lead_days": 5.0
+  },
+  {
+   "date": "2019-06-24",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1813341852274342,
+   "tier_max": "Moderate",
+   "lead_days": 3.0
+  },
+  {
+   "date": "2019-07-31",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1729604606833175,
+   "tier_max": "Moderate",
+   "lead_days": 1.0
+  },
+  {
+   "date": "2019-08-29",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1685273301217629,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2019-09-25",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1810940100005686,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2019-10-16",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.135104482291075,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2019-11-22",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.43279051898818555,
+   "tier_max": "High",
+   "lead_days": 2.0
+  },
+  {
+   "date": "2019-12-11",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.15356271898118468,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2020-01-07",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.14376035488161285,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2020-02-24",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.2761388225628597,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2020-05-26",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.18712886754340652,
+   "tier_max": "Moderate",
+   "lead_days": 6.0
+  },
+  {
+   "date": "2020-06-29",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.18239099378355858,
+   "tier_max": "Moderate",
+   "lead_days": 4.0
+  },
+  {
+   "date": "2020-08-10",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.15439130763141623,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2020-09-10",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.19615410324334262,
+   "tier_max": "Moderate",
+   "lead_days": 5.0
+  },
+  {
+   "date": "2020-09-29",
+   "taxa": [
+    "Pseudo-nitzschia"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.13785647892158032,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2020-10-21",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.21549481758313938,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2020-11-19",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1639817303547479,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2021-01-07",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.24517467204479515,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2021-02-16",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.235965010642307,
+   "tier_max": "High",
+   "lead_days": 5.0
+  },
+  {
+   "date": "2021-03-30",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2021-04-28",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1755901380174728,
+   "tier_max": "Moderate",
+   "lead_days": 2.0
+  },
+  {
+   "date": "2021-05-31",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.12360268924321074,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2021-06-25",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.4093567958296307,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2021-08-09",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1660827184856301,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2021-09-01",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.16390499819645749,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2021-09-16",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1959277616859658,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2021-11-01",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.217799112777604,
+   "tier_max": "Moderate",
+   "lead_days": 4.0
+  },
+  {
+   "date": "2021-11-17",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2129615031261587,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2021-12-15",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.25412088252614135,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-01-20",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.14169014285809034,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2022-03-11",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-03-28",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-05-10",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.15145213443887226,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2022-06-16",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.17323897939569555,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-07-04",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2234150307103073,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-08-26",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2615545874053858,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-09-20",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.17463426551706793,
+   "tier_max": "Moderate",
+   "lead_days": 6.0
+  },
+  {
+   "date": "2022-11-08",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.34715154146621574,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-11-24",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.3925091566841176,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2022-12-13",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2608900615889806,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2023-01-12",
+   "taxa": [
+    "Alexandrium",
+    "Karenia"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.15585408286675265,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2023-02-22",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1380656754576888,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2023-03-23",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2023-05-11",
+   "taxa": [
+    "Gymnodinium catenatum"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.15033564350901277,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2023-06-13",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.3551507897021731,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2023-08-11",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.21390713808158932,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2023-09-05",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.16704607617197964,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2023-10-19",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1490455962419991,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2023-11-20",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.1505070400789875,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2023-12-05",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.10416666666666667,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2024-03-01",
+   "taxa": [
+    "Gymnodinium catenatum"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.17433819890405872,
+   "tier_max": "Moderate",
+   "lead_days": 6.0
+  },
+  {
+   "date": "2024-03-28",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2024-04-22",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.13483302545219328,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2024-05-22",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.2240785923469672,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2024-07-04",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.13043478260869565,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2024-07-30",
+   "taxa": [
+    "Dinophysis"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.1607739530141569,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2024-09-10",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.19965942210474366,
+   "tier_max": "Moderate",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2024-09-27",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.18211427611099287,
+   "tier_max": "Moderate",
+   "lead_days": 6.0
+  },
+  {
+   "date": "2024-10-21",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.13711520176282957,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2024-11-22",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.20690709008115493,
+   "tier_max": "Moderate",
+   "lead_days": 5.0
+  },
+  {
+   "date": "2024-12-12",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.21474961396195552,
+   "tier_max": "Moderate",
+   "lead_days": 6.0
+  },
+  {
+   "date": "2025-01-20",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.222286931101672,
+   "tier_max": "Moderate",
+   "lead_days": 2.0
+  },
+  {
+   "date": "2025-02-27",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1344355449175085,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2025-03-28",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2025-04-17",
+   "taxa": [
+    "Gymnodinium catenatum"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.2509578401962664,
+   "tier_max": "High",
+   "lead_days": 6.0
+  },
+  {
+   "date": "2025-05-22",
+   "taxa": [
+    "Gymnodinium catenatum"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.17028916737768104,
+   "tier_max": "Moderate",
+   "lead_days": 4.0
+  },
+  {
+   "date": "2025-06-13",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.14560657294796997,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2025-08-01",
+   "taxa": [
+    "Gymnodinium catenatum"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.4050599582080985,
+   "tier_max": "High",
+   "lead_days": 2.0
+  },
+  {
+   "date": "2025-08-19",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.12905979779480053,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2025-09-30",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.1301769023216005,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2025-10-22",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.17651806194625638,
+   "tier_max": "Moderate",
+   "lead_days": 3.0
+  },
+  {
+   "date": "2025-11-20",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.17201505488363059,
+   "tier_max": "Moderate",
+   "lead_days": 2.0
+  },
+  {
+   "date": "2025-12-16",
+   "taxa": [
+    "Pseudo-nitzschia"
+   ],
+   "event": true,
+   "high_biomass": true,
+   "p_max": 0.23324960580485854,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2026-01-21",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.16322800440319726,
+   "tier_max": "Low",
+   "lead_days": NaN
+  },
+  {
+   "date": "2026-02-24",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.4231197673702285,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2026-03-23",
+   "taxa": [
+    "Alexandrium"
+   ],
+   "event": true,
+   "high_biomass": false,
+   "p_max": 0.5,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2026-04-20",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.45876812846759,
+   "tier_max": "High",
+   "lead_days": 7.0
+  },
+  {
+   "date": "2026-06-11",
+   "taxa": NaN,
+   "event": false,
+   "high_biomass": false,
+   "p_max": 0.45876812846759,
+   "tier_max": "High",
+   "lead_days": 7.0
+  }
+ ]
+}

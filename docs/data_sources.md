@@ -179,7 +179,7 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
 | Gap-free chl, NRT | `cmems_obs-oc_glo_bgc-plankton_nrt_l4-gapfree-multi-4km_P1D` (OCEANCOLOUR_GLO_BGC_L4_NRT_009_102, 10.48670/moi-00279) | `CHL` | ~4 km | 2026-11-04 → 2026-11-15 |
 | Gap-free chl, history | `cmems_obs-oc_glo_bgc-plankton_my_l4-gapfree-multi-4km_P1D` (OCEANCOLOUR_GLO_BGC_L4_MY_009_104, 10.48670/moi-00281) | `CHL` | ~4 km | 1997-09-04 → 2026-11-09 |
 | **Baseline 3 (modelled chl forecast)** | `cmems_mod_glo_bgc-pft_anfc_0.25deg_P1D-m` (GLOBAL_ANALYSISFORECAST_BGC_001_028, 10.48670/moi-00015) | `chl` (depth levels, top 0.494 m) | 0.25° | 2021-11-01 → **2026-11-26 (+9 days)** |
-| BGC hindcast (optional) | `cmems_mod_glo_bgc_my_0.25deg_P1D-m` (GLOBAL_MULTIYEAR_BGC_001_029, 10.48670/moi-00019) | `chl` | 0.25° | 1993-01-01 → 2026-09-30 |
+| **BGC hindcast (baseline 3, used)** | `cmems_mod_glo_bgc_my_0.25deg_P1D-m` (GLOBAL_MULTIYEAR_BGC_001_029, 10.48670/moi-00019), version 202406 | `chl` (variables chl, no3, nppv, o2, po4, si; top depth 0.506 m) | 0.25° | 1993-01-01 → 2026-09-30 (describe(), 2026-11-18). Fetched by `pipeline/fetch/history_bgc.py`. |
 | SST forecast | `cmems_mod_glo_phy-thetao_anfc_0.083deg_P1D-m` (GLOBAL_ANALYSISFORECAST_PHY_001_024, 10.48670/moi-00016) | `thetao` (top 0.494 m) | 1/12° | 2022-06-01 → 2026-11-26 |
 | Mixed-layer depth | `cmems_mod_glo_phy_anfc_0.083deg_P1D-m` (moi-00016) | `mlotst` | 1/12° | 2022-06-01 → 2026-11-26 |
 | Currents | `cmems_mod_glo_phy-cur_anfc_0.083deg_P1D-m` (moi-00016) | `uo`, `vo` | 1/12° | 2022-06-01 → 2026-11-26 |
@@ -209,3 +209,11 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
 - **Estuaries saturate:** weekly OLCI and VIIRS both show chl ≥ 10 mg m⁻³ across the Derwent, Huon and D'Entrecasteaux Channel (`docs/img/phase0_tas_zoom_300m_vs_1km.png`). That is probably partly coloured dissolved organic matter (tannins) and turbidity, not phytoplankton. Our anomaly-vs-own-climatology target partly absorbs this persistent bias, but we should note it as a limitation and consider the `flags` and `CHL_uncertainty` fields.
 - **The NRT archive is a rolling window** (~2–3 weeks). The daily pipeline must cache what it needs, and history must come from the MY product.
 - Baseline-3 history only starts **2021-11**, and physics forecasts only **2022-06**. That covers the validation (2023) and test (2024→) periods but not training before then. See D005.
+
+
+## Phase 3 verification notes (2026-11-18)
+
+- **BGC analysis-forecast has no archive of issued forecasts.** `copernicusmarine.describe` for `cmems_mod_glo_bgc-pft_anfc_0.25deg_P1D-m` (version 202311) shows a single `default` part: one best-estimate time series. So baseline 3 uses the multi-year hindcast as a "perfect forecast" (D012/D013).
+- **OLCI `flags` and `CHL_uncertainty` (version 202211):** `flags` has `flag_masks = 1`, `flag_meanings = "LAND"` (land only, no cloud flags), and `CHL_uncertainty` (%) has a median of 50% with an interquartile range of 49.5–50% over valid Tas pixels, so neither can filter cloud edges (checked from file attributes and values).
+- **Open-Meteo Previous Runs API** (https://open-meteo.com/en/docs/previous-runs-api; endpoint `https://previous-runs-api.open-meteo.com/v1/forecast`): variables take a `_previous_dayN` suffix (N = 0…7), and `start_date`/`end_date`, `models` and `cell_selection=sea` are accepted (verified by real requests). Coverage probed at (−42.75, 147.5) on four dates: `best_match` and `gfs_seamless` have data from 2024-02-01 onwards; `ecmwf_ifs025` has none on 2024-02-01 but has data from 2024-07-01; `bom_access_global` has data in 2024–2025 but none on 2026-01-01. The pricing page marks the Previous Runs API as available on the free tier. **Not used in the end**: the shipped forecast needs no weather (D013).
+- **MODIS-Aqua on AODN THREDDS:** see the IMOS section above.

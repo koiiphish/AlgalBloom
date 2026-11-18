@@ -1,0 +1,192 @@
+{
+ "radius_km": 5.0,
+ "lab_alert_cells_per_L": 500,
+ "karenia_group_level": 100000,
+ "stations": {
+  "sa:gsv": {
+   "test_rows_labelled": 1018,
+   "test_positive_rate": 0.2337917485265226,
+   "test_pr_auc_persistence": 0.7484594101807727,
+   "samples_2024_on": 6,
+   "karenia_samples_above_lab_alert": 2,
+   "hit_rate_moderate_or_high": 1.0,
+   "false_alarm_rate_moderate_or_high": 0.0,
+   "first_karenia_above_lab_alert": "2025-07-03",
+   "first_high_tier_2025_on": "2025-06-22",
+   "max_karenia": 113000.0
+  },
+  "sa:kai": {
+   "test_rows_labelled": 1009,
+   "test_positive_rate": 0.16551040634291378,
+   "test_pr_auc_persistence": 0.7990596667295473,
+   "samples_2024_on": 9,
+   "karenia_samples_above_lab_alert": 0,
+   "hit_rate_moderate_or_high": null,
+   "false_alarm_rate_moderate_or_high": 0.4444444444444444,
+   "first_karenia_above_lab_alert": null,
+   "first_high_tier_2025_on": "2026-01-21",
+   "max_karenia": 82.42
+  },
+  "sa:usg": {
+   "test_rows_labelled": 1039,
+   "test_positive_rate": 0.1289701636188643,
+   "test_pr_auc_persistence": 0.6330721837965522,
+   "samples_2024_on": 6,
+   "karenia_samples_above_lab_alert": 1,
+   "hit_rate_moderate_or_high": 1.0,
+   "false_alarm_rate_moderate_or_high": 0.0,
+   "first_karenia_above_lab_alert": "2025-12-02",
+   "first_high_tier_2025_on": "2025-12-29",
+   "max_karenia": 650.0
+  }
+ },
+ "visits": [
+  {
+   "area_id": "sa:kai",
+   "date": "2024-03-21",
+   "karenia": 0.0,
+   "p_max": 0.3730444406023081,
+   "tier_max": "High"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2024-05-23",
+   "karenia": 0.0,
+   "p_max": 0.1743795797589388,
+   "tier_max": "Moderate"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2024-09-24",
+   "karenia": 0.0,
+   "p_max": 0.20214274746225688,
+   "tier_max": "Moderate"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2024-11-19",
+   "karenia": 0.0,
+   "p_max": 0.08875302308169869,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2025-02-11",
+   "karenia": 0.0,
+   "p_max": 0.10615813495328534,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2025-05-20",
+   "karenia": 82.42,
+   "p_max": 0.11070093045185332,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2025-08-20",
+   "karenia": 0.0,
+   "p_max": 0.13024506247140258,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2025-10-28",
+   "karenia": 25.0,
+   "p_max": 0.11485776175497381,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:kai",
+   "date": "2026-03-03",
+   "karenia": 0.0,
+   "p_max": 0.38921289179107144,
+   "tier_max": "High"
+  },
+  {
+   "area_id": "sa:gsv",
+   "date": "2024-06-06",
+   "karenia": 0.0,
+   "p_max": 0.12695857018629247,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:gsv",
+   "date": "2024-10-08",
+   "karenia": 0.0,
+   "p_max": 0.1347521926501983,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:gsv",
+   "date": "2025-01-20",
+   "karenia": 0.0,
+   "p_max": 0.12742713530558794,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:gsv",
+   "date": "2025-05-01",
+   "karenia": 50.0,
+   "p_max": 0.1525453087920789,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:gsv",
+   "date": "2025-07-03",
+   "karenia": 113000.0,
+   "p_max": 0.45876812846759,
+   "tier_max": "High"
+  },
+  {
+   "area_id": "sa:gsv",
+   "date": "2025-10-17",
+   "karenia": 43800.0,
+   "p_max": 0.45876812846759,
+   "tier_max": "High"
+  },
+  {
+   "area_id": "sa:usg",
+   "date": "2024-05-07",
+   "karenia": 0.0,
+   "p_max": 0.13613633524584073,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:usg",
+   "date": "2024-08-13",
+   "karenia": 0.0,
+   "p_max": 0.12955275552521064,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:usg",
+   "date": "2025-03-12",
+   "karenia": 0.0,
+   "p_max": 0.11531568076116826,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:usg",
+   "date": "2025-05-08",
+   "karenia": 100.0,
+   "p_max": 0.1345843869517808,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:usg",
+   "date": "2025-09-08",
+   "karenia": 0.0,
+   "p_max": 0.1346771106529361,
+   "tier_max": "Low"
+  },
+  {
+   "area_id": "sa:usg",
+   "date": "2025-12-02",
+   "karenia": 650.0,
+   "p_max": 0.18857155688164232,
+   "tier_max": "Moderate"
+  }
+ ]
+}

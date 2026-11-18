@@ -97,6 +97,18 @@ def evaluate(df: pd.DataFrame, label: str = LABEL) -> dict:
         ),
         "by_region": {},
     }
+    # Per test year (reporting only: 2026 contains a prolonged event that inflates the pooled
+    # number; nothing is tuned on these results).
+    result["by_year"] = {}
+    for year, g in t.groupby(t["date"].dt.year):
+        gy = g[label].to_numpy()
+        tab = score_table(
+            gy, {m: p.loc[g.index, m].to_numpy() for m in METHODS}, week_blocks(g["date"])
+        )
+        result["by_year"][int(year)] = {
+            "positive_rate": float(gy.mean()),
+            **tab.to_dict(orient="index"),
+        }
     for region, g in t.groupby("region"):
         gy = g[label].to_numpy()
         tab = score_table(gy, {m: p.loc[g.index, m].to_numpy() for m in METHODS},
@@ -161,6 +173,12 @@ def main() -> None:
         f" ({res['primary']['common_period']}); positive rate {res['primary']['positive_rate']:.3f}"
     )
     print(ov[["pr_auc", "pr_auc_lo", "pr_auc_hi", "brier", "recall_at_far10"]].round(3).to_string())
+    for year, tab in res["primary"]["by_year"].items():
+        print(
+            year,
+            f"base {tab['positive_rate']:.3f}",
+            {m: round(tab[m]["pr_auc"], 3) for m in METHODS},
+        )
     for region, tab in res["primary"]["by_region"].items():
         print(region, {m: round(v["pr_auc"], 3) for m, v in tab.items()})
     print("persistence tiers on test:")
