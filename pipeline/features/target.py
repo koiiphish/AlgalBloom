@@ -1,13 +1,15 @@
 """Chlorophyll anomaly and the 7-day-ahead target (see docs/target_definition.md).
 
 Steps, per area:
-  1. log_chl   = log10(daily median chl), only on days with >= MIN_VALID_PIXELS valid pixels
+  1. log_chl   = log10(daily median chl), only on days with >= MIN_VALID_PIXELS valid pixels;
+                 weight = that day's clear-sky fraction (valid pixels / area pixels)
   2. baseline  = "normal" log_chl for that area and calendar month, either
                  - fixed:    median over the TRAINING years only (brief's definition), or
                  - trailing: median over the 3 previous calendar years (drift-resistant;
                              option C, under evaluation; see docs/decisions.md D006 update)
   3. anomaly   = log_chl - baseline
-  4. fwd_mean  = mean anomaly over days t+1..t+7 (needs >= MIN_VALID_DAYS valid days)
+  4. fwd_mean  = clear-sky-weighted mean anomaly over days t+1..t+7 (needs >= MIN_VALID_DAYS
+                 valid days). Partly cloudy days are noisy, so they count less (D013).
   5. threshold = 90th percentile of fwd_mean for that area and month, TRAINING years only
   6. y         = 1 if fwd_mean > threshold, 0 if not, missing if too few valid days
 
@@ -17,7 +19,7 @@ Every function works on a long table with columns [area_id, date, ...].
 import numpy as np
 import pandas as pd
 
-MIN_VALID_PIXELS = 5  # under review: partly cloudy days are noisy (D011 update)
+MIN_VALID_PIXELS = 5  # kept; partly cloudy days are down-weighted instead (D013)
 MIN_VALID_DAYS = 2  # of the 7 days in the forward window
 HORIZON_DAYS = 7
 QUANTILE = 0.90
@@ -38,10 +40,13 @@ def complete_daily_index(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def add_log_chl(df: pd.DataFrame, min_valid_pixels: int = MIN_VALID_PIXELS) -> pd.DataFrame:
-    """Add log10 chl, masked to NaN where too few pixels were cloud-free."""
+    """Add log10 chl, masked to NaN where too few pixels were cloud-free, and (when the
+    area's pixel count is known) the day's weight = clear-sky fraction, 0 when masked."""
     out = df.copy()
     ok = (out["n_valid"] >= min_valid_pixels) & (out["chl"] > 0)
     out["log_chl"] = np.where(ok, np.log10(out["chl"].where(ok)), np.nan)
+    if "n_pixels" in out.columns:
+        out["weight"] = np.where(ok, out["n_valid"] / out["n_pixels"], 0.0)
     return out
 
 
@@ -79,17 +84,25 @@ def add_anomaly(df: pd.DataFrame, baseline: pd.DataFrame) -> pd.DataFrame:
     return out.drop(columns=[c for c in ("year",) if c in out.columns])
 
 
-def forward_window(s: pd.Series, horizon: int = HORIZON_DAYS) -> tuple[pd.Series, pd.Series]:
+def forward_window(
+    s: pd.Series, horizon: int = HORIZON_DAYS, weights: pd.Series | None = None
+) -> tuple[pd.Series, pd.Series]:
     """Mean and count of valid values over the NEXT `horizon` days (t+1..t+horizon).
 
     `s` must be one area's daily series on a complete calendar. Day t itself is excluded.
     How: x = s shifted by one day (x[t] = s[t+1]); a rolling window over the REVERSED x then
     covers x[t..t+horizon-1] = s[t+1..t+horizon]. (A plain trailing window on a forward
     shift truncates at the start of the series; a unit test caught that.)
+    With `weights`, the mean is weighted (count stays the number of valid days).
     """
     x = s.shift(-1)[::-1]
-    roll = x.rolling(horizon, min_periods=1)
-    return roll.mean()[::-1], roll.count()[::-1]
+    count = x.rolling(horizon, min_periods=1).count()[::-1]
+    if weights is None:
+        return x.rolling(horizon, min_periods=1).mean()[::-1], count
+    w = weights.where(s.notna(), 0.0).shift(-1)[::-1].fillna(0.0)
+    num = (x.fillna(0.0) * w).rolling(horizon, min_periods=1).sum()[::-1]
+    den = w.rolling(horizon, min_periods=1).sum()[::-1]
+    return num / den.where(den > 0), count
 
 
 def add_target(
@@ -102,7 +115,7 @@ def add_target(
     out = df.sort_values(["area_id", "date"]).copy()
     means, counts = [], []
     for _, g in out.groupby("area_id", sort=False):
-        m, c = forward_window(g["anomaly"])
+        m, c = forward_window(g["anomaly"], weights=g["weight"] if "weight" in g else None)
         means.append(m)
         counts.append(c)
     out["fwd_mean"] = pd.concat(means)

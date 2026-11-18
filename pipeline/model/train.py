@@ -4,7 +4,7 @@ Steps (splits in pipeline.model.data):
   1. Small hyperparameter grid: fit on `fit` (<= 2021), early-stop and score PR-AUC on `tune`
      (2022).
   2. Refit the best configuration on `train` (<= 2022) with the early-stopped tree count.
-  3. Isotonic calibration of the raw score on `val` (2023).
+  3. Platt calibration of the raw score on `val` (2023), as for every method (D013).
 The test period is never touched here.
 
 Run:  uv run python -m pipeline.model.train [--label y_fixed|y_trailing]
@@ -100,7 +100,7 @@ def main() -> None:
     n_final = int(round(n_trees * len(train) / len(period(df, "fit", label))))
     booster = lgb.train(params, lgb.Dataset(train[feats], train[label]), n_final)
     raw_val = booster.predict(val[feats])
-    cal = Calibrator.fit(raw_val, val[label].to_numpy())
+    cal = Calibrator.fit_platt(raw_val, val[label].to_numpy())
 
     p = paths(label)
     MODELS_DIR.mkdir(exist_ok=True)

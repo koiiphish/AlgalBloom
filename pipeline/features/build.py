@@ -33,7 +33,7 @@ def targets(chl: pd.DataFrame) -> pd.DataFrame:
     fixed = T.add_target(T.add_anomaly(base, T.fixed_baseline(base)))
     trailing = T.add_target(T.add_anomaly(base, T.trailing_baseline(base)))
     keep = ["anomaly", "fwd_mean", "fwd_n", "threshold", "y"]
-    out = fixed[["area_id", "date", "log_chl", "n_valid", "processing", *keep]]
+    out = fixed[["area_id", "date", "log_chl", "n_valid", "weight", "processing", *keep]]
     out = out.rename(columns={c: f"{c}_fixed" for c in keep})
     tr = trailing[["area_id", "date", *keep]].rename(columns={c: f"{c}_trailing" for c in keep})
     return out.merge(tr, on=["area_id", "date"], how="left")
@@ -59,9 +59,8 @@ def build() -> pd.DataFrame:
     chl = pd.read_parquet(CHL_PATH)
     tgt = targets(chl)
     # Chl features use the fixed-baseline anomaly (the brief's definition).
-    feats = build_chl_features(
-        tgt.rename(columns={"anomaly_fixed": "anomaly"})[["area_id", "date", "anomaly", "log_chl"]]
-    )
+    cols = ["area_id", "date", "anomaly", "log_chl", "weight"]
+    feats = build_chl_features(tgt.rename(columns={"anomaly_fixed": "anomaly"})[cols])
     ocean = pd.read_parquet(OCEAN_PATH).sort_values(["area_id", "date"])
     sst = lagged(ocean, SST_COLS, SST_LAG_DAYS)
     model = lagged(ocean, MODEL_COLS, OCEAN_MODEL_LAG_DAYS)

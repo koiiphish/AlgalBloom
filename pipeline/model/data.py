@@ -29,7 +29,7 @@ PERIODS = {
 # Columns that are identifiers, targets, or same-day chl (not available at issue time t).
 NON_FEATURES = {
     "area_id", "date", "split", "match_key", "growing_area", "processing", "region",
-    "log_chl", "n_valid",
+    "log_chl", "n_valid", "weight",
 }  # fmt: skip
 TARGET_PREFIXES = ("anomaly_", "fwd_mean_", "fwd_n_", "threshold_", "y_")
 

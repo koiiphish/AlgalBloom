@@ -164,3 +164,34 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
   | frac50 | 0.11 | 0.53 | 1.91 | 1.24 |
 - **The pre-stated rule (highest model lift with ≥25% labelled) selects px5.** That rule assumed the model would at least track label quality. It doesn't: the model's lift sits **below persistence** for almost every rule. That is true even with only chl and season features, and even with monotone constraints on the persistence features. So the model's lift measures a failure to generalise, not label quality.
 - **Main finding:** at this scale and lead time, **environmental drivers (weather, SST, ocean model, season) add no measurable skill beyond chl persistence**, and persistence itself is weak (lift ~1.3–1.5). Cleaner labels raise persistence skill but cost coverage. The decision on how to proceed goes to Timothy.
+
+## D013 — Ship calibrated chlorophyll persistence, not the boosted model (2026-11-18)
+
+**Context:** Phase 3 had to beat persistence, seasonal climatology and the BGC model forecast (brief §6). Timothy's rule: if the tests show the non-chlorophyll inputs don't add meaningful predictive help, use the method that makes the most sense (persistence).
+
+**Evidence (no test data used):**
+- **Valid-day rules** (D011 updates): drivers added no skill beyond chl persistence under any rule.
+- **Absolute-threshold target** (chl above a fixed level instead of an area's own 90th percentile): rejected. OLCI reads a median of 7.5 mg m⁻³ in our harvest areas (in-situ at Maria Island is ~0.5–2), so absolute values reflect coastal optics (CDOM, turbidity, land adjacency), not biomass. That target is "predictable" mainly because some areas always read high (climatology lift 4.5×).
+- **Tuned LightGBM vs persistence, rolling origin** (each year fitted only on earlier years; paired week-block bootstrap):
+
+  | year | base rate | persistence PR-AUC | LightGBM PR-AUC | difference 95% CI |
+  |---|---|---|---|---|
+  | 2018 | 0.084 | 0.116 | 0.122 | [−0.037, +0.040] |
+  | 2019 | 0.058 | 0.076 | 0.078 | [−0.017, +0.026] |
+  | 2020 | 0.116 | 0.168 | 0.123 | [−0.093, −0.001] |
+  | 2021 | 0.096 | 0.117 | 0.124 | [−0.038, +0.041] |
+  | 2022 | 0.132 | 0.247 | 0.187 | [−0.110, −0.004] |
+  | 2023 (val) | 0.142 | 0.228 | 0.289 | [+0.029, +0.091] |
+
+  LightGBM is significantly worse in 2 years, tied in 3 and better in 1. Its 2023 gain depends partly on the forecast-window weather, which uses *observed* weather here (issued forecasts would be weaker). Without those features the 2023 gain is +0.025 [−0.001, +0.050].
+
+**Choice:**
+1. **Label:** fixed baseline, forward mean **weighted by each day's clear-sky fraction** (same coverage as before, cleaner signal; D011 updates). `MIN_VALID_PIXELS` stays at 5.
+2. **Shipped forecast: calibrated persistence.** Score = clear-sky-weighted mean anomaly over t−15…t−2 (`chl_anom_wmean14`). If there was no clear view in 14 days, fall back to the area-month training rate and flag `stale_chl`.
+3. **Calibration: Platt (logistic), fitted on 2023**, for every method. Isotonic overfit this weak score (it jumped to p = 1.0 on a handful of rows, and one wide step collapsed the tiers).
+4. **Tiers** (chosen on 2023): Moderate if p ≥ 0.170 (at most 20% of normal weeks flagged), High if p ≥ 0.233 (at most 5%). On validation, High weeks were bloom weeks 30% of the time and Moderate 19%, against a 14% base rate.
+5. **LightGBM stays as a documented comparison** in the test evaluation and model card. SHAP "drivers" are not shown in the app. The popup shows the recent chlorophyll trend instead.
+
+**Consequences:** the daily pipeline needs only OLCI chlorophyll to forecast; SST stays as a map layer. The Open-Meteo issued-forecast archive and SA weather downloads planned for Phase 3 are no longer needed. The SA *Karenia* transfer needs only SA chlorophyll.
+
+**Alternatives rejected:** shipping LightGBM on the strength of one year (2023); a hard clear-sky cut-off (≥25% / ≥50% of pixels clear), which costs 45–83% of labels; pooling the target to growing area or region (didn't help).

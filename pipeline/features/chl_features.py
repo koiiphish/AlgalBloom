@@ -40,6 +40,7 @@ def area_chl_features(g: pd.DataFrame, lag: int = CHL_LAG_DAYS) -> pd.DataFrame:
     """Features for every issue date of ONE area (g on a complete daily calendar, sorted)."""
     anom = g["anomaly"].to_numpy(dtype=float)
     level = g["log_chl"].to_numpy(dtype=float)
+    weight = (g["weight"] if "weight" in g else g["anomaly"].notna()).to_numpy(dtype=float)
     n = anom.size
     rows = []
     for t in range(n):
@@ -50,6 +51,7 @@ def area_chl_features(g: pd.DataFrame, lag: int = CHL_LAG_DAYS) -> pd.DataFrame:
             continue
         win = anom[max(start, 0) : end + 1]
         lev = level[max(start, 0) : end + 1]
+        wts = np.where(np.isfinite(win), weight[max(start, 0) : end + 1], 0.0)
         valid_idx = np.flatnonzero(np.isfinite(win))
         last = valid_idx[-1] if valid_idx.size else None
         row = {
@@ -58,6 +60,8 @@ def area_chl_features(g: pd.DataFrame, lag: int = CHL_LAG_DAYS) -> pd.DataFrame:
             "chl_days_since_obs": (win.size - 1 - last + lag) if last is not None else np.nan,
             "chl_anom_mean7": np.nanmean(win[-7:]) if np.isfinite(win[-7:]).any() else np.nan,
             "chl_anom_mean14": np.nanmean(win) if valid_idx.size else np.nan,
+            # The persistence forecast's score (D013): clear-sky-weighted 14-day mean.
+            "chl_anom_wmean14": (np.nansum(win * wts) / wts.sum() if wts.sum() > 0 else np.nan),
             "chl_anom_max14": np.nanmax(win) if valid_idx.size else np.nan,
             "chl_slope14": _slope_per_day(win),
             "chl_n_valid14": int(valid_idx.size),

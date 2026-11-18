@@ -1,0 +1,132 @@
+{
+  "label": "y_fixed",
+  "trained_utc": "2026-11-18T11:34:59+00:00",
+  "features": [
+    "chl_anom_last",
+    "chl_level_last",
+    "chl_days_since_obs",
+    "chl_anom_mean7",
+    "chl_anom_mean14",
+    "chl_anom_wmean14",
+    "chl_anom_max14",
+    "chl_slope14",
+    "chl_n_valid14",
+    "chl_rising_run",
+    "chl_anom_lag2",
+    "chl_anom_lag3",
+    "chl_anom_lag4",
+    "chl_anom_lag5",
+    "chl_anom_lag6",
+    "chl_anom_lag7",
+    "chl_anom_lag8",
+    "sst",
+    "sst_anom",
+    "mhw_run_days",
+    "mhw",
+    "mld",
+    "current_speed",
+    "wind_u_past3",
+    "wind_v_past3",
+    "wind_speed_past3",
+    "radiation_mj_past3",
+    "air_temp_past3",
+    "rain_past3",
+    "rain_past7",
+    "rain_past14",
+    "rain_past30",
+    "fc7_wind_u",
+    "fc7_wind_v",
+    "fc7_wind_speed",
+    "fc7_radiation_mj",
+    "fc7_air_temp",
+    "fc7_rain_sum",
+    "sst_cell_km",
+    "model_cell_km",
+    "area_ha",
+    "n_pixels",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "params": {
+    "objective": "binary",
+    "learning_rate": 0.03,
+    "feature_fraction": 0.8,
+    "bagging_fraction": 0.8,
+    "bagging_freq": 1,
+    "lambda_l2": 1.0,
+    "verbosity": -1,
+    "seed": 42,
+    "deterministic": true,
+    "num_threads": 4,
+    "num_leaves": 15,
+    "min_child_samples": 400
+  },
+  "n_trees": 423,
+  "tuning_log": [
+    {
+      "num_leaves": 15,
+      "min_child_samples": 100,
+      "best_iter": 4,
+      "tune_pr_auc": 0.17538606920277378
+    },
+    {
+      "num_leaves": 15,
+      "min_child_samples": 400,
+      "best_iter": 353,
+      "tune_pr_auc": 0.18704032729703826
+    },
+    {
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "best_iter": 81,
+      "tune_pr_auc": 0.17502327367786788
+    },
+    {
+      "num_leaves": 31,
+      "min_child_samples": 400,
+      "best_iter": 166,
+      "tune_pr_auc": 0.18306619195549567
+    },
+    {
+      "num_leaves": 63,
+      "min_child_samples": 100,
+      "best_iter": 55,
+      "tune_pr_auc": 0.1681151470476424
+    },
+    {
+      "num_leaves": 63,
+      "min_child_samples": 400,
+      "best_iter": 132,
+      "tune_pr_auc": 0.17564949161006857
+    }
+  ],
+  "periods": {
+    "fit": [
+      "2016-01-01",
+      "2021-12-31"
+    ],
+    "tune": [
+      "2022-01-01",
+      "2022-12-31"
+    ],
+    "train": [
+      "2016-01-01",
+      "2022-12-31"
+    ],
+    "val": [
+      "2023-01-01",
+      "2023-12-31"
+    ],
+    "test": [
+      "2024-01-01",
+      "2099-12-31"
+    ]
+  },
+  "rows": {
+    "train": 86436,
+    "val": 15309
+  },
+  "val_pr_auc_raw": 0.2894298109327414,
+  "val_positive_rate": 0.14161604285061075,
+  "chl_source": "OLCI 300 m L3, Copernicus version 202211 (D006)"
+}

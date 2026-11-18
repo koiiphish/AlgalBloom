@@ -80,3 +80,18 @@ def test_target_threshold_from_training_period_only() -> None:
     np.testing.assert_allclose(a["threshold"], b["threshold"], rtol=0, atol=1e-9)
     # ...but the post-training labels do react to the new data
     assert b.loc[b["date"] >= "2022-02-01", "y"].mean() == 1.0
+
+
+def test_weighted_forward_window_down_weights_partly_cloudy_days() -> None:
+    s = pd.Series([0.0, 1.0, 3.0] + [np.nan] * 5)
+    w = pd.Series([1.0, 0.75, 0.25] + [0.0] * 5)
+    mean, count = T.forward_window(s, horizon=7, weights=w)
+    assert mean[0] == pytest.approx((1.0 * 0.75 + 3.0 * 0.25) / 1.0)  # day 0 itself excluded
+    assert count[0] == 2
+
+
+def test_weighted_forward_window_equals_plain_mean_with_equal_weights() -> None:
+    s = pd.Series([0.5, np.nan, 2.0, 1.0, np.nan, 4.0, 0.0, 1.0, 2.0])
+    plain, _ = T.forward_window(s)
+    weighted, _ = T.forward_window(s, weights=pd.Series(0.4, index=s.index))
+    np.testing.assert_allclose(plain, weighted)
