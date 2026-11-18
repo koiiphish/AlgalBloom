@@ -17,7 +17,7 @@ Every function works on a long table with columns [area_id, date, ...].
 import numpy as np
 import pandas as pd
 
-MIN_VALID_PIXELS = 5  # provisional; tuned in the EDA notebook
+MIN_VALID_PIXELS = 5  # under review: partly cloudy days are noisy (D011 update)
 MIN_VALID_DAYS = 2  # of the 7 days in the forward window
 HORIZON_DAYS = 7
 QUANTILE = 0.90

@@ -37,6 +37,8 @@ SA_BOXES = [
     BBox("sa_spencer_gulf", west=136.0, south=-34.3, east=138.1, north=-32.5),  # Cowell, upper SG
     BBox("sa_gsv_yorke_ki", west=136.5, south=-36.1, east=138.6, north=-34.3),  # Yorke, GSV, KI
     BBox("sa_coorong", west=138.7, south=-36.2, east=139.5, north=-35.4),  # Murray Mouth / Coorong
+    # Added 2026-11-18 (Phase 3): the KAI NRS station (136.447E) lies just west of sa_gsv_yorke_ki
+    BBox("sa_kai_station", west=136.25, south=-36.05, east=136.65, north=-35.6),
 ]  # fmt: skip
 
 TAS_PAD_DEG = 0.15  # ~12-16 km padding around each Tas growing-area cluster

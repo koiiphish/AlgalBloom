@@ -9,7 +9,7 @@ Products (IDs, versions, variables and time ranges from copernicusmarine.describ
     doi 10.48670/moi-00021): mixed-layer depth and surface currents for all training years;
     same grid/model family as the operational analysis-forecast used in Phase 4
 
-Run:  uv run python -m pipeline.fetch.history_ocean [--dry-run]
+Run:  uv run python -m pipeline.fetch.history_ocean [--region tas|sa] [--dry-run]
 """
 
 import argparse
@@ -18,9 +18,15 @@ import os
 import copernicusmarine
 from dotenv import load_dotenv
 
-from pipeline.config import RAW_DIR, REPO_ROOT, TAS_BBOX
+from pipeline.config import RAW_DIR, REPO_ROOT, SA_STATIONS_BBOX, TAS_BBOX
 
-OUT_DIR = RAW_DIR / "copernicus" / "history_ocean_tas"
+BOXES = {"tas": TAS_BBOX, "sa": SA_STATIONS_BBOX}
+
+
+def out_dir(region: str):
+    """Output folder per region, e.g. data/raw/copernicus/history_ocean_tas."""
+    return RAW_DIR / "copernicus" / f"history_ocean_{region}"
+
 
 # (name, dataset_id, version, variables, start, end, surface_only)
 REQUESTS = [
@@ -36,16 +42,17 @@ REQUESTS = [
 
 
 def main() -> None:
-    """Download (or dry-run) every request for the Tas box."""
+    """Download (or dry-run) every request for one region's box."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--region", choices=sorted(BOXES), default="tas")
     args = parser.parse_args()
     load_dotenv(REPO_ROOT / ".env")
     creds = {
         "username": os.environ["COPERNICUSMARINE_SERVICE_USERNAME"],
         "password": os.environ["COPERNICUSMARINE_SERVICE_PASSWORD"],
     }
-    b = TAS_BBOX
+    b = BOXES[args.region]
     total = 0.0
     for name, dataset_id, version, variables, start, end, surface_only in REQUESTS:
         depth = {"minimum_depth": 0, "maximum_depth": 1} if surface_only else {}
@@ -59,7 +66,7 @@ def main() -> None:
             maximum_latitude=b.north,
             start_datetime=start,
             end_datetime=end,
-            output_directory=OUT_DIR,
+            output_directory=out_dir(args.region),
             output_filename=f"{name}.nc",
             netcdf_compression_level=1,
             skip_existing=True,

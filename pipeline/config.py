@@ -40,6 +40,8 @@ class BBox:
 SA_BBOX = BBox("south_australia", west=132.0, south=-36.5, east=139.0, north=-32.0)
 TAS_BBOX = BBox("tasmania", west=144.0, south=-44.0, east=149.0, north=-39.5)
 REGIONS = (SA_BBOX, TAS_BBOX)
+# Phase 3 Karenia transfer case study (D012): the three SA IMOS NRS stations GSV, KAI, USG.
+SA_STATIONS_BBOX = BBox("sa_nrs_stations", west=136.2, south=-36.1, east=138.8, north=-32.9)
 
 
 @dataclass(frozen=True)
