@@ -1,5 +1,7 @@
 # CLAUDE.md — HAB Risk Forecaster (SA & Tasmania)
 
+**Start of every session: read `docs/progress.md` (where we are, what's next). At the end of every session: update it.**
+
 `PROJECT_BRIEF.md` is the source of truth. This file summarises the rules that apply to **every** session. If they ever conflict, the brief wins. Propose changes in `docs/decisions.md` instead of quietly deviating.
 
 ## What we're building
