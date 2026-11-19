@@ -59,13 +59,15 @@ def test_notable_results():
 
 
 @pytest.mark.parametrize("species,level", [
-    ("Alexandrium tamarense Complex", 100), ("Gymnodinium catenatum", 200),
-    ("Gymnodinium sp.", 100_000), ("Dinophysis caudata", 500), ("Dinophysis acuminata", 200),
-    ("Pseudo-nitzschia seriata group", 50_000), ("Karenia sp.", 500), ("Kareniaceae", 100_000),
-    ("Chaetoceros sp.", None),
+    ("Alexandrium tamarense Complex", 100), ("Alexandrium sp.", None),
+    ("Gymnodinium catenatum", 200), ("Gymnodinium sp.", 100_000),
+    ("Dinophysis caudata", 500), ("Dinophysis acuminata", 200), ("Dinophysis sp.", None),
+    ("Pseudo-nitzschia seriata group", 50_000), ("Pseudo-nitzschia sp.", None),
+    ("Karenia brevis", 500), ("Karenia sp.", 100_000), ("Kareniaceae", None),
+    ("Prorocentrum sp.", None), ("Chaetoceros sp.", None),
 ])  # fmt: skip
 def test_lab_alert_mapping(species, level):
-    """PALT levels by species/group, most specific pattern first."""
+    """PALT levels only for names the PALT prints; genus-only and unlisted names get None."""
     assert B.lab_alert(species)[0] == level
 
 

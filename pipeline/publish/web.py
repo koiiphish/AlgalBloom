@@ -30,14 +30,14 @@ TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title}: Algal bloom outlook (experimental)</title>
+  <title>{title}: Algal Bloom Outlook (experimental)</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="brand">
-      <h1>Algal bloom outlook</h1>
+      <h1>Algal Bloom Outlook</h1>
       <p class="tagline">Satellite chlorophyll-a · Tasmania &amp; South Australia · Experimental</p>
     </div>
     <nav aria-label="Site">

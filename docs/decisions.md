@@ -380,7 +380,7 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 
 **Choices:**
 1. **Wording.**
-   - The site title is "Algal bloom outlook", with the tagline "Satellite chlorophyll-a".
+   - The site title is "Algal Bloom Outlook", with the tagline "Satellite chlorophyll-a".
    - Tiers are plain High / Moderate / Low (no "risk"), described as "probability of chlorophyll-a above the monthly 90th percentile".
    - Every disclaimer adds "Indicates chlorophyll-a (algal biomass), not toxins or harmful species." That covers the footer, the panel line, the About page, the geojson `disclaimer` and the text-page template.
    - The tier key reads "7-day chlorophyll-a outlook. Not a toxin forecast."
@@ -393,7 +393,11 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
    - **ShellMAP status changes** between archived snapshots, with the area's highest tier in the prior 7 days. This is context, not a score: only 8 of 123 archived rows give biotoxins as the reason.
    - **Biotoxin News.**
      - `pipeline/labels/biotoxin_news.py` parses each archived issue: toxin results (PST/AST/DST) and toxin-producing phytoplankton counts by growing area. The fish-health table is skipped.
-     - Counts are compared with the PALT lab-alert levels at species/group level. "sp." reports take the genus's lowest level (D009), except *Prorocentrum* sp.: only *P. lima*, a benthic species, is listed.
+     - Counts are compared with the PALT lab-alert levels **only where the reported name is one the PALT prints** (Timothy, 2026-11-19: "follow what is real and not make any assumptions").
+       - *Karenia* sp., *Karlodinium* sp. and *Gymnodinium* sp. take the printed *Karenia/Karlodinium/Gymnodinium* group level (100,000).
+       - Genus-only reports (*Alexandrium* sp., *Dinophysis* sp., *Pseudo-nitzschia* sp.) and unlisted names (Kareniaceae, *Prorocentrum* sp.) are not compared.
+       - The PALT note that levels are cumulative within a toxin group is not applied, because how to sum species with different levels isn't specified in our source notes.
+       - This differs on purpose from D009, the genus-level rule for station data in `events.csv`, which is unchanged.
      - Toxins are compared with the maximum limits printed in each issue.
      - Each finding is shown with the growing area's highest tier in the 7 days before sampling.
    - A static reference table of the Phase 3 independent test.

@@ -10,8 +10,12 @@ labels/raw/tas_biotoxin_news/. Each issue reports, per growing area and sample d
 Layout checked on the issue of 26 Oct 2026 (text extracted with pypdf).
 
 Phytoplankton counts are compared with the ShellMAP Phytoplankton Action Level Table (PALT;
-pipeline.labels.action_levels) at species/group level. "sp." reports take the lowest level
-listed for that genus, as the PALT applies species levels to sp. reports (D009).
+pipeline.labels.action_levels) ONLY where the reported name is one the PALT lists (Timothy,
+2026-11-19: follow what is printed, no assumptions). Each listed species or group is checked on
+its own count; reports at genus level ("Alexandrium sp.", "Dinophysis sp.", "Pseudo-nitzschia
+sp.") or of unlisted taxa (e.g. "Kareniaceae", "Prorocentrum sp.") are not compared. The PALT's
+note that levels are cumulative within a toxin group is not applied: the reading of that rule
+for summing species with different levels is not specified in our source notes.
 Toxin maximum limits are those printed in each issue (PST 0.8, AST 20, DST 0.16 mg/kg).
 
 Licence: Tasmanian Government website licence, non-commercial use with acknowledgement
@@ -30,21 +34,29 @@ from pipeline.config import REPO_ROOT
 NEWS_DIR = REPO_ROOT / "labels" / "raw" / "tas_biotoxin_news"
 MAX_LIMITS = {"PST": 0.8, "AST": 20.0, "DST": 0.16}  # mg/kg, as printed in each issue
 
-# PALT lab-alert levels (cells/L) by species name pattern, most specific first.
-# Source and caveats: pipeline.labels.action_levels (PALT v6.1, Appendix 3).
+# PALT lab-alert levels (cells/L), matched only to names the PALT prints (PALT_VERBATIM in
+# pipeline.labels.action_levels; PALT v6.1, Appendix 3). Most specific first.
+#   "Alexandrium catenella/minutum/tamarense/ostenfeldii"  100   (a "tamarense Complex" report
+#                                                                 names A. tamarense)
+#   "Gymnodinium catenatum"                                 200
+#   "Dinophysis acuminata/acuta/fortii"                     200
+#   "Dinophysis caudata"                                    500
+#   "Prorocentrum lima"                                     500
+#   "Pseudo-nitzschia seriata group"                     50,000
+#   "Pseudo-nitzschia delicatissima group"              100,000
+#   "Karenia brevis"                                        500
+#   "Karenia/Karlodinium/Gymnodinium group"             100,000  (reports naming one of these
+#                                                                 genera; not G. catenatum)
 LAB_ALERT_PATTERNS: list[tuple[str, float, str]] = [
-    (r"^alexandrium (catenella|minutum|tamarense|ostenfeldii)", 100, "PST"),
-    (r"^alexandrium (sp|spp)\b", 100, "PST"),
-    (r"^gymnodinium catenatum", 200, "PST"),
-    (r"^dinophysis caudata", 500, "DST"),
-    (r"^dinophysis", 200, "DST"),
-    # Only P. lima is listed; generic "Prorocentrum sp." is mostly non-toxic plankton: not mapped.
-    (r"^prorocentrum lima", 500, "DST"),
-    (r"^pseudo-nitzschia delicatissima", 100_000, "AST"),
-    (r"^pseudo-nitzschia", 50_000, "AST"),
-    (r"^karenia brevis", 500, "NST"),
-    (r"^karenia (sp|spp)\b", 500, "NST"),
-    (r"^(kareniaceae|karlodinium|karenia|gymnodinium)", 100_000, "NST"),
+    (r"^alexandrium (catenella|minutum|tamarense|ostenfeldii)\b", 100, "PST"),
+    (r"^gymnodinium catenatum\b", 200, "PST"),
+    (r"^dinophysis (acuminata|acuta|fortii)\b", 200, "DST"),
+    (r"^dinophysis caudata\b", 500, "DST"),
+    (r"^prorocentrum lima\b", 500, "DST"),
+    (r"^pseudo-nitzschia seriata group\b", 50_000, "AST"),
+    (r"^pseudo-nitzschia delicatissima group\b", 100_000, "AST"),
+    (r"^karenia brevis\b", 500, "NST"),
+    (r"^(karenia|karlodinium|gymnodinium)\b", 100_000, "NST"),
 ]
 
 DATE = r"(\d{2}/\d{2}/\d{4})"
