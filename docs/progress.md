@@ -13,7 +13,7 @@ _Last updated: 2026-11-19_
 | 2: Feature dataset | ✅ Accepted (Tasmania) | SA features wait on PIRSA |
 | 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); test scored once at commit `d881905`, never re-tune on it |
 | 4: Daily forecast pipeline | 🟡 Working (manual run green 19 Nov; archive commit `d1ff6a2`) | Checkpoint: two consecutive green **scheduled** `daily_forecast` runs (22:17 UTC) |
-| 5: Frontend | 🟡 Built (D015), pending Timothy's review | Live at https://koiiphish.github.io/AlgalBloom/ once `publish_web` runs. Checkpoint: the live URL. |
+| 5: Frontend | 🟡 Live at https://koiiphish.github.io/AlgalBloom/ (D015), pending Timothy's review | Pages rebuilds automatically after each bot push to gh-pages (verified 19 Nov). Checkpoint: the live URL. |
 | 6: Portfolio polish | ⬜ Not started | |
 
 ## Next steps
