@@ -360,6 +360,7 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
     - one line in every panel summary;
     - the full text in every panel's More info;
     - the footer of every page.
+  - **Map label removed (Timothy, 2026-11-19).** He asked for the label to go. The map page still carries the full disclaimer in its footer, and every area panel carries it in both the summary and More info. This is taken as meeting CLAUDE.md's "on the map and in every area popup" rule. Timothy decided it knowingly; the alternative was keeping the label.
   - The About page quotes the deployed tier thresholds (19% and 36%). They must be updated if the model is recalibrated.
 
 **Alternatives rejected:**

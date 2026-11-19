@@ -77,14 +77,6 @@ h1, h2, h3 { letter-spacing: -0.01em; }
 .site-footer .disclaimer { margin: 0 0 8px; font-size: 0.86rem; color: var(--ink-2); }
 .disclaimer strong { color: var(--ink); }
 
-/* Short notice on the map (the full disclaimer is in the footer and every panel) */
-.map-notice {
-  position: absolute; top: 12px; left: 50%; transform: translateX(-50%); margin: 0; z-index: 1;
-  padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 500; white-space: nowrap;
-  background: rgba(15, 42, 68, 0.85); color: #fff; pointer-events: none;
-}
-@media (max-width: 800px) { .map-notice { top: auto; bottom: 64px; font-size: 0.75rem; } }
-
 /* Main layout: map left, sidebar right; stacked on narrow screens */
 .layout { flex: 1; display: grid; grid-template-columns: 1fr 10px var(--sidebar); min-height: 0; }
 
