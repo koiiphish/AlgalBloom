@@ -24,7 +24,7 @@ export function createList({ features, listEl, searchEl, countEl, onSelect }) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.dataset.areaId = p.area_id;
-    btn.setAttribute("aria-label", `${p.growing_area}, ${p.harvest_area}: ${p.tier} risk, ${formatPercent(p.probability)}`);
+    btn.setAttribute("aria-label", `${p.growing_area}, ${p.harvest_area}: ${p.tier}, ${formatPercent(p.probability)}`);
     btn.innerHTML = `
       <span class="tier-dot tier-${p.tier}" aria-hidden="true">${TIER_LETTERS[p.tier]}</span>
       <span class="name">${escapeHtml(p.harvest_area)}<span class="growing">${escapeHtml(p.growing_area)}</span></span>

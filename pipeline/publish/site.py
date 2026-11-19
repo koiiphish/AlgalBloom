@@ -30,8 +30,9 @@ HISTORY_KEEP = 7
 SNAPSHOTS = REPO_ROOT / "labels" / "status_snapshots.csv"
 HORIZON = 7
 DISCLAIMER = (
-    "Experimental research tool. Not a substitute for official harvest decisions by ShellMAP "
-    "(Tasmania) or SASQAP (South Australia). Always follow the official harvest-area status."
+    "Experimental research tool. Indicates chlorophyll-a (algal biomass), not toxins or "
+    "harmful species. Not a substitute for official harvest decisions by ShellMAP (Tasmania) "
+    "or SASQAP (South Australia)."
 )
 ATTRIBUTION = [
     {"text": "Generated using E.U. Copernicus Marine Service Information",

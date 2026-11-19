@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Algal bloom risk forecast · Tasmania and South Australia (experimental)</title>
-  <meta name="description" content="Experimental 7-day algal bloom risk forecast for Tasmanian shellfish harvest areas, with satellite chlorophyll and sea surface temperature anomaly maps. Not a substitute for official harvest decisions.">
+  <title>Algal bloom outlook · Tasmania and South Australia (experimental)</title>
+  <meta name="description" content="Experimental 7-day satellite chlorophyll-a outlook for Tasmanian shellfish harvest areas. Indicates algal biomass, not toxins. Not a substitute for official harvest decisions.">
   <link rel="stylesheet" href="vendor/maplibre-gl-6.19.0/maplibre-gl.css">
   <link rel="stylesheet" href="vendor/uplot-1.6.32/uPlot.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -14,12 +14,13 @@
 
   <header class="site-header">
     <div class="brand">
-      <h1>Algal bloom risk forecast</h1>
-      <p class="tagline">Tasmania &amp; South Australia · Experimental</p>
+      <h1>Algal bloom outlook</h1>
+      <p class="tagline">Satellite chlorophyll-a · Tasmania &amp; South Australia · Experimental</p>
     </div>
     <nav aria-label="Site">
       <a href="./" aria-current="page">Map</a>
       <a href="about.html">About</a>
+      <a href="verification.html">Verification</a>
       <a href="model-card.html">Model card</a>
     </nav>
   </header>
@@ -41,11 +42,11 @@
         <div id="layer-legend" class="layer-legend" aria-live="polite"></div>
       </form>
 
-      <div class="tier-key" aria-label="Risk tier key">
+      <div class="tier-key" aria-label="Outlook tier key">
         <span class="tier-dot tier-High" aria-hidden="true">H</span> High
         <span class="tier-dot tier-Moderate" aria-hidden="true">M</span> Moderate
         <span class="tier-dot tier-Low" aria-hidden="true">L</span> Low
-        <span class="key-note">7-day risk of elevated chlorophyll-a</span>
+        <span class="key-note">7-day chlorophyll-a outlook. Not a toxin forecast.</span>
       </div>
     </section>
 
@@ -72,7 +73,8 @@
     <!-- Official links: verified in docs/data_sources.md (ShellMAP page: the old Growing-and-Harvest-Areas.aspx URL redirects here, HTTP 200 on 2026-11-19;
          the PIRSA page blocks scripts, URL from Phase 0 search). -->
     <p class="disclaimer" id="disclaimer">
-      <strong>Experimental research tool.</strong> Not a substitute for official harvest decisions by
+      <strong>Experimental research tool.</strong> Indicates chlorophyll-a (algal biomass), not toxins or
+      harmful species. Not a substitute for official harvest decisions by
       <a href="https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas" rel="noopener">ShellMAP</a> (Tasmania) or
       <a href="https://pir.sa.gov.au/fishing-and-aquaculture/seafood-quality-and-safety/shellfish-sasqap/harvesting-statuses" rel="noopener">SASQAP</a> (South Australia).
       Refer to the official harvest-area status.

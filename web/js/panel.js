@@ -44,19 +44,19 @@ function summaryHtml(p, ev, off) {
     <div class="tier-band tier-band-${p.tier}">
       <span class="tier-dot tier-${p.tier}" aria-hidden="true">${TIER_LETTERS[p.tier]}</span>
       <div>
-        <p class="tier-band-title">${p.tier} risk · ${formatPercent(p.probability)}</p>
-        <p class="tier-band-sub">Probability of elevated chlorophyll-a, <span class="nowrap">${formatRange(p.valid_from, p.valid_to)}</span></p>
+        <p class="tier-band-title">${p.tier} · ${formatPercent(p.probability)}</p>
+        <p class="tier-band-sub">Probability of chlorophyll-a above the monthly 90th percentile, <span class="nowrap">${formatRange(p.valid_from, p.valid_to)}</span></p>
       </div>
     </div>
-    ${p.stale_chl ? `<p class="warn">No cloud-free imagery in 14 days. Seasonal baseline risk shown.</p>` : ""}
+    ${p.stale_chl ? `<p class="warn">No cloud-free imagery in 14 days. Seasonal baseline probability shown.</p>` : ""}
     <dl class="facts">
       <dt>Chlorophyll-a</dt><dd>${ev.score_log10_anomaly == null ? "n/a" : `<strong>${ratioText(ev.score_log10_anomaly)}</strong> monthly median`} ${trend ? `<span class="trend">${trend}</span>` : ""}</dd>
       <dt>Cloud-free days</dt><dd>${ev.clear_days_of_14 ?? 0} of 14</dd>
       <dt>ShellMAP status</dt><dd>${escapeHtml(statusWords(off.status))}</dd>
     </dl>
-    <p class="mini-chart-title">Risk, 90 days</p>
+    <p class="mini-chart-title">Probability, 90 days</p>
     <div class="mini-chart" id="panel-spark"></div>
-    <p class="one-line-disclaimer">Experimental. Refer to <a href="${escapeHtml(off.url || SHELLMAP_PAGE)}" rel="noopener">ShellMAP</a> for harvest status.</p>`;
+    <p class="one-line-disclaimer">Experimental. Indicates algal biomass, not toxins. Refer to <a href="${escapeHtml(off.url || SHELLMAP_PAGE)}" rel="noopener">ShellMAP</a> for harvest status.</p>`;
 }
 
 // The "More info" section (closed until the reader opens it).
@@ -90,7 +90,7 @@ function moreInfoHtml(p, ev, ctx, off) {
 
       <h3>Limitations</h3>
       <ul class="caveats">
-        <li>Chlorophyll-a is a proxy. Toxic species can occur at low biomass; Low risk does not indicate safety.</li>
+        <li>Chlorophyll-a is a proxy. Toxic species can occur at low biomass; a Low outlook does not indicate safety.</li>
         <li>The forecast responds to observed conditions and does not predict bloom onset.</li>
         <li>Inshore satellite values may be inflated by sediment and dissolved organic matter.</li>
       </ul>

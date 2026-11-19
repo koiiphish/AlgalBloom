@@ -1,4 +1,4 @@
-# Model card: 7-day bloom-week risk forecast (Tasmania)
+# Model card: 7-day chlorophyll-a outlook (Tasmania)
 
 **Version:** 1.1 deployed (Phase 4, 2026-11-18); evaluated as 1.0 (Phase 3) · **Method:** calibrated chlorophyll persistence · **Decisions:** `docs/decisions.md` D011–D014 · **Code:** `pipeline/model/`, `pipeline/forecast/`
 

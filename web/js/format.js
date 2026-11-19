@@ -66,7 +66,7 @@ export function ratioText(log10Anomaly) {
 // One short statement of the evidence behind an area's forecast (report style).
 export function evidenceSentence(ev) {
   if (!ev || ev.score_log10_anomaly == null) {
-    return "No cloud-free imagery in 14 days. Seasonal baseline risk shown.";
+    return "No cloud-free imagery in 14 days. Seasonal baseline probability shown.";
   }
   const trend = { rising: "; increasing", falling: "; decreasing", steady: "; stable", unknown: "" }[ev.trend] ?? "";
   return `14-day mean chlorophyll-a ${ratioText(ev.score_log10_anomaly)} the monthly median${trend}.`;

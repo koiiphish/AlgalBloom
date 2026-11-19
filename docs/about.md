@@ -1,16 +1,16 @@
 # About
 
-> **Experimental research tool.** Not a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia). Refer to the official harvest-area status.
+> **Experimental research tool.** Indicates chlorophyll-a (algal biomass), not toxins or harmful species. Not a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia).
 
 ## Overview
 
-The forecast gives the probability that satellite chlorophyll-a in each Tasmanian shellfish harvest area will be elevated over the next 7 days. Elevated means above the area's 90th percentile for the calendar month, relative to 2016–2022.
+The outlook gives the probability that satellite chlorophyll-a in each Tasmanian shellfish harvest area will exceed the area's 90th percentile for the calendar month (2016–2022) over the next 7 days. It indicates algal biomass. It does not forecast toxins or harmful species.
 
 | Tier | Definition |
 |---|---|
-| **H** High | Probability ≥ 36%. In 2023–2026, 63% of weeks rated High were elevated. |
+| **H** High | Probability ≥ 36%. In 2023–2026, 63% of weeks rated High exceeded the threshold. |
 | **M** Moderate | Probability 19–36%. |
-| **L** Low | Probability < 19%. Does not indicate safety. |
+| **L** Low | Probability < 19%. Does not indicate the absence of harmful species. |
 
 Map layers: chlorophyll-a (7-day median) and sea surface temperature (SST) anomaly relative to 1991–2020. South Australia is shown as layers only, until harvest-area boundaries are available.
 
@@ -21,14 +21,14 @@ Map layers: chlorophyll-a (7-day median) and sea surface temperature (SST) anoma
 3. **Score.** The 14-day mean of the log anomaly against the area's monthly median, weighted by cloud-free fraction.
 4. **Probability.** Logistic (Platt) calibration fitted on 2023–2026. Tier thresholds are set at 20% and 5% false-alarm rates.
 
-A gradient-boosted model using weather, SST, currents and seasonality did not outperform this persistence method in year-by-year testing (2018–2023). Full evaluation: [model card](model-card.html).
+A gradient-boosted model using weather, SST, currents and seasonality did not outperform this persistence method in year-by-year testing (2018–2023). Full evaluation: [model card](model-card.html). Ongoing results: [verification](verification.html).
 
 ## Limitations
 
 - **Proxy.** Chlorophyll-a does not measure toxins. *Alexandrium* and *Dinophysis* can be harmful at low biomass. The forecast did not discriminate harmful-species events at Maria Island (IMOS NRS).
 - **Persistence.** The forecast responds to observed conditions; it does not predict bloom onset.
 - **Optical contamination.** Inshore values may be inflated by sediment and dissolved organic matter, particularly after rainfall.
-- **Cloud.** About one-third of area-days have usable imagery. After 14 days without imagery, the seasonal baseline risk is shown.
+- **Cloud.** About one-third of area-days have usable imagery. After 14 days without imagery, the seasonal baseline probability is shown.
 - **Locations.** Areas are shown as points pending boundary licensing.
 - **Regional skill.** Lowest in northern and north-western Tasmania.
 
