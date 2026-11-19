@@ -40,8 +40,8 @@ function baseOptions(width, title) {
     cursor: { drag: { x: false, y: false } },
     scales: { x: { time: true } },
     axes: [
-      { stroke: "#52514e", grid: { stroke: "#efeeea" }, ticks: { stroke: "#dddcd7" } },
-      { stroke: "#52514e", grid: { stroke: "#efeeea" }, ticks: { stroke: "#dddcd7" }, size: 48 },
+      { stroke: "#4b5563", grid: { stroke: "#eef2f5" }, ticks: { stroke: "#dde4ea" }, font: "12px Inter, system-ui, sans-serif" },
+      { stroke: "#4b5563", grid: { stroke: "#eef2f5" }, ticks: { stroke: "#dde4ea" }, size: 48, font: "12px Inter, system-ui, sans-serif" },
     ],
   };
 }
@@ -62,7 +62,7 @@ export function drawCharts(container, series, cutoffs) {
   probOpts.axes[1].values = (u, ticks) => ticks.map((t) => `${Math.round(t * 100)}%`);
   probOpts.series = [
     {},
-    { label: "Probability", stroke: "#2a78d6", width: 2, value: (u, v) => (v == null ? "–" : `${Math.round(v * 100)}%`) },
+    { label: "Probability", stroke: "#0e6e8c", width: 2, value: (u, v) => (v == null ? "–" : `${Math.round(v * 100)}%`) },
     { label: "As published", stroke: "#eb6834", width: 0, points: { show: true, size: 8, fill: "#eb6834" },
       value: (u, v) => (v == null ? "–" : `${Math.round(v * 100)}%`) },
   ];
@@ -90,7 +90,7 @@ export function drawCharts(container, series, cutoffs) {
   chlOpts.axes[1].values = (u, ticks) => ticks.map((t) => (t == null ? "" : t < 1 ? `${t === 0.25 ? "¼" : "½"}×` : `${t}×`));
   chlOpts.series = [
     {},
-    { label: "× normal", stroke: "#2a78d6", width: 0, points: { show: true, size: 6, fill: "#2a78d6" },
+    { label: "× normal", stroke: "#0e6e8c", width: 0, points: { show: true, size: 6, fill: "#0e6e8c" },
       value: (u, v) => (v == null ? "cloud" : `${v.toFixed(1)}×`) },
   ];
   chlOpts.hooks = { draw: [referenceLines([{ value: 1, colour: "#8a8984" }])] }; // 1× = normal

@@ -4,8 +4,12 @@
 import * as maplibregl from "../vendor/maplibre-gl-6.19.0/maplibre-gl.mjs";
 import { TIER_COLOURS, TIER_LETTERS } from "./format.js";
 
-// Free, keyless basemap (docs/decisions.md D004). MapLibre shows its attribution.
-const BASEMAP_URL = "https://tiles.openfreemap.org/styles/liberty";
+// Free, keyless basemap (docs/decisions.md D004): OpenFreeMap's muted "positron" style, so the
+// coloured markers and satellite layers stand out. MapLibre shows its attribution.
+const BASEMAP_URL = "https://tiles.openfreemap.org/styles/positron";
+
+// Positron draws the sea grey, which would hide the grey "Low" markers; tint it pale blue.
+const SEA_COLOUR = "#c9dcea";
 
 // If the basemap hasn't loaded after this long, switch to a plain background (D004 risk:
 // OpenFreeMap has no service guarantee). Our own data still shows on top.
@@ -15,7 +19,7 @@ const BASEMAP_TIMEOUT_MS = 10000;
 const FALLBACK_STYLE = {
   version: 8,
   sources: {},
-  layers: [{ id: "background", type: "background", paint: { "background-color": "#dbe7f3" } }],
+  layers: [{ id: "background", type: "background", paint: { "background-color": SEA_COLOUR } }],
 };
 
 // Start view: Tasmania and South Australia together.
@@ -61,6 +65,7 @@ export function createMap({ container, areas, layers, onSelect }) {
   // Every time a style finishes loading (the basemap, or the fallback), add our layers again.
   map.on("style.load", () => {
     clearTimeout(timer);
+    if (map.getLayer("water")) map.setPaintProperty("water", "fill-color", SEA_COLOUR);
     addRasterLayers();
     addAreaLayers();
     showLayer(activeLayer);
@@ -115,7 +120,7 @@ export function createMap({ container, areas, layers, onSelect }) {
         "circle-radius": ["interpolate", ["linear"], ["zoom"],
           5, ["match", ["get", "tier"], "High", 5, "Moderate", 4.5, 4],
           8, ["match", ["get", "tier"], "High", 10, "Moderate", 9, 8]],
-        "circle-stroke-color": ["case", ["boolean", ["feature-state", "selected"], false], "#2a78d6", "#1a1a19"],
+        "circle-stroke-color": ["case", ["boolean", ["feature-state", "selected"], false], "#0e6e8c", "#1a1a19"],
         "circle-stroke-width": ["case", ["boolean", ["feature-state", "selected"], false], 4, 1.2],
       },
     });

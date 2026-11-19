@@ -242,6 +242,11 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
   - Tarball SHA-1 `c800a63b432bad692d6d746f44f0882aa73a49ae`, matching the registry.
   - Vendored in `web/vendor/uplot-1.6.32/`: `uPlot.esm.js`, `uPlot.min.css`, `LICENSE`.
 - **Python Markdown 3.11.3** (latest on PyPI) renders the About and model card pages.
+- **Inter** via `@fontsource-variable/inter` **5.3.0** (latest on npm), licence **OFL-1.1**.
+  - Tarball SHA-1 `351dd1e02dab63a6cf66d57ec36dcfd10c07f07b`, matching the registry.
+  - Vendored in `web/vendor/inter-5.3.0/`: `inter-latin-wght-normal.woff2` and `LICENSE`.
+- **OpenFreeMap styles available** (HTTP 200, 2026-11-19): `liberty`, `positron`, `bright`, `dark`, `fiord`.
+  - The site uses **positron**: same glyph server and `Noto Sans Bold` font as liberty, water `rgb(194, 200, 202)` (tinted on the page) and background `rgb(242,243,240)`.
 - **OpenFreeMap "liberty"** style (D004).
   - Glyphs at `https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf`; the fonts include `Noto Sans Bold`, which the tier letters use.
   - Water fill colour `rgb(158,189,255)`.

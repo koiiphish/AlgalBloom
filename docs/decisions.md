@@ -320,8 +320,22 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - Checked visually in headless Edge, driven over the DevTools protocol: the desktop map, the panel and charts, the chlorophyll layer zoomed to the coast, a 390 px phone layout and the stale banner.
 - Headless one-shot screenshots stall MapLibre's web worker. That isn't a site bug, but it's why the DevTools route was needed.
 
+**Update 2026-11-19: "clean marine" restyle (Timothy chose it from four options, and chose self-hosted Inter over system fonts).**
+- **Type:** Inter (variable, Latin subset, 48 KB, SIL OFL 1.1) is vendored in `web/vendor/inter-5.3.0/`. The base size is 16 px, with larger headings.
+- **Colours:**
+  - navy header `#0f2a44`;
+  - teal-blue accent `#0e6e8c` (5.8:1 on white);
+  - secondary text `#4b5563` (7.6:1);
+  - light text on navy `#c9dcec` (10.4:1);
+  - card panels with soft shadows.
+- **Basemap:** switched from OpenFreeMap "liberty" to the muted **"positron"** style (D004 basemap, same provider and terms), so the markers and satellite layers stand out. Positron draws the sea grey (`rgb(194,200,202)`), which made the grey Low markers hard to see. The page now tints its `water` layer `#c9dcea`; the dark marker outline stays 12.4:1 against it.
+- **Tier colours are unchanged** (validated). The chart lines use the accent colour.
+- **Phones:** the floating map cards are smaller.
+
 **Alternatives rejected:**
 - Loading the libraries from a CDN: an extra runtime dependency, and versions could change underneath us.
+- Fonts from Google Fonts: a third-party request on every visit.
+- A dark theme: harder to read outdoors on a phone.
 - Chart.js: larger than uPlot.
 - A popup bubble on the map: cramped on phones, so a side panel or bottom sheet is used instead.
 - Green for Low.
