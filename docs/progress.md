@@ -13,8 +13,8 @@ _Last updated: 2026-11-19_
 | 2: Feature dataset | ✅ Accepted (Tasmania) | SA features wait on PIRSA |
 | 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); deployed as `persistence-1.1` after one recalibration (D014). The test was scored once at commit `d881905`; never re-tune on it. |
 | 4: Daily forecast pipeline | 🟡 Working; checkpoint open | The 1st scheduled run failed (theLIST refused the runner), so area pixels moved to the `TAS_AREA_PIXELS` secret. Manual run green 19 Nov. Needs 2 consecutive green **scheduled** runs (22:17 UTC). |
-| 5: Frontend | 🟡 Live, iterated with Timothy | https://koiiphish.github.io/AlgalBloom/. "Clean marine" style, Inter, positron basemap; summary panel + More info; resizable panel; report-style wording; disclaimer in footer and panels (D015). Checkpoint: the live URL, reported together with Phases 1 and 4. |
-| 6: Portfolio polish | 🟡 Started early (Timothy) | Site reworded as a chlorophyll-a (biomass) outlook; Verification page live (D016). The rest waits for the checkpoints. |
+| 5: Frontend | 🟡 Live, iterated with Timothy | https://koiiphish.github.io/AlgalBloom/ ("Algal Bloom Outlook"). "Clean marine" style, Inter, positron basemap; summary panel + More info; resizable panel; report-style wording; disclaimer in footer and panels (D015). Checkpoint: the live URL, reported together with Phases 1 and 4. |
+| 6: Portfolio polish | 🟡 Started early (Timothy) | Site reworded as a chlorophyll-a (biomass) outlook, not a toxin forecast. Verification page live: satellite outcomes, ShellMAP status changes, and Biotoxin News parsed with literal PALT matching only (D016). The rest waits for the checkpoints. |
 
 ## Next steps
 
@@ -25,12 +25,14 @@ _Last updated: 2026-11-19_
    - What was `inputs.chl_age_days`?
    - Did Pages rebuild?
 2. After a second consecutive green `daily_forecast` (21 Nov), report the Phase 1, 4 and 5 checkpoints together.
-3. **Verification page:** the first satellite check is due about 28 Nov. Biotoxin News findings build up weekly. Check that the page fills in correctly.
+3. **Verification page:**
+   - It shows "First update pending" until tonight's daily run builds it.
+   - The first satellite check is due about 28 Nov, and Biotoxin News findings build up weekly. Check that the page fills in correctly.
+   - **Timothy (optional):** check the PALT "cumulative within a toxin group" wording in the Biotoxin Management Plan, Appendix 3. It isn't applied yet, to avoid guessing.
 4. **On hold (Timothy):** the request to NRE Tas for historical ShellMAP phytoplankton data, which is the route to a species-aware model.
 5. **Phase 6 (after approval).** Candidates discussed:
    - README with screenshots and an architecture diagram;
    - per-area links to the ShellMAP management-plan maps (26 of 29 growing areas match);
-   - a site name or URL change if wanted;
    - tightening the model card's wording.
 6. **Before 24 Nov:** back up `data/raw/copernicus/history_olci_300m_v202211` (1.9 GB), because that version retires.
 
