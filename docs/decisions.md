@@ -331,6 +331,16 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - **Basemap:** switched from OpenFreeMap "liberty" to the muted **"positron"** style (D004 basemap, same provider and terms), so the markers and satellite layers stand out. Positron draws the sea grey (`rgb(194,200,202)`), which made the grey Low markers hard to see. The page now tints its `water` layer `#c9dcea`; the dark marker outline stays 12.4:1 against it.
 - **Tier colours are unchanged** (validated). The chart lines use the accent colour.
 - **Phones:** the floating map cards are smaller.
+- **Shorter area panel (Timothy, 2026-11-19).** He chose "summary plus an expandable section" over two tabs.
+  - **Summary:** a tinted tier band (letter, tier, %, valid dates), three facts (chlorophyll × normal with a trend arrow, clear views, official status), a small 90-day risk chart and a one-line disclaimer with the official link.
+  - **"More info"** is a native `<details>` element, so it works with the keyboard and screen readers without extra code. It holds:
+    - why this rating;
+    - what the area covers (the harvest area plus 2 km);
+    - the full charts;
+    - sea temperature;
+    - official status details;
+    - caveats and the full disclaimer.
+  - Section headings are bold, dark and separated by rules, instead of small grey capitals.
 
 **Alternatives rejected:**
 - Loading the libraries from a CDN: an extra runtime dependency, and versions could change underneath us.

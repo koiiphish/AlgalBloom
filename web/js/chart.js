@@ -46,6 +46,26 @@ function baseOptions(width, title) {
   };
 }
 
+// A small risk chart for the panel summary: the 90-day probability line with the Moderate
+// and High cut-offs dashed. No legend; hovering shows the date and value in a single line.
+export function drawSparkline(container, series, cutoffs) {
+  container.innerHTML = "";
+  const width = Math.max(240, container.clientWidth || 320);
+  const opts = baseOptions(width);
+  opts.height = 110;
+  opts.legend = { show: false };
+  opts.scales.y = { range: [0, 1] };
+  opts.axes[1].size = 50;
+  opts.axes[1].values = (u, ticks) => ticks.map((t) => `${Math.round(t * 100)}%`);
+  opts.axes[1].splits = () => [0, 0.5, 1];
+  opts.series = [{}, { label: "Probability", stroke: "#0e6e8c", width: 2 }];
+  opts.hooks = { draw: [referenceLines([
+    { value: cutoffs?.moderate, colour: TIER_COLOURS.Moderate },
+    { value: cutoffs?.high, colour: TIER_COLOURS.High },
+  ])] };
+  new uPlot(opts, [toUnixSeconds(series.dates), series.p], container);
+}
+
 // Build both charts into `container` for one area's time series (from timeseries/<area>.json).
 export function drawCharts(container, series, cutoffs) {
   container.innerHTML = "";
@@ -55,7 +75,7 @@ export function drawCharts(container, series, cutoffs) {
   // Chart 1: probability, recomputed each day; dots mark what the site actually published.
   const probTitle = document.createElement("p");
   probTitle.className = "chart-title";
-  probTitle.textContent = "Forecast probability, last 90 days";
+  probTitle.textContent = "Forecast probability";
   container.appendChild(probTitle);
   const probOpts = baseOptions(width);
   probOpts.scales.y = { range: [0, 1] };
@@ -79,7 +99,7 @@ export function drawCharts(container, series, cutoffs) {
   // Chart 2: daily chlorophyll vs normal, only on days with a clear view (gaps = cloud).
   const chlTitle = document.createElement("p");
   chlTitle.className = "chart-title";
-  chlTitle.textContent = "Satellite chlorophyll vs normal (clear days only)";
+  chlTitle.textContent = "Chlorophyll vs normal (clear days only)";
   container.appendChild(chlTitle);
   const ratio = series.chl_log10_anomaly.map((v) => (v == null ? null : Math.pow(10, v)));
   const chlOpts = baseOptions(width);
