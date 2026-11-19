@@ -3,6 +3,7 @@
   web/**                 -> site/  (index.html, css, js, vendored libraries)
   docs/about.md          -> site/about.html
   docs/model_card.md     -> site/model-card.html  (+ the images it links to)
+(site/verification.html is written by the daily job: pipeline.publish.verification)
 
 Run by the daily job (after the forecast files are written) and by the publish_web workflow
 (when only the web files or these docs change). Locally, to preview:
@@ -29,19 +30,20 @@ TEMPLATE = """<!DOCTYPE html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{title}: Algal bloom risk forecast (experimental)</title>
+  <title>{title}: Algal bloom outlook (experimental)</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <a class="skip-link" href="#content">Skip to content</a>
   <header class="site-header">
     <div class="brand">
-      <h1>Algal bloom risk forecast</h1>
-      <p class="tagline">Tasmania &amp; South Australia · Experimental</p>
+      <h1>Algal bloom outlook</h1>
+      <p class="tagline">Satellite chlorophyll-a · Tasmania &amp; South Australia · Experimental</p>
     </div>
     <nav aria-label="Site">
       <a href="./">Map</a>
       <a href="about.html"{about_current}>About</a>
+      <a href="verification.html"{verif_current}>Verification</a>
       <a href="model-card.html"{card_current}>Model card</a>
     </nav>
   </header>
@@ -49,9 +51,9 @@ TEMPLATE = """<!DOCTYPE html>
 {body}
   </main>
   <footer class="site-footer">
-    <p class="disclaimer"><strong>Experimental research tool.</strong> Not a substitute for
-    official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia). Refer to the
-    official harvest-area status.</p>
+    <p class="disclaimer"><strong>Experimental research tool.</strong> Indicates chlorophyll-a
+    (algal biomass), not toxins or harmful species. Not a substitute for official harvest
+    decisions by ShellMAP (Tasmania) or SASQAP (South Australia).</p>
     <p>Generated using E.U. Copernicus Marine Service Information. Sources and licences:
     <a href="about.html">About</a>.</p>
   </footer>
@@ -80,20 +82,31 @@ def page(title: str, md_name: str, current: str) -> tuple[str, list[str]]:
         text += "\n\n## Figures\n\n" + "\n\n".join(
             f"`{img}`\n\n![{Path(img).stem.replace('_', ' ')}]({img})" for img in images
         )
-    body = render_markdown(text)
-    out = TEMPLATE.format(
+    return render_page(title, render_markdown(text), current), images
+
+
+def render_page(title: str, body_html: str, current: str) -> str:
+    """Wrap HTML in the site's page template, marking `current` (a file name) in the nav."""
+    mark = ' aria-current="page"'
+    return TEMPLATE.format(
         title=html.escape(title),
-        body=body,
-        about_current=' aria-current="page"' if current == "about.html" else "",
-        card_current=' aria-current="page"' if current == "model-card.html" else "",
+        body=body_html,
+        about_current=mark if current == "about.html" else "",
+        verif_current=mark if current == "verification.html" else "",
+        card_current=mark if current == "model-card.html" else "",
     )
-    return out, images
 
 
 def build(site: Path) -> None:
     """Copy web/ into `site` and write the text pages (forecast data files are untouched)."""
     site.mkdir(parents=True, exist_ok=True)
     shutil.copytree(WEB_DIR, site, dirs_exist_ok=True)
+    # The daily job writes verification.html; until its first run, show a short placeholder.
+    if not (site / "verification.html").exists():
+        body = render_markdown("# Verification\n\nFirst update pending. Updated daily.")
+        (site / "verification.html").write_text(
+            render_page("Verification", body, "verification.html"), encoding="utf-8"
+        )
     for name, (title, md_name) in PAGES.items():
         content, images = page(title, md_name, name)
         (site / name).write_text(content, encoding="utf-8")

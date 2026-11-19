@@ -1,6 +1,6 @@
 # Progress and handoff
 
-**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D015), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
+**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D016), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
 
 _Last updated: 2026-11-19_
 

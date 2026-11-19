@@ -1,0 +1,3409 @@
+{
+ "label": "y_fixed",
+ "rule": "clear-sky-weighted mean log10 anomaly over t+1..t+7 (>= 2 valid days) > threshold for the issue month",
+ "quantile": 0.9,
+ "train_end": "2022-12-31",
+ "min_valid_days": 2,
+ "thresholds": [
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 1,
+   "threshold": 0.092945
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 2,
+   "threshold": 0.068708
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 3,
+   "threshold": 0.107523
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 4,
+   "threshold": 0.138201
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 5,
+   "threshold": 0.308868
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 6,
+   "threshold": 0.2067
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 7,
+   "threshold": 0.21716
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 8,
+   "threshold": 0.325629
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 9,
+   "threshold": 0.355529
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 10,
+   "threshold": 0.331254
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 11,
+   "threshold": 0.18576
+  },
+  {
+   "area_id": "tas:big_bay:zone_b",
+   "month": 12,
+   "threshold": 0.072119
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 1,
+   "threshold": 0.120418
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 2,
+   "threshold": 0.107398
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 3,
+   "threshold": 0.177126
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 4,
+   "threshold": 0.053816
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 5,
+   "threshold": 0.263981
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 6,
+   "threshold": 0.181489
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 7,
+   "threshold": 0.227034
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 8,
+   "threshold": 0.147128
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 9,
+   "threshold": 0.358456
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 10,
+   "threshold": 0.335985
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 11,
+   "threshold": 0.340224
+  },
+  {
+   "area_id": "tas:big_bay:zone_c",
+   "month": 12,
+   "threshold": 0.071626
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 1,
+   "threshold": 0.105778
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 2,
+   "threshold": 0.163866
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 3,
+   "threshold": 0.177585
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 4,
+   "threshold": 0.220514
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 5,
+   "threshold": 0.067161
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 6,
+   "threshold": 0.198955
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 7,
+   "threshold": 0.137797
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 8,
+   "threshold": 0.185596
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 9,
+   "threshold": 0.175907
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 10,
+   "threshold": 0.244009
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 11,
+   "threshold": 0.186698
+  },
+  {
+   "area_id": "tas:big_bay:zone_d",
+   "month": 12,
+   "threshold": 0.176405
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 1,
+   "threshold": 0.117612
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 2,
+   "threshold": 0.076303
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 3,
+   "threshold": 0.098482
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 4,
+   "threshold": 0.091924
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 5,
+   "threshold": 0.242534
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 6,
+   "threshold": 0.196763
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 7,
+   "threshold": 0.331051
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 8,
+   "threshold": 0.257246
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 9,
+   "threshold": 0.311713
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 10,
+   "threshold": 0.327594
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 11,
+   "threshold": 0.142944
+  },
+  {
+   "area_id": "tas:big_bay:zone_e",
+   "month": 12,
+   "threshold": 0.098622
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 1,
+   "threshold": 0.165752
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 2,
+   "threshold": 0.246196
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 3,
+   "threshold": 0.201278
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 4,
+   "threshold": 0.291094
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 5,
+   "threshold": 0.401996
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 6,
+   "threshold": 0.277696
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 7,
+   "threshold": 0.252109
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 8,
+   "threshold": 0.176076
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 9,
+   "threshold": 0.181655
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 10,
+   "threshold": 0.223169
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 11,
+   "threshold": 0.205421
+  },
+  {
+   "area_id": "tas:birchs_bay:birchs_bay",
+   "month": 12,
+   "threshold": 0.325619
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 1,
+   "threshold": 0.223111
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 2,
+   "threshold": 0.204987
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 3,
+   "threshold": 0.238235
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 4,
+   "threshold": 0.181737
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 5,
+   "threshold": 0.181627
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 6,
+   "threshold": 0.186956
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 7,
+   "threshold": 0.150476
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 8,
+   "threshold": 0.189496
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 9,
+   "threshold": 0.168145
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 10,
+   "threshold": 0.273505
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 11,
+   "threshold": 0.237758
+  },
+  {
+   "area_id": "tas:boomer_bay:east",
+   "month": 12,
+   "threshold": 0.234157
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 1,
+   "threshold": 0.167131
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 2,
+   "threshold": 0.189073
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 3,
+   "threshold": 0.15286
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 4,
+   "threshold": 0.144708
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 5,
+   "threshold": 0.166708
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 6,
+   "threshold": 0.16756
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 7,
+   "threshold": 0.166519
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 8,
+   "threshold": 0.154553
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 9,
+   "threshold": 0.149496
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 10,
+   "threshold": 0.221404
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 11,
+   "threshold": 0.178262
+  },
+  {
+   "area_id": "tas:boomer_bay:little",
+   "month": 12,
+   "threshold": 0.231284
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 1,
+   "threshold": 0.156848
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 2,
+   "threshold": 0.142354
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 3,
+   "threshold": 0.097254
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 4,
+   "threshold": 0.124442
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 5,
+   "threshold": 0.147537
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 6,
+   "threshold": 0.160623
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 7,
+   "threshold": 0.139736
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 8,
+   "threshold": 0.129368
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 9,
+   "threshold": 0.133461
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 10,
+   "threshold": 0.22311
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 11,
+   "threshold": 0.10923
+  },
+  {
+   "area_id": "tas:boomer_bay:narrows",
+   "month": 12,
+   "threshold": 0.175301
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 1,
+   "threshold": 0.093238
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 2,
+   "threshold": 0.171522
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 3,
+   "threshold": 0.082444
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 4,
+   "threshold": 0.093565
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 5,
+   "threshold": 0.168779
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 6,
+   "threshold": 0.184362
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 7,
+   "threshold": 0.124721
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 8,
+   "threshold": 0.115278
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 9,
+   "threshold": 0.114829
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 10,
+   "threshold": 0.15372
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 11,
+   "threshold": 0.183222
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_1",
+   "month": 12,
+   "threshold": 0.153015
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 1,
+   "threshold": 0.09119
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 2,
+   "threshold": 0.186182
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 3,
+   "threshold": 0.087262
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 4,
+   "threshold": 0.090965
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 5,
+   "threshold": 0.110333
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 6,
+   "threshold": 0.123161
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 7,
+   "threshold": 0.163709
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 8,
+   "threshold": 0.116028
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 9,
+   "threshold": 0.089794
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 10,
+   "threshold": 0.170914
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 11,
+   "threshold": 0.176446
+  },
+  {
+   "area_id": "tas:cloudy_bay_lagoon:zone_2",
+   "month": 12,
+   "threshold": 0.140931
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 1,
+   "threshold": 0.148622
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 2,
+   "threshold": 0.136388
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 3,
+   "threshold": 0.122836
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 4,
+   "threshold": 0.162109
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 5,
+   "threshold": 0.197483
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 6,
+   "threshold": 0.208738
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 7,
+   "threshold": 0.230917
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 8,
+   "threshold": 0.203466
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 9,
+   "threshold": 0.22403
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 10,
+   "threshold": 0.143262
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 11,
+   "threshold": 0.19508
+  },
+  {
+   "area_id": "tas:duck_bay:duck_bay",
+   "month": 12,
+   "threshold": 0.151368
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 1,
+   "threshold": 0.123601
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 2,
+   "threshold": 0.173226
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 3,
+   "threshold": 0.131353
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 4,
+   "threshold": 0.181702
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 5,
+   "threshold": 0.13324
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 6,
+   "threshold": 0.164222
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 7,
+   "threshold": 0.174152
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 8,
+   "threshold": 0.220101
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 9,
+   "threshold": 0.217118
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 10,
+   "threshold": 0.153064
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 11,
+   "threshold": 0.114283
+  },
+  {
+   "area_id": "tas:duck_bay:kemps_bay",
+   "month": 12,
+   "threshold": 0.181612
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 1,
+   "threshold": 0.192526
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 2,
+   "threshold": 0.161119
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 3,
+   "threshold": 0.139481
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 4,
+   "threshold": 0.108218
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 5,
+   "threshold": 0.126999
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 6,
+   "threshold": 0.28383
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 7,
+   "threshold": 0.143273
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 8,
+   "threshold": 0.224965
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 9,
+   "threshold": 0.147096
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 10,
+   "threshold": 0.112415
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 11,
+   "threshold": 0.100599
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_a",
+   "month": 12,
+   "threshold": 0.118763
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 1,
+   "threshold": 0.101663
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 2,
+   "threshold": 0.15332
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 3,
+   "threshold": 0.149613
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 4,
+   "threshold": 0.197399
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 5,
+   "threshold": 0.275457
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 6,
+   "threshold": 0.235496
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 7,
+   "threshold": 0.324423
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 8,
+   "threshold": 0.309423
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 9,
+   "threshold": 0.185983
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 10,
+   "threshold": 0.194349
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 11,
+   "threshold": 0.272116
+  },
+  {
+   "area_id": "tas:dunalley_bay:zone_b",
+   "month": 12,
+   "threshold": 0.178657
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 1,
+   "threshold": 0.111948
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 2,
+   "threshold": 0.162114
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 3,
+   "threshold": 0.17203
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 4,
+   "threshold": 0.101972
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 5,
+   "threshold": 0.152596
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 6,
+   "threshold": 0.275939
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 7,
+   "threshold": 0.423926
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 8,
+   "threshold": 0.310204
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 9,
+   "threshold": 0.188213
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 10,
+   "threshold": 0.185791
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 11,
+   "threshold": 0.362739
+  },
+  {
+   "area_id": "tas:eaglehawk_bay:eaglehawk_bay",
+   "month": 12,
+   "threshold": 0.234213
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 1,
+   "threshold": 0.187182
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 2,
+   "threshold": 0.24001
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 3,
+   "threshold": 0.190145
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 4,
+   "threshold": 0.297587
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 5,
+   "threshold": 0.447781
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 6,
+   "threshold": 0.205063
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 7,
+   "threshold": 0.259887
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 8,
+   "threshold": 0.157266
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 9,
+   "threshold": 0.220621
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 10,
+   "threshold": 0.271159
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 11,
+   "threshold": 0.207777
+  },
+  {
+   "area_id": "tas:fleurtys_point:fleurtys_point",
+   "month": 12,
+   "threshold": 0.301146
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 1,
+   "threshold": 0.296896
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 2,
+   "threshold": 0.229863
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 3,
+   "threshold": 0.192092
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 4,
+   "threshold": 0.398591
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 5,
+   "threshold": 0.356696
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 6,
+   "threshold": -0.371694
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 7,
+   "threshold": 0.222014
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 8,
+   "threshold": 0.196199
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 9,
+   "threshold": 0.163325
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 10,
+   "threshold": 0.154319
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 11,
+   "threshold": 0.163506
+  },
+  {
+   "area_id": "tas:gardners_bay:gardners_bay",
+   "month": 12,
+   "threshold": 0.167636
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 1,
+   "threshold": 0.084995
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 2,
+   "threshold": 0.133777
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 3,
+   "threshold": 0.145468
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 4,
+   "threshold": 0.112279
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 5,
+   "threshold": 0.153935
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 6,
+   "threshold": 0.370041
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 7,
+   "threshold": 0.421096
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 8,
+   "threshold": 0.284608
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 9,
+   "threshold": 0.185364
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 10,
+   "threshold": 0.145268
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 11,
+   "threshold": 0.335398
+  },
+  {
+   "area_id": "tas:garfish_bay_dart_island:garfish_bay_dart_island",
+   "month": 12,
+   "threshold": 0.20487
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 1,
+   "threshold": 0.160084
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 2,
+   "threshold": 0.217355
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 3,
+   "threshold": 0.176003
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 4,
+   "threshold": 0.176187
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 5,
+   "threshold": 0.271361
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 6,
+   "threshold": 0.337705
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 7,
+   "threshold": 0.410954
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 8,
+   "threshold": 0.254072
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 9,
+   "threshold": 0.2059
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 10,
+   "threshold": 0.152224
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 11,
+   "threshold": 0.181486
+  },
+  {
+   "area_id": "tas:great_bay:north",
+   "month": 12,
+   "threshold": 0.174289
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 1,
+   "threshold": 0.156426
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 2,
+   "threshold": 0.270897
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 3,
+   "threshold": 0.202078
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 4,
+   "threshold": 0.288066
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 5,
+   "threshold": 0.24492
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 6,
+   "threshold": 0.366047
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 7,
+   "threshold": 0.457002
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 8,
+   "threshold": 0.291364
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 9,
+   "threshold": 0.186622
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 10,
+   "threshold": 0.246573
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 11,
+   "threshold": 0.295665
+  },
+  {
+   "area_id": "tas:great_bay:south",
+   "month": 12,
+   "threshold": 0.172637
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 1,
+   "threshold": 0.186249
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 2,
+   "threshold": 0.239456
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 3,
+   "threshold": 0.245557
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 4,
+   "threshold": 0.228162
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 5,
+   "threshold": 0.29438
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 6,
+   "threshold": 0.332088
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 7,
+   "threshold": 0.289688
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 8,
+   "threshold": 0.279821
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 9,
+   "threshold": 0.165325
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 10,
+   "threshold": 0.242374
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 11,
+   "threshold": 0.243073
+  },
+  {
+   "area_id": "tas:great_bay:west",
+   "month": 12,
+   "threshold": 0.222092
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 1,
+   "threshold": 0.210632
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 2,
+   "threshold": 0.185517
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 3,
+   "threshold": 0.330036
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 4,
+   "threshold": 0.267676
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 5,
+   "threshold": 0.135577
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 6,
+   "threshold": 0.590797
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 7,
+   "threshold": 0.384616
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 8,
+   "threshold": 0.709478
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 9,
+   "threshold": 0.591038
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 10,
+   "threshold": 0.605744
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 11,
+   "threshold": 0.690976
+  },
+  {
+   "area_id": "tas:great_oyster_bay:east",
+   "month": 12,
+   "threshold": 0.461584
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 1,
+   "threshold": 0.276498
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 2,
+   "threshold": 0.186677
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 3,
+   "threshold": 0.294697
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 4,
+   "threshold": 0.236791
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 5,
+   "threshold": 0.184541
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 6,
+   "threshold": 0.449266
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 7,
+   "threshold": 0.29131
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 8,
+   "threshold": 0.462183
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 9,
+   "threshold": 0.357468
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 10,
+   "threshold": 0.569595
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 11,
+   "threshold": 0.597814
+  },
+  {
+   "area_id": "tas:great_oyster_bay:west",
+   "month": 12,
+   "threshold": 0.420146
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 1,
+   "threshold": 0.111771
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 2,
+   "threshold": 0.121667
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 3,
+   "threshold": 0.257714
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 4,
+   "threshold": 0.243663
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 5,
+   "threshold": 0.209843
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 6,
+   "threshold": 0.359602
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 7,
+   "threshold": 0.270085
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 8,
+   "threshold": 0.380733
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 9,
+   "threshold": 0.263287
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 10,
+   "threshold": 0.328023
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 11,
+   "threshold": 0.372955
+  },
+  {
+   "area_id": "tas:great_swanport:east",
+   "month": 12,
+   "threshold": 0.105241
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 1,
+   "threshold": 0.147287
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 2,
+   "threshold": 0.142338
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 3,
+   "threshold": 0.210391
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 4,
+   "threshold": 0.258047
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 5,
+   "threshold": 0.214295
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 6,
+   "threshold": 0.491411
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 7,
+   "threshold": 0.381721
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 8,
+   "threshold": 0.467201
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 9,
+   "threshold": 0.325861
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 10,
+   "threshold": 0.352642
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 11,
+   "threshold": 0.364355
+  },
+  {
+   "area_id": "tas:great_swanport:west",
+   "month": 12,
+   "threshold": 0.257932
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 1,
+   "threshold": 0.196778
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 2,
+   "threshold": 0.095588
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 3,
+   "threshold": 0.202215
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 4,
+   "threshold": 0.424174
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 5,
+   "threshold": 0.195177
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 6,
+   "threshold": 0.151145
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 7,
+   "threshold": 0.20669
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 8,
+   "threshold": 0.181999
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 9,
+   "threshold": 0.233344
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 10,
+   "threshold": 0.277067
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 11,
+   "threshold": 0.071274
+  },
+  {
+   "area_id": "tas:hastings_bay:hastings_bay",
+   "month": 12,
+   "threshold": 0.222525
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 1,
+   "threshold": 0.086083
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 2,
+   "threshold": 0.048358
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 3,
+   "threshold": 0.077525
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 4,
+   "threshold": 0.064126
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 5,
+   "threshold": 0.295304
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 6,
+   "threshold": 0.323825
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 7,
+   "threshold": 0.213515
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 8,
+   "threshold": 0.323172
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 9,
+   "threshold": 0.253556
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 10,
+   "threshold": 0.367235
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 11,
+   "threshold": 0.391928
+  },
+  {
+   "area_id": "tas:island_inlet:zone_4",
+   "month": 12,
+   "threshold": 0.219484
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 1,
+   "threshold": 0.084227
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 2,
+   "threshold": 0.052144
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 3,
+   "threshold": 0.078693
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 4,
+   "threshold": 0.090687
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 5,
+   "threshold": 0.263745
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 6,
+   "threshold": 0.332936
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 7,
+   "threshold": 0.231517
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 8,
+   "threshold": 0.329476
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 9,
+   "threshold": 0.260245
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 10,
+   "threshold": 0.353726
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 11,
+   "threshold": 0.356159
+  },
+  {
+   "area_id": "tas:island_inlet:zone_5",
+   "month": 12,
+   "threshold": 0.173236
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 1,
+   "threshold": 0.102808
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 2,
+   "threshold": 0.101945
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 3,
+   "threshold": 0.150325
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 4,
+   "threshold": 0.155104
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 5,
+   "threshold": 0.185793
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 6,
+   "threshold": 0.331273
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 7,
+   "threshold": 0.334013
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 8,
+   "threshold": 0.221969
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 9,
+   "threshold": 0.16971
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 10,
+   "threshold": 0.24647
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 11,
+   "threshold": 0.309154
+  },
+  {
+   "area_id": "tas:king_george_sound:king_george_sound",
+   "month": 12,
+   "threshold": 0.203776
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 1,
+   "threshold": 0.22272
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 2,
+   "threshold": 0.120878
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 3,
+   "threshold": 0.157968
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 4,
+   "threshold": 0.194801
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 5,
+   "threshold": 0.19801
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 6,
+   "threshold": 0.19042
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 7,
+   "threshold": 0.512623
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 8,
+   "threshold": 0.287628
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 9,
+   "threshold": 0.174597
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 10,
+   "threshold": 0.132614
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 11,
+   "threshold": 0.141372
+  },
+  {
+   "area_id": "tas:little_norfolk_bay:little_norfolk_bay",
+   "month": 12,
+   "threshold": 0.084317
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 1,
+   "threshold": 0.16851
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 2,
+   "threshold": 0.274285
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 3,
+   "threshold": 0.274545
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 4,
+   "threshold": 0.196224
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 5,
+   "threshold": 0.212744
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 6,
+   "threshold": 0.283699
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 7,
+   "threshold": 0.245922
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 8,
+   "threshold": 0.273107
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 9,
+   "threshold": 0.215574
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 10,
+   "threshold": 0.393326
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 11,
+   "threshold": 0.293395
+  },
+  {
+   "area_id": "tas:little_swanport:6a_b",
+   "month": 12,
+   "threshold": 0.294713
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 3,
+   "threshold": -0.111954
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 4,
+   "threshold": 0.061934
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 5,
+   "threshold": 0.159691
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 6,
+   "threshold": 0.155435
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 7,
+   "threshold": 0.060074
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 8,
+   "threshold": 0.055496
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 9,
+   "threshold": 0.356941
+  },
+  {
+   "area_id": "tas:little_swanport:6c",
+   "month": 11,
+   "threshold": 0.308589
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 1,
+   "threshold": 0.34157
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 2,
+   "threshold": 0.171175
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 3,
+   "threshold": 0.220721
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 4,
+   "threshold": 0.247492
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 5,
+   "threshold": 0.420624
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 6,
+   "threshold": 0.260826
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 7,
+   "threshold": 0.450171
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 8,
+   "threshold": 0.174597
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 9,
+   "threshold": 0.181065
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 10,
+   "threshold": 0.145324
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 11,
+   "threshold": 0.258264
+  },
+  {
+   "area_id": "tas:little_taylors_bay:little_taylors_bay",
+   "month": 12,
+   "threshold": 0.277897
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 1,
+   "threshold": 0.170062
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 2,
+   "threshold": 0.215549
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 3,
+   "threshold": 0.330645
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 4,
+   "threshold": 0.204837
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 5,
+   "threshold": 0.387401
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 6,
+   "threshold": 0.223428
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 7,
+   "threshold": 0.283601
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 8,
+   "threshold": 0.307336
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 9,
+   "threshold": 0.217838
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 10,
+   "threshold": 0.275259
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 11,
+   "threshold": 0.190478
+  },
+  {
+   "area_id": "tas:missionary_bay:missionary_bay",
+   "month": 12,
+   "threshold": 0.417047
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 1,
+   "threshold": 0.052343
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 2,
+   "threshold": 0.114122
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 3,
+   "threshold": 0.106936
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 4,
+   "threshold": 0.215597
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 5,
+   "threshold": 0.417036
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 6,
+   "threshold": 0.268975
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 7,
+   "threshold": 0.259172
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 8,
+   "threshold": 0.206523
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 9,
+   "threshold": 0.115111
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 10,
+   "threshold": 0.250212
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 11,
+   "threshold": 0.194534
+  },
+  {
+   "area_id": "tas:montagu:montagu",
+   "month": 12,
+   "threshold": 0.053227
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 1,
+   "threshold": 0.064863
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 2,
+   "threshold": 0.105084
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 3,
+   "threshold": 0.116841
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 4,
+   "threshold": 0.182566
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 5,
+   "threshold": 0.353687
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 6,
+   "threshold": 0.207609
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 7,
+   "threshold": 0.209309
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 8,
+   "threshold": 0.237908
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 9,
+   "threshold": 0.122747
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 10,
+   "threshold": 0.237219
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 11,
+   "threshold": 0.160636
+  },
+  {
+   "area_id": "tas:montagu:robbins_passage",
+   "month": 12,
+   "threshold": 0.061049
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 1,
+   "threshold": 0.215672
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 2,
+   "threshold": 0.273047
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 3,
+   "threshold": 0.19554
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 4,
+   "threshold": 0.144816
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 5,
+   "threshold": 0.169056
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 6,
+   "threshold": 0.13281
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 7,
+   "threshold": 0.172279
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 8,
+   "threshold": 0.114455
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 9,
+   "threshold": 0.193327
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 10,
+   "threshold": 0.2006
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 11,
+   "threshold": 0.173996
+  },
+  {
+   "area_id": "tas:moulting_bay:gb1",
+   "month": 12,
+   "threshold": 0.255031
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 1,
+   "threshold": 0.232256
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 2,
+   "threshold": 0.290087
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 3,
+   "threshold": 0.127395
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 4,
+   "threshold": 0.107598
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 5,
+   "threshold": 0.10226
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 6,
+   "threshold": 0.119603
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 7,
+   "threshold": 0.115473
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 8,
+   "threshold": 0.106013
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 9,
+   "threshold": 0.210944
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 10,
+   "threshold": 0.196705
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 11,
+   "threshold": 0.18276
+  },
+  {
+   "area_id": "tas:moulting_bay:gb2",
+   "month": 12,
+   "threshold": 0.188958
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 1,
+   "threshold": 0.225418
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 2,
+   "threshold": 0.234008
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 3,
+   "threshold": 0.199686
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 4,
+   "threshold": 0.153901
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 5,
+   "threshold": 0.163794
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 6,
+   "threshold": 0.153921
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 7,
+   "threshold": 0.135784
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 8,
+   "threshold": 0.117878
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 9,
+   "threshold": 0.171844
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 10,
+   "threshold": 0.254677
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 11,
+   "threshold": 0.166187
+  },
+  {
+   "area_id": "tas:moulting_bay:gb3",
+   "month": 12,
+   "threshold": 0.220528
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 1,
+   "threshold": 0.236525
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 2,
+   "threshold": 0.280576
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 3,
+   "threshold": 0.173616
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 4,
+   "threshold": 0.146628
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 5,
+   "threshold": 0.184271
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 6,
+   "threshold": 0.178345
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 7,
+   "threshold": 0.188116
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 8,
+   "threshold": 0.131978
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 9,
+   "threshold": 0.258778
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 10,
+   "threshold": 0.222803
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 11,
+   "threshold": 0.185491
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_1",
+   "month": 12,
+   "threshold": 0.266116
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 1,
+   "threshold": 0.301577
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 2,
+   "threshold": 0.353909
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 3,
+   "threshold": 0.17026
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 4,
+   "threshold": 0.214189
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 5,
+   "threshold": 0.169064
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 6,
+   "threshold": 0.227639
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 7,
+   "threshold": 0.202249
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 8,
+   "threshold": 0.124991
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 9,
+   "threshold": 0.281577
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 10,
+   "threshold": 0.189467
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 11,
+   "threshold": 0.229257
+  },
+  {
+   "area_id": "tas:moulting_bay:prohibited_zone_2",
+   "month": 12,
+   "threshold": 0.233461
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 1,
+   "threshold": 0.19797
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 2,
+   "threshold": 0.256354
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 3,
+   "threshold": 0.1862
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 4,
+   "threshold": 0.210332
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 5,
+   "threshold": 0.190932
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 6,
+   "threshold": 0.213067
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 7,
+   "threshold": 0.196997
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 8,
+   "threshold": 0.140643
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 9,
+   "threshold": 0.262867
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 10,
+   "threshold": 0.24285
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 11,
+   "threshold": 0.151131
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_1",
+   "month": 12,
+   "threshold": 0.274972
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 1,
+   "threshold": 0.252089
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 2,
+   "threshold": 0.286359
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 3,
+   "threshold": 0.205919
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 4,
+   "threshold": 0.177141
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 5,
+   "threshold": 0.198514
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 6,
+   "threshold": 0.159109
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 7,
+   "threshold": 0.210406
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 8,
+   "threshold": 0.121711
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 9,
+   "threshold": 0.206408
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 10,
+   "threshold": 0.242373
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 11,
+   "threshold": 0.173357
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_2",
+   "month": 12,
+   "threshold": 0.214497
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 1,
+   "threshold": 0.263884
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 2,
+   "threshold": 0.222413
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 3,
+   "threshold": 0.175864
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 4,
+   "threshold": 0.135834
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 5,
+   "threshold": 0.205854
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 6,
+   "threshold": 0.133437
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 7,
+   "threshold": 0.180514
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 8,
+   "threshold": 0.150908
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 9,
+   "threshold": 0.222562
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 10,
+   "threshold": 0.23656
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 11,
+   "threshold": 0.223652
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_4",
+   "month": 12,
+   "threshold": 0.234608
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 1,
+   "threshold": 0.237074
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 2,
+   "threshold": 0.20917
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 3,
+   "threshold": 0.213383
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 4,
+   "threshold": 0.183374
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 5,
+   "threshold": 0.221773
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 6,
+   "threshold": 0.160133
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 7,
+   "threshold": 0.199989
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 8,
+   "threshold": 0.135545
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 9,
+   "threshold": 0.225421
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 10,
+   "threshold": 0.228113
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 11,
+   "threshold": 0.22679
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_5",
+   "month": 12,
+   "threshold": 0.234615
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 1,
+   "threshold": 0.161092
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 2,
+   "threshold": 0.237284
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 3,
+   "threshold": 0.182153
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 4,
+   "threshold": 0.105981
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 5,
+   "threshold": 0.11881
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 6,
+   "threshold": 0.11201
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 7,
+   "threshold": 0.108682
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 8,
+   "threshold": 0.130304
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 9,
+   "threshold": 0.26246
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 10,
+   "threshold": 0.162259
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 11,
+   "threshold": 0.318202
+  },
+  {
+   "area_id": "tas:moulting_bay:zone_6a",
+   "month": 12,
+   "threshold": 0.219994
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 1,
+   "threshold": 0.089525
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 2,
+   "threshold": 0.074117
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 3,
+   "threshold": 0.087438
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 4,
+   "threshold": 0.12732
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 5,
+   "threshold": 0.128211
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 6,
+   "threshold": 0.126881
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 7,
+   "threshold": 0.203347
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 8,
+   "threshold": 0.089852
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 9,
+   "threshold": 0.112275
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 10,
+   "threshold": 0.089649
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 11,
+   "threshold": 0.08007
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_1",
+   "month": 12,
+   "threshold": 0.087982
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 1,
+   "threshold": 0.201228
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 2,
+   "threshold": 0.207207
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 3,
+   "threshold": 0.121814
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 4,
+   "threshold": 0.232923
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 5,
+   "threshold": 0.132087
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 6,
+   "threshold": 0.191606
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 7,
+   "threshold": 0.197831
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 8,
+   "threshold": 0.097624
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 9,
+   "threshold": 0.074091
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 10,
+   "threshold": 0.154052
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 11,
+   "threshold": 0.177367
+  },
+  {
+   "area_id": "tas:pipe_clay_lagoon:zone_3",
+   "month": 12,
+   "threshold": 0.254016
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 1,
+   "threshold": 0.048921
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 2,
+   "threshold": 0.071294
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 3,
+   "threshold": 0.041981
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 4,
+   "threshold": 0.057874
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 5,
+   "threshold": 0.325993
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 6,
+   "threshold": 0.378839
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 7,
+   "threshold": 0.280116
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 8,
+   "threshold": 0.332145
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 9,
+   "threshold": 0.199737
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 10,
+   "threshold": 0.163366
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 11,
+   "threshold": 0.185179
+  },
+  {
+   "area_id": "tas:pitt_water:zone_1",
+   "month": 12,
+   "threshold": 0.111997
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 1,
+   "threshold": 0.05263
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 2,
+   "threshold": 0.054809
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 3,
+   "threshold": 0.059317
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 4,
+   "threshold": 0.043447
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 5,
+   "threshold": 0.271663
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 6,
+   "threshold": 0.368679
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 7,
+   "threshold": 0.282432
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 8,
+   "threshold": 0.317679
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 9,
+   "threshold": 0.179001
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 10,
+   "threshold": 0.2027
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 11,
+   "threshold": 0.21969
+  },
+  {
+   "area_id": "tas:pitt_water:zone_2",
+   "month": 12,
+   "threshold": 0.123681
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 1,
+   "threshold": 0.050901
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 2,
+   "threshold": 0.042931
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 3,
+   "threshold": 0.056644
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 4,
+   "threshold": 0.05274
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 5,
+   "threshold": 0.285642
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 6,
+   "threshold": 0.340691
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 7,
+   "threshold": 0.289236
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 8,
+   "threshold": 0.335563
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 9,
+   "threshold": 0.193555
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 10,
+   "threshold": 0.238913
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 11,
+   "threshold": 0.27958
+  },
+  {
+   "area_id": "tas:pitt_water:zone_3",
+   "month": 12,
+   "threshold": 0.118152
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 1,
+   "threshold": 0.289743
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 2,
+   "threshold": 0.110374
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 3,
+   "threshold": 0.178312
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 4,
+   "threshold": 0.362913
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 5,
+   "threshold": 0.315431
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 6,
+   "threshold": 0.159814
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 7,
+   "threshold": 0.376468
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 8,
+   "threshold": 0.237883
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 9,
+   "threshold": 0.200377
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 10,
+   "threshold": 0.235284
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 11,
+   "threshold": 0.218233
+  },
+  {
+   "area_id": "tas:port_esperance:zone_1b",
+   "month": 12,
+   "threshold": 0.223504
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 1,
+   "threshold": 0.239347
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 2,
+   "threshold": 0.137166
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 3,
+   "threshold": 0.321605
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 4,
+   "threshold": 0.177862
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 5,
+   "threshold": 0.27242
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 6,
+   "threshold": 0.272724
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 7,
+   "threshold": 0.289452
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 8,
+   "threshold": 0.17608
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 9,
+   "threshold": 0.173303
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 10,
+   "threshold": 0.215775
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 11,
+   "threshold": 0.254913
+  },
+  {
+   "area_id": "tas:port_sorell:port_sorell",
+   "month": 12,
+   "threshold": 0.146519
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 1,
+   "threshold": 0.253929
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 2,
+   "threshold": 0.083172
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 3,
+   "threshold": 0.142483
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 4,
+   "threshold": 0.228096
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 5,
+   "threshold": 0.548099
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 6,
+   "threshold": 0.486021
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 7,
+   "threshold": 0.203253
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 8,
+   "threshold": 0.17394
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 9,
+   "threshold": 0.214909
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 10,
+   "threshold": 0.22497
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 11,
+   "threshold": 0.183527
+  },
+  {
+   "area_id": "tas:recherche_bay:recherche_bay",
+   "month": 12,
+   "threshold": 0.347429
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 1,
+   "threshold": 0.176846
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 2,
+   "threshold": 0.273238
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 3,
+   "threshold": 0.213397
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 4,
+   "threshold": 0.171419
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 5,
+   "threshold": 0.387874
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 6,
+   "threshold": 0.344672
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 7,
+   "threshold": 0.294307
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 8,
+   "threshold": 0.310627
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 9,
+   "threshold": 0.350825
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 10,
+   "threshold": 0.21409
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 11,
+   "threshold": 0.21097
+  },
+  {
+   "area_id": "tas:simpsons_bay:simpsons_bay",
+   "month": 12,
+   "threshold": 0.285093
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 1,
+   "threshold": 0.203595
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 2,
+   "threshold": 0.314431
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 3,
+   "threshold": 0.216343
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 4,
+   "threshold": 0.131339
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 5,
+   "threshold": 0.198673
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 6,
+   "threshold": 0.329609
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 7,
+   "threshold": 0.292254
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 8,
+   "threshold": 0.134277
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 9,
+   "threshold": 0.120146
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 10,
+   "threshold": 0.182576
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 11,
+   "threshold": 0.211753
+  },
+  {
+   "area_id": "tas:triabunna:zone_a",
+   "month": 12,
+   "threshold": 0.241418
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 1,
+   "threshold": 0.094773
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 2,
+   "threshold": 0.122706
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 3,
+   "threshold": 0.213065
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 4,
+   "threshold": 0.097255
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 5,
+   "threshold": 0.191377
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 6,
+   "threshold": 0.183328
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 7,
+   "threshold": 0.206943
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 8,
+   "threshold": 0.181186
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 9,
+   "threshold": 0.190514
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 10,
+   "threshold": 0.183739
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 11,
+   "threshold": 0.239928
+  },
+  {
+   "area_id": "tas:triabunna:zone_b",
+   "month": 12,
+   "threshold": 0.119222
+  }
+ ]
+}

@@ -36,7 +36,7 @@ from pipeline.config import SA_BBOX, TAS_BBOX
 from pipeline.forecast import archive, area_pixels, inputs, score
 from pipeline.forecast import sst as sstmod
 from pipeline.model import deploy, sst_climatology
-from pipeline.publish import rasters, site, web
+from pipeline.publish import rasters, site, verification, web
 
 MAX_CHL_AGE_DAYS = 4  # normal latency is 2 days (CHL_LAG_DAYS)
 CHL_FETCH_DAYS = 18  # the whole NRT archive window; the score needs t-15 .. t-2
@@ -164,6 +164,10 @@ def build_site(
         "regions": {"tas": "forecast", "sa": "map layers only: SA harvest areas pending PIRSA"},
         "disclaimer": site.DISCLAIMER, "attribution": site.ATTRIBUTION,
     })  # fmt: skip
+    try:  # the Verification page must never stop the forecast
+        verification.write(out, chl, issued_all, dep, areas.meta, latest)
+    except Exception as e:  # noqa: BLE001
+        run.note("verification page", e)
     if save_archive:
         archive.save(chl, issued_all)
     return fc

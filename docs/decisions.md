@@ -370,3 +370,41 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - Chart.js: larger than uPlot.
 - A popup bubble on the map: cramped on phones, so a side panel or bottom sheet is used instead.
 - Green for Low.
+
+## D016 — Biomass wording and the Verification page (2026-11-19, Timothy)
+
+**Context:** a cross-check of the project (requested by Timothy) concluded:
+- the outlook forecasts its own target well (test PR-AUC 0.555 vs a rate of 0.18);
+- but it does not discriminate harmful-species events in Tasmania. At Maria Island, Moderate or High was flagged before 64% of event visits and 64% of non-event visits; 12 of the 26 event visits are *Alexandrium*;
+- so the site must not read as a toxin forecast.
+
+**Choices:**
+1. **Wording.**
+   - The site title is "Algal bloom outlook", with the tagline "Satellite chlorophyll-a".
+   - Tiers are plain High / Moderate / Low (no "risk"), described as "probability of chlorophyll-a above the monthly 90th percentile".
+   - Every disclaimer adds "Indicates chlorophyll-a (algal biomass), not toxins or harmful species." That covers the footer, the panel line, the About page, the geojson `disclaimer` and the text-page template.
+   - The tier key reads "7-day chlorophyll-a outlook. Not a toxin forecast."
+   - The model card is retitled "7-day chlorophyll-a outlook".
+2. **Verification page** (`verification.html`, built daily by `pipeline/publish/verification.py`; Timothy chose the name over "How it's doing"). It has three sections:
+   - **Satellite outcome.** Each published outlook (`archive/forecasts.csv`) is scored once imagery covers its whole week.
+     - The outcome uses **exactly the training label rule**, with thresholds exported to `models/label_thresholds_tas.json` by `pipeline/model/export_thresholds.py`. They match the feature table to 5×10⁻⁷.
+     - Scores: Brier score against climatology, and the outcome rate per tier.
+     - Parity check: Aug–Oct 2026 outlooks replayed through the page code gave the same outcome as `y_fixed` for all 4,174 verifiable rows. Those scores are in-sample, so they're not shown.
+   - **ShellMAP status changes** between archived snapshots, with the area's highest tier in the prior 7 days. This is context, not a score: only 8 of 123 archived rows give biotoxins as the reason.
+   - **Biotoxin News.**
+     - `pipeline/labels/biotoxin_news.py` parses each archived issue: toxin results (PST/AST/DST) and toxin-producing phytoplankton counts by growing area. The fish-health table is skipped.
+     - Counts are compared with the PALT lab-alert levels at species/group level. "sp." reports take the genus's lowest level (D009), except *Prorocentrum* sp.: only *P. lima*, a benthic species, is listed.
+     - Toxins are compared with the maximum limits printed in each issue.
+     - Each finding is shown with the growing area's highest tier in the 7 days before sampling.
+   - A static reference table of the Phase 3 independent test.
+3. **No species-level forecasting yet.** The NRE Tas request for historical ShellMAP phytoplankton data is on hold (Timothy).
+
+**Consequences:**
+- The first satellite verification is due about 28 Nov 2026.
+- The Biotoxin News history begins with the issue of 26 Oct 2026, which is the only one online when archiving began.
+- A failure in the Verification page is logged as a `problem` (exit 2) and never stops the forecast.
+
+**Alternatives rejected:**
+- Scoring against closures: they have many causes.
+- Training on Biotoxin News: too short a record so far.
+- The name "How it's doing" (Timothy).

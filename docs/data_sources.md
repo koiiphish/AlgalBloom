@@ -254,3 +254,13 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
 - **Official links on the site:**
   - ShellMAP: `https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas`. The recorded `…/sea-fishing-site/Pages/Growing-and-Harvest-Areas.aspx` redirects here (HTTP 301 then 200, 2026-11-19). The current status PDF is linked from each panel.
   - SASQAP: `https://pir.sa.gov.au/fishing-and-aquaculture/seafood-quality-and-safety/shellfish-sasqap/harvesting-statuses`, from the Phase 0 search. PIRSA returns 403 to scripts, so it's not machine-verified.
+
+## Biotoxin News parsing (verified 2026-11-19)
+
+- **File:** `labels/raw/tas_biotoxin_news/2026-11-18_dd5e188d.pdf`, the issue dated **26 Oct 2026** ("Summary of results received for week commencing Monday 19th of October 2026"). 5 pages; pypdf extracts the text cleanly.
+- **Tables:**
+  - "Biotoxin Results": Growing Area, Sample Date, Species, PST, AST, DST (mg/kg), with `<` = not detected, NT = not tested and AC = analysis continuing. Maximum limits as printed: PST 0.8, AST 20, DST 0.16.
+  - "Toxin Producing Phytoplankton Results": Growing Area, Sample Date, Species, Density (cells/L).
+  - "Potentially Harmful Phytoplankton Species to Marine Fauna": not used.
+- **This issue held** 22 toxin samples and 20 toxin-producing phytoplankton counts. Two counts were at or above the PALT lab-alert level: *Alexandrium tamarense* complex 200 cells/L at Pipeclay Lagoon (19 Oct; alert 100) and *Dinophysis acuminata* 800 cells/L at Great Bay (20 Oct; alert 200).
+- **Licence:** Tasmanian Government website licence, non-commercial use with acknowledgement (see the NRE Tas section above). The Verification page credits "© State of Tasmania (NRE Tas, ShellMAP)".
