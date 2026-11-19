@@ -9,22 +9,29 @@ _Last updated: 2026-11-19_
 | Phase | Status | Notes |
 |---|---|---|
 | 0: Data reconnaissance | ✅ Accepted | SA boundaries wait on PIRSA |
-| 1: Label archive | 🟡 Built; checkpoint open | Scheduled `archive_status` run #2 succeeded on 19 Nov (commit `9f7f918`). Confirm one more, then report the checkpoint. |
+| 1: Label archive | 🟡 Built; checkpoint open | 1 green scheduled `archive_status` run so far (19 Nov 02:18 UTC). Needs the next one (21:00 UTC). |
 | 2: Feature dataset | ✅ Accepted (Tasmania) | SA features wait on PIRSA |
-| 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); test scored once at commit `d881905`, never re-tune on it |
-| 4: Daily forecast pipeline | 🟡 Working (manual run green 19 Nov; archive commit `d1ff6a2`) | Checkpoint: two consecutive green **scheduled** `daily_forecast` runs (22:17 UTC) |
-| 5: Frontend | 🟡 Live at https://koiiphish.github.io/AlgalBloom/ (D015), pending Timothy's review | Pages rebuilds automatically after each bot push to gh-pages (verified 19 Nov). Checkpoint: the live URL. |
-| 6: Portfolio polish | ⬜ Not started | |
+| 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); deployed as `persistence-1.1` after one recalibration (D014). The test was scored once at commit `d881905`; never re-tune on it. |
+| 4: Daily forecast pipeline | 🟡 Working; checkpoint open | The 1st scheduled run failed (theLIST refused the runner), so area pixels moved to the `TAS_AREA_PIXELS` secret. Manual run green 19 Nov. Needs 2 consecutive green **scheduled** runs (22:17 UTC). |
+| 5: Frontend | 🟡 Live, iterated with Timothy | https://koiiphish.github.io/AlgalBloom/. "Clean marine" style, Inter, positron basemap; summary panel + More info; resizable panel; report-style wording; disclaimer in footer and panels (D015). Checkpoint: the live URL, reported together with Phases 1 and 4. |
+| 6: Portfolio polish | ⬜ Not started | Needs approval after the checkpoints |
 
 ## Next steps
 
-1. ✅ All three secrets added, and Pages is on (`gh-pages`, root) as of 19 Nov.
-2. **Timothy:** click through the live site on desktop and phone (map, list, panel, layers, About, Model card) and give feedback.
-3. **Claude:** check the scheduled runs via the public API (`curl https://api.github.com/repos/koiiphish/AlgalBloom/actions/runs`, and `status.json` from raw.githubusercontent `gh-pages`):
-   - Did Pages rebuild?
-   - What was `status.json` → `inputs.chl_age_days`?
+1. **Claude:** check the scheduled runs on 20 Nov via the public API (`curl https://api.github.com/repos/koiiphish/AlgalBloom/actions/runs`, and `status.json` from the live site):
+   - Is `archive_status` green?
+   - Is `daily_forecast` green?
    - Did the archive commit land?
-4. Then report the Phase 1, 4 and 5 checkpoints. Phase 6 only after approval.
+   - What was `inputs.chl_age_days`?
+   - Did Pages rebuild?
+2. After a second consecutive green `daily_forecast` (21 Nov), report the Phase 1, 4 and 5 checkpoints together.
+3. **Phase 6 (after approval).** Candidates discussed:
+   - README with screenshots and an architecture diagram;
+   - a "How it's doing" verification page (satellite hit rates; closures and Biotoxin News once months of archive exist);
+   - per-area links to the ShellMAP management-plan maps (26 of 29 growing areas match);
+   - a site name or URL change if wanted;
+   - tightening the model card's wording.
+4. **Before 24 Nov:** back up `data/raw/copernicus/history_olci_300m_v202211` (1.9 GB), because that version retires.
 
 ## How to preview the site locally
 
@@ -43,9 +50,10 @@ Screenshots: headless Edge driven over the DevTools protocol with a small Node s
 
 ## Known issues and dates
 
+- **Tier thresholds are quoted on the About page** (19% / 36%). Update it if the model is recalibrated.
 - **2026-11-24:** the OLCI MY version 202211 (training history) retires. The local copy is in `data/` and is worth backing up.
 - **2027-01-12:** the OLCI NRT version 202207 (the daily input) retires. Re-check the offset against the 202611 version before switching (D014).
-- **Inland lakes** appear in the Tasmanian chlorophyll layer. Mask them in Phase 5.
+- ~~Inland lakes in the chlorophyll layer~~: fixed in Phase 5 (sea-connected mask).
 - **Phase 4 commit message:** commit `7363f6c` also contains the deployment model file, the SST climatology and the archive seed, but its message doesn't say so.
 
 ## Where data is stored (no database needed)
