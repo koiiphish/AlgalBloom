@@ -60,11 +60,29 @@ def colourise(values: np.ndarray, stops: list[str], norm) -> np.ndarray:
     return rgba
 
 
+def sea_connected(land: np.ndarray) -> np.ndarray:
+    """True for water pixels connected (8-neighbour) to the edge of the box, i.e. the sea.
+
+    OLCI flags mark land only, so inland lakes count as water and show chlorophyll. Lakes are
+    water bodies enclosed by land; estuaries such as the Derwent and Tamar touch the sea and
+    are kept. Channels narrower than one 300 m pixel can disconnect an upper estuary.
+    """
+    from scipy import ndimage
+
+    labels, _ = ndimage.label(~land, structure=np.ones((3, 3), dtype=bool))
+    border = np.unique(np.concatenate([labels[0], labels[-1], labels[:, 0], labels[:, -1]]))
+    return np.isin(labels, border[border > 0])
+
+
 def chl_composite(path: Path, days: int = CHL_COMPOSITE_DAYS):
-    """Median chl over the newest `days` days in an OLCI file: (lat, lon, values, first, last)."""
+    """Median chl over the newest `days` days in an OLCI file, sea pixels only:
+    (lat, lon, values, first, last)."""
     with xr.open_dataset(path) as ds:
         da = ds.CHL.isel(time=slice(-days, None))
         vals = da.where(da > 0).median("time", skipna=True).values
+        if "flags" in ds:
+            land = (ds.flags.values == 1).any(axis=0)
+            vals = np.where(sea_connected(land), vals, np.nan)
         t = da.time.values
         return ds.latitude.values, ds.longitude.values, vals, t[0], t[-1]
 

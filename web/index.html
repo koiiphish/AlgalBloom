@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algal bloom risk forecast: Tasmania and South Australia (experimental)</title>
+  <meta name="description" content="Experimental 7-day algal bloom risk forecast for Tasmanian shellfish harvest areas, with satellite chlorophyll and sea-temperature anomaly maps. Not a substitute for official harvest decisions.">
+  <link rel="stylesheet" href="vendor/maplibre-gl-6.19.0/maplibre-gl.css">
+  <link rel="stylesheet" href="vendor/uplot-1.6.32/uPlot.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#area-list-heading">Skip to the list of areas</a>
+
+  <header class="site-header">
+    <div class="brand">
+      <h1>Algal bloom risk forecast</h1>
+      <p class="tagline">Tasmania &amp; South Australia · experimental research tool</p>
+    </div>
+    <nav aria-label="Site">
+      <a href="./" aria-current="page">Map</a>
+      <a href="about.html">About</a>
+      <a href="model-card.html">Model card</a>
+    </nav>
+  </header>
+
+  <!-- Data freshness. Filled by js/main.js; announced to screen readers when it changes. -->
+  <div id="status-banner" class="banner" role="status" aria-live="polite">Loading the latest forecast…</div>
+
+  <!-- Official links: verified in docs/data_sources.md (ShellMAP page: the old Growing-and-Harvest-Areas.aspx URL redirects here, HTTP 200 on 2026-11-19;
+       the PIRSA page blocks scripts, URL from Phase 0 search). -->
+  <p class="disclaimer" id="disclaimer">
+    <strong>Experimental research tool.</strong> Not a substitute for official harvest decisions by
+    <a href="https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas" rel="noopener">ShellMAP</a> (Tasmania) or
+    <a href="https://pir.sa.gov.au/fishing-and-aquaculture/seafood-quality-and-safety/shellfish-sasqap/harvesting-statuses" rel="noopener">SASQAP</a> (South Australia).
+    Always follow the official harvest-area status.
+  </p>
+
+  <main class="layout">
+    <section class="map-wrap" aria-label="Map">
+      <div id="map" class="map" role="region" aria-label="Map of harvest areas. Use the list of areas for keyboard access."></div>
+
+      <form class="layer-control" id="layer-control" aria-label="Map layers">
+        <fieldset>
+          <legend>Background layer</legend>
+          <label><input type="radio" name="layer" value="none" checked> None</label>
+          <label><input type="radio" name="layer" value="chl"> Chlorophyll (7-day)</label>
+          <label><input type="radio" name="layer" value="sst_anomaly"> Sea temperature anomaly</label>
+        </fieldset>
+        <div id="layer-legend" class="layer-legend" aria-live="polite"></div>
+      </form>
+
+      <div class="tier-key" aria-label="Risk tier key">
+        <span class="tier-dot tier-High" aria-hidden="true">H</span> High
+        <span class="tier-dot tier-Moderate" aria-hidden="true">M</span> Moderate
+        <span class="tier-dot tier-Low" aria-hidden="true">L</span> Low
+        <span class="key-note">7-day risk of unusually high chlorophyll</span>
+      </div>
+    </section>
+
+    <aside class="sidebar" aria-label="Areas and details">
+      <!-- Details of the selected area (js/panel.js). Hidden until an area is chosen. -->
+      <section id="panel" class="panel" hidden tabindex="-1" aria-labelledby="panel-title"></section>
+
+      <section class="area-list" aria-labelledby="area-list-heading">
+        <h2 id="area-list-heading" tabindex="-1">Tasmanian harvest areas</h2>
+        <p class="region-note">South Australia: map layers only. Area forecasts will be added when harvest-area boundaries are available.</p>
+        <label class="search-label" for="area-search">Search areas</label>
+        <input id="area-search" type="search" placeholder="e.g. Pipeclay, Zone 4" autocomplete="off">
+        <p id="area-count" class="area-count" aria-live="polite"></p>
+        <ul id="area-items" class="area-items"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p id="attribution">Loading data sources…</p>
+    <p>Full sources, licences and limitations: <a href="about.html">About</a> · <a href="model-card.html">Model card</a></p>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

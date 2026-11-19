@@ -1,0 +1,61 @@
+# Republish only the website files (Phase 5) when the web app or its text pages change, without
+# re-running the forecast. The forecast data already on gh-pages is kept as it is.
+# The daily_forecast job also copies the web files, so this only matters between daily runs.
+name: publish_web
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "web/**"
+      - "docs/about.md"
+      - "docs/model_card.md"
+      - "docs/img/**"
+      - "pipeline/publish/web.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write # force-push the gh-pages branch
+
+concurrency:
+  group: gh-pages # one writer at a time: shared with daily_forecast.yml
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3 # exact tag: setup-uv publishes no floating "v10" tag
+        with:
+          version: "0.13.8"
+          enable-cache: true
+      - name: Install dependencies (exactly as locked)
+        run: uv sync --frozen
+
+      - name: Get the current site (forecast data is kept)
+        run: |
+          if ! git ls-remote --exit-code --heads origin gh-pages > /dev/null; then
+            echo "No gh-pages branch yet; the first daily_forecast run will create it."
+            exit 1
+          fi
+          git fetch --depth 1 origin gh-pages
+          mkdir -p _site
+          git archive FETCH_HEAD | tar -x -C _site
+
+      - name: Update the web files and text pages
+        run: uv run python -m pipeline.publish.web --site _site
+
+      - name: Publish to gh-pages (single commit, force-pushed)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd _site
+          touch .nojekyll
+          git init -q -b gh-pages
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Web update $(date -u +%Y-%m-%d) (run ${{ github.run_id }})"
+          git push -q --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages

@@ -267,3 +267,61 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - Keeping the 2023 calibration: it was under-confident in 2026 (model card §5).
 - Storing the archive on `gh-pages`: that branch is force-pushed daily, so the history would be lost.
 - A monthly SST climatology: it's biased within each month in spring and autumn.
+
+## D015 — Phase 5 frontend design (2026-11-19, points 1–4 approved by Timothy)
+
+**Context:** the brief asks for a static MapLibre site:
+- risk-coloured areas, with a popup showing tier, probability, drivers, a chart and the official link;
+- layer toggles, a legend, a "data as of" banner and the disclaimer;
+- About and model card pages;
+- mobile, keyboard and colour-blind friendly;
+- plain JavaScript, with every function commented.
+
+**Choices:**
+1. **Libraries are copied into `web/vendor/`, not loaded from a CDN.**
+   - MapLibre GL JS **6.19.0** (BSD-3-Clause) and uPlot **1.6.32** (MIT), from the npm registry tarballs. The SHA-1 checksums match the registry (data_sources.md).
+   - Only the files the site needs are kept, plus their licence files, about 1.9 MB in total.
+   - MapLibre 6 ships only as ES modules and loads its worker from the same folder.
+2. **Tier colours:**
+
+   | Tier | Colour | Letter |
+   |---|---|---|
+   | High | status "critical" `#d03b3b` | H |
+   | Moderate | status "warning" `#fab219` | M |
+   | Low | **neutral grey** `#8a8984` | L |
+
+   - **Green is deliberately not used for Low**, because in a shellfish context green reads as "safe to harvest", which this tool must never imply.
+   - Colour-blind validator: all pairs pass, with the worst being grey ↔ red at ΔE 9.5 for deuteranopia. The band and chroma "fails" are expected for status colours.
+   - Amber is low-contrast against the basemap's sea (1.14:1), so every marker has a dark outline, a letter from zoom 7, a size step, and a row in the list.
+   - Letter colours were chosen by APCA: white on grey (68) and red (78), dark ink on amber (68).
+3. **Basemap fallback:** if the OpenFreeMap style hasn't loaded after 10 s, the map switches to a plain sea-coloured background with our layers on top. The tier letters are dropped there, because they need the basemap's fonts.
+4. **`publish_web` workflow:** republishes only the web files and text pages (`pipeline/publish/web.py`) when `web/` or the docs change. The daily job runs the same build. Both share the `gh-pages` concurrency group, so they never push at the same time.
+
+**Other choices:**
+- **The area list doubles as the table view** and the keyboard route:
+  - sorted by risk and searchable;
+  - each row has the tier word, letter and probability;
+  - selecting a row opens the panel, moves focus to it and flies the map there;
+  - Escape closes the panel.
+- **Panel "Why" section:** the evidence fields in plain English (decision C in D014), SST marked "not used by the forecast", the official status from the label archive, the disclaimer and two 90-day charts.
+  - The charts are separate, with no dual axis: probability with dashed tier cut-offs, and chlorophyll as "× normal" on a log axis.
+  - The probability chart draws the issued values (from `archive/forecasts.csv`) as dots on the recomputed line.
+- **Freshness checks:** the banner turns amber when `status.json` says stale, and also when the last run is more than 36 hours old, in case the job itself stops.
+- **Lake mask:** the chlorophyll layer keeps only water connected to the edge of the box (`rasters.sea_connected`, 8-connectivity on the OLCI land flag). Inland lakes are dropped and estuaries kept.
+- **Text pages:** `docs/about.md`, written for a general audience, and `docs/model_card.md` are rendered with `Markdown==3.11.3`. `scipy==1.18.1` is now pinned explicitly, because the lake mask imports it directly.
+- **Official links** come only from URLs recorded in data_sources.md. A guessed ShellMAP URL returned 404 and was not used. The old ShellMAP page now redirects to `https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas`.
+
+**Testing:**
+- `tests/test_web.py` covers:
+  - the pages build;
+  - the disclaimer on every page;
+  - every JS module parses (`node --check`);
+  - the lake mask.
+- Checked visually in headless Edge, driven over the DevTools protocol: the desktop map, the panel and charts, the chlorophyll layer zoomed to the coast, a 390 px phone layout and the stale banner.
+- Headless one-shot screenshots stall MapLibre's web worker. That isn't a site bug, but it's why the DevTools route was needed.
+
+**Alternatives rejected:**
+- Loading the libraries from a CDN: an extra runtime dependency, and versions could change underneath us.
+- Chart.js: larger than uPlot.
+- A popup bubble on the map: cramped on phones, so a side panel or bottom sheet is used instead.
+- Green for Low.

@@ -36,7 +36,7 @@ from pipeline.config import SA_BBOX, TAS_BBOX
 from pipeline.forecast import archive, area_pixels, inputs, score
 from pipeline.forecast import sst as sstmod
 from pipeline.model import deploy, sst_climatology
-from pipeline.publish import rasters, site
+from pipeline.publish import rasters, site, web
 
 MAX_CHL_AGE_DAYS = 4  # normal latency is 2 days (CHL_LAG_DAYS)
 CHL_FETCH_DAYS = 18  # the whole NRT archive window; the score needs t-15 .. t-2
@@ -94,7 +94,7 @@ def map_layers(
     end = issue.strftime("%Y-%m-%d")
     for region, box in (("tas", TAS_BBOX), ("sa", SA_BBOX)):
         try:
-            p = inputs.fetch_chl(box, start7, end, work / "map", with_flags=False)
+            p = inputs.fetch_chl(box, start7, end, work / "map")  # flags: land, for the lake mask
             lat, lon, vals, first, last = rasters.chl_composite(p)
             info = rasters.write_layer(vals, lat, lon, "chl", out / "rasters" / f"chl_{region}.png")
             info.update({"first_date": pd.Timestamp(first), "last_date": pd.Timestamp(last),
@@ -156,6 +156,7 @@ def build_site(
         "valid_to": issue + pd.Timedelta(days=site.HORIZON),
         "run_utc": now.isoformat(timespec="seconds"), "model_version": dep.model_version,
         "stale": False, "stale_since": None, "problems": run.problems,
+        "tier_cutoffs": dep.cutoffs,
         "inputs": {"chl_latest_date": latest, "chl_age_days": age,
                    "sst_date": layers["sst_anomaly"].get("tas", {}).get("date")},
         "tier_counts": {t: int(tiers.get(t, 0)) for t in ("Low", "Moderate", "High")},
@@ -166,6 +167,12 @@ def build_site(
     if save_archive:
         archive.save(chl, issued_all)
     return fc
+
+
+def publish_web(out: Path) -> None:
+    """Add the web app and text pages next to the data files (Phase 5)."""
+    web.build(out)
+    (out / ".nojekyll").touch()  # serve files as-is on GitHub Pages
 
 
 def main() -> int:
@@ -188,10 +195,11 @@ def main() -> int:
         shutil.rmtree(args.site)
         args.site.mkdir(parents=True)
         status = site.keep_previous(prev, args.site, f"{type(e).__name__}: {e}", now, issue)
+        publish_web(args.site)
         print(f"HARD FAILURE: kept previous output, stale since {status['stale_since']}")
         return 1
     site.carry_history(prev, args.site, issue)
-    (args.site / ".nojekyll").touch()  # serve files as-is on GitHub Pages
+    publish_web(args.site)
     counts = fc["tier"].value_counts().to_dict()
     print(
         f"issue {issue.date()}: {len(fc)} areas {counts}; "

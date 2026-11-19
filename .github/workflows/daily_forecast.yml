@@ -19,7 +19,7 @@ permissions:
   contents: write # push gh-pages and commit archive/ to main
 
 concurrency:
-  group: daily_forecast # never run two forecasts at once
+  group: gh-pages # one writer at a time: shared with publish_web.yml
   cancel-in-progress: false
 
 jobs:

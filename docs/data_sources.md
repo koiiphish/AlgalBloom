@@ -232,3 +232,20 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
   - Tasmania reuses `history_ocean_tas/ostia_rep.nc`.
 - **Not used:** `cmems_mod_glo_phy_anfc_0.083deg-sst-anomaly_P1D-m` (variable `sea_surface_temperature_anomaly`, °C, source "MERCATOR GLO12"). Neither `copernicusmarine.describe` nor the file's global attributes give a reference period for the anomaly (D014).
 - **GitHub Actions:** the latest `actions/cache` release is **v6.1.0** (GitHub API, 2026-11-18). The workflow uses `@v6`.
+
+## Phase 5 web libraries and services (verified 2026-11-19)
+
+- **MapLibre GL JS 6.19.0** (latest on the npm registry), licence **BSD-3-Clause**.
+  - Tarball `https://registry.npmjs.org/maplibre-gl/-/maplibre-gl-6.19.0.tgz`, SHA-1 `15cd5995054d190ef502ec474f03a7d8b64275a0`, matching the registry `shasum`.
+  - Vendored in `web/vendor/maplibre-gl-6.19.0/`: `maplibre-gl.mjs`, `-worker.mjs`, `-shared.mjs`, `.css`, `LICENSE.txt`.
+- **uPlot 1.6.32** (latest on npm), licence **MIT**.
+  - Tarball SHA-1 `c800a63b432bad692d6d746f44f0882aa73a49ae`, matching the registry.
+  - Vendored in `web/vendor/uplot-1.6.32/`: `uPlot.esm.js`, `uPlot.min.css`, `LICENSE`.
+- **Python Markdown 3.11.3** (latest on PyPI) renders the About and model card pages.
+- **OpenFreeMap "liberty"** style (D004).
+  - Glyphs at `https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf`; the fonts include `Noto Sans Bold`, which the tier letters use.
+  - Water fill colour `rgb(158,189,255)`.
+  - Its attribution (OpenFreeMap, OpenMapTiles, OpenStreetMap) is shown by MapLibre and repeated in the site footer.
+- **Official links on the site:**
+  - ShellMAP: `https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas`. The recorded `…/sea-fishing-site/Pages/Growing-and-Harvest-Areas.aspx` redirects here (HTTP 301 then 200, 2026-11-19). The current status PDF is linked from each panel.
+  - SASQAP: `https://pir.sa.gov.au/fishing-and-aquaculture/seafood-quality-and-safety/shellfish-sasqap/harvesting-statuses`, from the Phase 0 search. PIRSA returns 403 to scripts, so it's not machine-verified.

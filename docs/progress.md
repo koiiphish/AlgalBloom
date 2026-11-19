@@ -1,6 +1,6 @@
 # Progress and handoff
 
-**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D014), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
+**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D015), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
 
 _Last updated: 2026-11-19_
 
@@ -9,24 +9,32 @@ _Last updated: 2026-11-19_
 | Phase | Status | Notes |
 |---|---|---|
 | 0: Data reconnaissance | ✅ Accepted | SA boundaries wait on PIRSA |
-| 1: Label archive | 🟡 Built; checkpoint open | Scheduled `archive_status` run #2 succeeded on 19 Nov (commit `9f7f918`). One more run, then report the checkpoint. |
+| 1: Label archive | 🟡 Built; checkpoint open | Scheduled `archive_status` run #2 succeeded on 19 Nov (commit `9f7f918`). Confirm one more, then report the checkpoint. |
 | 2: Feature dataset | ✅ Accepted (Tasmania) | SA features wait on PIRSA |
 | 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); test scored once at commit `d881905`, never re-tune on it |
-| 4: Daily forecast pipeline | 🟡 Built; first scheduled run failed (theLIST refused the runner), now fixed | Checkpoint: two consecutive successful scheduled `daily_forecast` runs (22:17 UTC) |
-| 5: Frontend | ⬜ Not started | |
+| 4: Daily forecast pipeline | 🟡 Working (manual run green 19 Nov; archive commit `d1ff6a2`) | Checkpoint: two consecutive green **scheduled** `daily_forecast` runs (22:17 UTC) |
+| 5: Frontend | 🟡 Built (D015), pending Timothy's review | Live at https://koiiphish.github.io/AlgalBloom/ once `publish_web` runs. Checkpoint: the live URL. |
 | 6: Portfolio polish | ⬜ Not started | |
 
 ## Next steps
 
-1. ✅ Copernicus secrets added (19 Nov).
-2. **Timothy:** add the secret `TAS_AREA_PIXELS`. Its value is the full contents of `data/raw/thelist/tas_area_pixels.txt`, a git-ignored local file that regenerates with `python -m pipeline.forecast.area_pixels --export`. See the D014 update.
-3. Run `daily_forecast` (manually, or wait for 22:17 UTC). After the first green run, turn on Pages: Settings → Pages → branch `gh-pages`, root.
-4. **Claude:** check the runs via the public API (`curl https://api.github.com/repos/koiiphish/AlgalBloom/actions/runs`, and `status.json` on raw.githubusercontent `gh-pages`):
-   - Did Pages rebuild after the token push?
+1. ✅ All three secrets added, and Pages is on (`gh-pages`, root) as of 19 Nov.
+2. **Timothy:** click through the live site on desktop and phone (map, list, panel, layers, About, Model card) and give feedback.
+3. **Claude:** check the scheduled runs via the public API (`curl https://api.github.com/repos/koiiphish/AlgalBloom/actions/runs`, and `status.json` from raw.githubusercontent `gh-pages`):
+   - Did Pages rebuild?
    - What was `status.json` → `inputs.chl_age_days`?
-   - Did the archive commit land on `main`?
-5. Also confirm the Phase 1 `archive_status` runs succeeded.
-6. Then report the Phase 4 checkpoint, and plan Phase 5 only after Timothy approves.
+   - Did the archive commit land?
+4. Then report the Phase 1, 4 and 5 checkpoints. Phase 6 only after approval.
+
+## How to preview the site locally
+
+```
+uv run python -m pipeline.forecast.daily --site _site      # data (no --archive locally)
+uv run python -m pipeline.publish.web --site _site         # web files (also run by daily)
+uv run python -m http.server -d _site 8000
+```
+
+Screenshots: headless Edge driven over the DevTools protocol with a small Node script. One-shot `--screenshot` stalls MapLibre's worker.
 
 ## Waiting on others
 
