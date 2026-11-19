@@ -341,6 +341,15 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
     - official status details;
     - caveats and the full disclaimer.
   - Section headings are bold, dark and separated by rules, instead of small grey capitals.
+- **Shorter banner and a resizable panel (Timothy, 2026-11-19).**
+  - The banner now reads, for example, "Forecast 20–26 Nov · Satellite data to 17 Nov · Updated 19 Nov, 6:34 pm AEDT". The full issue date is in its hover text.
+  - A draggable divider sits between the map and the sidebar (`web/js/resizer.js`).
+    - It works with a mouse or touch, or from the keyboard: focus it, then use Left/Right, or Home/End to jump to the limits. It's an ARIA `separator` with its current value.
+    - Width limits: from 320 px up to 65% of the window.
+    - The width is remembered in `localStorage`; double-click resets it.
+    - The map and the charts redraw at the new size.
+    - Hidden on phones, where the panel sits below the map.
+  - Chart date labels are Australian style ("23 Aug").
 
 **Alternatives rejected:**
 - Loading the libraries from a CDN: an extra runtime dependency, and versions could change underneath us.

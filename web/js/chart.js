@@ -33,6 +33,11 @@ function referenceLines(lines) {
   };
 }
 
+// Australian-style date labels for the x axis, e.g. "23 Aug" (uPlot passes seconds).
+function dateLabels(u, ticks) {
+  return ticks.map((t) => new Date(t * 1000).toLocaleDateString("en-AU", { day: "numeric", month: "short", timeZone: "UTC" }));
+}
+
 // Shared look for both charts: thin lines, quiet grid, dates on the x axis.
 function baseOptions(width, title) {
   return {
@@ -40,7 +45,8 @@ function baseOptions(width, title) {
     cursor: { drag: { x: false, y: false } },
     scales: { x: { time: true } },
     axes: [
-      { stroke: "#4b5563", grid: { stroke: "#eef2f5" }, ticks: { stroke: "#dde4ea" }, font: "12px Inter, system-ui, sans-serif" },
+      { stroke: "#4b5563", grid: { stroke: "#eef2f5" }, ticks: { stroke: "#dde4ea" }, font: "12px Inter, system-ui, sans-serif",
+        values: dateLabels, space: 60 },
       { stroke: "#4b5563", grid: { stroke: "#eef2f5" }, ticks: { stroke: "#dde4ea" }, size: 48, font: "12px Inter, system-ui, sans-serif" },
     ],
   };

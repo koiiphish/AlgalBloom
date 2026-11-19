@@ -12,6 +12,16 @@ import { escapeHtml } from "./list.js";
 // Fallback official link if an area has none (verified in docs/data_sources.md).
 const SHELLMAP_PAGE = "https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas";
 
+// Redraws the open panel's charts at a new width (set by showPanel, used by redrawCharts).
+let redrawOpenCharts = null;
+let redrawTimer = null;
+
+// Called when the sidebar is resized: redraw the charts once the dragging pauses.
+export function redrawCharts() {
+  clearTimeout(redrawTimer);
+  redrawTimer = setTimeout(() => redrawOpenCharts?.(), 150);
+}
+
 // Arrow + word for the chlorophyll trend.
 const TREND = { rising: "↑ rising", falling: "↓ falling", steady: "→ steady", unknown: "" };
 
@@ -114,6 +124,10 @@ export function showPanel(panelEl, feature, status, onClose, moveFocus) {
   seriesPromise
     .then((series) => drawSparkline(sparkEl, series, status.tier_cutoffs))
     .catch(() => { sparkEl.innerHTML = `<p class="note">History not available.</p>`; });
+  redrawOpenCharts = () => seriesPromise.then((series) => {
+    drawSparkline(sparkEl, series, status.tier_cutoffs);
+    if (chartsEl.dataset.drawn) drawCharts(chartsEl, series, status.tier_cutoffs);
+  }).catch(() => {});
   details.addEventListener("toggle", () => {
     if (!details.open || chartsEl.dataset.drawn) return;
     chartsEl.dataset.drawn = "true";
@@ -125,6 +139,7 @@ export function showPanel(panelEl, feature, status, onClose, moveFocus) {
 
 // Hide and empty the panel.
 export function hidePanel(panelEl) {
+  redrawOpenCharts = null;
   panelEl.hidden = true;
   panelEl.innerHTML = "";
 }

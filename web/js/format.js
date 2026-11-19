@@ -22,12 +22,33 @@ export function formatDate(isoDate, withYear = true) {
   });
 }
 
-// Turn a full timestamp (e.g. "2026-11-19T07:34:45+00:00") into Hobart local time.
+// Turn a full timestamp (e.g. "2026-11-19T07:34:45+00:00") into short Hobart local time,
+// e.g. "19 Nov, 6:34 pm AEDT".
 export function formatHobartTime(isoTimestamp) {
   if (!isoTimestamp) return "unknown";
   return new Date(isoTimestamp).toLocaleString("en-AU", {
-    day: "numeric", month: "short", hour: "2-digit", minute: "2-digit",
+    day: "numeric", month: "short", hour: "numeric", minute: "2-digit",
     timeZone: "Australia/Hobart", timeZoneName: "short",
+  });
+}
+
+// A short date range, e.g. "20–26 Nov" (or "28 Nov – 4 Dec" across months).
+export function formatRange(fromIso, toIso) {
+  if (!fromIso || !toIso) return "unknown";
+  const opts = { day: "numeric", month: "short", timeZone: "UTC" };
+  const a = new Date(`${fromIso.slice(0, 10)}T00:00:00Z`);
+  const b = new Date(`${toIso.slice(0, 10)}T00:00:00Z`);
+  if (a.getUTCMonth() === b.getUTCMonth()) {
+    return `${a.getUTCDate()}–${b.toLocaleDateString("en-AU", opts)}`;
+  }
+  return `${a.toLocaleDateString("en-AU", opts)} – ${b.toLocaleDateString("en-AU", opts)}`;
+}
+
+// A short date without weekday or year, e.g. "17 Nov".
+export function formatShortDate(isoDate) {
+  if (!isoDate) return "unknown";
+  return new Date(`${isoDate.slice(0, 10)}T00:00:00Z`).toLocaleDateString("en-AU", {
+    day: "numeric", month: "short", timeZone: "UTC",
   });
 }
 
@@ -54,9 +75,4 @@ export function evidenceSentence(ev) {
     unknown: "",
   }[ev.trend] ?? "";
   return `Satellite chlorophyll has been ${ratioText(ev.score_log10_anomaly)} this area's normal for the month${trend}.`;
-}
-
-// Days between two ISO dates (b - a), as a whole number.
-export function daysBetween(a, b) {
-  return Math.round((new Date(b) - new Date(a)) / 86400000);
 }

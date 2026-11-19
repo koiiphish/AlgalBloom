@@ -2,31 +2,33 @@
 // and the details panel so that choosing an area in one updates the others.
 
 import { loadAll } from "./data.js";
-import { daysBetween, formatDate, formatHobartTime } from "./format.js";
+import { formatDate, formatHobartTime, formatRange, formatShortDate } from "./format.js";
 import { createList, escapeHtml } from "./list.js";
 import { createMap } from "./map.js";
-import { hidePanel, showPanel } from "./panel.js";
+import { hidePanel, redrawCharts, showPanel } from "./panel.js";
+import { enableResizer } from "./resizer.js";
 
 // If the last successful run is older than this, warn even if status.json doesn't say stale
 // (for example if the daily job itself stopped running).
 const OLD_AFTER_HOURS = 36;
 
-// Write the "data as of" banner. Turns amber when the data is stale or old.
+// Write the short "data as of" banner, e.g.
+//   "Forecast 20–26 Nov · Satellite data to 17 Nov · Updated 19 Nov, 6:34 pm AEDT".
+// The full issue date sits in the hover text. Turns amber when the data is stale or old.
 function renderBanner(el, status) {
   const age = (Date.now() - Date.parse(status.run_utc || status.last_attempt_utc)) / 3600000;
   if (status.stale) {
     el.className = "banner stale";
-    el.innerHTML = `<strong>Out of date:</strong> today's update failed, so this is the last good forecast
-      (issued ${formatDate(status.issue_date)}). Stale since ${formatHobartTime(status.stale_since)}.`;
+    el.innerHTML = `<strong>Out of date</strong> · Today's update failed; showing the forecast from
+      ${formatShortDate(status.issue_date)} · Stale since ${formatHobartTime(status.stale_since)}`;
     return;
   }
-  const chlAge = status.inputs?.chl_latest_date ? daysBetween(status.inputs.chl_latest_date, status.issue_date) : null;
   el.className = age > OLD_AFTER_HOURS ? "banner stale" : "banner";
-  el.innerHTML = `${age > OLD_AFTER_HOURS ? "<strong>May be out of date.</strong> " : ""}
-    Forecast issued <strong>${formatDate(status.issue_date)}</strong> for
-    ${formatDate(status.valid_from, false)} – ${formatDate(status.valid_to)} ·
-    satellite chlorophyll up to ${formatDate(status.inputs?.chl_latest_date, false)}${chlAge != null ? ` (${chlAge} days before issue)` : ""} ·
-    updated ${formatHobartTime(status.run_utc)}`;
+  el.title = `Forecast issued ${formatDate(status.issue_date)}`;
+  el.innerHTML = `${age > OLD_AFTER_HOURS ? "<strong>May be out of date</strong> · " : ""}
+    Forecast <strong>${formatRange(status.valid_from, status.valid_to)}</strong> ·
+    Satellite data to ${formatShortDate(status.inputs?.chl_latest_date)} ·
+    Updated ${formatHobartTime(status.run_utc)}`;
 }
 
 // Write the data-source credits in the footer, from status.json's attribution list.
@@ -104,6 +106,12 @@ async function start() {
     searchEl: document.getElementById("area-search"),
     countEl: document.getElementById("area-count"),
     onSelect: select,
+  });
+
+  // Draggable divider between the map and the sidebar (desktop layout only).
+  enableResizer(document.querySelector(".resizer"), document.querySelector(".layout"), () => {
+    mapApi.map.resize();
+    redrawCharts();
   });
 
   // Background layer radio buttons.
