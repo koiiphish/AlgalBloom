@@ -69,6 +69,8 @@ def save(chl: pd.DataFrame, forecasts: pd.DataFrame) -> None:
     chl.assign(date=chl["date"].dt.strftime("%Y-%m-%d")).to_csv(
         CHL_PATH, index=False, float_format="%.5g"
     )
+    # Appending to an empty archive leaves object columns, which ignore float_format.
+    forecasts = forecasts.astype({"score": "float64", "p": "float64"})
     forecasts.to_csv(FORECAST_PATH, index=False, float_format="%.5g")
 
 
