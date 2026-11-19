@@ -19,13 +19,13 @@ function renderBanner(el, status) {
   const age = (Date.now() - Date.parse(status.run_utc || status.last_attempt_utc)) / 3600000;
   if (status.stale) {
     el.className = "banner stale";
-    el.innerHTML = `<strong>Out of date</strong> · Today's update failed; showing the forecast from
-      ${formatShortDate(status.issue_date)} · Stale since ${formatHobartTime(status.stale_since)}`;
+    el.innerHTML = `<strong>Not updated</strong> · Showing forecast of ${formatShortDate(status.issue_date)} ·
+      Last successful update ${formatHobartTime(status.stale_since)}`;
     return;
   }
   el.className = age > OLD_AFTER_HOURS ? "banner stale" : "banner";
   el.title = `Forecast issued ${formatDate(status.issue_date)}`;
-  el.innerHTML = `${age > OLD_AFTER_HOURS ? "<strong>May be out of date</strong> · " : ""}
+  el.innerHTML = `${age > OLD_AFTER_HOURS ? "<strong>Possibly out of date</strong> · " : ""}
     Forecast <strong>${formatRange(status.valid_from, status.valid_to)}</strong> ·
     Satellite data to ${formatShortDate(status.inputs?.chl_latest_date)} ·
     Updated ${formatHobartTime(status.run_utc)}`;
@@ -45,11 +45,11 @@ function renderAttribution(el, status) {
 function renderLegend(el, layers, kind) {
   if (kind === "none") { el.innerHTML = ""; return; }
   const info = layers[kind]?.tas || layers[kind]?.sa;
-  if (!info) { el.innerHTML = `<p class="legend-note">This layer is not available today.</p>`; return; }
+  if (!info) { el.innerHTML = `<p class="legend-note">Not available.</p>`; return; }
   const { stops, range, unit, scale } = info.legend;
   const date = info.date ? formatDate(info.date, false) : `${formatDate(info.first_date, false)} – ${formatDate(info.last_date, false)}`;
   const ends = kind === "sst_anomaly"
-    ? [`${range[0]} °C colder`, "average", `+${range[1]} °C warmer`]
+    ? [`${range[0]} °C`, "0", `+${range[1]} °C`]
     : [`${range[0]} ${unit}`, scale === "log" ? "log scale" : "", `${range[1]} ${unit}`];
   el.innerHTML = `
     <div class="legend-bar" style="background: linear-gradient(to right, ${stops.join(", ")})" role="img"
@@ -66,7 +66,7 @@ async function start() {
     data = await loadAll();
   } catch (err) {
     banner.className = "banner error";
-    banner.textContent = "The forecast data could not be loaded. Please try again later.";
+    banner.textContent = "Forecast data unavailable. Try again later.";
     console.error(err);
     return;
   }

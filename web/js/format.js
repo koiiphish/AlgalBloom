@@ -59,20 +59,15 @@ export function formatPercent(p) {
 
 // Convert a log10 chlorophyll anomaly into "times normal", e.g. 0.30 -> "2.0×".
 export function ratioText(log10Anomaly) {
-  if (log10Anomaly == null) return "no clear view";
+  if (log10Anomaly == null) return "n/a";
   return `${Math.pow(10, log10Anomaly).toFixed(1)}×`;
 }
 
-// One plain-English sentence describing the evidence behind an area's forecast.
+// One short statement of the evidence behind an area's forecast (report style).
 export function evidenceSentence(ev) {
   if (!ev || ev.score_log10_anomaly == null) {
-    return "No clear satellite view in the last 14 days, so this uses the usual risk for the time of year.";
+    return "No cloud-free imagery in 14 days. Seasonal baseline risk shown.";
   }
-  const trend = {
-    rising: ", and rising",
-    falling: ", and falling",
-    steady: ", and about steady",
-    unknown: "",
-  }[ev.trend] ?? "";
-  return `Satellite chlorophyll has been ${ratioText(ev.score_log10_anomaly)} this area's normal for the month${trend}.`;
+  const trend = { rising: "; increasing", falling: "; decreasing", steady: "; stable", unknown: "" }[ev.trend] ?? "";
+  return `14-day mean chlorophyll-a ${ratioText(ev.score_log10_anomaly)} the monthly median${trend}.`;
 }

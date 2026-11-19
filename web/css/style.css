@@ -73,11 +73,17 @@ h1, h2, h3 { letter-spacing: -0.01em; }
 .banner.stale::before { color: var(--warn-line); }
 .banner.error { background: #fdecec; border-bottom-color: #f2b8b8; }
 .banner.error::before { color: var(--tier-high); }
-.disclaimer {
-  margin: 0; padding: 8px 24px; font-size: 0.88rem; color: var(--ink-2);
-  background: var(--card); border-bottom: 1px solid var(--line);
-}
+/* Full disclaimer: first line of the footer */
+.site-footer .disclaimer { margin: 0 0 8px; font-size: 0.86rem; color: var(--ink-2); }
 .disclaimer strong { color: var(--ink); }
+
+/* Short notice on the map (the full disclaimer is in the footer and every panel) */
+.map-notice {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%); margin: 0; z-index: 1;
+  padding: 4px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 500; white-space: nowrap;
+  background: rgba(15, 42, 68, 0.85); color: #fff; pointer-events: none;
+}
+@media (max-width: 800px) { .map-notice { top: auto; bottom: 64px; font-size: 0.75rem; } }
 
 /* Main layout: map left, sidebar right; stacked on narrow screens */
 .layout { flex: 1; display: grid; grid-template-columns: 1fr 10px var(--sidebar); min-height: 0; }
@@ -238,7 +244,7 @@ body.resizing .map { pointer-events: none; }
 .doc h2 { font-size: 1.4rem; font-weight: 650; margin: 36px 0 10px; padding-top: 8px; border-top: 1px solid var(--line); }
 .doc h3 { font-size: 1.1rem; margin: 24px 0 8px; }
 .doc table {
-  border-collapse: collapse; font-size: 0.92rem; margin: 14px 0; display: block; overflow-x: auto;
+  border-collapse: collapse; font-size: 0.92rem; margin: 14px 0; width: 100%;
   background: var(--card); border-radius: 8px; box-shadow: var(--shadow);
 }
 .doc th, .doc td { border-bottom: 1px solid var(--line); padding: 8px 12px; text-align: left; vertical-align: top; }
@@ -261,3 +267,7 @@ body.resizing .map { pointer-events: none; }
 
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
 @media (forced-colors: active) { .tier-dot { border-color: CanvasText; } .banner::before { display: none; } }
+.nowrap { white-space: nowrap; }
+
+/* Wide tables scroll sideways on phones instead of squeezing */
+@media (max-width: 800px) { .doc table { display: block; overflow-x: auto; } }

@@ -350,6 +350,17 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
     - The map and the charts redraw at the new size.
     - Hidden on phones, where the panel sits below the map.
   - Chart date labels are Australian style ("23 Aug").
+- **Report-style wording; disclaimer moved to the footer (Timothy, 2026-11-19).**
+  - All site text was rewritten in a terse, report register with standard terms:
+    - panel sections are Basis, Coverage, 90-day record, Sea surface temperature, ShellMAP status and Limitations;
+    - facts read "3.4× monthly median → stable", "Cloud-free days 6 of 14" and "ShellMAP status Open".
+  - The About page is restructured as Overview (with tier thresholds), Method, Limitations, Data sources and Operation.
+  - **Disclaimer placement:** the full notice moved from below the banner to the page footer, at Timothy's request. CLAUDE.md requires the disclaimer on the map and in every area popup, so it now appears in four places:
+    - a small fixed label on the map ("Experimental · not for harvest decisions");
+    - one line in every panel summary;
+    - the full text in every panel's More info;
+    - the footer of every page.
+  - The About page quotes the deployed tier thresholds (19% and 36%). They must be updated if the model is recalibrated.
 
 **Alternatives rejected:**
 - Loading the libraries from a CDN: an extra runtime dependency, and versions could change underneath us.

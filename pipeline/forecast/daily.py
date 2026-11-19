@@ -41,8 +41,8 @@ from pipeline.publish import rasters, site, web
 MAX_CHL_AGE_DAYS = 4  # normal latency is 2 days (CHL_LAG_DAYS)
 CHL_FETCH_DAYS = 18  # the whole NRT archive window; the score needs t-15 .. t-2
 HISTORY_DAYS = 90
-CHL_LAYER_TEXT = ("Median satellite chlorophyll-a over the newest 7 days (OLCI 300 m). Inshore "
-                  "values are raised by sediment and tannins.")  # fmt: skip
+CHL_LAYER_TEXT = ("OLCI 300 m, 7-day median. Inshore values may be inflated by sediment and "
+                  "dissolved organic matter.")  # fmt: skip
 
 
 class Run:
@@ -109,8 +109,8 @@ def map_layers(
             info = rasters.write_layer(
                 anom, lat, lon, "sst", out / "rasters" / f"sst_anom_{region}.png"
             )
-            info.update({"date": day, "description": "Sea-surface temperature anomaly vs the "
-                         "1991-2020 average for this time of year (OSTIA)."})  # fmt: skip
+            info.update({"date": day, "description": "OSTIA SST relative to the 1991–2020 "
+                         "daily mean."})  # fmt: skip
             layers["sst_anomaly"][region] = info
             if region == "tas":
                 sst_area = sstmod.area_anomalies(lat, lon, anom, area_pixels.footprints(areas))

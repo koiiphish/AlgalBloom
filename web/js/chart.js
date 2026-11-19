@@ -89,7 +89,7 @@ export function drawCharts(container, series, cutoffs) {
   probOpts.series = [
     {},
     { label: "Probability", stroke: "#0e6e8c", width: 2, value: (u, v) => (v == null ? "–" : `${Math.round(v * 100)}%`) },
-    { label: "As published", stroke: "#eb6834", width: 0, points: { show: true, size: 8, fill: "#eb6834" },
+    { label: "Published", stroke: "#eb6834", width: 0, points: { show: true, size: 8, fill: "#eb6834" },
       value: (u, v) => (v == null ? "–" : `${Math.round(v * 100)}%`) },
   ];
   probOpts.hooks = { draw: [referenceLines([
@@ -99,13 +99,13 @@ export function drawCharts(container, series, cutoffs) {
   new uPlot(probOpts, [x, series.p, series.issued_p], container);
   const note = document.createElement("p");
   note.className = "note";
-  note.textContent = "Dashed lines: Moderate (amber) and High (red) cut-offs. Dots: forecasts as published (from the first day the site ran).";
+  note.textContent = "Dashed lines: Moderate and High thresholds. Points: published forecasts.";
   container.appendChild(note);
 
   // Chart 2: daily chlorophyll vs normal, only on days with a clear view (gaps = cloud).
   const chlTitle = document.createElement("p");
   chlTitle.className = "chart-title";
-  chlTitle.textContent = "Chlorophyll vs normal (clear days only)";
+  chlTitle.textContent = "Chlorophyll-a relative to monthly median (cloud-free days)";
   container.appendChild(chlTitle);
   const ratio = series.chl_log10_anomaly.map((v) => (v == null ? null : Math.pow(10, v)));
   const chlOpts = baseOptions(width);
@@ -116,13 +116,13 @@ export function drawCharts(container, series, cutoffs) {
   chlOpts.axes[1].values = (u, ticks) => ticks.map((t) => (t == null ? "" : t < 1 ? `${t === 0.25 ? "¼" : "½"}×` : `${t}×`));
   chlOpts.series = [
     {},
-    { label: "× normal", stroke: "#0e6e8c", width: 0, points: { show: true, size: 6, fill: "#0e6e8c" },
+    { label: "× median", stroke: "#0e6e8c", width: 0, points: { show: true, size: 6, fill: "#0e6e8c" },
       value: (u, v) => (v == null ? "cloud" : `${v.toFixed(1)}×`) },
   ];
   chlOpts.hooks = { draw: [referenceLines([{ value: 1, colour: "#8a8984" }])] }; // 1× = normal
   new uPlot(chlOpts, [x, ratio], container);
   const note2 = document.createElement("p");
   note2.className = "note";
-  note2.textContent = "1× is this area's 2016–2022 median for the month. Chlorophyll is a proxy: some toxic algae cause problems without raising it.";
+  note2.textContent = "1× = 2016–2022 median for the month.";
   container.appendChild(note2);
 }

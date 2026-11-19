@@ -39,7 +39,8 @@ export function createList({ features, listEl, searchEl, countEl, onSelect }) {
   function updateCount(shown) {
     const counts = { High: 0, Moderate: 0, Low: 0 };
     features.forEach((f) => { counts[f.properties.tier] += 1; });
-    countEl.textContent = `${shown} of ${features.length} areas shown · ${counts.High} High, ${counts.Moderate} Moderate, ${counts.Low} Low`;
+    const head = shown === features.length ? `${features.length} areas` : `${shown} of ${features.length} areas`;
+    countEl.textContent = `${head} · High ${counts.High} · Moderate ${counts.Moderate} · Low ${counts.Low}`;
   }
 
   // Filter the list as the user types (matches growing-area or harvest-area names).

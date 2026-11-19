@@ -1,52 +1,50 @@
-# About this forecast
+# About
 
-> **Experimental research tool.** This is **not** a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia). Always follow the official harvest-area status.
+> **Experimental research tool.** Not a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia). Refer to the official harvest-area status.
 
-## What it shows
+## Overview
 
-For each Tasmanian shellfish harvest area, the map shows the chance that **satellite chlorophyll will be unusually high over the next 7 days**, as a risk tier:
+The forecast gives the probability that satellite chlorophyll-a in each Tasmanian shellfish harvest area will be elevated over the next 7 days. Elevated means above the area's 90th percentile for the calendar month, relative to 2016–2022.
 
-| Tier | Meaning |
+| Tier | Definition |
 |---|---|
-| **H** High | Chlorophyll has been well above normal for this area and month, and that tends to persist. In 2023–2026 data, about 6 in 10 weeks flagged High were unusually green. |
-| **M** Moderate | Somewhat above normal, or a mixed recent record. |
-| **L** Low | Near or below normal. **Low does not mean safe**: some toxic algae cause problems without raising chlorophyll. |
+| **H** High | Probability ≥ 36%. In 2023–2026, 63% of weeks rated High were elevated. |
+| **M** Moderate | Probability 19–36%. |
+| **L** Low | Probability < 19%. Does not indicate safety. |
 
-"Unusually high" means above that area's 90th percentile for the calendar month, compared with its own 2016–2022 record. Tier colours are grey, amber and red, always shown with a letter. Green is deliberately not used.
+Map layers: chlorophyll-a (7-day median) and sea surface temperature (SST) anomaly relative to 1991–2020. South Australia is shown as layers only, until harvest-area boundaries are available.
 
-The map can also show two background layers: **satellite chlorophyll** (median of the last 7 days) and **sea-surface temperature anomaly** (difference from the 1991–2020 average for the time of year). South Australian forecasts will be added when harvest-area boundaries are available. Until then, South Australia has the map layers only.
+## Method
 
-## How it works, in plain terms
+1. **Input.** Copernicus Sentinel-3 OLCI chlorophyll-a, 300 m, daily, about 2 days behind real time.
+2. **Area value.** The median of cloud-free pixels within each harvest area and a 2 km buffer.
+3. **Score.** The 14-day mean of the log anomaly against the area's monthly median, weighted by cloud-free fraction.
+4. **Probability.** Logistic (Platt) calibration fitted on 2023–2026. Tier thresholds are set at 20% and 5% false-alarm rates.
 
-1. Every day, the European Copernicus programme publishes chlorophyll measured by the Sentinel-3 satellites at 300 m resolution, about 2 days after the overpass.
-2. For each harvest area (plus a 2 km strip around it, because many areas are smaller than one satellite pixel), we take the median chlorophyll on every day with a clear view.
-3. We compare it with the area's normal for that month, and average the last 14 days, giving partly cloudy days less weight.
-4. A statistical calibration, fitted on 2023–2026 data, turns that into a probability. The tiers use fixed cut-offs chosen so that in an ordinary week only about 20% of areas are flagged Moderate or above and 5% High.
+A gradient-boosted model using weather, SST, currents and seasonality did not outperform this persistence method in year-by-year testing (2018–2023). Full evaluation: [model card](model-card.html).
 
-We also tested a machine-learning model that used weather, ocean temperature, currents and the seasons. **It did not beat this simple "recent chlorophyll" approach** in year-by-year tests, so the simpler method is used. The [model card](model-card.html) has the full evaluation.
+## Limitations
 
-## Limitations: please read
+- **Proxy.** Chlorophyll-a does not measure toxins. *Alexandrium* and *Dinophysis* can be harmful at low biomass. The forecast did not discriminate harmful-species events at Maria Island (IMOS NRS).
+- **Persistence.** The forecast responds to observed conditions; it does not predict bloom onset.
+- **Optical contamination.** Inshore values may be inflated by sediment and dissolved organic matter, particularly after rainfall.
+- **Cloud.** About one-third of area-days have usable imagery. After 14 days without imagery, the seasonal baseline risk is shown.
+- **Locations.** Areas are shown as points pending boundary licensing.
+- **Regional skill.** Lowest in northern and north-western Tasmania.
 
-- **Chlorophyll is a proxy.** It measures how green the water is, not toxins. Harmful species such as *Alexandrium* and *Dinophysis* can be dangerous at low numbers. At the Maria Island monitoring station, the forecast did **not** distinguish weeks with harmful-species alerts from other weeks.
-- **It reacts; it doesn't predict onsets.** It says "conditions have been unusual and are likely to stay so". It cannot see a bloom before chlorophyll rises.
-- **Coastal satellite data is imperfect.** Sediment, tannin-stained river water and nearby land can read as chlorophyll, especially after heavy rain.
-- **Cloud.** About two-thirds of days have no clear view of a given area. After two cloudy weeks, an area shows its usual risk for the time of year, and the panel says so.
-- **Locations are points.** Harvest-area boundaries will be shown once their licence is confirmed.
-- **Weakest in the north and north-west of Tasmania.**
+## Data sources
 
-## Data sources and licences
+- **Chlorophyll-a and SST.** Generated using E.U. Copernicus Marine Service Information.
+  - OLCI: [10.48670/moi-00278](https://doi.org/10.48670/moi-00278), [10.48670/moi-00280](https://doi.org/10.48670/moi-00280)
+  - OSTIA: [10.48670/moi-00165](https://doi.org/10.48670/moi-00165), [10.48670/moi-00168](https://doi.org/10.48670/moi-00168)
+  - Evaluation only: [10.48670/moi-00019](https://doi.org/10.48670/moi-00019), [10.48670/moi-00021](https://doi.org/10.48670/moi-00021)
+- **Harvest-area status.** © State of Tasmania (NRE Tas, ShellMAP), non-commercial use. [ShellMAP](https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas).
+- **Harvest-area locations.** Derived from theLIST, © State of Tasmania.
+- **Phytoplankton counts (evaluation).** Data was sourced from Australia's Integrated Marine Observing System (IMOS). IMOS is enabled by the National Collaborative Research Infrastructure Strategy (NCRIS). CC BY 4.0.
+- **Weather (model testing only).** [Weather data by Open-Meteo.com](https://open-meteo.com/) (ERA5), CC BY 4.0.
+- **Basemap.** [OpenFreeMap](https://openfreemap.org), © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
+- **Software.** [MapLibre GL JS](https://maplibre.org) (BSD-3-Clause), [uPlot](https://github.com/leeoniya/uPlot) (MIT), [Inter](https://rsms.me/inter/) (SIL OFL 1.1).
 
-- **Satellite chlorophyll and sea-surface temperature:** Generated using E.U. Copernicus Marine Service Information.
-  - OLCI chlorophyll, [doi:10.48670/moi-00278](https://doi.org/10.48670/moi-00278) and [doi:10.48670/moi-00280](https://doi.org/10.48670/moi-00280)
-  - OSTIA SST, [doi:10.48670/moi-00165](https://doi.org/10.48670/moi-00165) and [doi:10.48670/moi-00168](https://doi.org/10.48670/moi-00168)
-  - Used in the model evaluation only: the BGC model [doi:10.48670/moi-00019](https://doi.org/10.48670/moi-00019) and GLORYS12 [doi:10.48670/moi-00021](https://doi.org/10.48670/moi-00021)
-- **Harvest-area status:** © State of Tasmania (NRE Tas, ShellMAP), reproduced for non-commercial use. [Current ShellMAP status](https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas).
-- **Harvest-area locations** are derived from theLIST, © State of Tasmania.
-- **Phytoplankton counts (evaluation):** Data was sourced from Australia's Integrated Marine Observing System (IMOS). IMOS is enabled by the National Collaborative Research Infrastructure Strategy (NCRIS). CC BY 4.0.
-- **Weather (model testing only):** [Weather data by Open-Meteo.com](https://open-meteo.com/) (ERA5 reanalysis), CC BY 4.0.
-- **Basemap:** [OpenFreeMap](https://openfreemap.org), © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
-- **Software:** [MapLibre GL JS](https://maplibre.org) (BSD-3-Clause) and [uPlot](https://github.com/leeoniya/uPlot) (MIT), included with their licence files.
+## Operation
 
-## How it's built
-
-A scheduled GitHub Actions job runs once a day. It downloads the newest satellite data, computes the forecast and publishes small static files to this site. There is no server, no tracking and no cost. If the daily update fails, the banner at the top says so and the previous forecast stays visible, marked as out of date. The code, the decision log and the full evaluation are in the project's public GitHub repository.
+The forecast is updated daily by a scheduled GitHub Actions job and published as static files. There is no server, tracking or cost. If an update fails, the previous forecast remains visible and is marked as not updated. Source code and the decision log are in the project's public GitHub repository.

@@ -6,7 +6,7 @@
 
 import { drawCharts, drawSparkline } from "./chart.js";
 import { loadSeries } from "./data.js";
-import { TIER_LETTERS, evidenceSentence, formatDate, formatPercent, ratioText } from "./format.js";
+import { TIER_LETTERS, evidenceSentence, formatPercent, formatRange, formatShortDate, ratioText } from "./format.js";
 import { escapeHtml } from "./list.js";
 
 // Fallback official link if an area has none (verified in docs/data_sources.md).
@@ -23,13 +23,18 @@ export function redrawCharts() {
 }
 
 // Arrow + word for the chlorophyll trend.
-const TREND = { rising: "↑ rising", falling: "↓ falling", steady: "→ steady", unknown: "" };
+const TREND = { rising: "↑ increasing", falling: "↓ decreasing", steady: "→ stable", unknown: "" };
 
-// Official status in plain words, e.g. "OPEN_CONDITIONAL" -> "Open (conditional)".
+// ShellMAP status codes as short labels, e.g. "OPEN_CONDITIONAL" -> "Open (conditional)".
 function statusWords(status) {
-  if (!status) return "Not in our archive";
+  if (!status) return "Not recorded";
   const words = { OPEN: "Open", CLOSED: "Closed", PROHIBITED: "Prohibited", OPEN_CONDITIONAL: "Open (conditional)" };
   return words[status] ?? status.replace(/_/g, " ").toLowerCase();
+}
+
+// Signed SST anomaly, e.g. "+1.6 °C".
+function sstText(value) {
+  return value == null ? "n/a" : `${value > 0 ? "+" : ""}${value.toFixed(1)} °C`;
 }
 
 // The short summary block (always visible).
@@ -40,18 +45,18 @@ function summaryHtml(p, ev, off) {
       <span class="tier-dot tier-${p.tier}" aria-hidden="true">${TIER_LETTERS[p.tier]}</span>
       <div>
         <p class="tier-band-title">${p.tier} risk · ${formatPercent(p.probability)}</p>
-        <p class="tier-band-sub">Chance of an unusually green week, ${formatDate(p.valid_from, false)} – ${formatDate(p.valid_to, false)}</p>
+        <p class="tier-band-sub">Probability of elevated chlorophyll-a, <span class="nowrap">${formatRange(p.valid_from, p.valid_to)}</span></p>
       </div>
     </div>
-    ${p.stale_chl ? `<p class="warn">No clear satellite view for 14 days: showing the usual risk for this time of year.</p>` : ""}
+    ${p.stale_chl ? `<p class="warn">No cloud-free imagery in 14 days. Seasonal baseline risk shown.</p>` : ""}
     <dl class="facts">
-      <dt>Chlorophyll</dt><dd>${ev.score_log10_anomaly == null ? "no clear view" : `<strong>${ratioText(ev.score_log10_anomaly)}</strong> normal`} ${trend ? `<span class="trend">${trend}</span>` : ""}</dd>
-      <dt>Clear views</dt><dd>${ev.clear_days_of_14 ?? 0} of the last 14 days</dd>
-      <dt>Official status</dt><dd>${escapeHtml(statusWords(off.status))}</dd>
+      <dt>Chlorophyll-a</dt><dd>${ev.score_log10_anomaly == null ? "n/a" : `<strong>${ratioText(ev.score_log10_anomaly)}</strong> monthly median`} ${trend ? `<span class="trend">${trend}</span>` : ""}</dd>
+      <dt>Cloud-free days</dt><dd>${ev.clear_days_of_14 ?? 0} of 14</dd>
+      <dt>ShellMAP status</dt><dd>${escapeHtml(statusWords(off.status))}</dd>
     </dl>
-    <p class="mini-chart-title">Risk, last 90 days</p>
+    <p class="mini-chart-title">Risk, 90 days</p>
     <div class="mini-chart" id="panel-spark"></div>
-    <p class="one-line-disclaimer">⚠ Experimental. <a href="${escapeHtml(off.url || SHELLMAP_PAGE)}" rel="noopener">Check the official status</a> before harvesting.</p>`;
+    <p class="one-line-disclaimer">Experimental. Refer to <a href="${escapeHtml(off.url || SHELLMAP_PAGE)}" rel="noopener">ShellMAP</a> for harvest status.</p>`;
 }
 
 // The "More info" section (closed until the reader opens it).
@@ -60,37 +65,37 @@ function moreInfoHtml(p, ev, ctx, off) {
     <details class="more-info">
       <summary>More info</summary>
 
-      <h3>Why this rating</h3>
+      <h3>Basis</h3>
       <p>${escapeHtml(evidenceSentence(ev))}</p>
       <dl class="facts">
-        <dt>Last 7 days</dt><dd>${ratioText(ev.recent7_log10_anomaly)} normal</dd>
-        <dt>7 days before</dt><dd>${ratioText(ev.prior7_log10_anomaly)} normal</dd>
-        <dt>Latest clear view</dt><dd>${ev.last_clear_date ? formatDate(ev.last_clear_date, false) : "none in 14 days"}</dd>
+        <dt>Recent 7 days</dt><dd>${ratioText(ev.recent7_log10_anomaly)}</dd>
+        <dt>Previous 7 days</dt><dd>${ratioText(ev.prior7_log10_anomaly)}</dd>
+        <dt>Last cloud-free image</dt><dd>${ev.last_clear_date ? formatShortDate(ev.last_clear_date) : "none"}</dd>
       </dl>
+      <p class="note">Relative to the area's 2016–2022 median for the month.</p>
 
-      <h3>What this area covers</h3>
-      <p>ShellMAP harvest area <strong>${escapeHtml(p.harvest_area)}</strong> in the ${escapeHtml(p.growing_area)} growing area, plus the water within 2 km of it.
-        The map shows a point because the official boundaries can't be published yet.</p>
+      <h3>Coverage</h3>
+      <p>ShellMAP harvest area ${escapeHtml(p.harvest_area)}, ${escapeHtml(p.growing_area)}, and waters within 2 km.
+        Shown as a point pending boundary licensing.</p>
 
-      <h3>Last 90 days</h3>
+      <h3>90-day record</h3>
       <div class="chart" id="panel-charts"><p class="note">Loading…</p></div>
 
-      <h3>Sea temperature</h3>
-      <p>${ctx.sst_anomaly_c == null ? "Not available today." : `${ctx.sst_anomaly_c > 0 ? "+" : ""}${ctx.sst_anomaly_c.toFixed(1)} °C compared with the 1991–2020 average.`}
-        <span class="note">Shown for context only; the forecast doesn't use it.</span></p>
+      <h3>Sea surface temperature</h3>
+      <p>${sstText(ctx.sst_anomaly_c)} relative to the 1991–2020 mean. Not used in the forecast.</p>
 
-      <h3>Official status</h3>
-      <p><strong>${escapeHtml(statusWords(off.status))}</strong>${off.snapshot_date ? ` in the ShellMAP notice of ${formatDate(off.snapshot_date, false)}` : ""}${off.since ? `, since ${formatDate(off.since.slice(0, 10))}` : ""}.
-        <a href="${escapeHtml(off.url || SHELLMAP_PAGE)}" rel="noopener">Current official notice</a></p>
+      <h3>ShellMAP status</h3>
+      <p>${escapeHtml(statusWords(off.status))}${off.since ? ` since ${formatShortDate(off.since)} ${off.since.slice(0, 4)}` : ""}${off.snapshot_date ? ` (notice archived ${formatShortDate(off.snapshot_date)})` : ""}.
+        <a href="${escapeHtml(off.url || SHELLMAP_PAGE)}" rel="noopener">Current notice</a></p>
 
-      <h3>Keep in mind</h3>
+      <h3>Limitations</h3>
       <ul class="caveats">
-        <li>Chlorophyll is a proxy: some toxic algae cause problems without raising it. Low does not mean safe.</li>
-        <li>The forecast reacts to recent conditions; it can't see a bloom before it starts.</li>
-        <li>Inshore satellite readings can be raised by sediment and tannins after rain.</li>
+        <li>Chlorophyll-a is a proxy. Toxic species can occur at low biomass; Low risk does not indicate safety.</li>
+        <li>The forecast responds to observed conditions and does not predict bloom onset.</li>
+        <li>Inshore satellite values may be inflated by sediment and dissolved organic matter.</li>
       </ul>
       <p class="disclaimer-box"><strong>Experimental research tool.</strong> ${escapeHtml((p.disclaimer || "").replace(/^Experimental research tool\.\s*/, ""))}
-        <a href="about.html">How it works</a></p>
+        <a href="about.html">Method</a></p>
     </details>`;
 }
 

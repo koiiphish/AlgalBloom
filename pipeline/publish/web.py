@@ -37,7 +37,7 @@ TEMPLATE = """<!DOCTYPE html>
   <header class="site-header">
     <div class="brand">
       <h1>Algal bloom risk forecast</h1>
-      <p class="tagline">Tasmania &amp; South Australia · experimental research tool</p>
+      <p class="tagline">Tasmania &amp; South Australia · Experimental</p>
     </div>
     <nav aria-label="Site">
       <a href="./">Map</a>
@@ -49,9 +49,11 @@ TEMPLATE = """<!DOCTYPE html>
 {body}
   </main>
   <footer class="site-footer">
-    <p>Experimental research tool, not a substitute for official ShellMAP (Tasmania) or SASQAP
-    (South Australia) harvest decisions. Generated using E.U. Copernicus Marine Service
-    Information. Sources and licences: <a href="about.html">About</a>.</p>
+    <p class="disclaimer"><strong>Experimental research tool.</strong> Not a substitute for
+    official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia). Refer to the
+    official harvest-area status.</p>
+    <p>Generated using E.U. Copernicus Marine Service Information. Sources and licences:
+    <a href="about.html">About</a>.</p>
   </footer>
 </body>
 </html>

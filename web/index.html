@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Algal bloom risk forecast: Tasmania and South Australia (experimental)</title>
-  <meta name="description" content="Experimental 7-day algal bloom risk forecast for Tasmanian shellfish harvest areas, with satellite chlorophyll and sea-temperature anomaly maps. Not a substitute for official harvest decisions.">
+  <title>Algal bloom risk forecast · Tasmania and South Australia (experimental)</title>
+  <meta name="description" content="Experimental 7-day algal bloom risk forecast for Tasmanian shellfish harvest areas, with satellite chlorophyll and sea surface temperature anomaly maps. Not a substitute for official harvest decisions.">
   <link rel="stylesheet" href="vendor/maplibre-gl-6.19.0/maplibre-gl.css">
   <link rel="stylesheet" href="vendor/uplot-1.6.32/uPlot.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#area-list-heading">Skip to the list of areas</a>
+  <a class="skip-link" href="#area-list-heading">Skip to harvest areas</a>
 
   <header class="site-header">
     <div class="brand">
       <h1>Algal bloom risk forecast</h1>
-      <p class="tagline">Tasmania &amp; South Australia · experimental research tool</p>
+      <p class="tagline">Tasmania &amp; South Australia · Experimental</p>
     </div>
     <nav aria-label="Site">
       <a href="./" aria-current="page">Map</a>
@@ -25,27 +25,21 @@
   </header>
 
   <!-- Data freshness. Filled by js/main.js; announced to screen readers when it changes. -->
-  <div id="status-banner" class="banner" role="status" aria-live="polite">Loading the latest forecast…</div>
-
-  <!-- Official links: verified in docs/data_sources.md (ShellMAP page: the old Growing-and-Harvest-Areas.aspx URL redirects here, HTTP 200 on 2026-11-19;
-       the PIRSA page blocks scripts, URL from Phase 0 search). -->
-  <p class="disclaimer" id="disclaimer">
-    <strong>Experimental research tool.</strong> Not a substitute for official harvest decisions by
-    <a href="https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas" rel="noopener">ShellMAP</a> (Tasmania) or
-    <a href="https://pir.sa.gov.au/fishing-and-aquaculture/seafood-quality-and-safety/shellfish-sasqap/harvesting-statuses" rel="noopener">SASQAP</a> (South Australia).
-    Always follow the official harvest-area status.
-  </p>
+  <div id="status-banner" class="banner" role="status" aria-live="polite">Loading forecast…</div>
 
   <main class="layout">
     <section class="map-wrap" aria-label="Map">
-      <div id="map" class="map" role="region" aria-label="Map of harvest areas. Use the list of areas for keyboard access."></div>
+      <div id="map" class="map" role="region" aria-label="Map of harvest areas. Keyboard users: use the harvest area list."></div>
+
+      <!-- Short notice on the map itself (CLAUDE.md: the disclaimer must be visible on the map). -->
+      <p class="map-notice">Experimental · not for harvest decisions</p>
 
       <form class="layer-control" id="layer-control" aria-label="Map layers">
         <fieldset>
-          <legend>Background layer</legend>
+          <legend>Layer</legend>
           <label><input type="radio" name="layer" value="none" checked> None</label>
-          <label><input type="radio" name="layer" value="chl"> Chlorophyll (7-day)</label>
-          <label><input type="radio" name="layer" value="sst_anomaly"> Sea temperature anomaly</label>
+          <label><input type="radio" name="layer" value="chl"> Chlorophyll-a (7-day median)</label>
+          <label><input type="radio" name="layer" value="sst_anomaly"> SST anomaly</label>
         </fieldset>
         <div id="layer-legend" class="layer-legend" aria-live="polite"></div>
       </form>
@@ -54,23 +48,23 @@
         <span class="tier-dot tier-High" aria-hidden="true">H</span> High
         <span class="tier-dot tier-Moderate" aria-hidden="true">M</span> Moderate
         <span class="tier-dot tier-Low" aria-hidden="true">L</span> Low
-        <span class="key-note">7-day risk of unusually high chlorophyll</span>
+        <span class="key-note">7-day risk of elevated chlorophyll-a</span>
       </div>
     </section>
 
     <!-- Drag (or use the arrow keys) to change how much room the map and the panel get. -->
     <div class="resizer" role="separator" aria-orientation="vertical" tabindex="0"
-      aria-label="Resize the details panel (left and right arrow keys)" title="Drag to resize · double-click to reset"></div>
+      aria-label="Resize panel (left and right arrow keys)" title="Drag to resize · double-click to reset"></div>
 
     <aside class="sidebar" aria-label="Areas and details">
       <!-- Details of the selected area (js/panel.js). Hidden until an area is chosen. -->
       <section id="panel" class="panel" hidden tabindex="-1" aria-labelledby="panel-title"></section>
 
       <section class="area-list" aria-labelledby="area-list-heading">
-        <h2 id="area-list-heading" tabindex="-1">Tasmanian harvest areas</h2>
-        <p class="region-note">South Australia: map layers only. Area forecasts will be added when harvest-area boundaries are available.</p>
-        <label class="search-label" for="area-search">Search areas</label>
-        <input id="area-search" type="search" placeholder="e.g. Pipeclay, Zone 4" autocomplete="off">
+        <h2 id="area-list-heading" tabindex="-1">Harvest areas, Tasmania</h2>
+        <p class="region-note">South Australia: layers only. Area forecasts pending boundary data.</p>
+        <label class="search-label" for="area-search">Search</label>
+        <input id="area-search" type="search" placeholder="Growing area or zone" autocomplete="off">
         <p id="area-count" class="area-count" aria-live="polite"></p>
         <ul id="area-items" class="area-items"></ul>
       </section>
@@ -78,8 +72,16 @@
   </main>
 
   <footer class="site-footer">
+    <!-- Official links: verified in docs/data_sources.md (ShellMAP page: the old Growing-and-Harvest-Areas.aspx URL redirects here, HTTP 200 on 2026-11-19;
+         the PIRSA page blocks scripts, URL from Phase 0 search). -->
+    <p class="disclaimer" id="disclaimer">
+      <strong>Experimental research tool.</strong> Not a substitute for official harvest decisions by
+      <a href="https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas" rel="noopener">ShellMAP</a> (Tasmania) or
+      <a href="https://pir.sa.gov.au/fishing-and-aquaculture/seafood-quality-and-safety/shellfish-sasqap/harvesting-statuses" rel="noopener">SASQAP</a> (South Australia).
+      Refer to the official harvest-area status.
+    </p>
     <p id="attribution">Loading data sources…</p>
-    <p>Full sources, licences and limitations: <a href="about.html">About</a> · <a href="model-card.html">Model card</a></p>
+    <p>Sources, licences and limitations: <a href="about.html">About</a> · <a href="model-card.html">Model card</a></p>
   </footer>
 
   <script type="module" src="js/main.js"></script>
