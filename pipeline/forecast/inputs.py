@@ -17,7 +17,6 @@ import copernicusmarine
 from dotenv import load_dotenv
 
 from pipeline.config import RAW_DIR, REPO_ROOT, BBox
-from pipeline.features.areas import TAS_POLYGONS
 
 CHL_DATASET, CHL_VERSION = "cmems_obs-oc_glo_bgc-plankton_nrt_l3-olci-300m_P1D", "202207"
 SST_DATASET = "METOFFICE-GLO-SST-L4-NRT-OBS-SST-V2"
@@ -82,23 +81,6 @@ def fetch_sst(box: BBox, start: str, end: str, out_dir: Path) -> Path:
     """Near-real-time OSTIA SST for a box."""
     return _subset(SST_DATASET, None, ["analysed_sst"], box, start, end, out_dir,
                    f"sst_{box.name}.nc")  # fmt: skip
-
-
-def ensure_tas_polygons() -> Path:
-    """Make sure the theLIST polygons are in the git-ignored cache (one request if missing).
-
-    In GitHub Actions the cache folder is restored by actions/cache with a weekly key, so this
-    sends at most one request a week. The polygons are used only to choose satellite pixels;
-    they are never published until theLIST confirms the licence (decision A, D014).
-    """
-    if not TAS_POLYGONS.exists():
-        from pipeline.fetch import recon_tas_boundaries
-
-        try:
-            recon_tas_boundaries.main()
-        except (Exception, SystemExit) as e:
-            raise InputError(f"theLIST harvest-area polygons: {e}") from e
-    return TAS_POLYGONS
 
 
 DOWNLOAD_DIR = RAW_DIR / "daily"

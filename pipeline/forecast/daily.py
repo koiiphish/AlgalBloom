@@ -33,9 +33,7 @@ import pandas as pd
 import xarray as xr
 
 from pipeline.config import SA_BBOX, TAS_BBOX
-from pipeline.features.areas import buffer_areas, load_tas_areas
-from pipeline.features.chl import extract_file
-from pipeline.forecast import archive, inputs, score
+from pipeline.forecast import archive, area_pixels, inputs, score
 from pipeline.forecast import sst as sstmod
 from pipeline.model import deploy, sst_climatology
 from pipeline.publish import rasters, site
@@ -65,29 +63,28 @@ def hobart_today() -> pd.Timestamp:
     return pd.Timestamp(datetime.now(ZoneInfo("Australia/Hobart")).date())
 
 
-def chl_stats(issue: pd.Timestamp, work: Path) -> tuple[pd.DataFrame, pd.Timestamp]:
+def chl_stats(
+    issue: pd.Timestamp, work: Path, areas: area_pixels.AreaSet
+) -> tuple[pd.DataFrame, pd.Timestamp]:
     """Download recent chl for the Tas boxes and extract per-area daily stats."""
-    from pipeline.fetch.history_olci_300m import tas_boxes
-
     start = (issue - pd.Timedelta(days=CHL_FETCH_DAYS)).strftime("%Y-%m-%d")
     end = issue.strftime("%Y-%m-%d")
-    areas = buffer_areas(load_tas_areas())
     parts, latest = [], []
-    for box in tas_boxes():
+    for box in areas.boxes:
         path = inputs.fetch_chl(box, start, end, work)
-        parts.append(extract_file(path, areas))
+        parts.append(area_pixels.extract(path, areas))
         with xr.open_dataset(path) as ds:
             latest.append(pd.Timestamp(ds.time.values.max()).normalize())
     df = pd.concat(parts, ignore_index=True)
     df = df.sort_values("n_valid").drop_duplicates(["area_id", "date"], keep="last")
-    missing = set(areas.area_id) - set(df.area_id)
+    missing = set(areas.area_ids) - set(df.area_id)
     if missing:
         raise inputs.InputError(f"{len(missing)} areas not inside any download box")
     return df, min(latest)
 
 
 def map_layers(
-    issue: pd.Timestamp, work: Path, out: Path, areas, run: Run
+    issue: pd.Timestamp, work: Path, out: Path, areas: area_pixels.AreaSet, run: Run
 ) -> tuple[dict, pd.Series | None]:
     """Chl composite and SST anomaly layers for both regions; per-area SST context (Tas)."""
     layers: dict = {"chl": {}, "sst_anomaly": {}}
@@ -116,7 +113,7 @@ def map_layers(
                          "1991-2020 average for this time of year (OSTIA)."})  # fmt: skip
             layers["sst_anomaly"][region] = info
             if region == "tas":
-                sst_area = sstmod.area_anomalies(lat, lon, anom, areas)
+                sst_area = sstmod.area_anomalies(lat, lon, anom, area_pixels.footprints(areas))
         except Exception as e:  # noqa: BLE001
             run.note(f"sst layer {region}", e)
     return layers, sst_area
@@ -131,25 +128,25 @@ def build_site(
     local test runs never add rows that look like published forecasts.
     """
     dep = score.Deployment.load(deploy.OUT_PATH)
-    areas = load_tas_areas()
-    new, latest = chl_stats(issue, work)
+    areas = area_pixels.load()
+    new, latest = chl_stats(issue, work, areas)
     age = (issue - latest).days
     if age > MAX_CHL_AGE_DAYS:
         raise inputs.InputError(f"newest chlorophyll is {age} days old ({latest.date()})")
     new = new.assign(source=f"nrt_{inputs.CHL_VERSION}",
                      retrieved_utc=now.isoformat(timespec="seconds"))  # fmt: skip
     chl = archive.upsert_chl(archive.load_chl(), new)
-    today, history = score.run(chl, dep, areas.area_id.tolist(), issue, HISTORY_DAYS)
+    today, history = score.run(chl, dep, areas.area_ids, issue, HISTORY_DAYS)
     layers, sst_area = map_layers(issue, work, out, areas, run)
 
-    gj = site.areas_geojson(today, site.area_points(areas), issue, dep.model_version, sst_area)
+    gj = site.areas_geojson(today, areas.meta, issue, dep.model_version, sst_area)
     site.write_json(out / "areas.geojson", gj)
     issued = archive.load_forecasts()
     fc = today.assign(issue_date=issue.strftime("%Y-%m-%d"), model_version=dep.model_version,
                       score=today[score.SCORE], data_latest_date=latest.strftime("%Y-%m-%d"),
                       run_utc=now.isoformat(timespec="seconds"))  # fmt: skip
     issued_all = archive.upsert_forecasts(issued, fc)
-    for area_id in areas.area_id:
+    for area_id in areas.area_ids:
         site.write_json(out / "timeseries" / site.ts_filename(area_id),
                         site.timeseries(history, issued_all, area_id))  # fmt: skip
     site.write_json(out / "layers.json", layers)
@@ -185,7 +182,6 @@ def main() -> int:
         shutil.rmtree(args.site)
     args.site.mkdir(parents=True)
     try:
-        inputs.ensure_tas_polygons()
         fc = build_site(issue, now, args.site, args.work, run, args.archive)
     except Exception as e:  # noqa: BLE001 (any failure here means "no trustworthy forecast")
         traceback.print_exc()

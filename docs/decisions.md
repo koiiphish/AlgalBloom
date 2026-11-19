@@ -251,7 +251,18 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 
 **Finding to watch:** at 01:00 Hobart on 19 Nov, the newest NRT day was 16 Nov (3 days old), but the score assumes 2 days (`CHL_LAG_DAYS`). On days like that, the 14-day window has one day less data. The scheduled 09:00 Hobart run should usually see t−2. The first runs will show how often it doesn't (`status.json` → `inputs.chl_age_days`).
 
+**Update 2026-11-19: area pixels come from a secret, not theLIST.** The first scheduled run failed in its first seconds. theLIST closed the connection on the GitHub runner's boundary request (`RemoteDisconnected`), although the same request works locally. The stale fallback worked as designed.
+- **Choice (Timothy):** the daily job no longer contacts theLIST. Each area's OLCI pixel list is stored as the GitHub secret `TAS_AREA_PIXELS` (`pipeline/forecast/area_pixels.py`), together with its name, matching key, published point and the download boxes. The secret is about 5 KB of gzip + base64 JSON, against a 48 KB limit.
+  - It's a secret because it derives from the unlicensed polygons. A git-ignored copy lives in `data/raw/thelist/`.
+  - Pixels are stored as global grid indices. The OLCI 1/180° grid is shared by the NRT and MY products, with centres at −90/−180 + (k + 0.5)/180.
+- **Verified:** pixel counts are identical to training for all 57 areas. Extraction from pixel lists matches `extract_file` row for row on 5 NRT files and a full year of history (`tas_02_2025.nc`).
+- **SST context:** each area's SST context now uses the distance to its pixel footprint instead of the polygon. It's context only.
+- **Schedule:** moved to 22:17 UTC. The first run, due at 22:00, started at 02:57 UTC, and on-the-hour schedules are delayed the most.
+- **Maintenance:** if the ShellMAP boundaries change, rerun `python -m pipeline.forecast.area_pixels --export` and paste the result into the secret again.
+
 **Alternatives rejected:**
+- Committing the pixel lists to the public repo: that publishes a derived footprint before the licence is confirmed.
+- Retrying theLIST: if it blocks datacentre addresses, every run fails.
 - Publishing nothing mappable until theLIST replies: it blocks Phase 5.
 - Keeping the 2023 calibration: it was under-confident in 2026 (model card §5).
 - Storing the archive on `gh-pages`: that branch is force-pushed daily, so the history would be lost.

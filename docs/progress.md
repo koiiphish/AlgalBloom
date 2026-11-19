@@ -2,30 +2,31 @@
 
 **Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D014), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
 
-_Last updated: 2026-11-18_
+_Last updated: 2026-11-19_
 
 ## Phase status
 
 | Phase | Status | Notes |
 |---|---|---|
 | 0: Data reconnaissance | ✅ Accepted | SA boundaries wait on PIRSA |
-| 1: Label archive | 🟡 Built; checkpoint open | Waiting for successful scheduled `archive_status` runs (first real run 21:00 UTC 18 Nov) |
+| 1: Label archive | 🟡 Built; checkpoint open | Scheduled `archive_status` run #2 succeeded on 19 Nov (commit `9f7f918`). One more run, then report the checkpoint. |
 | 2: Feature dataset | ✅ Accepted (Tasmania) | SA features wait on PIRSA |
 | 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); test scored once at commit `d881905`, never re-tune on it |
-| 4: Daily forecast pipeline | 🟡 Built and pushed (`7363f6c`, D014) | Checkpoint: two consecutive successful scheduled `daily_forecast` runs |
+| 4: Daily forecast pipeline | 🟡 Built; first scheduled run failed (theLIST refused the runner), now fixed | Checkpoint: two consecutive successful scheduled `daily_forecast` runs (22:17 UTC) |
 | 5: Frontend | ⬜ Not started | |
 | 6: Portfolio polish | ⬜ Not started | |
 
 ## Next steps
 
-1. **Timothy:** add GitHub secrets `COPERNICUSMARINE_SERVICE_USERNAME` and `COPERNICUSMARINE_SERVICE_PASSWORD`.
-2. Run `daily_forecast` (manually or at 22:00 UTC). After the first run, turn on Pages: Settings → Pages → branch `gh-pages`, root.
-3. **Claude:** check the first two runs:
+1. ✅ Copernicus secrets added (19 Nov).
+2. **Timothy:** add the secret `TAS_AREA_PIXELS`. Its value is the full contents of `data/raw/thelist/tas_area_pixels.txt`, a git-ignored local file that regenerates with `python -m pipeline.forecast.area_pixels --export`. See the D014 update.
+3. Run `daily_forecast` (manually, or wait for 22:17 UTC). After the first green run, turn on Pages: Settings → Pages → branch `gh-pages`, root.
+4. **Claude:** check the runs via the public API (`curl https://api.github.com/repos/koiiphish/AlgalBloom/actions/runs`, and `status.json` on raw.githubusercontent `gh-pages`):
    - Did Pages rebuild after the token push?
    - What was `status.json` → `inputs.chl_age_days`?
    - Did the archive commit land on `main`?
-4. Also confirm the Phase 1 `archive_status` runs succeeded.
-5. Then report the Phase 4 checkpoint, and plan Phase 5 only after Timothy approves.
+5. Also confirm the Phase 1 `archive_status` runs succeeded.
+6. Then report the Phase 4 checkpoint, and plan Phase 5 only after Timothy approves.
 
 ## Waiting on others
 
