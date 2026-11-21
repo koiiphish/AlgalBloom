@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About: Algal Bloom Outlook (experimental)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="brand">
+      <h1>Algal Bloom Outlook</h1>
+      <p class="tagline">Satellite chlorophyll-a · Tasmania &amp; South Australia · Experimental</p>
+    </div>
+    <nav aria-label="Site">
+      <a href="./">Map</a>
+      <a href="about.html" aria-current="page">About</a>
+      <a href="verification.html">Verification</a>
+      <a href="model-card.html">Model card</a>
+    </nav>
+  </header>
+  <main id="content" class="doc">
+<h1>About</h1>
+<blockquote>
+<p><strong>Experimental research tool.</strong> Indicates chlorophyll-a (algal biomass), not toxins or harmful species. Not a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia).</p>
+</blockquote>
+<h2>Overview</h2>
+<p>The outlook gives the probability that satellite chlorophyll-a in each Tasmanian shellfish harvest area will exceed the area's 90th percentile for the calendar month (2016–2022) over the next 7 days. It indicates algal biomass. It does not forecast toxins or harmful species.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>H</strong> High</td>
+<td>Probability ≥ 36%. In 2023–2026, 63% of weeks rated High exceeded the threshold.</td>
+</tr>
+<tr>
+<td><strong>M</strong> Moderate</td>
+<td>Probability 19–36%.</td>
+</tr>
+<tr>
+<td><strong>L</strong> Low</td>
+<td>Probability &lt; 19%. Does not indicate the absence of harmful species.</td>
+</tr>
+</tbody>
+</table>
+<p>Map layers: chlorophyll-a (7-day median) and sea surface temperature (SST) anomaly relative to 1991–2020. South Australia is shown as layers only, until harvest-area boundaries are available.</p>
+<h2>Method</h2>
+<ol>
+<li><strong>Input.</strong> Copernicus Sentinel-3 OLCI chlorophyll-a, 300 m, daily, about 2 days behind real time.</li>
+<li><strong>Area value.</strong> The median of cloud-free pixels within each harvest area and a 2 km buffer.</li>
+<li><strong>Score.</strong> The 14-day mean of the log anomaly against the area's monthly median, weighted by cloud-free fraction.</li>
+<li><strong>Probability.</strong> Logistic (Platt) calibration fitted on 2023–2026. Tier thresholds are set at 20% and 5% false-alarm rates.</li>
+</ol>
+<p>A gradient-boosted model using weather, SST, currents and seasonality did not outperform this persistence method in year-by-year testing (2018–2023). Full evaluation: <a href="model-card.html">model card</a>. Ongoing results: <a href="verification.html">verification</a>.</p>
+<h2>Limitations</h2>
+<ul>
+<li><strong>Proxy.</strong> Chlorophyll-a does not measure toxins. <em>Alexandrium</em> and <em>Dinophysis</em> can be harmful at low biomass. The forecast did not discriminate harmful-species events at Maria Island (IMOS NRS).</li>
+<li><strong>Persistence.</strong> The forecast responds to observed conditions; it does not predict bloom onset.</li>
+<li><strong>Optical contamination.</strong> Inshore values may be inflated by sediment and dissolved organic matter, particularly after rainfall.</li>
+<li><strong>Cloud.</strong> About one-third of area-days have usable imagery. After 14 days without imagery, the seasonal baseline probability is shown.</li>
+<li><strong>Locations.</strong> Areas are shown as points pending boundary licensing.</li>
+<li><strong>Regional skill.</strong> Lowest in northern and north-western Tasmania.</li>
+</ul>
+<h2>Data sources</h2>
+<ul>
+<li><strong>Chlorophyll-a and SST.</strong> Generated using E.U. Copernicus Marine Service Information.</li>
+<li>OLCI: <a href="https://doi.org/10.48670/moi-00278">10.48670/moi-00278</a>, <a href="https://doi.org/10.48670/moi-00280">10.48670/moi-00280</a></li>
+<li>OSTIA: <a href="https://doi.org/10.48670/moi-00165">10.48670/moi-00165</a>, <a href="https://doi.org/10.48670/moi-00168">10.48670/moi-00168</a></li>
+<li>Evaluation only: <a href="https://doi.org/10.48670/moi-00019">10.48670/moi-00019</a>, <a href="https://doi.org/10.48670/moi-00021">10.48670/moi-00021</a></li>
+<li><strong>Harvest-area status.</strong> © State of Tasmania (NRE Tas, ShellMAP), non-commercial use. <a href="https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas">ShellMAP</a>.</li>
+<li><strong>Harvest-area locations.</strong> Derived from theLIST, © State of Tasmania.</li>
+<li><strong>Phytoplankton counts (evaluation).</strong> Data was sourced from Australia's Integrated Marine Observing System (IMOS). IMOS is enabled by the National Collaborative Research Infrastructure Strategy (NCRIS). CC BY 4.0.</li>
+<li><strong>Weather (model testing only).</strong> <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a> (ERA5), CC BY 4.0.</li>
+<li><strong>Basemap.</strong> <a href="https://openfreemap.org">OpenFreeMap</a>, © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors.</li>
+<li><strong>Software.</strong> <a href="https://maplibre.org">MapLibre GL JS</a> (BSD-3-Clause), <a href="https://github.com/leeoniya/uPlot">uPlot</a> (MIT), <a href="https://rsms.me/inter/">Inter</a> (SIL OFL 1.1).</li>
+</ul>
+<h2>Operation</h2>
+<p>The forecast is updated daily by a scheduled GitHub Actions job and published as static files. There is no server, tracking or cost. If an update fails, the previous forecast remains visible and is marked as not updated. Source code and the decision log are in the project's public GitHub repository.</p>
+  </main>
+  <footer class="site-footer">
+    <p class="disclaimer"><strong>Experimental research tool.</strong> Indicates chlorophyll-a
+    (algal biomass), not toxins or harmful species. Not a substitute for official harvest
+    decisions by ShellMAP (Tasmania) or SASQAP (South Australia).</p>
+    <p>Generated using E.U. Copernicus Marine Service Information. Sources and licences:
+    <a href="about.html">About</a>.</p>
+  </footer>
+</body>
+</html>
