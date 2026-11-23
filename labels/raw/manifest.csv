@@ -1,3 +1,4 @@
 retrieved_at,source,url,path,bytes,sha256
 2026-11-17T14:15:35+00:00,tas_shellmap,https://nre.tas.gov.au/SiteAssets/ShellMAP%20Current%20Harvest%20Status.pdf,labels/raw/tas_shellmap/2026-067_2cb2aa2a.pdf,47023,2cb2aa2aebe8f467a2eb2ba54dafe27d71f465c17d1d4f740217054b8b348d49
 2026-11-17T14:15:35+00:00,tas_biotoxin_news,https://nre.tas.gov.au/SiteAssets/Tasmanian%20Biotoxin%20News.pdf,labels/raw/tas_biotoxin_news/2026-11-18_dd5e188d.pdf,561704,dd5e188da135aec69effc3e303c92bbb53bbd8a874f376ca2a9da8231b4bdc29
+2026-11-23T01:25:40+00:00,tas_shellmap,https://nre.tas.gov.au/SiteAssets/ShellMAP%20Current%20Harvest%20Status.pdf,labels/raw/tas_shellmap/2026-068_2e1ccc82.pdf,47047,2e1ccc824ca426da9f65407cf7d914449e635b7fbac800f7ac7260b1cb47af68
