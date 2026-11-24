@@ -34,6 +34,7 @@ A free, public, static, map-based web app with a **7-day harmful algal bloom ris
 - Start with gradient boosting plus calibration. Try a sequence model only if it clearly helps afterwards.
 
 ## Working rules
+- **Before every answer, first list what you'd need to know that Timothy hasn't told you** (open questions, assumptions you'd otherwise make). Put it at the top under "Before I answer". If nothing is missing, say so in one line.
 - **Work one phase at a time** (see brief §8). At the end of each phase: run the tests, summarise what was built, list open questions and risks, then **stop and wait for review**. Don't run ahead.
 - Before coding a phase, give a short plan (files, functions, risks). Wait for an OK if it changes anything in the brief.
 - **Never invent** dataset IDs, URLs, variable names or licence terms. Verify them against the docs or a real request, and cite where you checked in `docs/data_sources.md`.
