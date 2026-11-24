@@ -8,6 +8,8 @@
 
 ![Tour: search a town, open an area, switch on the chlorophyll layer](docs/img/readme/tour.gif)
 
+New to this? Read the **[plain-language explainer](docs/explainer.md)** first.
+
 ## Why this exists
 
 Algal blooms close shellfish harvest areas and can kill farmed stock. The 2025 *Karenia* bloom in South Australia showed how quickly conditions can change. The official programs (ShellMAP, SASQAP) test water and flesh, and publish the **current** harvest status. They do not publish an outlook. Meanwhile, satellites measure chlorophyll-a over every lease almost daily, for free. This project asks a narrow question: **how much can a free, transparent, honestly evaluated satellite outlook add, at zero running cost?**

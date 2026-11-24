@@ -16,7 +16,7 @@ For each Tasmanian shellfish harvest area and each issue day *t*, the probabilit
 
 ## 2. Intended use and users
 
-- **For:** aquaculture operators and interested public, as **situational awareness** ("conditions near my lease have been unusually green and are likely to stay so this week"), and portfolio reviewers assessing the method.
+- **For:** aquaculture operators and interested public, as **situational awareness** ("conditions near my lease have been unusually green and are likely to stay so this week").
 - **Not for:** harvest, closure or food-safety decisions; toxin prediction; areas outside the 57 Tasmanian harvest areas (South Australia is a transfer test only, section 7).
 
 ## 3. How it works
