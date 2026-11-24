@@ -2,39 +2,32 @@
 
 **Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D016), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
 
-_Last updated: 2026-11-19_
+_Last updated: 2026-11-24_
 
 ## Phase status
 
 | Phase | Status | Notes |
 |---|---|---|
 | 0: Data reconnaissance | ✅ Accepted | SA boundaries wait on PIRSA |
-| 1: Label archive | 🟡 Built; checkpoint open | 1 green scheduled `archive_status` run so far (19 Nov 02:18 UTC). Needs the next one (21:00 UTC). |
+| 1: Label archive | 🟢 Checkpoint met, awaiting sign-off | 7 green scheduled `archive_status` runs (18–24 Nov); 1 status change captured (Triabunna Zone B, Open → Closed, 23 Nov). |
 | 2: Feature dataset | ✅ Accepted (Tasmania) | SA features wait on PIRSA |
 | 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); deployed as `persistence-1.1` after one recalibration (D014). The test was scored once at commit `d881905`; never re-tune on it. |
-| 4: Daily forecast pipeline | 🟡 Working; checkpoint open | The 1st scheduled run failed (theLIST refused the runner), so area pixels moved to the `TAS_AREA_PIXELS` secret. Manual run green 19 Nov. Needs 2 consecutive green **scheduled** runs (22:17 UTC). |
+| 4: Daily forecast pipeline | 🟢 Checkpoint met, awaiting sign-off | 5 consecutive green scheduled `daily_forecast` runs (20–24 Nov). Data age 2 days every day; no stale areas; archive commits landing; Pages rebuilding. Runs start 2–8 h after the 22:17 UTC schedule (GitHub queue). |
 | 5: Frontend | 🟡 Live, iterated with Timothy | https://koiiphish.github.io/AlgalBloom/ ("Algal Bloom Outlook"). "Clean marine" style, Inter, positron basemap; summary panel + More info; resizable panel; report-style wording; disclaimer in footer and panels (D015). Checkpoint: the live URL, reported together with Phases 1 and 4. |
 | 6: Portfolio polish | 🟡 Started early (Timothy) | Site reworded as a chlorophyll-a (biomass) outlook, not a toxin forecast. Verification page live: satellite outcomes, ShellMAP status changes, and Biotoxin News parsed with literal PALT matching only (D016). The rest waits for the checkpoints. |
 
 ## Next steps
 
-1. **Claude:** check the scheduled runs on 20 Nov via the public API (`curl https://api.github.com/repos/koiiphish/AlgalBloom/actions/runs`, and `status.json` from the live site):
-   - Is `archive_status` green?
-   - Is `daily_forecast` green?
-   - Did the archive commit land?
-   - What was `inputs.chl_age_days`?
-   - Did Pages rebuild?
-2. After a second consecutive green `daily_forecast` (21 Nov), report the Phase 1, 4 and 5 checkpoints together.
-3. **Verification page:**
-   - It shows "First update pending" until tonight's daily run builds it.
-   - The first satellite check is due about 28 Nov, and Biotoxin News findings build up weekly. Check that the page fills in correctly.
-   - **Timothy (optional):** check the PALT "cumulative within a toxin group" wording in the Biotoxin Management Plan, Appendix 3. It isn't applied yet, to avoid guessing.
-4. **On hold (Timothy):** the request to NRE Tas for historical ShellMAP phytoplankton data, which is the route to a species-aware model.
-5. **Phase 6 (after approval).** Candidates discussed:
+1. **Timothy:** sign off the Phase 1, 4 and 5 checkpoints (reported on 24 Nov).
+2. **Verification:** the first satellite outcomes are due about 28 Nov (the 19 Nov outlook needs imagery to 26 Nov).
+   - The Biotoxin News is fetched daily, but NRE has not published a new issue since 26 Oct.
+3. **On hold (Timothy):** the request to NRE Tas for historical ShellMAP phytoplankton data.
+4. **Optional (Timothy):** check the PALT "cumulative within a toxin group" wording (Biotoxin Management Plan, Appendix 3).
+5. **Phase 6 (after sign-off):**
    - README with screenshots and an architecture diagram;
-   - per-area links to the ShellMAP management-plan maps (26 of 29 growing areas match);
+   - per-area ShellMAP management-plan map links (26 of 29 growing areas match);
    - tightening the model card's wording.
-6. **Before 24 Nov:** back up `data/raw/copernicus/history_olci_300m_v202211` (1.9 GB), because that version retires.
+6. **24 Nov 2026:** the MY 202211 training history retires today. Confirm `data/raw/copernicus/history_olci_300m_v202211` (1.9 GB) is backed up.
 
 ## How to preview the site locally
 
