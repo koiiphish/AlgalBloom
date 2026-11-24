@@ -19,7 +19,7 @@ _Last updated: 2026-11-24_
 ## Next steps
 
 1. **Sign-off of Phases 1, 4, 5 and 6 is on hold** (Timothy, 24 Nov) until the PIRSA and theLIST replies arrive.
-   - Plain-language explainer for non-technical readers: `docs/explainer.md`, linked from the README.
+   - Non-technical summary: `docs/summary.md`, linked from the README.
 2. **Verification:** the first satellite outcomes are due about 28 Nov (the 19 Nov outlook needs imagery to 26 Nov).
    - The Biotoxin News is fetched daily, but NRE has not published a new issue since 26 Oct.
 3. **On hold (Timothy):** the request to NRE Tas for historical ShellMAP phytoplankton data.

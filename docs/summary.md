@@ -1,4 +1,4 @@
-# Algal Bloom Outlook, in plain language
+# Algal Bloom Outlook: Non-technical summary
 
 > **Experimental research tool.** It indicates algal biomass, not toxins. It is not a substitute for the official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia).
 

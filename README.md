@@ -8,7 +8,7 @@
 
 ![Tour: search a town, open an area, switch on the chlorophyll layer](docs/img/readme/tour.gif)
 
-New to this? Read the **[plain-language explainer](docs/explainer.md)** first.
+**[Non-technical summary](docs/summary.md)**: what the outlook is, how it works and its limits, without jargon.
 
 ## Why this exists
 
