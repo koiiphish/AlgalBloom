@@ -7,7 +7,8 @@
 .copernicusmarine/
 
 # --- Data caches (raw + interim downloads; never commit) ---
-data/
+# Repo-root cache only (web/data/ holds published files, so it is NOT ignored)
+/data/
 # Large raster/array formats, wherever they end up
 *.nc
 *.nc4

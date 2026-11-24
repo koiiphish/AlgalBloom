@@ -73,7 +73,9 @@ const q = nearbyAreas(places[2], features);
 console.log(JSON.stringify({{ first: m[0].name, n: m.length, near: near.items.map((x) => x.feature.properties.area_id),
   km: Math.round(near.items[0].km), fallback: q.fallback, qn: q.items.length, short: matchPlaces(places, "de").length }}));
 """
-    out = subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True)
+    out = subprocess.run(
+        ["node", "--input-type=module", "-e", script], capture_output=True, text=True
+    )
     assert out.returncode == 0, out.stderr
     r = json.loads(out.stdout)
     assert r["first"] == "Devonport" and r["n"] == 2 and r["near"] == ["port_sorell"]
