@@ -1,0 +1,111 @@
+{
+ "source": "https://nre.tas.gov.au/aquaculture/shellmap/growing-and-harvest-areas",
+ "retrieved": "2026-11-24",
+ "note": "ShellMAP management plans (contain official area maps). \u00a9 State of Tasmania.",
+ "plans": {
+  "bigbay": {
+   "name": "Big Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Big%20Bay.pdf"
+  },
+  "birchsbay": {
+   "name": "Birchs Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Birchs%20Bay.pdf"
+  },
+  "boomerbay": {
+   "name": "Boomer Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Boomer%20Bay.pdf"
+  },
+  "cloudybaylagoon": {
+   "name": "Cloudy Bay Lagoon",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Cloudy%20Bay%20Lagoon.pdf"
+  },
+  "duckbay": {
+   "name": "Duck Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Duck%20Bay.pdf"
+  },
+  "dunalleybay": {
+   "name": "Dunalley Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Dunalley%20Bay.pdf"
+  },
+  "eaglehawkbay": {
+   "name": "Eaglehawk Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Eaglehawk%20Bay.pdf"
+  },
+  "fleurtyspoint": {
+   "name": "Fleurtys Point",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Fleurtys%20Point.pdf"
+  },
+  "gardnersbay": {
+   "name": "Gardners Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Gardners%20Bay.pdf"
+  },
+  "garfishbaydartisland": {
+   "name": "Garfish Bay Dart Island",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Garfish%20Bay%20Dart%20Island.pdf"
+  },
+  "greatbay": {
+   "name": "Great Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Great%20Bay.pdf"
+  },
+  "greatoysterbay": {
+   "name": "Great Oyster Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Great%20Oyster%20Bay.pdf"
+  },
+  "greatswanport": {
+   "name": "Great Swanport",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Great%20Swanport.pdf"
+  },
+  "hastingsbay": {
+   "name": "Hastings Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Hastings%20Bay.pdf"
+  },
+  "islandinlet": {
+   "name": "Island Inlet",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Island%20Inlet.pdf"
+  },
+  "kinggeorgesound": {
+   "name": "King George Sound",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20King%20George%20Sound.pdf"
+  },
+  "littlenorfolkbay": {
+   "name": "Little Norfolk Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Little%20Norfolk%20Bay.pdf"
+  },
+  "littleswanport": {
+   "name": "Little Swanport",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Little%20Swanport.pdf"
+  },
+  "littletaylorsbay": {
+   "name": "Little Taylors Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Little%20Taylors%20Bay.pdf"
+  },
+  "montagu": {
+   "name": "Montagu",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Montagu.pdf"
+  },
+  "moultingbay": {
+   "name": "Moulting Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Moulting%20Bay.pdf"
+  },
+  "pipeclaylagoon": {
+   "name": "Pipeclay Lagoon",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Pipeclay%20Lagoon.pdf"
+  },
+  "pittwater": {
+   "name": "Pittwater",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Pittwater.pdf"
+  },
+  "portesperance": {
+   "name": "Port Esperance",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Port%20Esperance.pdf"
+  },
+  "portsorell": {
+   "name": "Port Sorell",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Port%20Sorell.pdf"
+  },
+  "recherchebay": {
+   "name": "Recherche Bay",
+   "url": "https://nre.tas.gov.au/Documents/Management%20Plan%20-%20Recherche%20Bay.pdf"
+  }
+ }
+}

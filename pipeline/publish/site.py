@@ -23,6 +23,7 @@ import numpy as np
 import pandas as pd
 
 from pipeline.config import REPO_ROOT
+from pipeline.labels.management_plans import norm
 from pipeline.labels.shellmap import NOTICE_URL
 from pipeline.model.persistence import SCORE
 
@@ -43,6 +44,15 @@ ATTRIBUTION = [
      "url": "https://www.thelist.tas.gov.au/"},
 ]  # fmt: skip
 OFFICIAL_LINKS = {"tas": NOTICE_URL}
+PLANS_PATH = REPO_ROOT / "labels" / "reference" / "tas_management_plans.json"
+
+
+def management_plan_urls(path: Path = PLANS_PATH) -> dict[str, str]:
+    """{normalised growing-area name: management-plan PDF URL} (D018); empty if missing."""
+    if not path.exists():
+        return {}
+    plans = json.loads(path.read_text(encoding="utf-8"))["plans"]
+    return {key: v["url"] for key, v in plans.items()}
 
 
 def ts_filename(area_id: str) -> str:
@@ -105,6 +115,7 @@ def areas_geojson(today: pd.DataFrame, points: pd.DataFrame, issue: pd.Timestamp
     df = points.merge(today, on="area_id", how="left")
     df = df.merge(official_status(), on="match_key", how="left")
     valid = [issue + pd.Timedelta(days=1), issue + pd.Timedelta(days=HORIZON)]
+    plans = management_plan_urls()
     feats = []
     for r in df.itertuples(index=False):
         props = {
@@ -125,7 +136,8 @@ def areas_geojson(today: pd.DataFrame, points: pd.DataFrame, issue: pd.Timestamp
             },
             "official": {"status": r.official_status, "since": r.official_status_since,
                          "snapshot_date": r.official_snapshot_date,
-                         "url": OFFICIAL_LINKS["tas"]},
+                         "url": OFFICIAL_LINKS["tas"],
+                         "map_url": plans.get(norm(r.growing_area))},
             "timeseries": f"timeseries/{ts_filename(r.area_id)}",
             "geometry_note": "Point location; harvest-area boundaries not yet published "
                              "(licence pending).",

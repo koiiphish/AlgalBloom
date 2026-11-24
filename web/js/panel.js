@@ -77,6 +77,7 @@ function moreInfoHtml(p, ev, ctx, off) {
       <h3>Coverage</h3>
       <p>ShellMAP harvest area ${escapeHtml(p.harvest_area)}, ${escapeHtml(p.growing_area)}, and waters within 2 km.
         Shown as a point pending boundary licensing.</p>
+      <p><a href="${escapeHtml(off.map_url || SHELLMAP_PAGE)}" rel="noopener">${off.map_url ? "Official boundary map (ShellMAP management plan, PDF)" : "Official growing areas (ShellMAP)"}</a></p>
 
       <h3>90-day record</h3>
       <div class="chart" id="panel-charts"><p class="note">Loading…</p></div>
