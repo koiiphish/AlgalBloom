@@ -6,30 +6,42 @@ _Last updated: 2026-11-24_
 
 ## Phase status
 
+All six phases are built. **Timothy is holding sign-off until PIRSA and theLIST reply** (24 Nov).
+
 | Phase | Status | Notes |
 |---|---|---|
 | 0: Data reconnaissance | ✅ Accepted | SA boundaries wait on PIRSA |
-| 1: Label archive | 🟢 Checkpoint met, awaiting sign-off | 7 green scheduled `archive_status` runs (18–24 Nov); 1 status change captured (Triabunna Zone B, Open → Closed, 23 Nov). |
+| 1: Label archive | 🟢 Checkpoint met; sign-off on hold | 7 green scheduled `archive_status` runs (18–24 Nov); 1 status change captured (Triabunna Zone B, Open → Closed, 23 Nov) |
 | 2: Feature dataset | ✅ Accepted (Tasmania) | SA features wait on PIRSA |
 | 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); deployed as `persistence-1.1` after one recalibration (D014). The test was scored once at commit `d881905`; never re-tune on it. |
-| 4: Daily forecast pipeline | 🟢 Checkpoint met, awaiting sign-off | 5 consecutive green scheduled `daily_forecast` runs (20–24 Nov). Data age 2 days every day; no stale areas; archive commits landing; Pages rebuilding. Runs start 2–8 h after the 22:17 UTC schedule (GitHub queue). |
-| 5: Frontend | 🟡 Live, iterated with Timothy | https://koiiphish.github.io/AlgalBloom/ ("Algal Bloom Outlook"). "Clean marine" style, Inter, positron basemap; summary panel + More info; resizable panel; report-style wording; disclaimer in footer and panels (D015). Checkpoint: the live URL, reported together with Phases 1 and 4. |
-| 6: Portfolio polish | 🟢 Built, awaiting review | README (why, how it works, Mermaid diagram, honest results, limitations, setup, next steps), screenshots + GIF (`tools/`), official management-plan map links, model card tidy-up, no licence (D018). Plus the earlier biomass wording and Verification page (D016). |
+| 4: Daily forecast pipeline | 🟢 Checkpoint met; sign-off on hold | 5 consecutive green scheduled runs (20–24 Nov). Data age is 2 days every day; no stale areas. Runs start 2–8 h after the 22:17 UTC schedule (GitHub queue). |
+| 5: Frontend | 🟢 Live; sign-off on hold | https://koiiphish.github.io/AlgalBloom/ ("Algal Bloom Outlook"). Biomass wording, summary panel + More info, resizable panel, town search within 25 km (D017), official map links (D018), disclaimer in the footer and panels (D015–D016) |
+| 6: Portfolio polish | 🟢 Built; sign-off on hold | README (why, Mermaid diagram, honest results, setup, next steps), screenshots + GIF (`tools/`), Non-technical summary (`docs/summary.md`), Verification page (D016), model card tidy-up, no licence: all rights reserved (D018) |
 
 ## Next steps
 
-1. **Sign-off of Phases 1, 4, 5 and 6 is on hold** (Timothy, 24 Nov) until the PIRSA and theLIST replies arrive.
-   - Non-technical summary: `docs/summary.md`, linked from the README.
-2. **Verification:** the first satellite outcomes are due about 28 Nov (the 19 Nov outlook needs imagery to 26 Nov).
-   - The Biotoxin News is fetched daily, but NRE has not published a new issue since 26 Oct.
-3. **On hold (Timothy):** the request to NRE Tas for historical ShellMAP phytoplankton data.
-4. **Optional (Timothy):** check the PALT "cumulative within a toxin group" wording (Biotoxin Management Plan, Appendix 3).
-5. **Phase 6 (after sign-off):**
-   - README with screenshots and an architecture diagram;
-   - per-area ShellMAP management-plan map links (26 of 29 growing areas match);
-   - tightening the model card's wording.
-6. ✅ **Backed up 24 Nov:** the 202211 training history, `data/interim` and `data/features` were copied to `C:\Users\timne\AlgalBloom-backup\2026-11-24` (local copy only, Timothy's choice; 130 files, byte totals verified). Backups are **not** automatic.
-7. ✅ **Town search** added (D017): a town name lists the harvest areas within 25 km, or the 3 nearest.
+1. **Waiting on replies (Timothy):**
+   - **PIRSA:** unlocks SA area outlooks (boundaries + one daily status read).
+   - **theLIST:** unlocks real area outlines instead of points.
+   - Then sign off Phases 1, 4, 5 and 6.
+2. **About 28 Nov (Claude):** check that the first satellite outcomes appear correctly on the Verification page. The 19 Nov outlook needs imagery to 26 Nov.
+3. **Weekly (automatic):** Biotoxin News issues are matched against the outlooks. NRE has not published a new issue since 26 Oct.
+4. **Before 12 Jan 2027 (hard deadline):** the daily OLCI NRT version 202207 retires. Check the 202611 replacement for an offset (it read about 10% lower in the D006 test), then switch the pinned version (D014).
+5. **About Nov 2027:** with a year of published outlooks archived, recalibrate on a rolling window and score the model on its live record.
+6. **Optional (Timothy):**
+   - send the NRE Tas request for historical ShellMAP phytoplankton data (on hold);
+   - check the PALT "cumulative within a toxin group" wording (Biotoxin Management Plan, Appendix 3);
+   - copy `C:\Users\timne\AlgalBloom-backup` off the laptop;
+   - choose a code licence if reuse is ever wanted.
+
+**Done 24 Nov:**
+- training-history backup (local copy, verified; backups are **not** automatic);
+- town search;
+- management-plan map links;
+- README, screenshots and GIF;
+- Non-technical summary;
+- `CLAUDE.md` rule to list unknowns before every answer;
+- answers end with an "80/20" section (memory note).
 
 ## How to preview the site locally
 
@@ -49,7 +61,7 @@ Screenshots: headless Edge driven over the DevTools protocol with a small Node s
 ## Known issues and dates
 
 - **Tier thresholds are quoted on the About page** (19% / 36%). Update it if the model is recalibrated.
-- **2026-11-24:** the OLCI MY version 202211 (training history) retires. The local copy is in `data/` and is worth backing up.
+- **2026-11-24:** the OLCI MY version 202211 (training history) retired. Local copy in `data/`, backed up to `C:\Users\timne\AlgalBloom-backup\2026-11-24`.
 - **2027-01-12:** the OLCI NRT version 202207 (the daily input) retires. Re-check the offset against the 202611 version before switching (D014).
 - ~~Inland lakes in the chlorophyll layer~~: fixed in Phase 5 (sea-connected mask).
 - **Phase 4 commit message:** commit `7363f6c` also contains the deployment model file, the SST climatology and the archive seed, but its message doesn't say so.
