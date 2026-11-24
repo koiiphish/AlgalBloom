@@ -42,7 +42,7 @@ A gradient-boosted model using weather, SST, currents and seasonality did not ou
 - **Harvest-area locations.** Derived from theLIST, © State of Tasmania.
 - **Phytoplankton counts (evaluation).** Data was sourced from Australia's Integrated Marine Observing System (IMOS). IMOS is enabled by the National Collaborative Research Infrastructure Strategy (NCRIS). CC BY 4.0.
 - **Weather (model testing only).** [Weather data by Open-Meteo.com](https://open-meteo.com/) (ERA5), CC BY 4.0.
-- **Basemap.** [OpenFreeMap](https://openfreemap.org), © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors.
+- **Basemap and place names.** [OpenFreeMap](https://openfreemap.org); © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors (place names under the ODbL).
 - **Software.** [MapLibre GL JS](https://maplibre.org) (BSD-3-Clause), [uPlot](https://github.com/leeoniya/uPlot) (MIT), [Inter](https://rsms.me/inter/) (SIL OFL 1.1).
 
 ## Operation

@@ -62,7 +62,9 @@
         <h2 id="area-list-heading" tabindex="-1">Harvest areas, Tasmania</h2>
         <p class="region-note">South Australia: layers only. Area forecasts pending boundary data.</p>
         <label class="search-label" for="area-search">Search</label>
-        <input id="area-search" type="search" placeholder="Growing area or zone" autocomplete="off">
+        <input id="area-search" type="search" placeholder="Town, growing area or zone" autocomplete="off">
+        <!-- Harvest areas near a searched town (js/places.js). Hidden until a town matches. -->
+        <div id="place-results" class="place-results" hidden aria-live="polite"></div>
         <p id="area-count" class="area-count" aria-live="polite"></p>
         <ul id="area-items" class="area-items"></ul>
       </section>

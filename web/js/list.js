@@ -39,6 +39,7 @@ export function createList({ features, listEl, searchEl, countEl, onSelect }) {
   function updateCount(shown) {
     const counts = { High: 0, Moderate: 0, Low: 0 };
     features.forEach((f) => { counts[f.properties.tier] += 1; });
+    if (shown === 0) { countEl.textContent = "No area names match."; return; }
     const head = shown === features.length ? `${features.length} areas` : `${shown} of ${features.length} areas`;
     countEl.textContent = `${head} · High ${counts.High} · Moderate ${counts.Moderate} · Low ${counts.Low}`;
   }

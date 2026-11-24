@@ -412,3 +412,26 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - Scoring against closures: they have many causes.
 - Training on Biotoxin News: too short a record so far.
 - The name "How it's doing" (Timothy).
+
+## D017 — Town search with OpenStreetMap place names (2026-11-24, Timothy)
+
+**Context:** searching a town such as "Devonport" returned nothing, because the search only matched harvest-area names. Timothy asked for nearby areas to be offered, at a distance I recommend.
+
+**Choices:**
+- **Place list:** 1,283 Tasmanian places from OpenStreetMap (city, town, village, hamlet, suburb, locality), fetched **once** from the Overpass API by `pipeline/fetch/osm_places.py`.
+  - Published as `web/data/places_tas.json` (87 KB): name, kind, and position to 4 decimal places.
+  - The browser loads it on the first search, so searching never calls an outside service.
+- **robots.txt:** Overpass's robots.txt disallows `/api/` for crawlers, but its documentation explicitly invites programmatic use ("a maximum of about 10000 requests per day ... below about 1 GB per day"). We sent one request with a descriptive User-Agent. This is the same reasoning as Open-Meteo in D003.
+- **Licence:** © OpenStreetMap contributors, ODbL 1.0. The derived list is ODbL too, and the footer and About page credit OpenStreetMap for place names.
+- **Radius: 25 km**, measured from the place to each area's published point.
+  - Typical cases: Devonport → Port Sorell, 19 km; Swansea → 6 areas; Cygnet → 9.
+  - The median town is 35 km from its nearest area.
+  - With nothing inside 25 km (e.g. Launceston, Burnie), the **3 nearest areas** are shown with their distances and labelled as such, so a town search never comes back empty.
+- **Matching:** exact name first, then names starting with the text, then names containing it; bigger places first within each group; at least 3 characters.
+  - The map flies to the place once typing pauses for 300 ms.
+  - Other places with similar names are offered as links.
+
+**Alternatives rejected:**
+- **Geoscience Australia Composite Gazetteer:** its licence is not stated consistently (data.gov.au: "Not Specified"; service copyright text: "Geoscience Australia"), and `services.ga.gov.au` returned 403 to scripts.
+- **A live geocoding service (Nominatim):** a third-party request on every search, and its usage policy discourages search-as-you-type.
+- **Basemap labels from loaded tiles:** incomplete at low zoom.

@@ -1,6 +1,6 @@
 # Progress and handoff
 
-**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D016), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
+**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D017), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
 
 _Last updated: 2026-11-24_
 
@@ -27,7 +27,8 @@ _Last updated: 2026-11-24_
    - README with screenshots and an architecture diagram;
    - per-area ShellMAP management-plan map links (26 of 29 growing areas match);
    - tightening the model card's wording.
-6. **24 Nov 2026:** the MY 202211 training history retires today. Confirm `data/raw/copernicus/history_olci_300m_v202211` (1.9 GB) is backed up.
+6. ✅ **Backed up 24 Nov:** the 202211 training history, `data/interim` and `data/features` were copied to `C:\Users\timne\AlgalBloom-backup\2026-11-24` (local copy only, Timothy's choice; 130 files, byte totals verified). Backups are **not** automatic.
+7. ✅ **Town search** added (D017): a town name lists the harvest areas within 25 km, or the 3 nearest.
 
 ## How to preview the site locally
 

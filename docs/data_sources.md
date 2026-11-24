@@ -264,3 +264,12 @@ Subset box 129–150°E, 31–44.5°S, full time range, CSV. Files are in git-ig
   - "Potentially Harmful Phytoplankton Species to Marine Fauna": not used.
 - **This issue held** 22 toxin samples and 20 toxin-producing phytoplankton counts. Two counts were at or above the PALT lab-alert level: *Alexandrium tamarense* complex 200 cells/L at Pipeclay Lagoon (19 Oct; alert 100) and *Dinophysis acuminata* 800 cells/L at Great Bay (20 Oct; alert 200).
 - **Licence:** Tasmanian Government website licence, non-commercial use with acknowledgement (see the NRE Tas section above). The Verification page credits "© State of Tasmania (NRE Tas, ShellMAP)".
+
+## OpenStreetMap place names (verified 2026-11-24)
+
+- **Endpoint:** `https://overpass-api.de/api/interpreter`. One POST with an Overpass QL query for `place` ~ city|town|village|hamlet|suburb|locality and a `name`, in the box 43.8–39.4°S, 143.5–148.6°E, with `out center tags`. The raw response is cached in `data/raw/osm/places_tas_raw.json`.
+- **robots.txt** (`overpass-api.de`): `Disallow: /api/`.
+- **Usage guidance** (https://dev.overpass-api.de/overpass-doc/en/preface/commons.html): "users are expected to send a maximum of about 10000 requests per day and keep their download volume below about 1 GB per day". We sent 1 request (D017).
+- **Result:** 1,283 places (4 cities, 61 towns, 88 villages, 464 hamlets, 146 suburbs, 520 localities). Spot check: Devonport (city) at 41.1798°S, 146.3613°E.
+- **Licence:** © OpenStreetMap contributors, Open Database License 1.0 (https://www.openstreetmap.org/copyright).
+- **Not used:** Geoscience Australia Composite Gazetteer. `services.ga.gov.au/robots.txt` returned 403, the MapServer copyright text is "Geoscience Australia", and data.gov.au lists the licence as "Not Specified".

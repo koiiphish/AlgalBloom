@@ -4,6 +4,7 @@
 import { loadAll } from "./data.js";
 import { formatDate, formatHobartTime, formatRange, formatShortDate } from "./format.js";
 import { createList, escapeHtml } from "./list.js";
+import { enablePlaceSearch } from "./places.js";
 import { createMap } from "./map.js";
 import { hidePanel, redrawCharts, showPanel } from "./panel.js";
 import { enableResizer } from "./resizer.js";
@@ -37,7 +38,7 @@ function renderAttribution(el, status) {
     const link = a.url || (a.dois && a.dois[0]);
     return link ? `<a href="${escapeHtml(link)}" rel="noopener">${escapeHtml(a.text)}</a>` : escapeHtml(a.text);
   });
-  parts.push('Basemap © <a href="https://openfreemap.org" rel="noopener">OpenFreeMap</a>, © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a> contributors');
+  parts.push('Basemap © <a href="https://openfreemap.org" rel="noopener">OpenFreeMap</a>; basemap and place names © <a href="https://www.openstreetmap.org/copyright" rel="noopener">OpenStreetMap</a> contributors');
   el.innerHTML = parts.join(" · ");
 }
 
@@ -106,6 +107,15 @@ async function start() {
     searchEl: document.getElementById("area-search"),
     countEl: document.getElementById("area-count"),
     onSelect: select,
+  });
+
+  // Town search: typing a place name lists the harvest areas near it and moves the map there.
+  enablePlaceSearch({
+    searchEl: document.getElementById("area-search"),
+    resultsEl: document.getElementById("place-results"),
+    features: areas.features,
+    onSelect: select,
+    onPlace: (place) => mapApi.map.flyTo({ center: [place.lon, place.lat], zoom: 9, essential: true }),
   });
 
   // Draggable divider between the map and the sidebar (desktop layout only).

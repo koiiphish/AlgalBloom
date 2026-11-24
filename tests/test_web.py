@@ -1,5 +1,6 @@
 """Phase 5 web build: pages render, files are copied, JS parses, lakes are masked."""
 
+import json
 import shutil
 import subprocess
 
@@ -50,3 +51,30 @@ def test_sea_connected_drops_lakes_keeps_estuaries():
     land[3, 5] = False  # and an inlet reaching the sea at the right edge via (3, 6)
     sea = rasters.sea_connected(land)
     assert not sea[3, 3] and sea[3, 5] and sea[0, 0]
+
+
+@pytest.mark.skipif(shutil.which("node") is None, reason="Node.js not installed")
+def test_place_search_logic():
+    """Town search: exact names rank first; Devonport finds Port Sorell (~19 km); a town with
+    no area within 25 km falls back to the nearest three."""
+    js = web.WEB_DIR / "js" / "places.js"
+    script = f"""
+import {{ matchPlaces, nearbyAreas }} from "{js.as_uri()}";
+const places = [
+  {{ name: "Devonport", kind: "city", lat: -41.1798, lon: 146.3613 }},
+  {{ name: "East Devonport", kind: "suburb", lat: -41.18, lon: 146.38 }},
+  {{ name: "Queenstown", kind: "town", lat: -42.08, lon: 145.555 }},
+];
+const f = (id, lon, lat) => ({{ geometry: {{ coordinates: [lon, lat] }}, properties: {{ area_id: id }} }});
+const features = [f("port_sorell", 146.556, -41.164), f("far1", 148.0, -42.5), f("far2", 147.9, -43.0)];
+const m = matchPlaces(places, "devonport");
+const near = nearbyAreas(m[0], features);
+const q = nearbyAreas(places[2], features);
+console.log(JSON.stringify({{ first: m[0].name, n: m.length, near: near.items.map((x) => x.feature.properties.area_id),
+  km: Math.round(near.items[0].km), fallback: q.fallback, qn: q.items.length, short: matchPlaces(places, "de").length }}));
+"""
+    out = subprocess.run(["node", "--input-type=module", "-e", script], capture_output=True, text=True)
+    assert out.returncode == 0, out.stderr
+    r = json.loads(out.stdout)
+    assert r["first"] == "Devonport" and r["n"] == 2 and r["near"] == ["port_sorell"]
+    assert 15 <= r["km"] <= 20 and r["fallback"] and r["qn"] == 3 and r["short"] == 0
