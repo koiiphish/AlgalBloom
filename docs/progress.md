@@ -1,6 +1,6 @@
 # Progress and handoff
 
-**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D017), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
+**Read this first in every new session.** It says where the project stands and what happens next. Details live in `docs/decisions.md` (D001–D018), `docs/model_card.md` and `docs/data_sources.md`. Update this file at the end of every working session.
 
 _Last updated: 2026-11-24_
 
@@ -14,7 +14,7 @@ _Last updated: 2026-11-24_
 | 3: Model | ✅ Approved to ship | Calibrated chlorophyll persistence (D013); deployed as `persistence-1.1` after one recalibration (D014). The test was scored once at commit `d881905`; never re-tune on it. |
 | 4: Daily forecast pipeline | 🟢 Checkpoint met, awaiting sign-off | 5 consecutive green scheduled `daily_forecast` runs (20–24 Nov). Data age 2 days every day; no stale areas; archive commits landing; Pages rebuilding. Runs start 2–8 h after the 22:17 UTC schedule (GitHub queue). |
 | 5: Frontend | 🟡 Live, iterated with Timothy | https://koiiphish.github.io/AlgalBloom/ ("Algal Bloom Outlook"). "Clean marine" style, Inter, positron basemap; summary panel + More info; resizable panel; report-style wording; disclaimer in footer and panels (D015). Checkpoint: the live URL, reported together with Phases 1 and 4. |
-| 6: Portfolio polish | 🟡 Started early (Timothy) | Site reworded as a chlorophyll-a (biomass) outlook, not a toxin forecast. Verification page live: satellite outcomes, ShellMAP status changes, and Biotoxin News parsed with literal PALT matching only (D016). The rest waits for the checkpoints. |
+| 6: Portfolio polish | 🟢 Built, awaiting review | README (why, how it works, Mermaid diagram, honest results, limitations, setup, next steps), screenshots + GIF (`tools/`), official management-plan map links, model card tidy-up, no licence (D018). Plus the earlier biomass wording and Verification page (D016). |
 
 ## Next steps
 

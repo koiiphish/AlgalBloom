@@ -4,13 +4,13 @@
 
 > **Deployed vs. evaluated.** The test results in section 5 are for version 1.0, calibrated on 2023 only. The live forecast (1.1, `models/forecast_tas.json`) uses the same score, but its calibration and tier cut-offs were refit on 2023-01 to 2026-10 (D014, decision B), because 1.0 was under-confident in 2026. The deployed cut-offs are **Moderate p ≥ 0.193, High p ≥ 0.356**. No test-period result has been recomputed with 1.1, and none should be quoted for it.
 
-> **Experimental research tool.** This is **not** a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia). Always follow the official harvest-area status.
+> **Experimental research tool.** Indicates chlorophyll-a (algal biomass), not toxins or harmful species. Not a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia).
 
 ## 1. What it predicts
 
 For each Tasmanian shellfish harvest area and each issue day *t*, the probability that the area's **satellite chlorophyll-a will be unusually high over the next 7 days** (t+1…t+7). It is shown as a Low / Moderate / High tier.
 
-"Unusually high" means above that area's 90th percentile for that calendar month, measured against its own 2016–2022 normal (`docs/target_definition.md`). Partly cloudy days count less, in proportion to how much of the area was clear.
+"Unusually high" means above that area's 90th percentile for that calendar month, measured against its own 2016–2022 normal (`docs/target_definition.md`). Partly cloudy days count less, in proportion to how much of the area was clear. A week meeting this definition is called a **bloom week** below. It is a satellite-biomass event, **not** a toxin event.
 
 **Chlorophyll is a proxy.** A high-chlorophyll week is not necessarily harmful, and some toxic species (*Alexandrium*, *Dinophysis*) cause problems at low biomass without raising chlorophyll. Section 6 shows how weakly the proxy matched harmful-species counts at Maria Island.
 
@@ -87,7 +87,7 @@ IMOS NRS Maria Island (~monthly sampling) against the forecast for the 5 harvest
 
 **The forecast did not discriminate harmful-species events at this station.** Mean probability was 0.23 before event visits and 0.24 before others, and the result is the same for high-biomass taxa only (*Karenia*, *Pseudo-nitzschia*, *G. catenatum*; 11 visits). Most Tasmanian events there are *Alexandrium* and *G. catenatum*, which can be toxic at low biomass. One station 25–40 km from the farms, sampled monthly, is also a weak test.
 
-**Official closures:** the ShellMAP status archive only started on 2026-11-18 (Phase 1), so closures can't be checked historically yet.
+**Official closures and Biotoxin News:** the ShellMAP status archive started on 2026-11-18 (Phase 1), so closures can't be checked historically. Published outlooks are now compared daily with status changes and with Biotoxin News results on the [Verification](https://koiiphish.github.io/AlgalBloom/verification.html) page (D016).
 
 ## 7. Out-of-region case study: the 2025 South Australian *Karenia* bloom
 

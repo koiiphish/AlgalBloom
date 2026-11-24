@@ -435,3 +435,22 @@ One short entry per non-obvious decision: context, choice, and the alternatives 
 - **Geoscience Australia Composite Gazetteer:** its licence is not stated consistently (data.gov.au: "Not Specified"; service copyright text: "Geoscience Australia"), and `services.ga.gov.au` returned 403 to scripts.
 - **A live geocoding service (Nominatim):** a third-party request on every search, and its usage policy discourages search-as-you-type.
 - **Basemap labels from loaded tiles:** incomplete at low zoom.
+
+## D018 — Phase 6 portfolio polish (2026-11-24, Timothy)
+
+**Choices (Timothy's answers to the Phase 6 questions):**
+1. **No code licence.** The repo stays public, because GitHub Pages and free Actions minutes need a public repo on a free account, but no reuse licence is granted. The README states "all rights reserved"; data stay under their providers' licences.
+2. **No personal name** in the README.
+3. **The README opens with a short "Why this exists"**, drafted from the brief's purpose for Timothy to edit. It is followed by an honest results table (including the Maria Island non-result), limitations, a Mermaid architecture diagram, setup, layout, data sources and next steps.
+4. **Screenshots and a GIF** are captured from the live site by `tools/screenshots.mjs` (headless Edge over DevTools; reproducible). The GIF (`tools/make_gif.py`, Pillow) is 5 frames and 0.22 MB.
+5. **Official boundary maps:** each area panel links to its growing area's ShellMAP management-plan PDF (`labels/reference/tas_management_plans.json`, built by `pipeline/labels/management_plans.py`).
+   - All 26 PDF links checked on 2026-11-24: HTTP 200, application/pdf.
+   - 26 of 29 growing areas match by name.
+   - Missionary Bay, Simpsons Bay and Triabunna link to the ShellMAP page instead.
+
+**Model card:** the disclaimer is aligned with the site; "bloom week" is defined once as a satellite-biomass event, not a toxin event; Verification is referenced. Results are unchanged.
+
+**Alternatives rejected:**
+- MIT licence: Timothy prefers no reuse licence for now.
+- Making the repo private: Pages on a private repo needs a paid plan, which breaks the $0 rule.
+- Screenshots from local builds: the live site is more truthful.
