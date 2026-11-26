@@ -1,6 +1,6 @@
 # Model card: 7-day chlorophyll-a outlook (Tasmania)
 
-**Version:** 1.1 deployed (Phase 4, 2026-11-18); evaluated as 1.0 (Phase 3) · **Method:** calibrated chlorophyll persistence · **Decisions:** `docs/decisions.md` D011–D014 · **Code:** `pipeline/model/`, `pipeline/forecast/`
+**Version:** 1.1 deployed (Phase 4, 2026-11-18); evaluated as 1.0 (Phase 3) · **Method:** calibrated chlorophyll persistence · **Code:** `pipeline/model/`, `pipeline/forecast/`
 
 > **Deployed vs. evaluated.** The test results in section 5 are for version 1.0, calibrated on 2023 only. The live forecast (1.1, `models/forecast_tas.json`) uses the same score, but its calibration and tier cut-offs were refit on 2023-01 to 2026-10 (D014, decision B), because 1.0 was under-confident in 2026. The deployed cut-offs are **Moderate p ≥ 0.193, High p ≥ 0.356**. No test-period result has been recomputed with 1.1, and none should be quoted for it.
 
@@ -87,7 +87,7 @@ IMOS NRS Maria Island (~monthly sampling) against the forecast for the 5 harvest
 
 **The forecast did not discriminate harmful-species events at this station.** Mean probability was 0.23 before event visits and 0.24 before others, and the result is the same for high-biomass taxa only (*Karenia*, *Pseudo-nitzschia*, *G. catenatum*; 11 visits). Most Tasmanian events there are *Alexandrium* and *G. catenatum*, which can be toxic at low biomass. One station 25–40 km from the farms, sampled monthly, is also a weak test.
 
-**Official closures and Biotoxin News:** the ShellMAP status archive started on 2026-11-18 (Phase 1), so closures can't be checked historically. Published outlooks are now compared daily with status changes and with Biotoxin News results on the [Verification](https://koiiphish.github.io/AlgalBloom/verification.html) page (D016).
+**Official closures and Biotoxin News:** the ShellMAP status archive started on 2026-11-18 (Phase 1), so closures can't be checked historically. Published outlooks are now compared daily with status changes and with Biotoxin News results on the [Verification](https://timneoh.github.io/AlgalBloom/verification.html) page (D016).
 
 ## 7. Out-of-region case study: the 2025 South Australian *Karenia* bloom
 

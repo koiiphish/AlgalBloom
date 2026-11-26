@@ -1,6 +1,6 @@
 // Place search: type a town (e.g. "Devonport") to see the harvest areas near it.
 // The place list (web/data/places_tas.json, ~1,300 Tasmanian towns, suburbs and localities)
-// comes from OpenStreetMap (© OpenStreetMap contributors, ODbL; docs/decisions.md D017) and is
+// comes from OpenStreetMap (© OpenStreetMap contributors, ODbL; design note D017) and is
 // loaded only the first time someone searches. No outside service is called while searching.
 
 import { TIER_LETTERS, formatPercent } from "./format.js";

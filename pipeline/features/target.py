@@ -6,7 +6,7 @@ Steps, per area:
   2. baseline  = "normal" log_chl for that area and calendar month, either
                  - fixed:    median over the TRAINING years only (brief's definition), or
                  - trailing: median over the 3 previous calendar years (drift-resistant;
-                             option C, under evaluation; see docs/decisions.md D006 update)
+                             option C, under evaluation; see design note D006 update)
   3. anomaly   = log_chl - baseline
   4. fwd_mean  = clear-sky-weighted mean anomaly over days t+1..t+7 (needs >= MIN_VALID_DAYS
                  valid days). Partly cloudy days are noisy, so they count less (D013).

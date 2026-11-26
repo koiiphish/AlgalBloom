@@ -13,7 +13,7 @@ import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 
-const SITE = process.argv[2] || "https://koiiphish.github.io/AlgalBloom/";
+const SITE = process.argv[2] || "https://timneoh.github.io/AlgalBloom/";
 const OUT = "docs/img/readme";
 const EDGE = process.env.EDGE_PATH || "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));

@@ -57,4 +57,4 @@ The data was split by time, the way a fair exam is set:
 
 Yes. Every published outlook is saved. Once each week has passed, the website's **Verification** page compares it with what the satellite actually saw, with any official harvest-area changes, and with the weekly government algae and toxin test results.
 
-**Live site:** https://koiiphish.github.io/AlgalBloom/
+**Live site:** https://timneoh.github.io/AlgalBloom/

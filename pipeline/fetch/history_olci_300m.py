@@ -1,5 +1,5 @@
 """One-off download of Copernicus OLCI 300 m chlorophyll history for coastal boxes around
-the SA and Tasmanian growing areas ("option B" in docs/decisions.md D006/D007).
+the SA and Tasmanian growing areas ("option B" in design note D006/D007).
 
 Why now: the multi-year dataset version 202211 retires on 2026-11-24, and its replacement
 (202611) does not support regional subsetting yet. We grab only the coastal boxes we need

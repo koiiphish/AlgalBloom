@@ -1,7 +1,7 @@
 """Independent satellite chlorophyll at Maria Island (MAI), to test the post-2022 OLCI decline.
 
 OLCI (Copernicus) over Tasmania falls from 2022 while in-situ chl at Maria Island rises
-(docs/decisions.md D006 update). This pulls two independent sensors from IMOS for the
+(design note D006 update). This pulls two independent sensors from IMOS for the
 same small window used in that comparison:
   - MODIS-Aqua chl_oci, daily, 2019-2024 (one sensor spanning the 2022 boundary)
   - VIIRS-SNPP chl_oci, every 2nd day, 2022 onwards (recent years)

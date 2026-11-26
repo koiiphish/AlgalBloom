@@ -1,6 +1,6 @@
 # Daily forecast (Phase 4): fetch the newest satellite data, score every Tasmanian harvest area,
 # render the map layers, publish the static files to the gh-pages branch, and commit the
-# forecast archive to main. See pipeline/forecast/daily.py and docs/decisions.md D014.
+# forecast archive to main. See pipeline/forecast/daily.py and design note D014.
 #
 # "Fail loudly": if the forecast inputs are missing, yesterday's files are republished marked
 # stale (status.json), and the job fails so GitHub emails the repo owner. A missing map layer

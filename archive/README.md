@@ -1,6 +1,6 @@
 # archive/
 
-This folder is the daily forecast's own record, and it is **committed on purpose**. The near-real-time satellite product only keeps about 18 days, so anything needed later (checking forecasts, recalibrating, retraining) has to be saved as we go (`docs/decisions.md` D014, decision E).
+This folder is the daily forecast's own record, and it is **committed on purpose**. The near-real-time satellite product only keeps about 18 days, so anything needed later (checking forecasts, recalibrating, retraining) has to be saved as we go (design note D014, decision E).
 
 Only the `daily_forecast` GitHub workflow writes to it (`pipeline/forecast/daily.py --archive`).
 

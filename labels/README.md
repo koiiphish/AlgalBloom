@@ -1,6 +1,6 @@
 # labels/
 
-Ground-truth label data for the HAB risk forecaster. **This folder is committed on purpose.** Official status pages only show the *current* state, so history is lost unless we record it (see `docs/decisions.md` D001).
+Ground-truth label data for the HAB risk forecaster. **This folder is committed on purpose.** Official status pages only show the *current* state, so history is lost unless we record it (see design note D001).
 
 ## Files
 
@@ -33,7 +33,7 @@ Ground-truth label data for the HAB risk forecaster. **This folder is committed 
 
 ## `events.csv`
 
-One row per (sample, taxon) where a harmful taxon is at or above the **lab-alert action level** of the ShellMAP Biotoxin Management Plan v6.1, Appendix 3 (PALT). Genus-level mapping and the *Karenia* level choice are explained in `pipeline/labels/action_levels.py` and `docs/decisions.md` D009. Stations: Maria Island (Tas); Kangaroo Island (and its 5/50/60 m depth samples), Gulf St Vincent mooring and Upper Spencer Gulf mooring (SA). These are fixed stations, **not** harvest areas.
+One row per (sample, taxon) where a harmful taxon is at or above the **lab-alert action level** of the ShellMAP Biotoxin Management Plan v6.1, Appendix 3 (PALT). Genus-level mapping and the *Karenia* level choice are explained in `pipeline/labels/action_levels.py` and design note D009. Stations: Maria Island (Tas); Kangaroo Island (and its 5/50/60 m depth samples), Gulf St Vincent mooring and Upper Spencer Gulf mooring (SA). These are fixed stations, **not** harvest areas.
 
 ## Sources, licences and attribution
 

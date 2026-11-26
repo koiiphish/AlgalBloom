@@ -4,7 +4,7 @@
 import * as maplibregl from "../vendor/maplibre-gl-6.19.0/maplibre-gl.mjs";
 import { TIER_COLOURS, TIER_LETTERS } from "./format.js";
 
-// Free, keyless basemap (docs/decisions.md D004): OpenFreeMap's muted "positron" style, so the
+// Free, keyless basemap (design note D004): OpenFreeMap's muted "positron" style, so the
 // coloured markers and satellite layers stand out. MapLibre shows its attribution.
 const BASEMAP_URL = "https://tiles.openfreemap.org/styles/positron";
 

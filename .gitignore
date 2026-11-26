@@ -49,3 +49,9 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# --- Private working notes (kept on this laptop only; not published; Timothy, 2026-11-26) ---
+CLAUDE.md
+PROJECT_BRIEF.md
+docs/decisions.md
+docs/progress.md

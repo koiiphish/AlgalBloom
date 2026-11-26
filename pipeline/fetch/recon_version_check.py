@@ -2,7 +2,7 @@
 
 Why: version 202211 (our downloaded history) switches from fully reprocessed ("my") to
 interim ("myint") processing on 2022-01-01, and over Tasmania it drifts away from in-situ
-chlorophyll after that date (docs/decisions.md D006 update). If the new full reprocessing
+chlorophyll after that date (design note D006 update). If the new full reprocessing
 (202611) agrees with 202211 before 2022 but not after, the interim processing is the cause.
 
 Version 202611 has no subsetting service yet, so this downloads WHOLE global daily files

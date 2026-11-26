@@ -2,7 +2,7 @@
 
 **A free 7-day satellite chlorophyll-a outlook for Tasmanian shellfish harvest areas, updated daily.**
 
-**Live site:** https://koiiphish.github.io/AlgalBloom/ · [![ci](https://github.com/koiiphish/AlgalBloom/actions/workflows/ci.yml/badge.svg)](https://github.com/koiiphish/AlgalBloom/actions/workflows/ci.yml) [![daily_forecast](https://github.com/koiiphish/AlgalBloom/actions/workflows/daily_forecast.yml/badge.svg)](https://github.com/koiiphish/AlgalBloom/actions/workflows/daily_forecast.yml)
+**Live site:** https://timneoh.github.io/AlgalBloom/ · [![ci](https://github.com/timneoh/AlgalBloom/actions/workflows/ci.yml/badge.svg)](https://github.com/timneoh/AlgalBloom/actions/workflows/ci.yml) [![daily_forecast](https://github.com/timneoh/AlgalBloom/actions/workflows/daily_forecast.yml/badge.svg)](https://github.com/timneoh/AlgalBloom/actions/workflows/daily_forecast.yml)
 
 > **Experimental research tool.** Indicates chlorophyll-a (algal biomass), not toxins or harmful species. Not a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia).
 
@@ -20,7 +20,7 @@ Algal blooms close shellfish harvest areas and can kill farmed stock. The 2025 *
 - **Evidence for each area:** chlorophyll relative to its monthly median, the trend, cloud-free days, the official ShellMAP status, and a 90-day record.
 - **Map layers:** 7-day chlorophyll-a and sea surface temperature (SST) anomaly, for Tasmania and South Australia.
 - **Town search:** for example, "Devonport" lists the harvest areas within 25 km.
-- **[Verification](https://koiiphish.github.io/AlgalBloom/verification.html):** each published outlook is compared with what the satellite later observed, with official status changes, and with the weekly Biotoxin News results.
+- **[Verification](https://timneoh.github.io/AlgalBloom/verification.html):** each published outlook is compared with what the satellite later observed, with official status changes, and with the weekly Biotoxin News results.
 
 It is **not** a toxin forecast. Some toxic species, such as *Alexandrium* and *Dinophysis*, cause problems at low biomass without raising chlorophyll.
 
@@ -65,7 +65,7 @@ The model was **trained on 2016–2022, tuned and calibrated on 2023, and scored
 - **Harmful species, Maria Island:** Moderate or High was flagged before **64%** of visits with a harmful-species alert, **and before 64% of visits without one**. So there is no discrimination: chlorophyll is a biomass proxy.
 - **South Australia, out of region:** applied unchanged to Gulf St Vincent, the outlook went **High 11 days before the 113,000 cells/L *Karenia* sample** of 3 July 2025. That is one bloom at one station.
 
-Full detail: [model card](docs/model_card.md), [decision log](docs/decisions.md).
+Full detail: [model card](docs/model_card.md).
 
 ## Limitations
 
@@ -104,7 +104,7 @@ uv run python -m http.server -d _site 8000
 
 - The daily job needs each area's satellite pixels. Build them once from the theLIST polygons with `uv run python -m pipeline.forecast.area_pixels --export`.
 - **GitHub Actions secrets:** `COPERNICUSMARINE_SERVICE_USERNAME`, `COPERNICUSMARINE_SERVICE_PASSWORD`, and `TAS_AREA_PIXELS` (the exported pixel list).
-- Rebuilding the training history and model is documented phase by phase in [`docs/decisions.md`](docs/decisions.md) (D006–D016).
+- Rebuilding the training history and model: each step's command and inputs are in the module docstrings of `pipeline/fetch`, `pipeline/features` and `pipeline/model`.
 
 ## Repository layout
 
@@ -115,7 +115,7 @@ uv run python -m http.server -d _site 8000
 | `labels/` | Committed archive of official status snapshots, Biotoxin News issues, harmful-species events |
 | `archive/` | Committed daily chlorophyll stats and every published outlook |
 | `models/` | Deployed calibration, baselines, thresholds, SST climatology, evaluation results |
-| `docs/` | Decision log, data sources and licences, model card, About page, progress |
+| `docs/` | Data sources and licences, model card, About page, non-technical summary |
 | `tools/` | Screenshot and GIF scripts for this README |
 | `.github/workflows/` | `ci`, `archive_status`, `daily_forecast`, `publish_web` |
 
