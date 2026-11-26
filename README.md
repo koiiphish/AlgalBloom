@@ -94,7 +94,9 @@ Requirements: [uv](https://docs.astral.sh/uv/), a free [Copernicus Marine](https
 
 ```bash
 uv sync                                   # Python 3.12 environment, exact pinned versions
-cp .env.example .env                      # then add your Copernicus Marine login (never commit it)
+# Create a file named .env (git-ignored, never commit it) with your Copernicus Marine login:
+#   COPERNICUSMARINE_SERVICE_USERNAME=...
+#   COPERNICUSMARINE_SERVICE_PASSWORD=...
 uv run pytest -q && uv run ruff check .   # tests and lint
 
 # One forecast, written to _site/ (no archive update), then preview it
