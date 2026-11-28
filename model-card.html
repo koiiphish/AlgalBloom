@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Model card: Algal Bloom Outlook (experimental)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="site-header">
+    <div class="brand">
+      <h1>Algal Bloom Outlook</h1>
+      <p class="tagline">Satellite chlorophyll-a · Tasmania &amp; South Australia · Experimental</p>
+    </div>
+    <nav aria-label="Site">
+      <a href="./">Map</a>
+      <a href="about.html">About</a>
+      <a href="verification.html">Verification</a>
+      <a href="model-card.html" aria-current="page">Model card</a>
+    </nav>
+  </header>
+  <main id="content" class="doc">
+<h1>Model card: 7-day chlorophyll-a outlook (Tasmania)</h1>
+<p><strong>Version:</strong> 1.1 deployed (Phase 4, 2026-11-18); evaluated as 1.0 (Phase 3) · <strong>Method:</strong> calibrated chlorophyll persistence · <strong>Code:</strong> <code>pipeline/model/</code>, <code>pipeline/forecast/</code></p>
+<blockquote>
+<p><strong>Deployed vs. evaluated.</strong> The test results in section 5 are for version 1.0, calibrated on 2023 only. The live forecast (1.1, <code>models/forecast_tas.json</code>) uses the same score, but its calibration and tier cut-offs were refit on 2023-01 to 2026-10 (D014, decision B), because 1.0 was under-confident in 2026. The deployed cut-offs are <strong>Moderate p ≥ 0.193, High p ≥ 0.356</strong>. No test-period result has been recomputed with 1.1, and none should be quoted for it.</p>
+<p><strong>Experimental research tool.</strong> Indicates chlorophyll-a (algal biomass), not toxins or harmful species. Not a substitute for official harvest decisions by ShellMAP (Tasmania) or SASQAP (South Australia).</p>
+</blockquote>
+<h2>1. What it predicts</h2>
+<p>For each Tasmanian shellfish harvest area and each issue day <em>t</em>, the probability that the area's <strong>satellite chlorophyll-a will be unusually high over the next 7 days</strong> (t+1…t+7). It is shown as a Low / Moderate / High tier.</p>
+<p>"Unusually high" means above that area's 90th percentile for that calendar month, measured against its own 2016–2022 normal (<code>docs/target_definition.md</code>). Partly cloudy days count less, in proportion to how much of the area was clear. A week meeting this definition is called a <strong>bloom week</strong> below. It is a satellite-biomass event, <strong>not</strong> a toxin event.</p>
+<p><strong>Chlorophyll is a proxy.</strong> A high-chlorophyll week is not necessarily harmful, and some toxic species (<em>Alexandrium</em>, <em>Dinophysis</em>) cause problems at low biomass without raising chlorophyll. Section 6 shows how weakly the proxy matched harmful-species counts at Maria Island.</p>
+<h2>2. Intended use and users</h2>
+<ul>
+<li><strong>For:</strong> aquaculture operators and interested public, as <strong>situational awareness</strong> ("conditions near my lease have been unusually green and are likely to stay so this week").</li>
+<li><strong>Not for:</strong> harvest, closure or food-safety decisions; toxin prediction; areas outside the 57 Tasmanian harvest areas (South Australia is a transfer test only, section 7).</li>
+</ul>
+<h2>3. How it works</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>Copernicus OLCI 300 m daily chlorophyll (L3, cloud-masked), pixels inside each harvest area + 2 km buffer</td>
+</tr>
+<tr>
+<td>Score</td>
+<td>Clear-sky-weighted mean chlorophyll anomaly over <strong>t−15 … t−2</strong> (<code>chl_anom_wmean14</code>). The newest satellite data is ~2 days old at issue time.</td>
+</tr>
+<tr>
+<td>Probability</td>
+<td>Platt (logistic) calibration of the score, fitted on 2023 (validation)</td>
+</tr>
+<tr>
+<td>No recent data</td>
+<td>If there was no clear view for 14 days, use the area's 2016–2022 rate for that month, flagged <code>stale_chl</code> (0.7% of validation days)</td>
+</tr>
+<tr>
+<td>Tiers</td>
+<td><strong>Moderate</strong> if p ≥ 0.170, <strong>High</strong> if p ≥ 0.233. Chosen on 2023 so that at most 20% / 5% of normal weeks are flagged. Deployed 1.1: 0.193 / 0.356, same rule on 2023-01 to 2026-10.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Why persistence and not a machine-learning model?</strong> We built a tuned gradient-boosting model (LightGBM, 43 features: chlorophyll history, SST and marine heatwaves, mixed-layer depth and currents, ERA5 weather including the forecast week, season, area traits). In year-by-year tests on 2018–2023 it was <strong>significantly worse than persistence in 2 years, tied in 3 and better only in 2023</strong>. Even that win leaned on <em>observed</em> future weather, which a real forecast can't have (D013). The weather, ocean and season drivers added no consistent skill beyond recent chlorophyll, so we ship the simplest method that works. LightGBM is kept below as a documented comparison.</p>
+<h2>4. Data and splits</h2>
+<ul>
+<li><strong>Training</strong> 2016-04 → 2022 (baselines, thresholds, climatology). <strong>Validation</strong> 2023 (calibration, tiers, method choice). <strong>Test</strong> 2024-01 → 2026-11, scored <strong>once</strong> after everything was frozen (commit <code>d881905</code>).</li>
+<li>The last 7 days before each split boundary are removed from the earlier split, so a label never uses data from the next period.</li>
+<li>OLCI history: Copernicus version 202211, fully reprocessed to 2021 and "interim" from 2022 (D006).</li>
+</ul>
+<h2>5. Test results (Tasmania, 2024–2026)</h2>
+<p>All methods are calibrated the same way on 2023. Comparison rows are those where every method has a value (43,872 area-days, 2024-01-01 → 2026-09-29, because the BGC model record ends there). Bloom-week rate 18.1%. 95% intervals come from resampling whole weeks.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>PR-AUC</th>
+<th>Brier (lower = better)</th>
+<th>Recall at 10% false alarms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Persistence (shipped)</strong></td>
+<td><strong>0.555</strong> [0.464, 0.632]</td>
+<td><strong>0.126</strong> [0.111, 0.139]</td>
+<td><strong>0.53</strong> [0.45, 0.60]</td>
+</tr>
+<tr>
+<td>Seasonal climatology (baseline 2)</td>
+<td>0.171 [0.147, 0.196]</td>
+<td>0.155</td>
+<td>0.09</td>
+</tr>
+<tr>
+<td>Copernicus BGC model, perfect-forecast (baseline 3)</td>
+<td>0.152 [0.131, 0.176]</td>
+<td>0.150</td>
+<td>0.07</td>
+</tr>
+<tr>
+<td>LightGBM (comparison; uses observed future weather)</td>
+<td>0.370 [0.293, 0.437]</td>
+<td>0.136</td>
+<td>0.34</td>
+</tr>
+</tbody>
+</table>
+<p>Random guessing scores a PR-AUC equal to the bloom-week rate (0.18). Persistence beats every baseline in the pooled test and in each test year.</p>
+<p><strong>By year: read this before the pooled numbers.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Bloom-week rate</th>
+<th>Persistence</th>
+<th>Climatology</th>
+<th>BGC</th>
+<th>LightGBM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2024</td>
+<td>0.117</td>
+<td>0.172 [0.146, 0.207]</td>
+<td>0.115</td>
+<td>0.124</td>
+<td>0.162</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>0.087</td>
+<td>0.163 [0.112, 0.217]</td>
+<td>0.099</td>
+<td>0.086</td>
+<td>0.136</td>
+</tr>
+<tr>
+<td>2026 (to Sep)</td>
+<td>0.388</td>
+<td>0.792 [0.745, 0.830]</td>
+<td>0.358</td>
+<td>0.354</td>
+<td>0.671</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2026 contains a long, widespread high-chlorophyll period</strong>: 39% of weeks positive (58% on the east coast), with positive spells lasting a median of 6 days. Persistence handles that naturally, and it dominates the pooled numbers. <strong>In ordinary years (2024, 2025) skill is modest:</strong> about 1.5–1.9× better than chance at ranking bloom weeks, in line with 2018–2023.</p>
+<p><strong>By sub-region (PR-AUC, persistence vs best other method):</strong> east coast 0.75 vs 0.51 (LightGBM); south-east bays 0.52 vs 0.33; D'Entrecasteaux / far south 0.38 vs 0.31; <strong>north and north-west 0.11 vs 0.15 (LightGBM better; persistence barely above the 0.08 rate)</strong>. The north is the weakest region.</p>
+<p><strong>Tiers on test:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Share of weeks</th>
+<th>Weeks that were bloom weeks</th>
+<th>Share of all bloom weeks caught</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High</td>
+<td>12%</td>
+<td>73%</td>
+<td>46%</td>
+</tr>
+<tr>
+<td>Moderate</td>
+<td>10%</td>
+<td>26%</td>
+<td>14%</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>78%</td>
+<td>10%</td>
+<td>41%</td>
+</tr>
+</tbody>
+</table>
+<p>On validation (2023) a High week was a bloom week only 30% of the time. The test figure is higher because of 2026.</p>
+<p><strong>Calibration:</strong> reliability is good up to p ≈ 0.2. Above that the forecast is <strong>under-confident</strong> in the test period: forecasts near 0.34 came true ~74% of the time (<code>docs/img/phase3_reliability_tas.png</code>). The 2023 calibration did not anticipate a year like 2026. <strong>Phase 4 should recalibrate on a rolling recent window.</strong></p>
+<p><strong>Sensitivity:</strong> the drift-resistant trailing-baseline label gives the same picture (persistence 0.526, LightGBM 0.362, climatology 0.187, BGC 0.166).</p>
+<h2>6. Real-world check: harmful-species counts at Maria Island</h2>
+<p>IMOS NRS Maria Island (~monthly sampling) against the forecast for the 5 harvest areas within 40 km (Triabunna, Little Swanport, Boomer Bay), issued in the week before each visit, 2016-05 → 2026 (<code>models/secondary_tas.json</code>):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Visits</th>
+<th>Flagged Moderate or High</th>
+<th>Flagged High</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Visits with a taxon above its ShellMAP lab-alert level</td>
+<td>22</td>
+<td>64%</td>
+<td>36%</td>
+</tr>
+<tr>
+<td>Visits without</td>
+<td>85</td>
+<td>64%</td>
+<td>34%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The forecast did not discriminate harmful-species events at this station.</strong> Mean probability was 0.23 before event visits and 0.24 before others, and the result is the same for high-biomass taxa only (<em>Karenia</em>, <em>Pseudo-nitzschia</em>, <em>G. catenatum</em>; 11 visits). Most Tasmanian events there are <em>Alexandrium</em> and <em>G. catenatum</em>, which can be toxic at low biomass. One station 25–40 km from the farms, sampled monthly, is also a weak test.</p>
+<p><strong>Official closures and Biotoxin News:</strong> the ShellMAP status archive started on 2026-11-18 (Phase 1), so closures can't be checked historically. Published outlooks are now compared daily with status changes and with Biotoxin News results on the <a href="https://timneoh.github.io/AlgalBloom/verification.html">Verification</a> page (D016).</p>
+<h2>7. Out-of-region case study: the 2025 South Australian <em>Karenia</em> bloom</h2>
+<p>We applied the Tasmanian-calibrated forecast, <strong>without refitting anything</strong>, to 5 km circles around the three SA NRS stations, using each circle's own 2016–2022 chlorophyll baseline (<code>models/sa_transfer.json</code>, <code>docs/img/phase3_karenia_sa.png</code>).</p>
+<ul>
+<li><strong>Gulf St Vincent:</strong> the forecast reached <strong>High on 22 June 2025 and stayed High or near the top through to November</strong>. It was High in the week before both samples above the lab-alert level: <strong>113,000 cells/L on 3 July</strong> (first High 11 days earlier) and 43,800 cells/L on 17 October. Earlier samples below the alert level (May 2025, 50 cells/L) were not flagged.</li>
+<li><strong>Upper Spencer Gulf:</strong> the one exceedance (650 cells/L, 2 December 2025) was preceded by a Moderate week, and the forecast peaked at High in late December.</li>
+<li><strong>Kangaroo Island:</strong> no <em>Karenia</em> exceedances, but High periods in early 2024 and January 2026, which were either non-<em>Karenia</em> blooms or false alarms.</li>
+<li>Satellite-label skill transferred: PR-AUC 0.63–0.80 against bloom-week rates of 0.13–0.23.</li>
+</ul>
+<p><strong>Caveats:</strong> 6–9 samples per station since 2024, and the circles are not harvest areas. The early-warning claim rests on one bloom at one station. The forecast followed the bloom's onset within weeks; it did not predict it before any chlorophyll rise.</p>
+<h2>8. Known failure modes and limitations</h2>
+<ol>
+<li><strong>Chlorophyll is a proxy, and a weak one for low-biomass toxic species</strong> (section 6).</li>
+<li><strong>Persistence can't anticipate a bloom's first appearance.</strong> It reacts once satellite chlorophyll has risen, so lead time comes from blooms lasting longer than the ~2-day data latency.</li>
+<li><strong>Coastal satellite chlorophyll is optically contaminated.</strong> Absolute OLCI values in the harvest areas (median 7.5 mg m⁻³) are several times typical in-situ values, from tannins, sediment and land adjacency. Anomalies remove the fixed bias, but runoff after heavy rain can still read as a "bloom".</li>
+<li><strong>Cloud.</strong> About a third of area-days have usable data. Long cloudy spells fall back to seasonal climatology (<code>stale_chl</code>).</li>
+<li><strong>Satellite drift.</strong> Over Tasmania, OLCI, MODIS and VIIRS all show flat-to-falling surface chlorophyll since 2022 while the Maria Island ship fluorometer rises 2.5–5× (D006). Unexplained.</li>
+<li><strong>Version change:</strong> the operational data (Copernicus 202611 family) reads ~10% lower than the history used here from 2022. Recalibration is needed when the history is replaced.</li>
+<li><strong>Calibration drift:</strong> under-confident in 2026 (section 5).</li>
+<li><strong>Weakest in the north / north-west.</strong></li>
+</ol>
+<h2>9. Ethical and safety notes</h2>
+<p>The forecast must never be presented as a food-safety signal. Every map view and popup carries the disclaimer and a link to the official status pages. Probabilities are shown alongside the data's age and the <code>stale_chl</code> flag so users can judge freshness.</p>
+<h2>10. Data sources and licences</h2>
+<p>Copernicus Marine Service (OLCI chlorophyll, BGC model, OSTIA, GLORYS12); IMOS (NRS phytoplankton, CC BY 4.0); ERA5 via Open-Meteo (CC BY 4.0); NRE Tasmania ShellMAP (non-commercial licence with acknowledgement); theLIST harvest-area boundaries (licence pending; not published). Full details in <code>docs/data_sources.md</code>.</p>
+<h2>Figures</h2>
+<p><code>docs/img/phase3_karenia_sa.png</code></p>
+<p><img alt="phase3 karenia sa" src="img/phase3_karenia_sa.png" /></p>
+<p><code>docs/img/phase3_reliability_tas.png</code></p>
+<p><img alt="phase3 reliability tas" src="img/phase3_reliability_tas.png" /></p>
+  </main>
+  <footer class="site-footer">
+    <p class="disclaimer"><strong>Experimental research tool.</strong> Indicates chlorophyll-a
+    (algal biomass), not toxins or harmful species. Not a substitute for official harvest
+    decisions by ShellMAP (Tasmania) or SASQAP (South Australia).</p>
+    <p>Generated using E.U. Copernicus Marine Service Information. Sources and licences:
+    <a href="about.html">About</a>.</p>
+  </footer>
+</body>
+</html>
